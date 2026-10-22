@@ -1,0 +1,84 @@
+{
+  "_note": "AI-written summaries (Claude), based only on each paper's abstract. Keys are DOIs.",
+  "10.1001/jamanetworkopen.2026.37533": {
+    "id": "af-nursing-home-oac",
+    "section": "cardio",
+    "lead": true,
+    "kicker": "Atrial fibrillation",
+    "study": "Cohort · Medicare + MDS",
+    "big": "26 940",
+    "big_label": "nursing home residents",
+    "summary": "In 26,940 US nursing home residents with atrial fibrillation who depend on others for 3 or more activities of daily living, every oral anticoagulant studied was associated with fewer ischemic strokes but more major bleeding than no anticoagulant. Only apixaban showed no increase in the combined stroke-or-bleeding outcome. The study is observational (propensity-matched claims data), not a randomized trial.",
+    "takeaway": "In frail nursing home residents with AF, anticoagulation trades fewer strokes for more bleeding; apixaban had the most favourable balance."
+  },
+  "10.1001/jamanetworkopen.2026.37698": {
+    "id": "cgm-t2d-kidney",
+    "section": "endo",
+    "kicker": "Type 2 diabetes",
+    "study": "Target trial emulation",
+    "big": "−0.8",
+    "big_label": "points of HbA1c at 36 months",
+    "summary": "Among 25,648 high-risk adults with type 2 diabetes (mean HbA1c 9.5%), starting and sustaining real-time continuous glucose monitoring was associated with an HbA1c about 0.8 percentage points lower than controls after 36 months, and a lower urine albumin-creatinine ratio by the end of follow-up. eGFR did not differ. 44% of CGM starters stopped using it during follow-up, and the design is observational.",
+    "takeaway": "Sustained real-time CGM in poorly controlled T2D was associated with durable HbA1c improvement and later albuminuria regression, but not eGFR."
+  },
+  "10.1001/jamanetworkopen.2026.37061": {
+    "id": "early-mv-surgery-mr",
+    "section": "cardio",
+    "kicker": "Valvular heart disease",
+    "study": "Target trial emulation",
+    "big": "HR 0.69",
+    "big_label": "all-cause mortality",
+    "summary": "In a registry of 802 patients from 3 South Korean hospitals with asymptomatic severe primary mitral regurgitation, surgery within 6 months of diagnosis was associated with lower all-cause mortality than watchful waiting (HR 0.69) over a median of 7.4 years, a 66-day survival gain at 5 years. Results were similar without left ventricular decompensation. There is no randomized trial on this question; this is an emulated one.",
+    "takeaway": "Early surgery for asymptomatic severe primary MR was associated with better long-term survival than watchful waiting (observational evidence)."
+  },
+  "10.1001/jamanetworkopen.2026.39328": {
+    "id": "aatd-testing-gaps",
+    "section": "resp",
+    "kicker": "COPD and asthma",
+    "study": "Cohort · VA health records",
+    "big": "5.8%",
+    "big_label": "of patients ever tested",
+    "summary": "Among 2.4 million US veterans with COPD or asthma (2020–2024), only 5.8% were tested for alpha-1 antitrypsin deficiency, and only 3.7% of those diagnosed were prescribed augmentation therapy. Testing was less likely with older age, active smoking and longer drive times to specialty care, and more likely with cirrhosis or bronchiectasis.",
+    "takeaway": "AATD testing and augmentation therapy in COPD/asthma were very low, especially with older age, active smoking and long drive times to specialty care."
+  },
+  "10.1001/jamanetworkopen.2026.37964": {
+    "id": "preemptive-kidney-tx",
+    "section": "nephro",
+    "kicker": "Kidney transplantation",
+    "study": "Target trial emulation · SRTR",
+    "big": "HR 1.02",
+    "big_label": "mortality, preemptive vs not",
+    "summary": "In 32,770 first kidney transplant recipients in the US national registry, transplantation before dialysis was not associated with better patient survival (HR 1.02) once selection and lead-time biases were addressed. It was associated with less delayed graft function and less death-censored graft failure.",
+    "takeaway": "Preemptive kidney transplant did not improve survival in this emulated trial, but was linked to less delayed graft function."
+  },
+  "10.1001/jamanetworkopen.2026.38687": {
+    "id": "pci-facility-access-ami",
+    "section": "cardio",
+    "kicker": "Acute myocardial infarction",
+    "study": "Cohort · California 2011–2022",
+    "big": "−20%",
+    "big_label": "30-day mortality where PCI was new",
+    "summary": "Across 590,282 AMI hospitalizations in California, a new PCI-capable facility within 30 minutes improved outcomes mainly in communities that had none before: more PCI and lower 30-day and 1-year mortality. Openings in areas already served brought small gains and no change in mortality.",
+    "takeaway": "New PCI centres reduced AMI mortality only in previously unserved areas; expansion should target underserved regions."
+  },
+  "10.1001/jamanetworkopen.2026.37313": {
+    "id": "hcc-sex-mortality",
+    "section": "hepato",
+    "kicker": "Hepatocellular carcinoma",
+    "study": "Multicentre cohort · 17 centres",
+    "big": "aHR 1.14",
+    "big_label": "male vs female mortality",
+    "summary": "In 8,594 patients with hepatocellular carcinoma from 17 centres in 5 countries and regions, men had higher overall mortality than women after weighting (adjusted HR 1.14). The gap was largest in alcohol-associated liver disease and absent in MASLD; non-liver-related mortality did not differ by sex.",
+    "takeaway": "Male sex was associated with higher HCC mortality, varying by etiology (largest in alcohol-related disease, none in MASLD)."
+  },
+  "10.1001/jamanetworkopen.2026.37540": {
+    "id": "cauti-prevention-trends",
+    "section": "id",
+    "kicker": "Hospital infections",
+    "study": "Survey · 2005–2025",
+    "big": "48.7%",
+    "big_label": "of hospitals use catheter stop orders",
+    "summary": "Six national surveys from 2005 to 2025 show US hospitals greatly expanded CAUTI surveillance and catheter-duration monitoring. High-yield practices stayed uneven: in 2025, 48.7% of nonfederal hospitals regularly used catheter reminders or stop orders, versus 31.5% of VA hospitals, and external catheter use rose sharply.",
+    "takeaway": "Catheter reminders/stop orders and nurse-driven removal are high-yield CAUTI measures that many hospitals still don't use routinely."
+  }
+}

@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Le Quotidien Médical (demo)</title>
+<meta name="theme-color" content="#e12929"><meta name="robots" content="noindex,nofollow">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="Quotidien Méd">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800;900&family=Rubik:wght@400;500;700&family=Roboto+Serif:ital,opsz,wght@0,8..144,400;0,8..144,700;1,8..144,400&display=swap" rel="stylesheet">
+<style>
+:root{--red:#e12929;--ink:#111;--ink2:#232325;--grey:#555;--rule:#e3e3e3;--bg:#f1f1f1;--blue:#1eaefd;
+--head:"Figtree",Arial,sans-serif;--ui:"Rubik",Arial,sans-serif;--serif:"Roboto Serif",Georgia,serif;--ease:cubic-bezier(.32,.72,0,1);
+--w:min(100vw,480px);--side:max(0px,calc((100vw - 480px)/2))}
+*{box-sizing:border-box}html,body{margin:0;overflow-x:hidden}
+body{background:#2b2b2e;color:var(--ink);font-family:var(--head);-webkit-font-smoothing:antialiased;transition:background-color .5s}
+a{color:inherit;text-decoration:none}a,button{-webkit-tap-highlight-color:transparent;font-family:inherit}[hidden]{display:none!important}
+#stage{max-width:480px;margin:0 auto;background:var(--bg);min-height:100vh;padding-bottom:calc(96px + env(safe-area-inset-bottom));transition:transform .5s var(--ease),border-radius .5s var(--ease);will-change:transform}
+body.sheet{overflow:hidden;background:#000}
+body.sheet #stage{transform:translate3d(0,calc((env(safe-area-inset-top) + 10px) * var(--k,1)),0) scale(calc(1 - .07 * var(--k,1)));border-radius:14px}
+/* app bar */
+.appbar{position:sticky;top:0;z-index:30;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:calc(env(safe-area-inset-top) + 9px) 14px 9px}
+.appbar__logo{font:900 18px/1 var(--head);text-transform:uppercase;letter-spacing:.01em;display:flex;align-items:center;gap:6px}
+.appbar__logo small{font:700 9px var(--ui);letter-spacing:.1em;background:#fff;color:var(--red);padding:3px 5px;border-radius:3px}
+.appbar__heart{width:30px;height:30px;border-radius:50%;background:#fff200;color:#000;display:grid;place-items:center;font-size:15px;box-shadow:inset 0 0 0 2px #000}
+.appbar__me{display:grid;place-items:center;width:30px;height:30px}
+main{padding:0 12px}
+.cpdpill{display:flex;align-items:center;gap:8px;margin:12px 0 0;background:#fff;border-radius:12px;padding:10px 12px;font:400 13.5px var(--ui);color:#333;box-shadow:0 1px 3px rgba(0,0,0,.1)}
+.cpdpill svg{color:var(--red);flex:none}.cpdpill b{font:800 15px var(--head);color:#000}.cpdpill em{margin-left:auto;font-style:normal;color:#999;font-size:20px;line-height:1}
+.mhead{text-align:center;font:900 22px/1.15 var(--head);text-transform:uppercase;margin:24px 0 14px;scroll-margin-top:70px}
+.mhead span{display:block;font:400 13.5px var(--ui);text-transform:none;color:var(--grey);margin-top:5px}
+/* cards */
+.mcard{display:block;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.12),0 6px 16px rgba(0,0,0,.05);margin-bottom:14px;transition:transform .35s var(--ease)}
+.mcard:active{transform:scale(.97)}
+.mcard__img{display:block;position:relative}
+.mbadge{position:absolute;left:10px;bottom:10px;z-index:2}
+.badge{display:inline-block;border-radius:5px;padding:5px 6px;font:600 11.5px var(--head);line-height:1;color:#fff;text-transform:uppercase;letter-spacing:.02em}
+.mcard__body{padding:12px 14px}
+.mcard__body>.badge{margin-bottom:8px}
+.mcard__sup{font:500 13px var(--head);color:var(--ink2);margin:0 0 4px}
+.mcard__title{font:800 20px/1.25 var(--head);margin:0 0 8px}
+.mcard__lead{font:400 14px/1.45 var(--head);color:#333;margin:0 0 10px;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.ai-inline{font:700 10.5px var(--ui);text-transform:uppercase;letter-spacing:.06em;color:#6d28d9;background:#f1ebff;padding:2px 5px;border-radius:3px;margin-right:4px}
+.mcard__foot{display:flex;align-items:center;gap:6px;font:400 12.5px var(--ui);color:var(--grey)}
+.mdot{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--blue);flex:none}
+.logged:not(:empty){color:#0a7d43;font-weight:500}
+.acts{margin-left:auto;display:flex;gap:14px}.acts button{background:none;border:0;padding:2px;margin:0;color:inherit;cursor:pointer}
+.bm.on svg{fill:currentColor}
+.mcard--row{display:grid;grid-template-columns:minmax(0,1fr) 96px;gap:12px;padding:12px}
+.mcard--row .mcard__body{padding:0}.mcard--row .mcard__title{font-size:16.5px;line-height:1.3}
+/* key-number panels instead of photos */
+.vis{position:relative;aspect-ratio:16/9;background:linear-gradient(135deg,#1f1f22 0%,#333338 50%,var(--c) 170%);color:#fff;display:flex;flex-direction:column;justify-content:flex-end;padding:16px 16px 44px;overflow:hidden}
+.vis__study{position:absolute;top:12px;left:16px;font:600 11px var(--ui);text-transform:uppercase;letter-spacing:.1em;opacity:.8;border-left:3px solid var(--red);padding-left:7px}
+.vis__big{font:900 46px/1 var(--head);letter-spacing:-.02em}.vis__label{font:500 14px var(--head);opacity:.85;margin-top:4px}
+.vis--sq{aspect-ratio:1;border-radius:6px;padding:8px;justify-content:center}.vis--sq .vis__study,.vis--sq .vis__label{display:none}.vis--sq .vis__big{font-size:19px}
+.vis--hero{margin:0 -16px;aspect-ratio:16/8;padding-bottom:22px}
+.mchips{display:flex;gap:8px;overflow-x:auto;margin:0 -12px 6px;padding:2px 12px;scrollbar-width:none}.mchips::-webkit-scrollbar{display:none}
+.mchips a{flex:none;border-radius:16px;padding:7px 13px;font:500 13px var(--ui);color:#fff;background:var(--c)}
+.msec{display:flex;align-items:center;gap:8px;font:700 17px var(--ui);text-transform:uppercase;margin:24px 2px 12px;color:var(--ink2);scroll-margin-top:70px}
+.msec::before{content:"";width:10px;height:10px;background:var(--c)}
+.mcolophon{font:400 11.5px/1.5 var(--ui);color:#888;text-align:center;margin:12px 0 24px}
+/* tab bar */
+.tabbar{position:fixed;left:calc(var(--side) + 12px);right:calc(var(--side) + 12px);bottom:calc(10px + env(safe-area-inset-bottom));z-index:40;display:flex;justify-content:space-around;background:rgba(246,246,246,.82);-webkit-backdrop-filter:blur(18px) saturate(1.8);backdrop-filter:blur(18px) saturate(1.8);border-radius:30px;box-shadow:0 6px 24px rgba(0,0,0,.18);padding:6px;border:1px solid rgba(255,255,255,.7)}
+.tabbar a{display:flex;flex-direction:column;align-items:center;gap:2px;font:500 10px var(--ui);color:#333;padding:5px 6px;border-radius:22px;flex:1}
+.tabbar a.on{background:rgba(0,0,0,.08);color:#000;font-weight:700}
+/* sheets */
+.scrim,.scrim2{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:45;opacity:0;pointer-events:none;transition:opacity .5s var(--ease)}
+.scrim2{z-index:58;background:rgba(0,0,0,.3)}
+body.sheet .scrim{opacity:1;pointer-events:auto}body.logging .scrim2{opacity:1;pointer-events:auto}
+.page{position:fixed;left:var(--side);right:var(--side);bottom:0;top:calc(env(safe-area-inset-top) + 30px);z-index:50;background:#fff;border-radius:12px 12px 0 0;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;transform:translate3d(0,102%,0);transition:transform .5s var(--ease);will-change:transform;box-shadow:0 -4px 24px rgba(0,0,0,.18)}
+.page.is-open{transform:none}
+.art{display:flex;flex-direction:column;padding:0 16px calc(120px + env(safe-area-inset-bottom))}
+.sheetbar{position:sticky;top:0;z-index:5;margin:0 -16px;display:flex;align-items:center;color:#fff;padding:16px 16px 11px;font:700 12.5px var(--ui);text-transform:uppercase;letter-spacing:.06em}
+.grab{position:absolute;left:50%;top:0;width:90px;height:16px;margin-left:-45px}
+.grab::before{content:"";position:absolute;left:25px;right:25px;top:6px;height:4px;border-radius:3px;background:rgba(255,255,255,.75)}
+.art__kicker{font:500 14px var(--head);color:var(--ink2);margin:18px 0 8px}
+.art__title{font:800 27px/1.2 var(--head);margin:0 0 8px}
+.art__authors{font:400 13.5px var(--head);color:var(--grey);margin:0 0 12px}
+.mmeta{display:flex;justify-content:space-between;align-items:center;font:400 13px var(--ui);color:var(--grey);margin-bottom:16px}
+.mmeta span{display:flex;align-items:center;gap:6px}
+.aisum{background:#f6f2ff;border:1px solid #e3d8ff;border-radius:10px;padding:14px 14px 10px;margin-bottom:20px}
+.aisum__label{font:700 11.5px var(--ui);text-transform:uppercase;letter-spacing:.1em;color:#6d28d9;margin-bottom:6px}
+.aisum p{font:400 15.5px/1.55 var(--head);margin:0 0 8px;color:#1d1530}
+.aisum .aisum__note{font:400 12px/1.4 var(--ui);color:#6b6480;margin:0}
+.abs{border-top:3px solid var(--c);padding-top:12px}
+.abs__label{display:flex;justify-content:space-between;align-items:baseline;font:700 12px var(--ui);text-transform:uppercase;letter-spacing:.1em;color:var(--c);margin-bottom:6px}
+.abs__label span+span{font-weight:400;text-transform:none;letter-spacing:0;color:var(--grey)}
+.abs h4{font:700 14px var(--head);text-transform:uppercase;letter-spacing:.04em;margin:16px 0 4px;color:var(--ink2)}
+.abs p{font:400 16.5px/1.62 var(--serif);margin:0;-webkit-hyphens:auto;hyphens:auto;color:#131313}
+.abs .abs__lic{font:400 12px var(--ui);color:var(--grey);margin-top:16px}.abs__lic a{text-decoration:underline}
+.cite{font:400 12.5px/1.5 var(--ui);color:var(--grey);background:#f3f3f3;padding:10px 12px;border-radius:8px;margin:18px 0 12px}
+.pill{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:30px;padding:11px 20px;font:500 15px var(--ui);cursor:pointer;border:0}
+.pill--dark{background:#000;color:#fff}.pill--outline{background:#fff;border:2px solid #000;color:#000}.wide{width:100%;margin:8px 0}
+.logbox{display:grid;grid-template-columns:auto 1fr;gap:6px 12px;align-items:center;background:#fff8e1;border:1px solid #ffe08a;border-radius:12px;padding:14px;margin:20px 0}
+.logbox__icon{color:#b45309;grid-row:span 1}.logbox__txt b{display:block;font:800 16px var(--head)}.logbox__txt span{font:400 13px var(--ui);color:#6b5b2a}
+.logbox .pill{grid-column:1/-1}.logbox.done{background:#ecfdf3;border-color:#a6e9c3}.logbox.done .logbox__icon{color:#0a7d43}
+/* log sheet */
+.logsheet{position:fixed;left:var(--side);right:var(--side);bottom:0;z-index:60;background:#fff;border-radius:16px 16px 0 0;padding:10px 18px calc(18px + env(safe-area-inset-bottom));transform:translate3d(0,105%,0);transition:transform .45s var(--ease);box-shadow:0 -6px 30px rgba(0,0,0,.25);max-height:92vh;overflow-y:auto}
+body.logging .logsheet{transform:none}
+.logsheet__grab{width:40px;height:4px;border-radius:3px;background:#ccc;margin:0 auto 10px}
+.logsheet h3{font:800 20px var(--head);margin:0}.logsheet__title{font:400 13.5px var(--head);color:var(--grey);margin:4px 0 14px}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+.seg button{background:#f3f3f3;border:2px solid transparent;border-radius:12px;padding:10px;text-align:left;cursor:pointer}
+.seg button b{display:block;font:700 15px var(--head)}.seg button span{font:400 12.5px var(--ui);color:var(--grey)}
+.seg button.on{background:#fff;border-color:#000}
+.fld{display:block;margin-bottom:12px}.fld>span{display:block;font:600 12.5px var(--ui);text-transform:uppercase;letter-spacing:.06em;color:var(--grey);margin-bottom:6px}
+.fld input[type=text],.fld textarea{width:100%;font:400 16px var(--head);border:1.5px solid #ddd;border-radius:10px;padding:10px 12px;outline:none}
+.fld input:focus,.fld textarea:focus{border-color:#000}
+.stepper{display:flex;align-items:center;gap:10px}.stepper button{width:40px;height:40px;border-radius:50%;border:1.5px solid #ddd;background:#fff;font-size:22px;cursor:pointer}
+.stepper output{font:800 26px var(--head);min-width:48px;text-align:center}.stepper span{font:400 14px var(--ui);color:var(--grey);margin-right:auto}
+.toggle{display:flex;align-items:center;gap:10px;margin-top:10px;font:400 14.5px var(--head);cursor:pointer}.toggle em{color:var(--grey);font-style:normal}
+.toggle input{display:none}.toggle i{width:44px;height:26px;border-radius:13px;background:#ddd;position:relative;transition:background .2s;flex:none}
+.toggle i::after{content:"";position:absolute;left:3px;top:3px;width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.3);transition:transform .25s var(--ease)}
+.toggle input:checked+i{background:#0a7d43}.toggle input:checked+i::after{transform:translateX(18px)}
+.chip{background:#f1ebff;color:#5b21b6;border:0;border-radius:16px;padding:7px 12px;font:500 13px var(--ui);cursor:pointer;margin:-4px 0 12px}
+.lsCalc{font:400 14px var(--ui);color:var(--ink2);background:#f6f6f6;border-radius:10px;padding:10px 12px;margin-bottom:12px}.lsCalc b{font:800 18px var(--head)}
+.lsBtns{display:grid;grid-template-columns:1fr 2fr;gap:10px}
+/* My CPD */
+.cpd-hero{display:flex;align-items:center;justify-content:space-between;background:#111;color:#fff;border-radius:14px;padding:18px}
+.cpd-hero__big{font:900 44px/1 var(--head)}.cpd-hero__lbl{font:400 13px var(--ui);opacity:.8;margin-top:4px}
+.ring{--p:0;width:74px;height:74px;border-radius:50%;background:conic-gradient(#fff200 calc(var(--p)*1%),#333 0);display:grid;place-items:center}
+.ring span{width:58px;height:58px;border-radius:50%;background:#111;display:grid;place-items:center;font:800 15px var(--head)}
+.cpd-goal{font:400 13.5px var(--ui);color:var(--grey);margin:10px 0 14px}
+.cpd-split{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.cpd-split div{background:#f5f5f5;border-radius:12px;padding:12px}.cpd-split b{display:block;font:800 24px var(--head)}.cpd-split span{font:400 12px/1.35 var(--ui);color:var(--grey)}
+.sub{font:800 16px var(--ui);text-transform:uppercase;letter-spacing:.04em;margin:24px 0 8px;padding-bottom:8px;border-bottom:1px solid var(--rule)}
+.cpd-month{font:400 15px/1.5 var(--head);margin:0 0 10px}
+.entry{display:grid;grid-template-columns:1fr auto;gap:2px 10px;padding:12px 0;border-bottom:1px solid var(--rule);font:400 13px var(--ui);color:var(--grey)}
+.entry b{color:var(--ink);font:600 14.5px/1.35 var(--head)}.entry .cr{font:800 15px var(--head);color:#000;text-align:right}
+.entry .del{background:none;border:0;color:#b91c1c;font:500 12px var(--ui);cursor:pointer;padding:0;text-align:right}
+.entry q{display:block;grid-column:1/-1;color:#333;font-style:italic;quotes:none;margin-top:3px}
+.moc{border:2px solid #000;border-radius:14px;padding:14px;margin:12px 0}
+.moc h4{font:800 15px var(--head);margin:0 0 2px}.moc>p{font:400 12.5px var(--ui);color:var(--grey);margin:0 0 10px}
+.mocrow{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:start;padding:8px 0;border-top:1px solid var(--rule)}
+.mocrow small{display:block;font:600 11px var(--ui);text-transform:uppercase;letter-spacing:.06em;color:var(--grey);margin-bottom:2px}
+.mocrow div{font:400 14px/1.45 var(--head);white-space:pre-wrap;word-break:break-word}
+.copy{background:#f1f1f1;border:0;border-radius:8px;padding:6px 10px;font:500 12.5px var(--ui);cursor:pointer}.copy.ok{background:#dcfce7;color:#166534}
+.mocopen{display:flex;justify-content:center;margin-top:10px;font:600 14px var(--ui);text-decoration:underline}
+.demo-tools{display:flex;gap:8px;align-items:center;margin-top:18px;font:400 12.5px var(--ui);color:var(--grey)}
+.demo-tools button{background:#f1f1f1;border:0;border-radius:14px;padding:6px 10px;font:500 12.5px var(--ui);cursor:pointer}
+.fine{font:400 12px/1.5 var(--ui);color:#888;margin-top:18px}
+.empty{font:400 14px var(--ui);color:var(--grey)}
+.toast{position:fixed;left:50%;bottom:calc(96px + env(safe-area-inset-bottom));transform:translate(-50%,20px);background:#111;color:#fff;font:500 14px var(--ui);padding:10px 16px;border-radius:22px;opacity:0;pointer-events:none;transition:all .35s var(--ease);z-index:80;white-space:nowrap}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+#printArea{display:none}
+@media print{body>*:not(#printArea){display:none!important}#printArea{display:block;font:400 11pt var(--head);color:#000}
+#printArea h1{font:800 20pt var(--head);margin:0}#printArea table{width:100%;border-collapse:collapse;margin-top:12pt}
+#printArea th,#printArea td{border-bottom:1px solid #ccc;padding:5pt 4pt;text-align:left;vertical-align:top;font-size:9.5pt}
+#printArea th{font:700 8.5pt var(--ui);text-transform:uppercase}.pr-meta{color:#444;margin:4pt 0 0}.pr-tot{margin-top:10pt;font-weight:700}.pr-note{margin-top:14pt;font-size:8.5pt;color:#555}}
+</style></head>
+<body>
+<div id="stage">
+  <header class="appbar" id="top"><a class="appbar__heart" href="#af-nursing-home-oac" aria-label="Lead paper">★</a>
+    <a class="appbar__logo" href="#top">Le Quotidien Médical<small>DEMO</small></a>
+    <a class="appbar__me" href="#cpd" aria-label="My CPD"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15a6 6 0 1 0 0-12 6 6 0 0 0 0 12zM8.5 14 7 22l5-3 5 3-1.5-8"/></svg></a></header>
+  <main id="home">
+  <a class="cpdpill" href="#cpd"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15a6 6 0 1 0 0-12 6 6 0 0 0 0 12zM8.5 14 7 22l5-3 5 3-1.5-8"/></svg><span><b id="cpdPill">0.0</b> MOC credits logged this year</span><em>›</em></a>
+  <h2 class="mhead" id="m-head">The headlines<span>New in internal medicine this week.</span></h2>
+  <article class="mcard"><a class="mcard__img" href="#af-nursing-home-oac" tabindex="-1"><div class="vis" style="--c:#C2414B"><span class="vis__study">Cohort · Medicare + MDS</span><span class="vis__big">26 940</span><span class="vis__label">nursing home residents</span></div><span class="mbadge"><span class="badge" style="background:#C2414B">Cardiology</span></span></a>
+  <div class="mcard__body"><p class="mcard__sup">Atrial fibrillation · JAMA Network Open</p>
+  <h3 class="mcard__title"><a href="#af-nursing-home-oac">Anticoagulation Outcomes in Nursing Home Residents With Atrial Fibrillation and ADL Disability</a></h3>
+  <p class="mcard__lead"><b class="ai-inline">AI summary</b> In 26,940 US nursing home residents with atrial fibrillation who depend on others for 3 or more activities of daily living, every oral anticoagulant studied was associated with fewer ischemic strokes but more major bleeding than no anticoagulant. Only apixaban showed no increase in the combined stroke-or-bleeding outcome. The study is observational (propensity-matched claims data), not a randomized trial.</p><div class="mcard__foot"><i class="mdot"></i>Oct 1, 2026 · 2 min<span class="logged" data-logged="af-nursing-home-oac"></span><span class="acts"><button class="bm" type="button" aria-label="Save" data-id="af-nursing-home-oac" data-title="Anticoagulation Outcomes in Nursing Home Residents With Atrial Fibrillation and ADL Disability" data-sec="Cardiology" data-color="#C2414B"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-6-4.5L6 21z"/></svg></button><button class="sh" type="button" aria-label="Share" data-title="Anticoagulation Outcomes in Nursing Home Residents With Atrial Fibrillation and ADL Disability" data-url="https://doi.org/10.1001/jamanetworkopen.2026.37533"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3M8 7l4-4 4 4M7 11H5v10h14V11h-2"/></svg></button></span></div></div></article><article class="mcard"><a class="mcard__img" href="#early-mv-surgery-mr" tabindex="-1"><div class="vis" style="--c:#C2414B"><span class="vis__study">Target trial emulation</span><span class="vis__big">HR 0.69</span><span class="vis__label">all-cause mortality</span></div><span class="mbadge"><span class="badge" style="background:#C2414B">Cardiology</span></span></a>
+  <div class="mcard__body"><p class="mcard__sup">Valvular heart disease · JAMA Network Open</p>
+  <h3 class="mcard__title"><a href="#early-mv-surgery-mr">Early Mitral Valve Surgery and Survival in Asymptomatic Severe Primary Mitral Regurgitation</a></h3>
+  <p class="mcard__lead"><b class="ai-inline">AI summary</b> In a registry of 802 patients from 3 South Korean hospitals with asymptomatic severe primary mitral regurgitation, surgery within 6 months of diagnosis was associated with lower all-cause mortality than watchful waiting (HR 0.69) over a median of 7.4 years, a 66-day survival gain at 5 years. Results were similar without left ventricular decompensation. There is no randomized trial on this question; this is an emulated one.</p><div class="mcard__foot"><i class="mdot"></i>Oct 1, 2026 · 2 min<span class="logged" data-logged="early-mv-surgery-mr"></span><span class="acts"><button class="bm" type="button" aria-label="Save" data-id="early-mv-surgery-mr" data-title="Early Mitral Valve Surgery and Survival in Asymptomatic Severe Primary Mitral Regurgitation" data-sec="Cardiology" data-color="#C2414B"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-6-4.5L6 21z"/></svg></button><button class="sh" type="button" aria-label="Share" data-title="Early Mitral Valve Surgery and Survival in Asymptomatic Severe Primary Mitral Regurgitation" data-url="https://doi.org/10.1001/jamanetworkopen.2026.37061"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3M8 7l4-4 4 4M7 11H5v10h14V11h-2"/></svg></button></span></div></div></article><article class="mcard"><a class="mcard__img" href="#pci-facility-access-ami" tabindex="-1"><div class="vis" style="--c:#C2414B"><span class="vis__study">Cohort · California 2011–2022</span><span class="vis__big">−20%</span><span class="vis__label">30-day mortality where PCI was new</span></div><span class="mbadge"><span class="badge" style="background:#C2414B">Cardiology</span></span></a>
+  <div class="mcard__body"><p class="mcard__sup">Acute myocardial infarction · JAMA Network Open</p>
+  <h3 class="mcard__title"><a href="#pci-facility-access-ami">Percutaneous Coronary Intervention Facility Access and Clinical Outcomes Among Patients With Acute Myocardial Infarction</a></h3>
+  <p class="mcard__lead"><b class="ai-inline">AI summary</b> Across 590,282 AMI hospitalizations in California, a new PCI-capable facility within 30 minutes improved outcomes mainly in communities that had none before: more PCI and lower 30-day and 1-year mortality. Openings in areas already served brought small gains and no change in mortality.</p><div class="mcard__foot"><i class="mdot"></i>Oct 1, 2026 · 3 min<span class="logged" data-logged="pci-facility-access-ami"></span><span class="acts"><button class="bm" type="button" aria-label="Save" data-id="pci-facility-access-ami" data-title="Percutaneous Coronary Intervention Facility Access and Clinical Outcomes Among Patients With Acute Myocardial Infarction" data-sec="Cardiology" data-color="#C2414B"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-6-4.5L6 21z"/></svg></button><button class="sh" type="button" aria-label="Share" data-title="Percutaneous Coronary Intervention Facility Access and Clinical Outcomes Among Patients With Acute Myocardial Infarction" data-url="https://doi.org/10.1001/jamanetworkopen.2026.38687"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3M8 7l4-4 4 4M7 11H5v10h14V11h-2"/></svg></button></span></div></div></article><article class="mcard"><a class="mcard__img" href="#cgm-t2d-kidney" tabindex="-1"><div class="vis" style="--c:#207FB7"><span class="vis__study">Target trial emulation</span><span class="vis__big">−0.8</span><span class="vis__label">points of HbA1c at 36 months</span></div><span class="mbadge"><span class="badge" style="background:#207FB7">Endocrinology</span></span></a>
+  <div class="mcard__body"><p class="mcard__sup">Type 2 diabetes · JAMA Network Open</p>
+  <h3 class="mcard__title"><a href="#cgm-t2d-kidney">Continuous Glucose Monitoring and Long-Term Glycemic and Kidney Outcomes</a></h3>
+  <p class="mcard__lead"><b class="ai-inline">AI summary</b> Among 25,648 high-risk adults with type 2 diabetes (mean HbA1c 9.5%), starting and sustaining real-time continuous glucose monitoring was associated with an HbA1c about 0.8 percentage points lower than controls after 36 months, and a lower urine albumin-creatinine ratio by the end of follow-up. eGFR did not differ. 44% of CGM starters stopped using it during follow-up, and the design is observational.</p><div class="mcard__foot"><i class="mdot"></i>Oct 1, 2026 · 3 min<span class="logged" data-logged="cgm-t2d-kidney"></span><span class="acts"><button class="bm" type="button" aria-label="Save" data-id="cgm-t2d-kidney" data-title="Continuous Glucose Monitoring and Long-Term Glycemic and Kidney Outcomes" data-sec="Endocrinology" data-color="#207FB7"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-6-4.5L6 21z"/></svg></button><button class="sh" type="button" aria-label="Share" data-title="Continuous Glucose Monitoring and Long-Term Glycemic and Kidney Outcomes" data-url="https://doi.org/10.1001/jamanetworkopen.2026.37698"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3M8 7l4-4 4 4M7 11H5v10h14V11h-2"/></svg></button></span></div></div></article>
+  <h2 class="mhead">More this week<span>Quick reads, each one loggable.</span></h2>
+  <article class="mcard mcard--row"><div class="mcard__body"><span class="badge" style="background:#5A79A0">Nephrology</span>
+  <p class="mcard__sup">Kidney transplantation · JAMA Network Open</p>
+  <h3 class="mcard__title"><a href="#preemptive-kidney-tx">Survival Outcomes Following Preemptive vs Nonpreemptive Kidney Transplantation</a></h3><div class="mcard__foot"><i class="mdot"></i>Oct 1, 2026 · 2 min<span class="logged" data-logged="preemptive-kidney-tx"></span><span class="acts"><button class="bm" type="button" aria-label="Save" data-id="preemptive-kidney-tx" data-title="Survival Outcomes Following Preemptive vs Nonpreemptive Kidney Transplantation" data-sec="Nephrology" data-color="#5A79A0"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-6-4.5L6 21z"/></svg></button><button class="sh" type="button" aria-label="Share" data-title="Survival Outcomes Following Preemptive vs Nonpreemptive Kidney Transplantation" data-url="https://doi.org/10.1001/jamanetworkopen.2026.37964"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3M8 7l4-4 4 4M7 11H5v10h14V11h-2"/></svg></button></span></div></div>
+  <a class="mcard__img" href="#preemptive-kidney-tx" tabindex="-1"><div class="vis vis--sq" style="--c:#5A79A0"><span class="vis__study">Target trial emulation · SRTR</span><span class="vis__big">HR 1.02</span><span class="vis__label">mortality, preemptive vs not</span></div></a></article><article class="mcard mcard--row"><div class="mcard__body"><span class="badge" style="background:#6B9500">Hepatology</span>
+  <p class="mcard__sup">Hepatocellular carcinoma · JAMA Network Open</p>
+  <h3 class="mcard__title"><a href="#hcc-sex-mortality">Sex Differences in Mortality Among Patients With Hepatocellular Carcinoma</a></h3><div class="mcard__foot"><i class="mdot"></i>Oct 1, 2026 · 3 min<span class="logged" data-logged="hcc-sex-mortality"></span><span class="acts"><button class="bm" type="button" aria-label="Save" data-id="hcc-sex-mortality" data-title="Sex Differences in Mortality Among Patients With Hepatocellular Carcinoma" data-sec="Hepatology" data-color="#6B9500"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-6-4.5L6 21z"/></svg></button><button class="sh" type="button" aria-label="Share" data-title="Sex Differences in Mortality Among Patients With Hepatocellular Carcinoma" data-url="https://doi.org/10.1001/jamanetworkopen.2026.37313"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3M8 7l4-4 4 4M7 11H5v10h14V11h-2"/></svg></button></span></div></div>
+  <a class="mcard__img" href="#hcc-sex-mortality" tabindex="-1"><div class="vis vis--sq" style="--c:#6B9500"><span class="vis__study">Multicentre cohort · 17 centres</span><span class="vis__big">aHR 1.14</span><span class="vis__label">male vs female mortality</span></div></a></article><article class="mcard mcard--row"><div class="mcard__body"><span class="badge" style="background:#14A574">Infectious diseases</span>
+  <p class="mcard__sup">Hospital infections · JAMA Network Open</p>
+  <h3 class="mcard__title"><a href="#cauti-prevention-trends">Catheter-Associated Urinary Tract Infection Prevention Practices in US Hospitals</a></h3><div class="mcard__foot"><i class="mdot"></i>Oct 1, 2026 · 3 min<span class="logged" data-logged="cauti-prevention-trends"></span><span class="acts"><button class="bm" type="button" aria-label="Save" data-id="cauti-prevention-trends" data-title="Catheter-Associated Urinary Tract Infection Prevention Practices in US Hospitals" data-sec="Infectious diseases" data-color="#14A574"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-6-4.5L6 21z"/></svg></button><button class="sh" type="button" aria-label="Share" data-title="Catheter-Associated Urinary Tract Infection Prevention Practices in US Hospitals" data-url="https://doi.org/10.1001/jamanetworkopen.2026.37540"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3M8 7l4-4 4 4M7 11H5v10h14V11h-2"/></svg></button></span></div></div>
+  <a class="mcard__img" href="#cauti-prevention-trends" tabindex="-1"><div class="vis vis--sq" style="--c:#14A574"><span class="vis__study">Survey · 2005–2025</span><span class="vis__big">48.7%</span><span class="vis__label">of hospitals use catheter stop orders</span></div></a></article><article class="mcard mcard--row"><div class="mcard__body"><span class="badge" style="background:#A05FA8">Respirology</span>
+  <p class="mcard__sup">COPD and asthma · JAMA Network Open</p>
+  <h3 class="mcard__title"><a href="#aatd-testing-gaps">Disparities in α1-Antitrypsin Deficiency Testing and Treatment in US Adults</a></h3><div class="mcard__foot"><i class="mdot"></i>Oct 1, 2026 · 2 min<span class="logged" data-logged="aatd-testing-gaps"></span><span class="acts"><button class="bm" type="button" aria-label="Save" data-id="aatd-testing-gaps" data-title="Disparities in α1-Antitrypsin Deficiency Testing and Treatment in US Adults" data-sec="Respirology" data-color="#A05FA8"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-6-4.5L6 21z"/></svg></button><button class="sh" type="button" aria-label="Share" data-title="Disparities in α1-Antitrypsin Deficiency Testing and Treatment in US Adults" data-url="https://doi.org/10.1001/jamanetworkopen.2026.39328"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3M8 7l4-4 4 4M7 11H5v10h14V11h-2"/></svg></button></span></div></div>
+  <a class="mcard__img" href="#aatd-testing-gaps" tabindex="-1"><div class="vis vis--sq" style="--c:#A05FA8"><span class="vis__study">Cohort · VA health records</span><span class="vis__big">5.8%</span><span class="vis__label">of patients ever tested</span></div></a></article>
+  <h2 class="mhead" id="m-sections">By specialty<span>Every paper in this edition.</span></h2>
+  <div class="mchips"><a href="#m-sec-cardio" style="--c:#C2414B">Cardiology</a><a href="#m-sec-endo" style="--c:#207FB7">Endocrinology</a><a href="#m-sec-resp" style="--c:#A05FA8">Respirology</a><a href="#m-sec-nephro" style="--c:#5A79A0">Nephrology</a><a href="#m-sec-hepato" style="--c:#6B9500">Hepatology</a><a href="#m-sec-id" style="--c:#14A574">Infectious diseases</a></div>
+  <h3 class="msec" id="m-sec-cardio" style="--c:#C2414B">Cardiology</h3><article class="mcard mcard--row"><div class="mcard__body"><span class="badge" style="background:#C2414B">Cardiology</span>
+  <p class="mcard__sup">Atrial fibrillation · JAMA Network Open</p>
+  <h3 class="mcard__title"><a href="#af-nursing-home-oac">Anticoagulation Outcomes in Nursing Home Residents With Atrial Fibrillation and ADL Disability</a></h3><div class="mcard__foot"><i class="mdot"></i>Oct 1, 2026 · 2 min<span class="logged" data-logged="af-nursing-home-oac"></span><span class="acts"><button class="bm" type="button" aria-label="Save" data-id="af-nursing-home-oac" data-title="Anticoagulation Outcomes in Nursing Home Residents With Atrial Fibrillation and ADL Disability" data-sec="Cardiology" data-color="#C2414B"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-6-4.5L6 21z"/></svg></button><button class="sh" type="button" aria-label="Share" data-title="Anticoagulation Outcomes in Nursing Home Residents With Atrial Fibrillation and ADL Disability" data-url="https://doi.org/10.1001/jamanetworkopen.2026.37533"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3M8 7l4-4 4 4M7 11H5v10h14V11h-2"/></svg></button></span></div></div>
+  <a class="mcard__img" href="#af-nursing-home-oac" tabindex="-1"><div class="vis vis--sq" style="--c:#C2414B"><span class="vis__study">Cohort · Medicare + MDS</span><span class="vis__big">26 940</span><span class="vis__label">nursing home residents</span></div></a></article><article class="mcard mcard--row"><div class="mcard__body"><span class="badge" style="background:#C2414B">Cardiology</span>
+  <p class="mcard__sup">Valvular heart disease · JAMA Network Open</p>
+  <h3 class="mcard__title"><a href="#early-mv-surgery-mr">Early Mitral Valve Surgery and Survival in Asymptomatic Severe Primary Mitral Regurgitation</a></h3><div class="mcard__foot"><i class="mdot"></i>Oct 1, 2026 · 2 min<span class="logged" data-logged="early-mv-surgery-mr"></span><span class="acts"><button class="bm" type="button" aria-label="Save" data-id="early-mv-surgery-mr" data-title="Early Mitral Valve Surgery and Survival in Asymptomatic Severe Primary Mitral Regurgitation" data-sec="Cardiology" data-color="#C2414B"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-6-4.5L6 21z"/></svg></button><button class="sh" type="button" aria-label="Share" data-title="Early Mitral Valve Surgery and Survival in Asymptomatic Severe Primary Mitral Regurgitation" data-url="https://doi.org/10.1001/jamanetworkopen.2026.37061"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3M8 7l4-4 4 4M7 11H5v10h14V11h-2"/></svg></button></span></div></div>
+  <a class="mcard__img" href="#early-mv-surgery-mr" tabindex="-1"><div class="vis vis--sq" style="--c:#C2414B"><span class="vis__study">Target trial emulation</span><span class="vis__big">HR 0.69</span><span class="vis__label">all-cause mortality</span></div></a></article><article class="mcard mcard--row"><div class="mcard__body"><span class="badge" style="background:#C2414B">Cardiology</span>
+  <p class="mcard__sup">Acute myocardial infarction · JAMA Network Open</p>
+  <h3 class="mcard__title"><a href="#pci-facility-access-ami">Percutaneous Coronary Intervention Facility Access and Clinical Outcomes Among Patients With Acute Myocardial Infarction</a></h3><div class="mcard__foot"><i class="mdot"></i>Oct 1, 2026 · 3 min<span class="logged" data-logged="pci-facility-access-ami"></span><span class="acts"><button class="bm" type="button" aria-label="Save" data-id="pci-facility-access-ami" data-title="Percutaneous Coronary Intervention Facility Access and Clinical Outcomes Among Patients With Acute Myocardial Infarction" data-sec="Cardiology" data-color="#C2414B"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-6-4.5L6 21z"/></svg></button><button class="sh" type="button" aria-label="Share" data-title="Percutaneous Coronary Intervention Facility Access and Clinical Outcomes Among Patients With Acute Myocardial Infarction" data-url="https://doi.org/10.1001/jamanetworkopen.2026.38687"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3M8 7l4-4 4 4M7 11H5v10h14V11h-2"/></svg></button></span></div></div>
+  <a class="mcard__img" href="#pci-facility-access-ami" tabindex="-1"><div class="vis vis--sq" style="--c:#C2414B"><span class="vis__study">Cohort · California 2011–2022</span><span class="vis__big">−20%</span><span class="vis__label">30-day mortality where PCI was new</span></div></a></article><h3 class="msec" id="m-sec-endo" style="--c:#207FB7">Endocrinology</h3><article class="mcard mcard--row"><div class="mcard__body"><span class="badge" style="background:#207FB7">Endocrinology</span>
+  <p class="mcard__sup">Type 2 diabetes · JAMA Network Open</p>
+  <h3 class="mcard__title"><a href="#cgm-t2d-kidney">Continuous Glucose Monitoring and Long-Term Glycemic and Kidney Outcomes</a></h3><div class="mcard__foot"><i class="mdot"></i>Oct 1, 2026 · 3 min<span class="logged" data-logged="cgm-t2d-kidney"></span><span class="acts"><button class="bm" type="button" aria-label="Save" data-id="cgm-t2d-kidney" data-title="Continuous Glucose Monitoring and Long-Term Glycemic and Kidney Outcomes" data-sec="Endocrinology" data-color="#207FB7"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-6-4.5L6 21z"/></svg></button><button class="sh" type="button" aria-label="Share" data-title="Continuous Glucose Monitoring and Long-Term Glycemic and Kidney Outcomes" data-url="https://doi.org/10.1001/jamanetworkopen.2026.37698"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3M8 7l4-4 4 4M7 11H5v10h14V11h-2"/></svg></button></span></div></div>
+  <a class="mcard__img" href="#cgm-t2d-kidney" tabindex="-1"><div class="vis vis--sq" style="--c:#207FB7"><span class="vis__study">Target trial emulation</span><span class="vis__big">−0.8</span><span class="vis__label">points of HbA1c at 36 months</span></div></a></article><h3 class="msec" id="m-sec-resp" style="--c:#A05FA8">Respirology</h3><article class="mcard mcard--row"><div class="mcard__body"><span class="badge" style="background:#A05FA8">Respirology</span>
+  <p class="mcard__sup">COPD and asthma · JAMA Network Open</p>
+  <h3 class="mcard__title"><a href="#aatd-testing-gaps">Disparities in α1-Antitrypsin Deficiency Testing and Treatment in US Adults</a></h3><div class="mcard__foot"><i class="mdot"></i>Oct 1, 2026 · 2 min<span class="logged" data-logged="aatd-testing-gaps"></span><span class="acts"><button class="bm" type="button" aria-label="Save" data-id="aatd-testing-gaps" data-title="Disparities in α1-Antitrypsin Deficiency Testing and Treatment in US Adults" data-sec="Respirology" data-color="#A05FA8"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-6-4.5L6 21z"/></svg></button><button class="sh" type="button" aria-label="Share" data-title="Disparities in α1-Antitrypsin Deficiency Testing and Treatment in US Adults" data-url="https://doi.org/10.1001/jamanetworkopen.2026.39328"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3M8 7l4-4 4 4M7 11H5v10h14V11h-2"/></svg></button></span></div></div>
+  <a class="mcard__img" href="#aatd-testing-gaps" tabindex="-1"><div class="vis vis--sq" style="--c:#A05FA8"><span class="vis__study">Cohort · VA health records</span><span class="vis__big">5.8%</span><span class="vis__label">of patients ever tested</span></div></a></article><h3 class="msec" id="m-sec-nephro" style="--c:#5A79A0">Nephrology</h3><article class="mcard mcard--row"><div class="mcard__body"><span class="badge" style="background:#5A79A0">Nephrology</span>
+  <p class="mcard__sup">Kidney transplantation · JAMA Network Open</p>
+  <h3 class="mcard__title"><a href="#preemptive-kidney-tx">Survival Outcomes Following Preemptive vs Nonpreemptive Kidney Transplantation</a></h3><div class="mcard__foot"><i class="mdot"></i>Oct 1, 2026 · 2 min<span class="logged" data-logged="preemptive-kidney-tx"></span><span class="acts"><button class="bm" type="button" aria-label="Save" data-id="preemptive-kidney-tx" data-title="Survival Outcomes Following Preemptive vs Nonpreemptive Kidney Transplantation" data-sec="Nephrology" data-color="#5A79A0"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-6-4.5L6 21z"/></svg></button><button class="sh" type="button" aria-label="Share" data-title="Survival Outcomes Following Preemptive vs Nonpreemptive Kidney Transplantation" data-url="https://doi.org/10.1001/jamanetworkopen.2026.37964"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3M8 7l4-4 4 4M7 11H5v10h14V11h-2"/></svg></button></span></div></div>
+  <a class="mcard__img" href="#preemptive-kidney-tx" tabindex="-1"><div class="vis vis--sq" style="--c:#5A79A0"><span class="vis__study">Target trial emulation · SRTR</span><span class="vis__big">HR 1.02</span><span class="vis__label">mortality, preemptive vs not</span></div></a></article><h3 class="msec" id="m-sec-hepato" style="--c:#6B9500">Hepatology</h3><article class="mcard mcard--row"><div class="mcard__body"><span class="badge" style="background:#6B9500">Hepatology</span>
+  <p class="mcard__sup">Hepatocellular carcinoma · JAMA Network Open</p>
+  <h3 class="mcard__title"><a href="#hcc-sex-mortality">Sex Differences in Mortality Among Patients With Hepatocellular Carcinoma</a></h3><div class="mcard__foot"><i class="mdot"></i>Oct 1, 2026 · 3 min<span class="logged" data-logged="hcc-sex-mortality"></span><span class="acts"><button class="bm" type="button" aria-label="Save" data-id="hcc-sex-mortality" data-title="Sex Differences in Mortality Among Patients With Hepatocellular Carcinoma" data-sec="Hepatology" data-color="#6B9500"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-6-4.5L6 21z"/></svg></button><button class="sh" type="button" aria-label="Share" data-title="Sex Differences in Mortality Among Patients With Hepatocellular Carcinoma" data-url="https://doi.org/10.1001/jamanetworkopen.2026.37313"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3M8 7l4-4 4 4M7 11H5v10h14V11h-2"/></svg></button></span></div></div>
+  <a class="mcard__img" href="#hcc-sex-mortality" tabindex="-1"><div class="vis vis--sq" style="--c:#6B9500"><span class="vis__study">Multicentre cohort · 17 centres</span><span class="vis__big">aHR 1.14</span><span class="vis__label">male vs female mortality</span></div></a></article><h3 class="msec" id="m-sec-id" style="--c:#14A574">Infectious diseases</h3><article class="mcard mcard--row"><div class="mcard__body"><span class="badge" style="background:#14A574">Infectious diseases</span>
+  <p class="mcard__sup">Hospital infections · JAMA Network Open</p>
+  <h3 class="mcard__title"><a href="#cauti-prevention-trends">Catheter-Associated Urinary Tract Infection Prevention Practices in US Hospitals</a></h3><div class="mcard__foot"><i class="mdot"></i>Oct 1, 2026 · 3 min<span class="logged" data-logged="cauti-prevention-trends"></span><span class="acts"><button class="bm" type="button" aria-label="Save" data-id="cauti-prevention-trends" data-title="Catheter-Associated Urinary Tract Infection Prevention Practices in US Hospitals" data-sec="Infectious diseases" data-color="#14A574"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-6-4.5L6 21z"/></svg></button><button class="sh" type="button" aria-label="Share" data-title="Catheter-Associated Urinary Tract Infection Prevention Practices in US Hospitals" data-url="https://doi.org/10.1001/jamanetworkopen.2026.37540"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3M8 7l4-4 4 4M7 11H5v10h14V11h-2"/></svg></button></span></div></div>
+  <a class="mcard__img" href="#cauti-prevention-trends" tabindex="-1"><div class="vis vis--sq" style="--c:#14A574"><span class="vis__study">Survey · 2005–2025</span><span class="vis__big">48.7%</span><span class="vis__label">of hospitals use catheter stop orders</span></div></a></article>
+  <p class="mcolophon">Le Quotidien Médical · demo edition · October 22, 2026<br>Abstracts reproduced verbatim under each paper's licence. AI summaries are labelled and may contain errors. Not medical advice.</p>
+</main>
+</div>
+<div id="sheets"><div class="page" id="af-nursing-home-oac" hidden>
+<article class="art" style="--c:#C2414B">
+  <div class="sheetbar" style="background:#C2414B"><a class="grab" href="#top" data-close aria-label="Close"></a><span>Cardiology</span><span class="acts"><button class="bm" type="button" aria-label="Save" data-id="af-nursing-home-oac" data-title="Anticoagulation Outcomes in Nursing Home Residents With Atrial Fibrillation and ADL Disability" data-sec="Cardiology" data-color="#C2414B"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-6-4.5L6 21z"/></svg></button><button class="sh" type="button" aria-label="Share" data-title="Anticoagulation Outcomes in Nursing Home Residents With Atrial Fibrillation and ADL Disability" data-url="https://doi.org/10.1001/jamanetworkopen.2026.37533"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3M8 7l4-4 4 4M7 11H5v10h14V11h-2"/></svg></button></span></div>
+  <div class="vis vis--hero" style="--c:#C2414B"><span class="vis__study">Cohort · Medicare + MDS</span><span class="vis__big">26 940</span><span class="vis__label">nursing home residents</span></div>
+  <p class="art__kicker">Atrial fibrillation · JAMA Network Open</p>
+  <h1 class="art__title">Anticoagulation Outcomes in Nursing Home Residents With Atrial Fibrillation and ADL Disability</h1>
+  <p class="art__authors">Chen Q, Singer D, Yang CT, et al.</p>
+  <div class="mmeta"><span><i class="mdot"></i>Oct 1, 2026</span><span><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.5C10 5 7 4.5 3 5v14c4-.5 7 0 9 1.5 2-1.5 5-2 9-1.5V5c-4-.5-7 0-9 1.5zM12 6.5V20"/></svg> 2 min</span></div>
+  <section class="aisum">
+    <div class="aisum__label">✦ AI summary</div>
+    <p>In 26,940 US nursing home residents with atrial fibrillation who depend on others for 3 or more activities of daily living, every oral anticoagulant studied was associated with fewer ischemic strokes but more major bleeding than no anticoagulant. Only apixaban showed no increase in the combined stroke-or-bleeding outcome. The study is observational (propensity-matched claims data), not a randomized trial.</p>
+    <p class="aisum__note">Written by AI from the abstract below. It may contain errors: the abstract is the reference.</p>
+  </section>
+  <section class="abs">
+    <div class="abs__label"><span>Abstract</span><span>Verbatim from JAMA Network Open</span></div>
+    <h4>Importance</h4><p>Long-term nursing home residents with atrial fibrillation (AF) and activities of daily living (ADL) disability are at high risk of bleeding and death, making the net benefit of anticoagulation uncertain.</p><h4>Objective</h4><p>To compare the association of oral anticoagulant (OAC) use vs nonuse with ischemic stroke and major bleeding in long-term nursing home residents with AF and ADL disability.</p><h4>Design, setting, and participants</h4><p>This cohort study used US Medicare claims linked with the Minimum Data Set (January 1, 2013, to December 31, 2022). Nursing home residents with nonvalvular AF and impairment in 3 or more ADLs were included. Three cohorts comparing use of apixaban, rivaroxaban, or warfarin with nonuse were constructed using incidence-density sampling.</p><h4>Exposures</h4><p>Initiation of apixaban, rivaroxaban, or warfarin use.</p><h4>Main outcomes and measures</h4><p>Primary outcomes were ischemic stroke, major bleeding, and their composite. Propensity score (PS) matching balanced 111 covariates. Adjusted rate ratios (ARRs) with 95% CIs were estimated. Tipping-point analyses assessed the relative weighting ischemic stroke vs major bleeding required to favor anticoagulation. Direct active-comparator analyses compared apixaban with rivaroxaban and warfarin.</p><h4>Results</h4><p>The study comprised 26 940 nursing home residents (median [IQR] age, 82 [74,88] years; 17 504 [65.0%] female), including PS-matched cohorts of 7600 residents receiving apixaban, 2654 receiving rivaroxaban, and 3216 receiving warfarin. Compared with nonuse, use of all OACs was associated with lower rates of ischemic stroke (apixaban: ARR, 0.53; 95% CI, 0.38-0.73; rivaroxaban: ARR, 0.48; 95% CI, 0.27-0.87; warfarin: ARR, 0.47; 95% CI, 0.25-0.88) and higher rates of major bleeding (apixaban: ARR, 1.62; 95% CI, 1.29-2.03; rivaroxaban: ARR, 2.68; 95% CI, 1.84-3.93; warfarin: ARR, 3.02; 95% CI, 2.15-4.25). Only apixaban was not associated with a higher composite outcome (ARR, 1.08; 95% CI, 0.90-1.30), whereas rivaroxaban (ARR, 1.62; 95% CI, 1.20-2.18) and warfarin (ARR, 1.99; 95% CI, 1.50-2.63) were associated with higher rates. Findings were consistent across frailty strata, although stroke reduction with apixaban was attenuated among frail individuals. Tipping-point analyses indicated a more favorable benefit-risk balance for apixaban than for rivaroxaban or warfarin.</p><h4>Conclusions and relevance</h4><p>Among nursing home residents with AF and ADL disability, OAC use was associated with lower ischemic stroke but higher major bleeding rates than nonuse. Apixaban demonstrated the most favorable benefit-risk profile among the OACs evaluated. These findings may inform individualized anticoagulation decisions.</p>
+    <p class="abs__lic">Reproduced under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">CC BY-NC-ND 4.0</a>. © The authors.</p>
+  </section>
+  <p class="cite">Chen Q, Singer D, Yang CT, et al. Anticoagulation Outcomes in Nursing Home Residents With Atrial Fibrillation and ADL Disability. <i>JAMA Network Open</i>. 2026. doi:10.1001/jamanetworkopen.2026.37533</p>
+  <a class="pill pill--outline" href="https://doi.org/10.1001/jamanetworkopen.2026.37533" target="_blank" rel="noopener" data-fullpaper="af-nursing-home-oac">Read the full paper <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v6H4V6h6"/></svg></a>
+  <div class="logbox" data-logbox="af-nursing-home-oac">
+    <div class="logbox__icon"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15a6 6 0 1 0 0-12 6 6 0 0 0 0 12zM8.5 14 7 22l5-3 5 3-1.5-8"/></svg></div>
+    <div class="logbox__txt"><b>Earn MOC credit for this</b><span data-logstate="af-nursing-home-oac">Section 2 · 0.5 credits/hour, or 2/hour if it answers a clinical question</span></div>
+    <button class="pill pill--dark" type="button" data-log="af-nursing-home-oac">Log to my CPD</button>
+  </div>
+</article>
+</div><div class="page" id="early-mv-surgery-mr" hidden>
+<article class="art" style="--c:#C2414B">
+  <div class="sheetbar" style="background:#C2414B"><a class="grab" href="#top" data-close aria-label="Close"></a><span>Cardiology</span><span class="acts"><button class="bm" type="button" aria-label="Save" data-id="early-mv-surgery-mr" data-title="Early Mitral Valve Surgery and Survival in Asymptomatic Severe Primary Mitral Regurgitation" data-sec="Cardiology" data-color="#C2414B"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-6-4.5L6 21z"/></svg></button><button class="sh" type="button" aria-label="Share" data-title="Early Mitral Valve Surgery and Survival in Asymptomatic Severe Primary Mitral Regurgitation" data-url="https://doi.org/10.1001/jamanetworkopen.2026.37061"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3M8 7l4-4 4 4M7 11H5v10h14V11h-2"/></svg></button></span></div>
+  <div class="vis vis--hero" style="--c:#C2414B"><span class="vis__study">Target trial emulation</span><span class="vis__big">HR 0.69</span><span class="vis__label">all-cause mortality</span></div>
+  <p class="art__kicker">Valvular heart disease · JAMA Network Open</p>
+  <h1 class="art__title">Early Mitral Valve Surgery and Survival in Asymptomatic Severe Primary Mitral Regurgitation</h1>
+  <p class="art__authors">Ahn J, Kwak S, Lim J, et al.</p>
+  <div class="mmeta"><span><i class="mdot"></i>Oct 1, 2026</span><span><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.5C10 5 7 4.5 3 5v14c4-.5 7 0 9 1.5 2-1.5 5-2 9-1.5V5c-4-.5-7 0-9 1.5zM12 6.5V20"/></svg> 2 min</span></div>
+  <section class="aisum">
+    <div class="aisum__label">✦ AI summary</div>
+    <p>In a registry of 802 patients from 3 South Korean hospitals with asymptomatic severe primary mitral regurgitation, surgery within 6 months of diagnosis was associated with lower all-cause mortality than watchful waiting (HR 0.69) over a median of 7.4 years, a 66-day survival gain at 5 years. Results were similar without left ventricular decompensation. There is no randomized trial on this question; this is an emulated one.</p>
+    <p class="aisum__note">Written by AI from the abstract below. It may contain errors: the abstract is the reference.</p>
+  </section>
+  <section class="abs">
+    <div class="abs__label"><span>Abstract</span><span>Verbatim from JAMA Network Open</span></div>
+    <h4>Importance</h4><p>The optimal timing of mitral valve (MV) surgery in patients with asymptomatic severe primary mitral regurgitation (MR) remains uncertain because randomized clinical trials are lacking.</p><h4>Objective</h4><p>To evaluate the association of early MV surgery with long-term survival in patients with asymptomatic severe primary MR using a target trial emulation framework.</p><h4>Design, setting, and participants</h4><p>This cohort study used a clinical valve registry from 3 tertiary hospitals in South Korea between 2000 and 2022. Patients with asymptomatic severe primary MR were analyzed using a clone-censor-weight approach to emulate a target trial. A 6-month grace period after diagnosis was used to define treatment strategies. This analysis was conducted from September 2024 to January 2025.</p><h4>Exposure</h4><p>Early MV surgery (within 6 months of diagnosis) vs watchful waiting.</p><h4>Main outcomes and measures</h4><p>The primary outcome was all-cause mortality and the secondary outcome, a composite of all-cause mortality or heart failure hospitalization. Inverse probability of censoring-weighted estimates of the per-protocol effect size included restricted mean survival time (RMST) differences as the primary measure and hazard ratios (HRs) as secondary measures.</p><h4>Results</h4><p>Among 802 patients (mean [SD] age, 55 [16] years; 476 men [59%]), 344 underwent early surgery, and 458 received watchful waiting. During a median (IQR) follow-up of 7.4 (4.1-11.6) years, 27 deaths occurred in the early surgery group and 103 in the watchful waiting group. At 5 years, early surgery was associated with an RMST gain of 66 days (95% CI, 19-129 days). The survival benefit persisted up to 15 years. Early surgery was also associated with a lower risk of all-cause mortality compared with watchful waiting (HR, 0.69; 95% CI, 0.41-0.94; P = .02). Similar associations were observed in patients without left ventricular decompensation (HR, 0.61; 95% CI, 0.31-0.96; P = .04) and in those with degenerative MR (HR, 0.66; 95% CI, 0.36-0.98; P = .04).</p><h4>Conclusions and relevance</h4><p>In this multicenter cohort study with a target trial framework, early surgery was associated with improved long-term survival among patients with asymptomatic severe primary MR. These findings support consideration of earlier surgical intervention in contemporary clinical practice.</p>
+    <p class="abs__lic">Reproduced under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">CC BY-NC-ND 4.0</a>. © The authors.</p>
+  </section>
+  <p class="cite">Ahn J, Kwak S, Lim J, et al. Early Mitral Valve Surgery and Survival in Asymptomatic Severe Primary Mitral Regurgitation. <i>JAMA Network Open</i>. 2026. doi:10.1001/jamanetworkopen.2026.37061</p>
+  <a class="pill pill--outline" href="https://doi.org/10.1001/jamanetworkopen.2026.37061" target="_blank" rel="noopener" data-fullpaper="early-mv-surgery-mr">Read the full paper <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v6H4V6h6"/></svg></a>
+  <div class="logbox" data-logbox="early-mv-surgery-mr">
+    <div class="logbox__icon"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15a6 6 0 1 0 0-12 6 6 0 0 0 0 12zM8.5 14 7 22l5-3 5 3-1.5-8"/></svg></div>
+    <div class="logbox__txt"><b>Earn MOC credit for this</b><span data-logstate="early-mv-surgery-mr">Section 2 · 0.5 credits/hour, or 2/hour if it answers a clinical question</span></div>
+    <button class="pill pill--dark" type="button" data-log="early-mv-surgery-mr">Log to my CPD</button>
+  </div>
+</article>
+</div><div class="page" id="pci-facility-access-ami" hidden>
+<article class="art" style="--c:#C2414B">
+  <div class="sheetbar" style="background:#C2414B"><a class="grab" href="#top" data-close aria-label="Close"></a><span>Cardiology</span><span class="acts"><button class="bm" type="button" aria-label="Save" data-id="pci-facility-access-ami" data-title="Percutaneous Coronary Intervention Facility Access and Clinical Outcomes Among Patients With Acute Myocardial Infarction" data-sec="Cardiology" data-color="#C2414B"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-6-4.5L6 21z"/></svg></button><button class="sh" type="button" aria-label="Share" data-title="Percutaneous Coronary Intervention Facility Access and Clinical Outcomes Among Patients With Acute Myocardial Infarction" data-url="https://doi.org/10.1001/jamanetworkopen.2026.38687"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3M8 7l4-4 4 4M7 11H5v10h14V11h-2"/></svg></button></span></div>
+  <div class="vis vis--hero" style="--c:#C2414B"><span class="vis__study">Cohort · California 2011–2022</span><span class="vis__big">−20%</span><span class="vis__label">30-day mortality where PCI was new</span></div>
+  <p class="art__kicker">Acute myocardial infarction · JAMA Network Open</p>
+  <h1 class="art__title">Percutaneous Coronary Intervention Facility Access and Clinical Outcomes Among Patients With Acute Myocardial Infarction</h1>
+  <p class="art__authors">Shen YC, Hsia RY</p>
+  <div class="mmeta"><span><i class="mdot"></i>Oct 1, 2026</span><span><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.5C10 5 7 4.5 3 5v14c4-.5 7 0 9 1.5 2-1.5 5-2 9-1.5V5c-4-.5-7 0-9 1.5zM12 6.5V20"/></svg> 3 min</span></div>
+  <section class="aisum">
+    <div class="aisum__label">✦ AI summary</div>
+    <p>Across 590,282 AMI hospitalizations in California, a new PCI-capable facility within 30 minutes improved outcomes mainly in communities that had none before: more PCI and lower 30-day and 1-year mortality. Openings in areas already served brought small gains and no change in mortality.</p>
+    <p class="aisum__note">Written by AI from the abstract below. It may contain errors: the abstract is the reference.</p>
+  </section>
+  <section class="abs">
+    <div class="abs__label"><span>Abstract</span><span>Verbatim from JAMA Network Open</span></div>
+    <h4>Importance</h4><p>The proliferation of percutaneous coronary intervention (PCI) facilities across the US has raised questions about whether expanding capacity improves outcomes in areas already served vs those without prior access.</p><h4>Objective</h4><p>To evaluate the association between the opening of PCI-capable facilities and outcomes following acute myocardial infarction (AMI) in communities with and without baseline PCI access.</p><h4>Design, setting, and participants</h4><p>This cohort study used California data from inpatient, emergency department, and ambulatory surgery encounters from January 1, 2011, to December 31, 2022, including all adults hospitalized with a primary diagnosis of AMI. Zip code communities were categorized by baseline (2011) access to PCI-capable facilities within a 30-minute drive.</p><h4>Exposure</h4><p>Opening of a PCI-capable facility within 30 minutes of a community&#x27;s zip code during the study period.</p><h4>Main outcomes and measures</h4><p>Primary outcomes were (1) admission to a PCI-capable facility, (2) receipt of PCI during the index hospitalization, (3) unscheduled acute care visit within 30 days, and (4) all-cause mortality at 30 days and 1 year. Linear probability models with community and time-fixed effects estimated changes in outcomes following PCI facility openings separately for communities with and without baseline access.</p><h4>Results</h4><p>Among 590 282 patients with AMI (157 435 younger than age 60 years [27%]; 222 773 female [38%]; 63 460 Asian [11%], 129 137 Hispanic [22%], 315 326 White [53%]), 500 778 (85%) lived in communities with baseline PCI access, and 89 504 (15%) lived in communities without; 18 805 patients (21%) without baseline access experienced a PCI opening. Openings in communities without baseline access were associated with a 30.0 percentage point (pp) increase (95% CI, 28.2 to 31.8 pp) in admission to PCI-capable hospitals and a 5.1 pp increase (95% CI, 3.3 to 7.0 pp) in PCI receipt, along with reductions in 30-day (-1.8 pp; 95% CI, -3.2 to -0.5 pp) and 1-year (-2.8 pp; 95% CI, -4.7 to -1.0 pp) mortality. In contrast, openings in communities with baseline access were associated with smaller gains in admission (1.5 pp; 95% CI, 1.1 to 1.9 pp), modest increases in PCI use (1.0 pp; 95% CI, 0.5 to 1.6 pp), decreases in unscheduled visits within 30 days (-0.7 pp; 95% CI, -1.2 to -0.2 pp), and no mortality change. Sensitivity analyses restricted to higher-volume PCI centers (50 annual cases or more) yielded consistent findings.</p><h4>Conclusions and relevance</h4><p>In this cohort study of 590 282 patients with AMI in California, opening new PCI facilities was associated with substantial improvements in communities without prior PCI availability, including a 53% relative increase in access to admission, 16% increase in PCI use, and 20% and 15% reductions in 30-day and 1-year mortality, respectively. In contrast, already served areas showed smaller benefits and no mortality improvement. PCI expansion should prioritize underserved regions to maximize population-level benefits and avoid inefficient duplication of services.</p>
+    <p class="abs__lic">Reproduced under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>. © The authors.</p>
+  </section>
+  <p class="cite">Shen YC, Hsia RY Percutaneous Coronary Intervention Facility Access and Clinical Outcomes Among Patients With Acute Myocardial Infarction. <i>JAMA Network Open</i>. 2026. doi:10.1001/jamanetworkopen.2026.38687</p>
+  <a class="pill pill--outline" href="https://doi.org/10.1001/jamanetworkopen.2026.38687" target="_blank" rel="noopener" data-fullpaper="pci-facility-access-ami">Read the full paper <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v6H4V6h6"/></svg></a>
+  <div class="logbox" data-logbox="pci-facility-access-ami">
+    <div class="logbox__icon"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15a6 6 0 1 0 0-12 6 6 0 0 0 0 12zM8.5 14 7 22l5-3 5 3-1.5-8"/></svg></div>
+    <div class="logbox__txt"><b>Earn MOC credit for this</b><span data-logstate="pci-facility-access-ami">Section 2 · 0.5 credits/hour, or 2/hour if it answers a clinical question</span></div>
+    <button class="pill pill--dark" type="button" data-log="pci-facility-access-ami">Log to my CPD</button>
+  </div>
+</article>
+</div><div class="page" id="cgm-t2d-kidney" hidden>
+<article class="art" style="--c:#207FB7">
+  <div class="sheetbar" style="background:#207FB7"><a class="grab" href="#top" data-close aria-label="Close"></a><span>Endocrinology</span><span class="acts"><button class="bm" type="button" aria-label="Save" data-id="cgm-t2d-kidney" data-title="Continuous Glucose Monitoring and Long-Term Glycemic and Kidney Outcomes" data-sec="Endocrinology" data-color="#207FB7"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-6-4.5L6 21z"/></svg></button><button class="sh" type="button" aria-label="Share" data-title="Continuous Glucose Monitoring and Long-Term Glycemic and Kidney Outcomes" data-url="https://doi.org/10.1001/jamanetworkopen.2026.37698"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3M8 7l4-4 4 4M7 11H5v10h14V11h-2"/></svg></button></span></div>
+  <div class="vis vis--hero" style="--c:#207FB7"><span class="vis__study">Target trial emulation</span><span class="vis__big">−0.8</span><span class="vis__label">points of HbA1c at 36 months</span></div>
+  <p class="art__kicker">Type 2 diabetes · JAMA Network Open</p>
+  <h1 class="art__title">Continuous Glucose Monitoring and Long-Term Glycemic and Kidney Outcomes</h1>
+  <p class="art__authors">Karter AJ, Parker MM, Finertie H, et al.</p>
+  <div class="mmeta"><span><i class="mdot"></i>Oct 1, 2026</span><span><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.5C10 5 7 4.5 3 5v14c4-.5 7 0 9 1.5 2-1.5 5-2 9-1.5V5c-4-.5-7 0-9 1.5zM12 6.5V20"/></svg> 3 min</span></div>
+  <section class="aisum">
+    <div class="aisum__label">✦ AI summary</div>
+    <p>Among 25,648 high-risk adults with type 2 diabetes (mean HbA1c 9.5%), starting and sustaining real-time continuous glucose monitoring was associated with an HbA1c about 0.8 percentage points lower than controls after 36 months, and a lower urine albumin-creatinine ratio by the end of follow-up. eGFR did not differ. 44% of CGM starters stopped using it during follow-up, and the design is observational.</p>
+    <p class="aisum__note">Written by AI from the abstract below. It may contain errors: the abstract is the reference.</p>
+  </section>
+  <section class="abs">
+    <div class="abs__label"><span>Abstract</span><span>Verbatim from JAMA Network Open</span></div>
+    <h4>Importance</h4><p>Real-time continuous glucose monitoring (rtCGM) improves short-term glycemic control in diabetes. However, scant evidence exists regarding rtCGM&#x27;s longer-term benefits for glycemia or kidney health.</p><h4>Objective</h4><p>To evaluate whether rtCGM initiation and sustained use is associated with improved glycemic control and kidney markers in high-risk adults with type 2 diabetes (T2D).</p><h4>Design, setting, and participants</h4><p>This comparative effectiveness research study compared glycemic control and kidney markers among high-risk adults with T2D initiating and sustaining use of rtCGM (rtCGM arm) vs no initiation (controls) using inverse probability-weighted marginal structural models to estimate per-protocol outcomes of an emulated target trial. Target trial eligibility criteria were as follows: age of 19 years or older, T2D, no prior CGM use, and poor glycemic control (hemoglobin A1c [HbA1c] &gt;8%) or emergency department or inpatient treatment for hypoglycemia. Baseline was defined by the rtCGM initiation date and applied to temporally matched CGM-naive controls who met the eligibility criteria, sampled monthly from risk sets from January 1, 2015, to June 30, 2023. Data were censored at nonadherence to the target trial protocol (eg, rtCGM arm discontinued use or controls initiated CGM), coverage gaps, death, or after 36 months of follow-up. Data analysis was performed July 2025 to March 2026.</p><h4>Exposure</h4><p>rtCGM use.</p><h4>Main outcomes and measures</h4><p>Cumulative differences for HbA1c, urinary albumin-creatinine ratio (UACR), and estimated glomerular filtration rate (eGFR).</p><h4>Results</h4><p>The study included 25 648 individuals (2771 in the rtCGM arm and 22 877 in the control arm) who were target trial eligible (mean [SD] age, 61.5 [13.1] years; 13 885 [54.7%] male). The mean (SD) baseline HbA1c level was 9.5% (1.5%). After 36 months of follow-up, the rtCGM arm had an approximately 0.8-percentage point lower HbA1c level than controls (7.83% [95% CI, 7.55%-8.11%] vs 8.58% [95% CI, 8.49%-8.66%], P &lt; .001). There was substantial attrition during follow-up; 1228 (44.3%) in the rtCGM arm were censored due to discontinuation and 4284 (18.7%) in the control group were censored due to CGM initiation. There were no significant differences in UACR between arms initially; however, by the end of 36 months, rtCGM initiators had a UACR of 125.3 mg/g (95% CI, -196.6 to -54.0 mg/g; P = .001) lower than that of controls. There were no differences in eGFR during follow-up.</p><h4>Conclusions and relevance</h4><p>In this comparative effectiveness study using a target trial emulation, sustained, longer-term use of rtCGM was associated with durable improvements in glycemic control and later regression of UACR. By addressing glycemic deterioration, rtCGM may extend the time before pharmacologic escalation is required and potentially delay diabetic kidney disease progression.</p>
+    <p class="abs__lic">Reproduced under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">CC BY-NC-ND 4.0</a>. © The authors.</p>
+  </section>
+  <p class="cite">Karter AJ, Parker MM, Finertie H, et al. Continuous Glucose Monitoring and Long-Term Glycemic and Kidney Outcomes. <i>JAMA Network Open</i>. 2026. doi:10.1001/jamanetworkopen.2026.37698</p>
+  <a class="pill pill--outline" href="https://doi.org/10.1001/jamanetworkopen.2026.37698" target="_blank" rel="noopener" data-fullpaper="cgm-t2d-kidney">Read the full paper <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v6H4V6h6"/></svg></a>
+  <div class="logbox" data-logbox="cgm-t2d-kidney">
+    <div class="logbox__icon"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15a6 6 0 1 0 0-12 6 6 0 0 0 0 12zM8.5 14 7 22l5-3 5 3-1.5-8"/></svg></div>
+    <div class="logbox__txt"><b>Earn MOC credit for this</b><span data-logstate="cgm-t2d-kidney">Section 2 · 0.5 credits/hour, or 2/hour if it answers a clinical question</span></div>
+    <button class="pill pill--dark" type="button" data-log="cgm-t2d-kidney">Log to my CPD</button>
+  </div>
+</article>
+</div><div class="page" id="preemptive-kidney-tx" hidden>
+<article class="art" style="--c:#5A79A0">
+  <div class="sheetbar" style="background:#5A79A0"><a class="grab" href="#top" data-close aria-label="Close"></a><span>Nephrology</span><span class="acts"><button class="bm" type="button" aria-label="Save" data-id="preemptive-kidney-tx" data-title="Survival Outcomes Following Preemptive vs Nonpreemptive Kidney Transplantation" data-sec="Nephrology" data-color="#5A79A0"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-6-4.5L6 21z"/></svg></button><button class="sh" type="button" aria-label="Share" data-title="Survival Outcomes Following Preemptive vs Nonpreemptive Kidney Transplantation" data-url="https://doi.org/10.1001/jamanetworkopen.2026.37964"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3M8 7l4-4 4 4M7 11H5v10h14V11h-2"/></svg></button></span></div>
+  <div class="vis vis--hero" style="--c:#5A79A0"><span class="vis__study">Target trial emulation · SRTR</span><span class="vis__big">HR 1.02</span><span class="vis__label">mortality, preemptive vs not</span></div>
+  <p class="art__kicker">Kidney transplantation · JAMA Network Open</p>
+  <h1 class="art__title">Survival Outcomes Following Preemptive vs Nonpreemptive Kidney Transplantation</h1>
+  <p class="art__authors">Rampersad C, Liew IT, Liu K, et al.</p>
+  <div class="mmeta"><span><i class="mdot"></i>Oct 1, 2026</span><span><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.5C10 5 7 4.5 3 5v14c4-.5 7 0 9 1.5 2-1.5 5-2 9-1.5V5c-4-.5-7 0-9 1.5zM12 6.5V20"/></svg> 2 min</span></div>
+  <section class="aisum">
+    <div class="aisum__label">✦ AI summary</div>
+    <p>In 32,770 first kidney transplant recipients in the US national registry, transplantation before dialysis was not associated with better patient survival (HR 1.02) once selection and lead-time biases were addressed. It was associated with less delayed graft function and less death-censored graft failure.</p>
+    <p class="aisum__note">Written by AI from the abstract below. It may contain errors: the abstract is the reference.</p>
+  </section>
+  <section class="abs">
+    <div class="abs__label"><span>Abstract</span><span>Verbatim from JAMA Network Open</span></div>
+    <h4>Importance</h4><p>Preemptive kidney transplantation (before dialysis) is promoted as optimal therapy for kidney failure, yet evidence of a true survival advantage remains uncertain due to confounding, selection, and lead-time biases.</p><h4>Objective</h4><p>To estimate the associations of preemptive vs nonpreemptive kidney transplantation with mortality and graft outcomes using a target trial emulation among transplant recipients.</p><h4>Design, setting, and participants</h4><p>This retrospective cohort study used data from the Scientific Registry of Transplant Recipients, a nationwide registry of all US kidney transplant centers, from January 1, 2005, to November 30, 2023. Adult first kidney-alone transplant recipients with recorded wait-time start at an estimated glomerular filtration rate (eGFR) of 20 mL/min/1.73 m2 or less were included. Groups were balanced using stabilized inverse probability of treatment weighting (IPTW) to emulate randomization across demographic, clinical, and socioeconomic factors identified by a directed acyclic graph. Analyses were conducted from July to October 2025.</p><h4>Exposures</h4><p>Preemptive vs nonpreemptive kidney transplantation, defined by dialysis before transplant.</p><h4>Main outcomes and measures</h4><p>The primary outcome was all-cause mortality; secondary outcomes were all-cause graft failure, death-censored graft failure, and delayed graft function. IPTW was incorporated for baseline confounding to address selection bias. Weighted Kaplan-Meier curves estimated survival differences; hazard ratios (HRs) and odds ratios (ORs) were derived from weighted left-truncated Cox proportional hazards (to address lead-time bias) and logistic regression models, respectively.</p><h4>Results</h4><p>Among 32 770 recipients (15 894 [48.5%] preemptive [mean (SD) age, 53.7 (13.1) years; 7007 (44.1%) female] and 16 876 [51.5%] nonpreemptive [mean (SD) age, 54.5 (13.0) years; 6978 (41.3%) female]) with more than 265 369 person-years of follow-up, 6827 deaths occurred. Preemptive transplantation showed no mortality benefit (HR, 1.02; 95% CI, 0.96-1.07). The weighted survival differences were approximately 1% to 2% annually. Preemptive transplantation was associated with lower odds of delayed graft function (OR, 0.68; 95% CI, 0.64-0.72) and reduced risk of death-censored graft failure (HR, 0.81; 95% CI, 0.74-0.88), an association largely attenuated after adjustment for delayed graft function. There was no association with all-cause graft failure (HR, 0.96; 95% CI, 0.91-1.00).</p><h4>Conclusions and relevance</h4><p>In this study, preemptive transplantation was not associated with improved patient survival but was associated with lower rates of delayed graft function and death-censored graft failure. Findings challenge presumed survival advantages and suggest preemptive strategies should focus on preventing early graft dysfunction and optimizing use of high-risk kidneys rather than expected mortality benefit.</p>
+    <p class="abs__lic">Reproduced under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">CC BY-NC-ND 4.0</a>. © The authors.</p>
+  </section>
+  <p class="cite">Rampersad C, Liew IT, Liu K, et al. Survival Outcomes Following Preemptive vs Nonpreemptive Kidney Transplantation. <i>JAMA Network Open</i>. 2026. doi:10.1001/jamanetworkopen.2026.37964</p>
+  <a class="pill pill--outline" href="https://doi.org/10.1001/jamanetworkopen.2026.37964" target="_blank" rel="noopener" data-fullpaper="preemptive-kidney-tx">Read the full paper <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v6H4V6h6"/></svg></a>
+  <div class="logbox" data-logbox="preemptive-kidney-tx">
+    <div class="logbox__icon"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15a6 6 0 1 0 0-12 6 6 0 0 0 0 12zM8.5 14 7 22l5-3 5 3-1.5-8"/></svg></div>
+    <div class="logbox__txt"><b>Earn MOC credit for this</b><span data-logstate="preemptive-kidney-tx">Section 2 · 0.5 credits/hour, or 2/hour if it answers a clinical question</span></div>
+    <button class="pill pill--dark" type="button" data-log="preemptive-kidney-tx">Log to my CPD</button>
+  </div>
+</article>
+</div><div class="page" id="hcc-sex-mortality" hidden>
+<article class="art" style="--c:#6B9500">
+  <div class="sheetbar" style="background:#6B9500"><a class="grab" href="#top" data-close aria-label="Close"></a><span>Hepatology</span><span class="acts"><button class="bm" type="button" aria-label="Save" data-id="hcc-sex-mortality" data-title="Sex Differences in Mortality Among Patients With Hepatocellular Carcinoma" data-sec="Hepatology" data-color="#6B9500"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-6-4.5L6 21z"/></svg></button><button class="sh" type="button" aria-label="Share" data-title="Sex Differences in Mortality Among Patients With Hepatocellular Carcinoma" data-url="https://doi.org/10.1001/jamanetworkopen.2026.37313"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3M8 7l4-4 4 4M7 11H5v10h14V11h-2"/></svg></button></span></div>
+  <div class="vis vis--hero" style="--c:#6B9500"><span class="vis__study">Multicentre cohort · 17 centres</span><span class="vis__big">aHR 1.14</span><span class="vis__label">male vs female mortality</span></div>
+  <p class="art__kicker">Hepatocellular carcinoma · JAMA Network Open</p>
+  <h1 class="art__title">Sex Differences in Mortality Among Patients With Hepatocellular Carcinoma</h1>
+  <p class="art__authors">Yan T, Yeh ML, Leong J, et al.</p>
+  <div class="mmeta"><span><i class="mdot"></i>Oct 1, 2026</span><span><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.5C10 5 7 4.5 3 5v14c4-.5 7 0 9 1.5 2-1.5 5-2 9-1.5V5c-4-.5-7 0-9 1.5zM12 6.5V20"/></svg> 3 min</span></div>
+  <section class="aisum">
+    <div class="aisum__label">✦ AI summary</div>
+    <p>In 8,594 patients with hepatocellular carcinoma from 17 centres in 5 countries and regions, men had higher overall mortality than women after weighting (adjusted HR 1.14). The gap was largest in alcohol-associated liver disease and absent in MASLD; non-liver-related mortality did not differ by sex.</p>
+    <p class="aisum__note">Written by AI from the abstract below. It may contain errors: the abstract is the reference.</p>
+  </section>
+  <section class="abs">
+    <div class="abs__label"><span>Abstract</span><span>Verbatim from JAMA Network Open</span></div>
+    <h4>Importance</h4><p>Sex is a well-recognized factor associated with hepatocellular carcinoma (HCC) incidence, but its association with mortality is unclear.</p><h4>Objective</h4><p>To assess the association between sex and the risk of overall, liver-related, and non-liver-related mortality among patients with HCC.</p><h4>Design, setting, and participants</h4><p>This retrospective cohort study was conducted among patients with HCC in 17 centers from 5 countries and regions (2000-2023). Male and female patients with HCC who had balanced baseline characteristics via inverse probability of treatment weighting (IPTW) were included, with a propensity score-matched cohort included for sensitivity analyses. Data were analyzed between July 10 and September 8, 2025.</p><h4>Exposures</h4><p>Male vs female sex.</p><h4>Main outcomes and measures</h4><p>Overall, liver-related, and non-liver-related mortality.</p><h4>Results</h4><p>Among 8594 patients with HCC (mean [SD] age, 63.3 [10.9] years; 6214 male [72.3%]; 5644 Asian [65.7%], 458 Black [5.3%], 615 Hispanic [7.2%], and 1784 White [20.8%]), 4567 were from Asia (53.1%), 6327 had cirrhosis (73.6%), and 6617 had viral etiology (77.0%). In the unmatched cohort, males had a higher overall mortality rate per 100 person-years than females in the total cohort (15.9 [95% CI, 15.3-16.4] vs 13.3 [95% CI, 12.5-14.1]; P &lt; .001) and in Asian (14.1 [95% CI, 13.5-14.7] vs 11.1 [95% CI, 10.3-12.0]; P &lt; .001), Asia region (14.4 [95% CI, 13.6-15.2] vs 10.8 [95% CI, 9.9-11.8]; P &lt; .001), cirrhosis (17.6 [95% CI, 16.9-18.3] vs 14.4 [95% CI, 13.5-15.4]; P &lt; .001), and hepatitis B (13.6 [95% CI, 12.7-14.5] vs 10.0 [95% CI, 8.6-11.5]; P &lt; .001) and C (15.8 [95% CI, 15.0-16.6] vs 13.4 [95% CI, 12.4-14.6]; P &lt; .001) subgroups. In the IPTW-matched cohort, male sex was associated with increased overall mortality in the full cohort (adjusted hazard ratio [aHR], 1.14 [95% CI, 1.05-1.23]; P = .002) and in Asian (aHR, 1.22 [95% CI, 1.10-1.36]; P &lt; .001), Asia region (aHR, 1.23 [95% CI, 1.09-1.39]; P &lt; .001), cirrhosis (aHR, 1.18 [95% CI, 1.08-1.29]; P &lt; .001), and viral (aHR, 1.15 [95% CI, 1.05-1.26]; P = .004) subgroups. Additionally, sex differences varied by liver disease etiology, with male sex having the highest aHR in the association with overall mortality among individuals with alcohol-associated liver disease (aHR, 1.90 [95% CI, 1.02-3.54]; P = .04), followed by those with hepatitis B (aHR, 1.22 [95% CI, 1.01-1.47]; P = .04) or C (aHR, 1.13 [95% CI, 1.02-1.26]; P = .03), but there was no association in patients with metabolic dysfunction-associated steatotic liver disease. There was no significant sex difference for non-liver-related mortality.</p><h4>Conclusions and relevance</h4><p>In this study, sex disparities in HCC mortality existed but were heterogeneous across ethnic background and liver disease etiologies. These findings support incorporation of sex-based considerations in HCC management.</p>
+    <p class="abs__lic">Reproduced under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">CC BY-NC-ND 4.0</a>. © The authors.</p>
+  </section>
+  <p class="cite">Yan T, Yeh ML, Leong J, et al. Sex Differences in Mortality Among Patients With Hepatocellular Carcinoma. <i>JAMA Network Open</i>. 2026. doi:10.1001/jamanetworkopen.2026.37313</p>
+  <a class="pill pill--outline" href="https://doi.org/10.1001/jamanetworkopen.2026.37313" target="_blank" rel="noopener" data-fullpaper="hcc-sex-mortality">Read the full paper <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v6H4V6h6"/></svg></a>
+  <div class="logbox" data-logbox="hcc-sex-mortality">
+    <div class="logbox__icon"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15a6 6 0 1 0 0-12 6 6 0 0 0 0 12zM8.5 14 7 22l5-3 5 3-1.5-8"/></svg></div>
+    <div class="logbox__txt"><b>Earn MOC credit for this</b><span data-logstate="hcc-sex-mortality">Section 2 · 0.5 credits/hour, or 2/hour if it answers a clinical question</span></div>
+    <button class="pill pill--dark" type="button" data-log="hcc-sex-mortality">Log to my CPD</button>
+  </div>
+</article>
+</div><div class="page" id="cauti-prevention-trends" hidden>
+<article class="art" style="--c:#14A574">
+  <div class="sheetbar" style="background:#14A574"><a class="grab" href="#top" data-close aria-label="Close"></a><span>Infectious diseases</span><span class="acts"><button class="bm" type="button" aria-label="Save" data-id="cauti-prevention-trends" data-title="Catheter-Associated Urinary Tract Infection Prevention Practices in US Hospitals" data-sec="Infectious diseases" data-color="#14A574"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-6-4.5L6 21z"/></svg></button><button class="sh" type="button" aria-label="Share" data-title="Catheter-Associated Urinary Tract Infection Prevention Practices in US Hospitals" data-url="https://doi.org/10.1001/jamanetworkopen.2026.37540"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3M8 7l4-4 4 4M7 11H5v10h14V11h-2"/></svg></button></span></div>
+  <div class="vis vis--hero" style="--c:#14A574"><span class="vis__study">Survey · 2005–2025</span><span class="vis__big">48.7%</span><span class="vis__label">of hospitals use catheter stop orders</span></div>
+  <p class="art__kicker">Hospital infections · JAMA Network Open</p>
+  <h1 class="art__title">Catheter-Associated Urinary Tract Infection Prevention Practices in US Hospitals</h1>
+  <p class="art__authors">Saint S, Greene MT, Krein SL, et al.</p>
+  <div class="mmeta"><span><i class="mdot"></i>Oct 1, 2026</span><span><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.5C10 5 7 4.5 3 5v14c4-.5 7 0 9 1.5 2-1.5 5-2 9-1.5V5c-4-.5-7 0-9 1.5zM12 6.5V20"/></svg> 3 min</span></div>
+  <section class="aisum">
+    <div class="aisum__label">✦ AI summary</div>
+    <p>Six national surveys from 2005 to 2025 show US hospitals greatly expanded CAUTI surveillance and catheter-duration monitoring. High-yield practices stayed uneven: in 2025, 48.7% of nonfederal hospitals regularly used catheter reminders or stop orders, versus 31.5% of VA hospitals, and external catheter use rose sharply.</p>
+    <p class="aisum__note">Written by AI from the abstract below. It may contain errors: the abstract is the reference.</p>
+  </section>
+  <section class="abs">
+    <div class="abs__label"><span>Abstract</span><span>Verbatim from JAMA Network Open</span></div>
+    <h4>Importance</h4><p>Catheter-associated urinary tract infection (CAUTI) remains a common and morbid health care-associated infection. Although evidence-based prevention strategies are well established, the degree to which hospitals adopt and sustain these practices over time and whether trajectories differ between Department of Veterans Affairs (VA) and nonfederal systems are not well described.</p><h4>Objective</h4><p>To examine 20-year trends in reported CAUTI prevention practices in US hospitals and compare practice use between VA and nonfederal hospitals.</p><h4>Design, setting, and participants</h4><p>This survey study used repeated cross-sectional national surveys conducted every 4 years from 2005 to 2025. Surveys were sent to the lead infection preventionist at all VA hospitals, as well as a random sample of nonfederal, general medical, and surgical US hospitals with intensive care units. Data were analyzed from January to August 2026.</p><h4>Main outcomes and measures</h4><p>The outcome of interest was regular use of specific CAUTI prevention practices, including urinary catheter reminders or stop orders, nurse-initiated discontinuation, bladder ultrasonography, intermittent catheterization, external catheters, aseptic insertion, surveillance systems, and leadership prioritization of CAUTI prevention.</p><h4>Results</h4><p>Over the 20 year period, 1461 unique hospitals participated in at least 1 study survey, with mean (SD) response rates for the 6 survey waves of 63.4% (8.4%) for VA hospitals and 56.5% (9.2%) for nonfederal hospitals. Both VA and nonfederal hospitals demonstrated substantial long-term increases in surveillance infrastructure, routine monitoring of catheter duration, and leadership prioritization of CAUTI prevention. In nonfederal hospitals, regular use of urinary catheter reminders or stop orders increased from 34 of 372 hospitals (9.1%) in 2005 to 149 of 306 hospitals (48.7%) in 2025, and nurse-initiated discontinuation increased from 43 of 379 hospitals (11.3%) in 2009 to 179 of 307 hospitals (58.3%) in 2025. VA hospitals also showed significant increases in these practices over time, although use in 2025 was lower than nonfederal hospitals (urinary catheter reminders or stop orders: 10 of 90 hospitals [11.1%] in 2005 and 23 of 73 hospitals [31.5%] in 2025; nurse-initiated discontinuation: 10 of 69 hospitals (14.5%) in 2009 and 28 of 74 hospitals [37.8%] in 2025). Use of silver alloy Foley catheters declined markedly in nonfederal hospitals (from 126 of 389 hospitals [32.4%] in 2005 to 41 of 294 hospitals [14.0%] in 2025) but remained stable in VA facilities. External catheter use increased substantially, particularly in women, with 194 of 310 nonfederal hospitals (62.6%) and 30 of 73 VA hospitals (41.1%) reporting regular use by 2025. Nearly universal use of CAUTI surveillance systems was observed in both settings (309 of 315 nonfederal hospitals [98.1%] and 73 of 74 VA hospitals [98.7%]).</p><h4>Conclusions and relevance</h4><p>This survey study of infection-prevention practice use found that US hospitals substantially expanded use of many CAUTI prevention practices, particularly surveillance and monitoring systems, over the past 20 years. However, variability in use of high-yield practices, such as reminders and nurse-driven discontinuation, persisted, underscoring the need for sustained, system-level strategies to optimize urinary catheter safety across health care settings.</p>
+    <p class="abs__lic">Reproduced under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">CC BY-NC-ND 4.0</a>. © The authors.</p>
+  </section>
+  <p class="cite">Saint S, Greene MT, Krein SL, et al. Catheter-Associated Urinary Tract Infection Prevention Practices in US Hospitals. <i>JAMA Network Open</i>. 2026. doi:10.1001/jamanetworkopen.2026.37540</p>
+  <a class="pill pill--outline" href="https://doi.org/10.1001/jamanetworkopen.2026.37540" target="_blank" rel="noopener" data-fullpaper="cauti-prevention-trends">Read the full paper <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v6H4V6h6"/></svg></a>
+  <div class="logbox" data-logbox="cauti-prevention-trends">
+    <div class="logbox__icon"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15a6 6 0 1 0 0-12 6 6 0 0 0 0 12zM8.5 14 7 22l5-3 5 3-1.5-8"/></svg></div>
+    <div class="logbox__txt"><b>Earn MOC credit for this</b><span data-logstate="cauti-prevention-trends">Section 2 · 0.5 credits/hour, or 2/hour if it answers a clinical question</span></div>
+    <button class="pill pill--dark" type="button" data-log="cauti-prevention-trends">Log to my CPD</button>
+  </div>
+</article>
+</div><div class="page" id="aatd-testing-gaps" hidden>
+<article class="art" style="--c:#A05FA8">
+  <div class="sheetbar" style="background:#A05FA8"><a class="grab" href="#top" data-close aria-label="Close"></a><span>Respirology</span><span class="acts"><button class="bm" type="button" aria-label="Save" data-id="aatd-testing-gaps" data-title="Disparities in α1-Antitrypsin Deficiency Testing and Treatment in US Adults" data-sec="Respirology" data-color="#A05FA8"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-6-4.5L6 21z"/></svg></button><button class="sh" type="button" aria-label="Share" data-title="Disparities in α1-Antitrypsin Deficiency Testing and Treatment in US Adults" data-url="https://doi.org/10.1001/jamanetworkopen.2026.39328"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3M8 7l4-4 4 4M7 11H5v10h14V11h-2"/></svg></button></span></div>
+  <div class="vis vis--hero" style="--c:#A05FA8"><span class="vis__study">Cohort · VA health records</span><span class="vis__big">5.8%</span><span class="vis__label">of patients ever tested</span></div>
+  <p class="art__kicker">COPD and asthma · JAMA Network Open</p>
+  <h1 class="art__title">Disparities in α1-Antitrypsin Deficiency Testing and Treatment in US Adults</h1>
+  <p class="art__authors">Baldomero AK, Smith L, Gravely A, et al.</p>
+  <div class="mmeta"><span><i class="mdot"></i>Oct 1, 2026</span><span><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.5C10 5 7 4.5 3 5v14c4-.5 7 0 9 1.5 2-1.5 5-2 9-1.5V5c-4-.5-7 0-9 1.5zM12 6.5V20"/></svg> 2 min</span></div>
+  <section class="aisum">
+    <div class="aisum__label">✦ AI summary</div>
+    <p>Among 2.4 million US veterans with COPD or asthma (2020–2024), only 5.8% were tested for alpha-1 antitrypsin deficiency, and only 3.7% of those diagnosed were prescribed augmentation therapy. Testing was less likely with older age, active smoking and longer drive times to specialty care, and more likely with cirrhosis or bronchiectasis.</p>
+    <p class="aisum__note">Written by AI from the abstract below. It may contain errors: the abstract is the reference.</p>
+  </section>
+  <section class="abs">
+    <div class="abs__label"><span>Abstract</span><span>Verbatim from JAMA Network Open</span></div>
+    <h4>Importance</h4><p>α1-Antitrypsin deficiency (AATD) is underdiagnosed despite guidelines for broad testing, and the factors associated with low testing and treatment are not well known.</p><h4>Objective</h4><p>To identify factors associated with low AATD testing and augmentation therapy in individuals with chronic obstructive pulmonary disease (COPD) and asthma.</p><h4>Design, setting, and participants</h4><p>This is a retrospective, multicenter cohort study using national electronic health record data from the Veterans Health Administration from January 1, 2020, to December 31, 2024. Data analysis was conducted from July to October 2025. Participants were individuals with a diagnosis of COPD and/or asthma (≥2 International Classification of Diseases, Ninth Revision, or International Statistical Classification of Diseases and Related Health Problems, Tenth Revision codes).</p><h4>Exposure</h4><p>Individual demographics, comorbidities, tobacco use, rural-urban residence, Social Vulnerability Index (SVI), and drive time to the specialty care facility.</p><h4>Main outcomes and measures</h4><p>The primary outcomes were prevalence of and factors associated with AATD testing and augmentation therapy prescription. Multivariable regression models were used, adjusting sequentially for demographics, comorbidities, tobacco use, rural-urban residence, SVI, and drive time to the specialty care facility.</p><h4>Results</h4><p>Among 2 384 913 individuals with COPD and/or asthma (mean [SD] age, 64.2 [14.3] years; 178 898 female [7.5%]; 16 778 [0.7%] American Indian or Alaska Native; 14 996 [0.7%] Asian; 331 202 Black or African American [15.3%]; 19 029 [0.9%] Native Hawaiian or Pacific Islander; 1 787 951 White [82.4%]), 138 278 (5.8%) underwent testing. In fully adjusted models, cirrhosis (adjusted odds ratio [aOR], 6.40; 95% CI, 6.29-6.51) and bronchiectasis (aOR, 3.73; 95% CI, 3.59-3.87) were associated with higher odds of testing. Older ages and active tobacco use were associated with lower odds of testing. Rural-urban residence and SVI had similar odds across categories. Longer drive times were associated with progressively lower odds of testing (&gt;90 vs ≤30 minutes; aOR, 0.63; 95% CI, 0.62-0.65). Of 8564 with AATD diagnosis, 320 (3.7%) were prescribed augmentation therapy and showed a similar pattern as testing, occurring less often among patients from minoritized racial and ethnic groups, those actively using tobacco, and those with longer drive times to specialty care, and more often among those with cirrhosis and bronchiectasis.</p><h4>Conclusions and relevance</h4><p>In this cohort study of individuals with COPD and/or asthma, AATD testing and augmentation therapy were profoundly low. System-level reform is needed to bridge gaps across age, comorbidities, tobacco use, and health care access.</p>
+    <p class="abs__lic">Reproduced under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener">CC BY-NC-ND 4.0</a>. © The authors.</p>
+  </section>
+  <p class="cite">Baldomero AK, Smith L, Gravely A, et al. Disparities in α1-Antitrypsin Deficiency Testing and Treatment in US Adults. <i>JAMA Network Open</i>. 2026. doi:10.1001/jamanetworkopen.2026.39328</p>
+  <a class="pill pill--outline" href="https://doi.org/10.1001/jamanetworkopen.2026.39328" target="_blank" rel="noopener" data-fullpaper="aatd-testing-gaps">Read the full paper <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v6H4V6h6"/></svg></a>
+  <div class="logbox" data-logbox="aatd-testing-gaps">
+    <div class="logbox__icon"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15a6 6 0 1 0 0-12 6 6 0 0 0 0 12zM8.5 14 7 22l5-3 5 3-1.5-8"/></svg></div>
+    <div class="logbox__txt"><b>Earn MOC credit for this</b><span data-logstate="aatd-testing-gaps">Section 2 · 0.5 credits/hour, or 2/hour if it answers a clinical question</span></div>
+    <button class="pill pill--dark" type="button" data-log="aatd-testing-gaps">Log to my CPD</button>
+  </div>
+</article>
+</div><div class="page" id="cpd" hidden>
+<article class="art" style="--c:#232325">
+  <div class="sheetbar" style="background:#232325"><a class="grab" href="#top" data-close aria-label="Close"></a><span>My CPD</span></div>
+  <h1 class="art__title" style="margin-top:18px">My CPD record</h1>
+  <div class="cpd-hero">
+    <div><div class="cpd-hero__big" id="cpdYearBig">0.0</div><div class="cpd-hero__lbl">MOC credits logged in <span class="yr"></span></div></div>
+    <div class="ring" id="cpdRing"><span id="cpdRingTxt">0%</span></div>
+  </div>
+  <p class="cpd-goal">Royal College minimum: <b>25 credits a year</b>, 250 per 5-year cycle.</p>
+  <div class="cpd-split">
+    <div><b id="cpdReview">0.0</b><span>Educational content review<br>0.5 cr/h · max 30/yr</span></div>
+    <div><b id="cpdPrep">0.0</b><span>Activity preparation<br>clinical questions · 2 cr/h</span></div>
+  </div>
+  <h2 class="sub">This month</h2>
+  <p class="cpd-month" id="cpdMonth">Nothing logged yet.</p>
+  <button class="pill pill--dark wide" type="button" id="btnMoc">Prepare my My MOC entries</button>
+  <div id="mocEntries"></div>
+  <button class="pill pill--outline wide" type="button" id="btnTranscript">Download transcript (PDF)</button>
+  <h2 class="sub">Logged activities</h2>
+  <div id="cpdList"></div>
+  <div class="demo-tools"><span>Demo:</span><button type="button" id="btnSample">Add a sample month</button><button type="button" id="btnClear">Clear</button></div>
+  <p class="fine">Credits follow the Royal College's refreshed MOC framework (Section 2: educational content review at 0.5 credits/hour, capped at 30 credits/year; activity preparation at 2 credits/hour). Physicians self-report and remain responsible for what they claim. Quebec Fellows: My MOC activities transfer to the CMQ when you open your declaration. This demo is not affiliated with the Royal College or the CMQ.</p>
+</article>
+</div><div class="page" id="saved" hidden>
+<article class="art" style="--c:#232325">
+  <div class="sheetbar" style="background:#232325"><a class="grab" href="#top" data-close aria-label="Close"></a><span>Saved</span></div>
+  <h1 class="art__title" style="margin-top:18px">Saved papers</h1>
+  <div id="savedList"></div>
+</article>
+</div></div>
+<div class="scrim"></div>
+<div class="scrim2"></div>
+<div class="logsheet" id="logSheet" aria-hidden="true">
+  <div class="logsheet__grab"></div>
+  <h3>Log to my CPD</h3>
+  <p class="logsheet__title" id="lsTitle"></p>
+  <div class="seg" role="radiogroup">
+    <button type="button" class="on" data-type="review"><b>Reading</b><span>0.5 credits/hour</span></button>
+    <button type="button" data-type="prep"><b>Clinical question</b><span>2 credits/hour</span></button>
+  </div>
+  <label class="fld" id="lsQWrap" hidden><span>Your clinical question</span><input id="lsQ" type="text" placeholder="e.g. Should my 86-year-old patient with AF stay on rivaroxaban?"></label>
+  <div class="fld"><span>Time spent</span>
+    <div class="stepper"><button type="button" id="lsMinus">−</button><output id="lsMin">5</output><span>min</span><button type="button" id="lsPlus">+</button></div>
+    <label class="toggle"><input type="checkbox" id="lsFull"><i></i>I also read the full paper <em>(+20 min)</em></label>
+  </div>
+  <label class="fld"><span>Key message learned</span><textarea id="lsMsg" rows="3" placeholder="One thing you'll remember or change"></textarea></label>
+  <button type="button" class="chip" id="lsSuggest">Use suggested takeaway</button>
+  <div class="lsCalc" id="lsCalc"></div>
+  <div class="lsBtns"><button type="button" class="pill pill--outline" id="lsCancel">Cancel</button><button type="button" class="pill pill--dark" id="lsSave">Log it</button></div>
+</div>
+<nav class="tabbar">
+  <a href="#top" data-tab="home"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg><span>Headlines</span></a>
+  <a href="#m-sections" data-tab="sections"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"/></svg><span>Specialties</span></a>
+  <a href="#cpd" data-tab="cpd"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15a6 6 0 1 0 0-12 6 6 0 0 0 0 12zM8.5 14 7 22l5-3 5 3-1.5-8"/></svg><span>My CPD</span></a>
+  <a href="#saved" data-tab="saved"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-6-4.5L6 21z"/></svg><span>Saved</span></a>
+</nav>
+<div class="toast" id="toast"></div>
+<div id="printArea"></div>
+<script>var META={"af-nursing-home-oac": {"title": "Anticoagulation Outcomes in Nursing Home Residents With Atrial Fibrillation and ADL Disability", "doi": "10.1001/jamanetworkopen.2026.37533", "journal": "JAMA Network Open", "minutes": 2, "takeaway": "In frail nursing home residents with AF, anticoagulation trades fewer strokes for more bleeding; apixaban had the most favourable balance.", "section": "Cardiology"}, "early-mv-surgery-mr": {"title": "Early Mitral Valve Surgery and Survival in Asymptomatic Severe Primary Mitral Regurgitation", "doi": "10.1001/jamanetworkopen.2026.37061", "journal": "JAMA Network Open", "minutes": 2, "takeaway": "Early surgery for asymptomatic severe primary MR was associated with better long-term survival than watchful waiting (observational evidence).", "section": "Cardiology"}, "pci-facility-access-ami": {"title": "Percutaneous Coronary Intervention Facility Access and Clinical Outcomes Among Patients With Acute Myocardial Infarction", "doi": "10.1001/jamanetworkopen.2026.38687", "journal": "JAMA Network Open", "minutes": 3, "takeaway": "New PCI centres reduced AMI mortality only in previously unserved areas; expansion should target underserved regions.", "section": "Cardiology"}, "cgm-t2d-kidney": {"title": "Continuous Glucose Monitoring and Long-Term Glycemic and Kidney Outcomes", "doi": "10.1001/jamanetworkopen.2026.37698", "journal": "JAMA Network Open", "minutes": 3, "takeaway": "Sustained real-time CGM in poorly controlled T2D was associated with durable HbA1c improvement and later albuminuria regression, but not eGFR.", "section": "Endocrinology"}, "preemptive-kidney-tx": {"title": "Survival Outcomes Following Preemptive vs Nonpreemptive Kidney Transplantation", "doi": "10.1001/jamanetworkopen.2026.37964", "journal": "JAMA Network Open", "minutes": 2, "takeaway": "Preemptive kidney transplant did not improve survival in this emulated trial, but was linked to less delayed graft function.", "section": "Nephrology"}, "hcc-sex-mortality": {"title": "Sex Differences in Mortality Among Patients With Hepatocellular Carcinoma", "doi": "10.1001/jamanetworkopen.2026.37313", "journal": "JAMA Network Open", "minutes": 3, "takeaway": "Male sex was associated with higher HCC mortality, varying by etiology (largest in alcohol-related disease, none in MASLD).", "section": "Hepatology"}, "cauti-prevention-trends": {"title": "Catheter-Associated Urinary Tract Infection Prevention Practices in US Hospitals", "doi": "10.1001/jamanetworkopen.2026.37540", "journal": "JAMA Network Open", "minutes": 3, "takeaway": "Catheter reminders/stop orders and nurse-driven removal are high-yield CAUTI measures that many hospitals still don't use routinely.", "section": "Infectious diseases"}, "aatd-testing-gaps": {"title": "Disparities in α1-Antitrypsin Deficiency Testing and Treatment in US Adults", "doi": "10.1001/jamanetworkopen.2026.39328", "journal": "JAMA Network Open", "minutes": 2, "takeaway": "AATD testing and augmentation therapy in COPD/asthma were very low, especially with older age, active smoking and long drive times to specialty care.", "section": "Respirology"}};</script>
+<script>
+(function(){
+  var body=document.body,stage=document.getElementById('stage'),scrim=document.querySelector('.scrim'),scrim2=document.querySelector('.scrim2');
+  var CPD='qmed-cpd',SAVED='qmed-saved',MS=520,depth=0,openPage=null,YEAR='2026';
+  var TODAY=new Date(2026,9,22);   // demo edition date
+  function $(id){return document.getElementById(id)}
+  function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  function load(k){try{return JSON.parse(localStorage.getItem(k))||[]}catch(x){return[]}}
+  function save(k,v){localStorage.setItem(k,JSON.stringify(v))}
+  function toast(t){var el=$('toast');el.textContent=t;el.classList.add('on');clearTimeout(el._t);el._t=setTimeout(function(){el.classList.remove('on')},2200)}
+  function credits(x){return x.minutes/60*(x.type==='prep'?2:0.5)}
+  function fmt(n){return (Math.round(n*100)/100).toFixed(2).replace(/0$/,'')}
+  function iso(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
+  var MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  function nice(isoS){var p=isoS.split('-');return MONTHS[+p[1]-1].slice(0,3)+' '+(+p[2])+', '+p[0]}
+
+  // ---------- CPD totals
+  function totals(){
+    var l=load(CPD),y={review:0,prep:0},m={review:0,prep:0,min:0,n:0},ym=iso(TODAY).slice(0,7);
+    l.forEach(function(x){if(x.date.slice(0,4)!==YEAR)return;y[x.type]+=credits(x);
+      if(x.date.slice(0,7)===ym){m[x.type]+=credits(x);m.min+=x.minutes;m.n++}});
+    var review=Math.min(30,y.review),total=review+y.prep;
+    return {review:review,reviewRaw:y.review,prep:y.prep,total:total,month:m,list:l};
+  }
+  function paintCpd(){
+    var t=totals();
+    $('cpdPill').textContent=fmt(t.total);$('cpdYearBig').textContent=fmt(t.total);
+    document.querySelectorAll('.yr').forEach(function(s){s.textContent=YEAR});
+    var pct=Math.min(100,Math.round(t.total/25*100));$('cpdRing').style.setProperty('--p',pct);$('cpdRingTxt').textContent=pct+'%';
+    $('cpdReview').textContent=fmt(t.review)+(t.reviewRaw>30?' (cap)':'');$('cpdPrep').textContent=fmt(t.prep);
+    var m=t.month;
+    $('cpdMonth').innerHTML=m.n?('<b>'+m.n+'</b> activities in '+MONTHS[TODAY.getMonth()]+' · <b>'+fmt(m.min/60)+' h</b> · <b>'+fmt(m.review+m.prep)+'</b> credits'):'Nothing logged yet this month.';
+    var list=t.list.slice().sort(function(a,b){return a.date<b.date?1:-1});
+    $('cpdList').innerHTML=list.length?list.map(function(x){
+      return '<div class="entry"><b>'+esc(x.title)+'</b><span class="cr">'+fmt(credits(x))+' cr</span>'+
+        '<span>'+nice(x.date)+' · '+x.minutes+' min · '+(x.type==='prep'?'Clinical question':'Reading')+'</span>'+
+        '<button class="del" data-del="'+esc(x.key)+'">Remove</button>'+
+        (x.type==='prep'&&x.question?'<q>Q: '+esc(x.question)+'</q>':'')+(x.message?'<q>'+esc(x.message)+'</q>':'')+'</div>'}).join('')
+      :'<p class="empty">No activities yet. Open a paper and tap “Log to my CPD”, or use “Add a sample month” below.</p>';
+    // logged badges on cards and articles
+    document.querySelectorAll('[data-logged]').forEach(function(s){var id=s.dataset.logged;
+      var mine=t.list.filter(function(x){return x.id===id});s.textContent=mine.length?'· ✓ logged':''});
+    document.querySelectorAll('[data-logbox]').forEach(function(b){var id=b.dataset.logbox,
+      mine=t.list.filter(function(x){return x.id===id}),st=b.querySelector('[data-logstate]'),btn=b.querySelector('[data-log]');
+      b.classList.toggle('done',mine.length>0);
+      if(mine.length){var c=mine.reduce(function(a,x){return a+credits(x)},0),mi=mine.reduce(function(a,x){return a+x.minutes},0);
+        b.querySelector('b').textContent='Logged: '+mi+' min · '+fmt(c)+' credits';st.textContent='Saved to My CPD. Tap again to log more time.';btn.textContent='Log again'}
+      else{b.querySelector('b').textContent='Earn MOC credit for this';btn.textContent='Log to my CPD'}});
+    if($('mocEntries').childElementCount)renderMoc();
+  }
+
+  // ---------- log sheet
+  var ls={id:null,type:'review',min:5};
+  function openLog(id){
+    var m=META[id];ls={id:id,type:'review',min:m.minutes};
+    $('lsTitle').textContent=m.title;$('lsMsg').value='';$('lsQ').value='';$('lsFull').checked=sessionStorage.getItem('full-'+id)==='1';
+    setType('review');calc();body.classList.add('logging');$('logSheet').setAttribute('aria-hidden','false');
+  }
+  function closeLog(){body.classList.remove('logging');$('logSheet').setAttribute('aria-hidden','true')}
+  function setType(t){ls.type=t;document.querySelectorAll('.seg button').forEach(function(b){b.classList.toggle('on',b.dataset.type===t)});
+    $('lsQWrap').hidden=t!=='prep';calc()}
+  function mins(){return ls.min+($('lsFull').checked?20:0)}
+  function calc(){$('lsMin').textContent=mins();
+    var c=mins()/60*(ls.type==='prep'?2:0.5);
+    $('lsCalc').innerHTML='= <b>'+fmt(c)+'</b> MOC credits · Section 2 · '+(ls.type==='prep'?'Activity preparation (2/h)':'Educational content review (0.5/h)')}
+  document.querySelectorAll('.seg button').forEach(function(b){b.addEventListener('click',function(){setType(b.dataset.type)})});
+  $('lsMinus').addEventListener('click',function(){ls.min=Math.max(1,ls.min-1);calc()});
+  $('lsPlus').addEventListener('click',function(){ls.min=Math.min(240,ls.min+1);calc()});
+  $('lsFull').addEventListener('change',calc);
+  $('lsSuggest').addEventListener('click',function(){$('lsMsg').value=META[ls.id].takeaway;$('lsMsg').focus()});
+  $('lsCancel').addEventListener('click',closeLog);scrim2.addEventListener('click',closeLog);
+  $('lsSave').addEventListener('click',function(){
+    if(ls.type==='prep'&&!$('lsQ').value.trim()){$('lsQ').focus();toast('Add your clinical question');return}
+    var m=META[ls.id],l=load(CPD),x={key:Date.now().toString(36),id:ls.id,title:m.title,doi:m.doi,journal:m.journal,
+      date:iso(TODAY),minutes:mins(),type:ls.type,question:$('lsQ').value.trim(),message:$('lsMsg').value.trim()};
+    l.push(x);save(CPD,l);closeLog();paintCpd();toast('Logged · +'+fmt(credits(x))+' MOC credits');
+    if(navigator.vibrate)navigator.vibrate(10);
+  });
+
+  // ---------- My MOC entries (one per type per month; one per clinical question)
+  function renderMoc(){
+    var l=load(CPD),ym=iso(TODAY).slice(0,7),mm=l.filter(function(x){return x.date.slice(0,7)===ym});
+    var box=$('mocEntries');
+    if(!mm.length){box.innerHTML='<p class="empty">Log a few papers first, then come back here.</p>';return}
+    var mName=MONTHS[TODAY.getMonth()]+' '+TODAY.getFullYear(),out=[];
+    var rv=mm.filter(function(x){return x.type==='review'});
+    if(rv.length){var mi=rv.reduce(function(a,x){return a+x.minutes},0),d=rv.map(function(x){return x.date}).sort();
+      out.push(mocCard('Educational content review','One entry for this month’s journal reading',[
+        ['Section','Section 2: Individual learning'],['Activity type','Educational content review (reading)'],
+        ['Activity title','Journal reading: Le Quotidien Médical, '+mName+' ('+rv.length+' articles)'],
+        ['Date',nice(d[0])+' to '+nice(d[d.length-1])],['Hours',fmt(mi/60)],
+        ['Key message learned',rv.filter(function(x){return x.message}).map(function(x){return '• '+x.message}).join('\n')||'(add one key message)'],
+        ['Articles',rv.map(function(x){return '• '+x.title+'. '+x.journal+'. doi:'+x.doi}).join('\n')]],fmt(mi/60*0.5)))}
+    mm.filter(function(x){return x.type==='prep'}).forEach(function(x){
+      out.push(mocCard('Activity preparation','Addressing a clinical question',[
+        ['Section','Section 2: Individual learning'],['Activity type','Activity preparation: addressing a clinical question'],
+        ['Activity title',x.question||x.title],['Date',nice(x.date)],['Hours',fmt(x.minutes/60)],
+        ['Key message learned',x.message||'(add one key message)'],['Resource',x.title+'. '+x.journal+'. doi:'+x.doi]],fmt(x.minutes/60*2)))});
+    box.innerHTML=out.join('')+'<a class="mocopen" href="https://www.royalcollege.ca/en/cpd/moc-program" target="_blank" rel="noopener">Open My MOC (Royal College) ↗</a>';
+  }
+  function mocCard(h,sub,rows,cr){return '<div class="moc"><h4>'+esc(h)+' · '+cr+' credits</h4><p>'+esc(sub)+'. Copy each field into My MOC.</p>'+
+    rows.map(function(r){return '<div class="mocrow"><div><small>'+esc(r[0])+'</small>'+esc(r[1])+'</div><button class="copy" data-copy="'+esc(r[1])+'">Copy</button></div>'}).join('')+'</div>'}
+  $('btnMoc').addEventListener('click',function(){renderMoc();$('mocEntries').scrollIntoView({behavior:'smooth',block:'start'})});
+
+  // ---------- transcript (print to PDF)
+  $('btnTranscript').addEventListener('click',function(){
+    var l=load(CPD).slice().sort(function(a,b){return a.date<b.date?-1:1});
+    if(!l.length){toast('Nothing logged yet');return}
+    var name=localStorage.getItem('qmed-name')||prompt('Name to show on the transcript (optional)','')||'';
+    localStorage.setItem('qmed-name',name);
+    var tot=l.reduce(function(a,x){return a+credits(x)},0),mi=l.reduce(function(a,x){return a+x.minutes},0);
+    $('printArea').innerHTML='<h1>CPD reading transcript</h1><p class="pr-meta">'+esc(name||'Physician')+' · Generated by Le Quotidien Médical (demo) on '+nice(iso(TODAY))+'</p>'+
+      '<table><tr><th>Date</th><th>Article</th><th>Type</th><th>Min</th><th>Credits</th><th>Key message</th></tr>'+
+      l.map(function(x){return '<tr><td>'+nice(x.date)+'</td><td>'+esc(x.title)+'<br><small>'+esc(x.journal)+' · doi:'+esc(x.doi)+'</small></td><td>'+(x.type==='prep'?'Activity preparation'+(x.question?': '+esc(x.question):''):'Educational content review')+'</td><td>'+x.minutes+'</td><td>'+fmt(credits(x))+'</td><td>'+esc(x.message)+'</td></tr>'}).join('')+
+      '</table><p class="pr-tot">Total: '+l.length+' activities · '+fmt(mi/60)+' hours · '+fmt(tot)+' MOC credits (Section 2)</p>'+
+      '<p class="pr-note">Self-reported by the physician. Credits calculated with the Royal College refreshed MOC framework (Section 2: educational content review 0.5 credits/hour, capped at 30/year; activity preparation 2 credits/hour). This is a record of learning, not an accredited certificate.</p>';
+    window.print();
+  });
+
+  // ---------- demo data
+  $('btnSample').addEventListener('click',function(){
+    var ids=Object.keys(META),l=load(CPD),days=[2,3,6,8,9,13,15,16,20,21];
+    days.forEach(function(d,i){var id=ids[i%ids.length],m=META[id],prep=(i===3||i===7);
+      l.push({key:'s'+d+i,id:id,title:m.title,doi:m.doi,journal:m.journal,date:'2026-10-'+String(d).padStart(2,'0'),
+        minutes:prep?35:m.minutes+(i%3===0?20:0),type:prep?'prep':'review',
+        question:prep?(i===3?'Should my 86-year-old nursing home patient with AF and full ADL dependence stay on rivaroxaban?':'Is real-time CGM worth starting for my patient with T2D and HbA1c of 9.8%?'):'',
+        message:m.takeaway})});
+    save(CPD,l);paintCpd();toast('Sample month added');
+  });
+  $('btnClear').addEventListener('click',function(){if(confirm('Clear all logged activities?')){save(CPD,[]);$('mocEntries').innerHTML='';paintCpd()}});
+
+  // ---------- saved
+  function paintBm(){var ids=load(SAVED).map(function(x){return x.id});
+    document.querySelectorAll('.bm').forEach(function(b){b.classList.toggle('on',ids.indexOf(b.dataset.id)>=0)})}
+  function renderSaved(){var l=load(SAVED).slice().reverse();
+    $('savedList').innerHTML=l.length?l.map(function(x){return '<a class="mcard mcard--row" href="#'+esc(x.id)+'"><div class="mcard__body"><p class="mcard__sup" style="color:'+esc(x.color)+'">'+esc(x.sec)+'</p><h3 class="mcard__title">'+esc(x.title)+'</h3></div></a>'}).join('')
+      :'<p class="empty">No saved papers yet. Tap the bookmark icon on any paper.</p>'}
+
+  // ---------- clicks
+  document.addEventListener('click',function(ev){
+    var t=ev.target;
+    var b=t.closest('.bm');if(b){ev.preventDefault();var l=load(SAVED),i=-1;l.forEach(function(x,j){if(x.id===b.dataset.id)i=j});
+      if(i>=0)l.splice(i,1);else l.push({id:b.dataset.id,title:b.dataset.title,sec:b.dataset.sec,color:b.dataset.color});save(SAVED,l);paintBm();renderSaved();
+      toast(i>=0?'Removed from Saved':'Saved');return}
+    var s=t.closest('.sh');if(s){ev.preventDefault();var d={title:s.dataset.title,url:s.dataset.url};
+      if(navigator.share){navigator.share(d).catch(function(){})}else if(navigator.clipboard){navigator.clipboard.writeText(d.url);toast('Link copied')}return}
+    var lg=t.closest('[data-log]');if(lg){ev.preventDefault();openLog(lg.dataset.log);return}
+    var cp=t.closest('.copy');if(cp){ev.preventDefault();var v=cp.dataset.copy;
+      (navigator.clipboard?navigator.clipboard.writeText(v):Promise.reject()).then(function(){cp.textContent='Copied';cp.classList.add('ok');
+        setTimeout(function(){cp.textContent='Copy';cp.classList.remove('ok')},1500)}).catch(function(){prompt('Copy this:',v)});return}
+    var dl=t.closest('[data-del]');if(dl){var l2=load(CPD).filter(function(x){return x.key!==dl.dataset.del});save(CPD,l2);paintCpd();return}
+    var fp=t.closest('[data-fullpaper]');if(fp){sessionStorage.setItem('full-'+fp.dataset.fullpaper,'1')}
+    if(t.closest('[data-close]')||t===scrim){ev.preventDefault();close();return}
+    var a=t.closest('a[href^="#"]');
+    if(a&&!t.closest('.mcard__img')&&t.closest('.mcard')===null){return}
+  });
+  // whole card taps open the article
+  document.querySelectorAll('.mcard').forEach(function(c){c.addEventListener('click',function(ev){
+    if(ev.target.closest('button,a'))return;var a=c.querySelector('.mcard__title a');if(a)location.hash=a.getAttribute('href')})});
+
+  // ---------- iOS-style sheet
+  function showSheet(p){clearTimeout(p._t);p._t=null;p.hidden=false;p.scrollTop=0;
+    stage.style.transformOrigin='50% '+window.scrollY+'px';p.getBoundingClientRect();
+    body.classList.add('sheet');p.classList.add('is-open');openPage=p;
+    if(p.id==='cpd')paintCpd();if(p.id==='saved')renderSaved()}
+  function hideSheet(p){p.classList.remove('is-open');body.classList.remove('sheet');if(openPage===p)openPage=null;
+    clearTimeout(p._t);p._t=setTimeout(function(){p._t=null;if(!p.classList.contains('is-open'))p.hidden=true},MS)}
+  function close(){closeLog();if(openPage)hideSheet(openPage);
+    if(depth>0){history.back()}else{history.replaceState(null,'',location.pathname+location.search);route()}}
+  var drag=null;
+  function setT(v){if(!openPage)return;openPage.style.transition=v;stage.style.transition=v;scrim.style.transition=v}
+  document.addEventListener('touchstart',function(e){if(!openPage||body.classList.contains('logging')||e.touches.length>1)return;
+    var p=e.target.closest('.page');if(p!==openPage)return;
+    drag={y0:e.touches[0].clientY,x0:e.touches[0].clientX,t:Date.now(),y:e.touches[0].clientY,v:0,dy:0,on:false,top:p.scrollTop<=0}},{passive:true});
+  document.addEventListener('touchmove',function(e){if(!drag)return;
+    var y=e.touches[0].clientY,dy=y-drag.y0,dx=e.touches[0].clientX-drag.x0,now=Date.now();
+    if(!drag.on){if(!drag.top||dy<0||Math.abs(dx)>Math.abs(dy)+4){drag=null;return}
+      if(e.cancelable)e.preventDefault();if(dy<6)return;drag.on=true;setT('none')}
+    if(e.cancelable)e.preventDefault();
+    drag.v=(y-drag.y)/Math.max(1,now-drag.t);drag.y=y;drag.t=now;drag.dy=Math.max(0,dy);
+    var k=1-Math.min(1,drag.dy/(window.innerHeight*.85));
+    openPage.style.transform='translate3d(0,'+drag.dy+'px,0)';scrim.style.opacity=String(k);stage.style.setProperty('--k',k)},{passive:false});
+  function endDrag(){if(!drag)return;var d=drag;drag=null;if(!d.on||!openPage)return;
+    setT('');openPage.style.transform='';scrim.style.opacity='';stage.style.removeProperty('--k');
+    if(d.dy>window.innerHeight*.25||(d.v>1&&d.dy>40))close()}
+  document.addEventListener('touchend',endDrag,{passive:true});document.addEventListener('touchcancel',endDrag,{passive:true});
+  [scrim,scrim2].forEach(function(s){s.addEventListener('touchmove',function(e){if(e.cancelable)e.preventDefault()},{passive:false})});
+
+  function route(){
+    var id=decodeURIComponent(location.hash.slice(1)),t=id&&document.getElementById(id);
+    var page=t&&t.classList.contains('page')?t:null;
+    document.querySelectorAll('.page').forEach(function(p){if(p===page)return;
+      if(p.classList.contains('is-open'))hideSheet(p);else if(!p._t)p.hidden=true});
+    if(page&&!page.classList.contains('is-open'))showSheet(page);
+    var tab=page?(page.id==='cpd'?'cpd':page.id==='saved'?'saved':''):((id==='m-sections'||id.indexOf('m-sec-')===0)?'sections':'home');
+    document.querySelectorAll('.tabbar a').forEach(function(a){a.classList.toggle('on',a.dataset.tab===tab)});
+    if(!page){if(id==='top')window.scrollTo({top:0,behavior:'smooth'});else if(t)t.scrollIntoView({behavior:'smooth'})}
+  }
+  if('scrollRestoration' in history){history.scrollRestoration='manual'}
+  window.addEventListener('hashchange',function(){var id=location.hash.slice(1),t=id&&document.getElementById(id);
+    depth=t&&t.classList.contains('page')?depth+1:0;route()});
+  paintBm();paintCpd();route();
+})();
+</script>
+</body></html>
