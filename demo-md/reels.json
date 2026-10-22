@@ -1,0 +1,175 @@
+{
+  "_note": "AI-written reel scripts (Claude), from each paper's abstract only. Poll 'seed' numbers are simulated demo votes.",
+  "date": "Thursday, October 22, 2026",
+  "next_drop": "12:00",
+  "reels": [
+    {
+      "id": "r-af", "paper": "af-nursing-home-oac", "section": "Cardiology", "color": "#C2414B",
+      "journal": "JAMA Network Open", "study": "Cohort · Medicare claims", "doi": "10.1001/jamanetworkopen.2026.37533",
+      "title": "Anticoagulation Outcomes in Nursing Home Residents With Atrial Fibrillation and ADL Disability",
+      "scenes": [
+        {"type": "hook", "text": "Anticoagulating frail nursing home residents with AF?",
+         "say": "Should frail nursing home residents with atrial fibrillation get an anticoagulant? A study of almost twenty-seven thousand residents gives a nuanced answer."},
+        {"type": "count", "value": 26940, "label": "nursing home residents with AF, dependent in 3 or more ADLs",
+         "say": "Using US Medicare data, researchers compared starting apixaban, rivaroxaban or warfarin with no anticoagulant at all."},
+        {"type": "forest", "title": "Apixaban vs no anticoagulant · adjusted rate ratio",
+         "rows": [{"label": "Ischemic stroke", "est": 0.53, "lo": 0.38, "hi": 0.73}, {"label": "Major bleeding", "est": 1.62, "lo": 1.29, "hi": 2.03}],
+         "say": "With apixaban, ischemic strokes fell by about half, but major bleeding rose by about sixty percent."},
+        {"type": "forest", "title": "Stroke or major bleeding vs no anticoagulant",
+         "rows": [{"label": "Apixaban", "est": 1.08, "lo": 0.90, "hi": 1.30}, {"label": "Rivaroxaban", "est": 1.62, "lo": 1.20, "hi": 2.18}, {"label": "Warfarin", "est": 1.99, "lo": 1.50, "hi": 2.63}],
+         "say": "On the combined outcome of stroke or bleeding, only apixaban came out neutral. Rivaroxaban and warfarin did worse."},
+        {"type": "catch", "text": "Observational claims data, not a randomized trial.",
+         "say": "The catch: this is observational claims data, not a randomized trial."},
+        {"type": "bottom", "text": "If you anticoagulate in this population, apixaban had the best balance.",
+         "say": "Bottom line: if you do anticoagulate in this population, apixaban had the best balance of benefit and harm."}
+      ],
+      "poll": {"q": "Would you start apixaban in an 88-year-old nursing home resident with AF and full ADL dependence?", "options": ["Yes", "Case by case", "No"], "seed": [22, 61, 17]}
+    },
+    {
+      "id": "r-hero19", "paper": "hero19-covid-anticoag", "section": "General internal medicine", "color": "#5B6475",
+      "journal": "JAMA Network Open", "study": "Randomized trial · HERO-19", "doi": "10.1001/jamanetworkopen.2026.35333",
+      "title": "Prophylactic vs Therapeutic Anticoagulation in Hospitalized Patients With COVID-19: A Randomized Clinical Trial",
+      "scenes": [
+        {"type": "hook", "text": "Full-dose anticoagulation for COVID-19 inpatients?",
+         "say": "Does full-dose anticoagulation help patients hospitalized with COVID-19? A German randomized trial put it to the test."},
+        {"type": "count", "value": 139, "label": "patients randomized at 10 university hospitals",
+         "say": "One hundred thirty-nine patients got either therapeutic heparin followed by edoxaban for six weeks, or prophylactic heparin followed by placebo."},
+        {"type": "bars", "title": "Death or thromboembolism by day 42", "unit": "%",
+         "bars": [{"label": "Therapeutic", "value": 21}, {"label": "Prophylactic", "value": 29}],
+         "say": "Death or thromboembolism occurred in twenty-one percent with therapeutic dosing, versus twenty-nine percent with prophylaxis."},
+        {"type": "forest", "title": "Primary outcome · hazard ratio",
+         "rows": [{"label": "Therapeutic vs prophylactic", "est": 0.74, "lo": 0.38, "hi": 1.48}],
+         "say": "But the difference was not statistically significant. The hazard ratio was zero point seven four, with a wide confidence interval."},
+        {"type": "catch", "text": "Only 139 patients: a benefit can be neither confirmed nor ruled out. Bleeding: 7 vs 6 events.",
+         "say": "With only one hundred thirty-nine patients, the trial can neither confirm nor rule out a benefit. Bleeding was similar."},
+        {"type": "bottom", "text": "No significant benefit from therapeutic anticoagulation plus post-discharge edoxaban.",
+         "say": "Bottom line: no significant benefit from therapeutic anticoagulation followed by edoxaban after discharge."}
+      ],
+      "poll": {"q": "Do you use therapeutic anticoagulation for non-ICU COVID-19 inpatients?", "options": ["Routinely", "Selected patients", "Never"], "seed": [9, 48, 43]}
+    },
+    {
+      "id": "r-sepsis", "paper": "sepsis-symptoms-antibiotics", "section": "General internal medicine", "color": "#5B6475",
+      "journal": "JAMA Network Open", "study": "Cohort · 67 hospitals", "doi": "10.1001/jamanetworkopen.2026.35575",
+      "title": "Presenting Symptoms and Antibiotic Timing Among Hospitalized Adults With Presumed Sepsis",
+      "scenes": [
+        {"type": "hook", "text": "Sepsis with GI symptoms gets antibiotics later.",
+         "say": "Sepsis that presents with vomiting or diarrhea? Those patients get their antibiotics later."},
+        {"type": "count", "value": 29647, "label": "adults with community-onset presumed sepsis · 67 Michigan hospitals",
+         "say": "In almost thirty thousand adults hospitalized with sepsis, researchers looked at the symptoms patients arrived with."},
+        {"type": "forest", "title": "Odds of timely antibiotics · patients without hypotension",
+         "rows": [{"label": "Prehospital fever", "est": 1.26, "lo": 1.17, "hi": 1.35}, {"label": "GI symptoms", "est": 0.80, "lo": 0.75, "hi": 0.86}],
+         "say": "Fever made timely antibiotics more likely. Gastrointestinal symptoms made them less likely, with or without hypotension."},
+        {"type": "number", "value": "−2.1", "unit": "pts", "label": "30-day mortality with timely antibiotics, after adjusting for symptoms",
+         "say": "And timely antibiotics were still linked to lower thirty-day mortality, about two percentage points, after adjusting for symptoms."},
+        {"type": "catch", "text": "Observational: unmeasured differences between patients may remain.",
+         "say": "The catch: this is observational, so unmeasured differences between patients may remain."},
+        {"type": "bottom", "text": "Think sepsis even when the story is GI.",
+         "say": "Bottom line: think sepsis, even when the story is gastrointestinal."}
+      ],
+      "poll": {"q": "Does your hospital screen for sepsis in patients presenting with GI symptoms?", "options": ["Systematically", "Sometimes", "No"], "seed": [27, 51, 22]}
+    },
+    {
+      "id": "r-cgm", "paper": "cgm-t2d-kidney", "section": "Endocrinology", "color": "#207FB7",
+      "journal": "JAMA Network Open", "study": "Target trial emulation", "doi": "10.1001/jamanetworkopen.2026.37698",
+      "title": "Continuous Glucose Monitoring and Long-Term Glycemic and Kidney Outcomes",
+      "scenes": [
+        {"type": "hook", "text": "Real-time CGM in type 2 diabetes: do the gains last?",
+         "say": "Real-time CGM in type 2 diabetes. Do the benefits last beyond the first few months?"},
+        {"type": "count", "value": 25648, "label": "high-risk adults with type 2 diabetes · mean HbA1c 9.5%",
+         "say": "Investigators emulated a trial in more than twenty-five thousand high-risk adults, comparing those who started and kept using real-time CGM with those who did not."},
+        {"type": "bars", "title": "HbA1c after 36 months", "unit": "%", "decimals": 1,
+         "bars": [{"label": "rtCGM", "value": 7.83}, {"label": "No CGM", "value": 8.58}],
+         "say": "After three years, HbA1c was seven point eight percent with CGM, versus eight point six percent without."},
+        {"type": "number", "value": "−125", "unit": "mg/g", "label": "urine albumin-creatinine ratio vs controls at 36 months · eGFR unchanged",
+         "say": "The urine albumin to creatinine ratio was also lower by the end of follow-up. eGFR did not differ."},
+        {"type": "catch", "text": "44% of CGM starters stopped during follow-up, and the design is observational.",
+         "say": "The catch: forty-four percent of CGM starters stopped using it, and the design is observational."},
+        {"type": "bottom", "text": "Sustained CGM was associated with durable glycemic gains.",
+         "say": "Bottom line: sustained real-time CGM was associated with durable glycemic gains."}
+      ],
+      "poll": {"q": "Do you prescribe real-time CGM to patients with type 2 diabetes not on insulin?", "options": ["Often", "Sometimes", "Rarely"], "seed": [14, 39, 47]}
+    },
+    {
+      "id": "r-metformin", "paper": "metformin-pregnancy-child", "section": "Obstetric medicine", "color": "#A3134A",
+      "journal": "JAMA Network Open", "study": "Cohort · Victoria, Australia", "doi": "10.1001/jamanetworkopen.2026.37054",
+      "title": "Metformin Exposure in Pregnancy and Childhood Developmental Outcomes",
+      "scenes": [
+        {"type": "hook", "text": "Metformin in pregnancy: any effect on the child at school age?",
+         "say": "Metformin in pregnancy. Does it affect the child's development by school age?"},
+        {"type": "count", "value": 177409, "label": "children with school-entry developmental assessments · 1,095 exposed",
+         "say": "Researchers linked birth data to a national developmental census of children aged four to six. One thousand ninety-five had been exposed to metformin."},
+        {"type": "bars", "title": "Developmentally vulnerable (unadjusted)", "unit": "%", "decimals": 1,
+         "bars": [{"label": "Exposed", "value": 18.2}, {"label": "Not exposed", "value": 13.9}],
+         "say": "The raw numbers looked worse: eighteen percent of exposed children were developmentally vulnerable, versus fourteen percent."},
+        {"type": "forest", "title": "Developmental vulnerability · adjusted relative risk",
+         "rows": [{"label": "Metformin vs none", "est": 0.97, "lo": 0.74, "hi": 1.29}],
+         "say": "But after adjusting for confounders, the difference disappeared. The adjusted relative risk was zero point nine seven."},
+        {"type": "catch", "text": "Observational, with about 1,100 exposed children.",
+         "say": "The catch: observational data, with about eleven hundred exposed children."},
+        {"type": "bottom", "text": "Reassuring data for metformin use in pregnancy.",
+         "say": "Bottom line: reassuring data for clinicians and women considering metformin in pregnancy."}
+      ],
+      "poll": {"q": "When diet isn't enough in gestational diabetes, what's your first-line add-on?", "options": ["Metformin", "Depends", "Insulin"], "seed": [33, 29, 38]}
+    },
+    {
+      "id": "r-aatd", "paper": "aatd-testing-gaps", "section": "Respirology", "color": "#A05FA8",
+      "journal": "JAMA Network Open", "study": "Cohort · VA health records", "doi": "10.1001/jamanetworkopen.2026.39328",
+      "title": "Disparities in α1-Antitrypsin Deficiency Testing and Treatment in US Adults",
+      "scenes": [
+        {"type": "hook", "text": "One uncomfortable number for anyone who sees COPD.",
+         "say": "If you see patients with COPD, here is an uncomfortable number."},
+        {"type": "count", "value": 2384913, "label": "US veterans with COPD or asthma, 2020 to 2024",
+         "say": "In two point four million veterans with COPD or asthma, researchers checked who had ever been tested for alpha-1 antitrypsin deficiency."},
+        {"type": "waffle", "value": 5.8, "label": "were ever tested for AATD",
+         "say": "Only five point eight percent had been tested."},
+        {"type": "number", "value": "3.7", "unit": "%", "label": "of patients diagnosed with AATD were prescribed augmentation therapy",
+         "say": "And of those diagnosed, only three point seven percent were prescribed augmentation therapy."},
+        {"type": "catch", "text": "Testing was less likely in older patients, active smokers and those far from specialty care.",
+         "say": "Testing was less likely in older patients, in active smokers, and in those living far from specialty care."},
+        {"type": "bottom", "text": "Guidelines call for broad testing. Practice hasn't caught up.",
+         "say": "Bottom line: guidelines call for broad testing, but practice has not caught up."}
+      ],
+      "poll": {"q": "Have you ordered an AATD test in the past year?", "options": ["Yes", "Not sure", "No"], "seed": [41, 12, 47]}
+    },
+    {
+      "id": "r-light", "paper": "bright-light-delirium", "section": "General internal medicine", "color": "#5B6475",
+      "journal": "BMJ Open", "study": "Systematic review · 8 studies", "doi": "10.1136/bmjopen-2026-116709",
+      "title": "Bright light therapy and circadian rhythm regulation for delirium prevention in hospitalised adults",
+      "scenes": [
+        {"type": "hook", "text": "Can bright light prevent delirium?",
+         "say": "Can bright light prevent delirium in hospitalized adults?"},
+        {"type": "count", "value": 1190, "label": "hospitalized adults in 8 studies · systematic review",
+         "say": "A systematic review pooled eight studies. Most used morning light of at least five thousand lux, for one to two hours a day, over three to four days."},
+        {"type": "forest", "title": "Delirium incidence · pooled risk ratio",
+         "rows": [{"label": "Bright light vs control", "est": 0.64, "lo": 0.38, "hi": 1.07}],
+         "say": "The pooled risk ratio was zero point six four, but the confidence interval crossed one."},
+        {"type": "catch", "text": "Very low certainty: risk of bias, inconsistency, imprecision.",
+         "say": "The catch: the certainty of evidence was very low, because of bias, inconsistency and imprecision."},
+        {"type": "bottom", "text": "Promising, cheap, unproven. Bigger trials needed.",
+         "say": "Bottom line: promising, cheap, and unproven. Bigger trials are needed."}
+      ],
+      "poll": {"q": "Would you use bright light therapy on your ward if it were available?", "options": ["Yes", "Maybe", "No"], "seed": [38, 46, 16]}
+    },
+    {
+      "id": "r-tx", "paper": "preemptive-kidney-tx", "section": "Nephrology", "color": "#5A79A0",
+      "journal": "JAMA Network Open", "study": "Target trial emulation · SRTR", "doi": "10.1001/jamanetworkopen.2026.37964",
+      "title": "Survival Outcomes Following Preemptive vs Nonpreemptive Kidney Transplantation",
+      "scenes": [
+        {"type": "hook", "text": "Transplant before dialysis: does it help patients live longer?",
+         "say": "Kidney transplant before dialysis is considered best. But does it actually help patients live longer?"},
+        {"type": "count", "value": 32770, "label": "first kidney transplant recipients · US registry",
+         "say": "This target trial emulation used the US transplant registry, with methods designed to handle selection and lead-time bias."},
+        {"type": "forest", "title": "Preemptive vs not · hazard ratio",
+         "rows": [{"label": "All-cause mortality", "est": 1.02, "lo": 0.96, "hi": 1.07}, {"label": "Death-censored graft failure", "est": 0.81, "lo": 0.74, "hi": 0.88}],
+         "say": "There was no survival difference, with a hazard ratio of one point zero two. But death-censored graft failure was lower."},
+        {"type": "number", "value": "0.68", "unit": "OR", "label": "odds of delayed graft function with preemptive transplant",
+         "say": "Preemptive transplant was also linked to lower odds of delayed graft function."},
+        {"type": "catch", "text": "Registry data: observational, even with careful methods.",
+         "say": "The catch: registry data are observational, even with careful methods."},
+        {"type": "bottom", "text": "Preemptive transplant may protect the graft more than it extends survival.",
+         "say": "Bottom line: preemptive transplant may protect the graft more than it extends survival."}
+      ],
+      "poll": {"q": "Does this change how you counsel patients about preemptive transplant?", "options": ["Yes", "A little", "No"], "seed": [19, 44, 37]}
+    }
+  ]
+}

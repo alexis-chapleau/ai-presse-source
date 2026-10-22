@@ -43,6 +43,7 @@ PATHS = {
     "quote": "M7 7h4v4c0 3-2 5-4 6M15 7h4v4c0 3-2 5-4 6",
     "journal": "M4 21V8l8-5 8 5v13M9 21v-6h6v6M3 21h18",
     "unlock": "M7 11V7a5 5 0 0 1 9.6-2M5 11h14v10H5z",
+    "play": "M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zM10 8.5v7l6-3.5z",
 }
 
 
@@ -283,7 +284,8 @@ def build():
            .replace("%%PAGES%%", "".join(article_page(p) for p in papers) + CPD_PAGE + SAVED_PAGE)
            .replace("%%LOGSHEET%%", LOG_SHEET)
            .replace("%%ICON_HOME%%", icon("home")).replace("%%ICON_GRID%%", icon("grid"))
-           .replace("%%ICON_AWARD%%", icon("award")).replace("%%ICON_BM%%", icon("bookmark")))
+           .replace("%%ICON_AWARD%%", icon("award")).replace("%%ICON_BM%%", icon("bookmark"))
+           .replace("%%ICON_PLAY%%", icon("play")))
     out = HERE / "index.html"
     out.write_text(doc, encoding="utf-8")
     print(f"Wrote {out} ({len(papers)} papers)")
@@ -314,6 +316,7 @@ TEMPLATE = '''<!DOCTYPE html>
 <nav class="tabbar">
   <a href="#top" data-tab="home">%%ICON_HOME%%<span>Headlines</span></a>
   <a href="#m-sections" data-tab="sections">%%ICON_GRID%%<span>Specialties</span></a>
+  <a href="reels.html" data-tab="reels">%%ICON_PLAY%%<span>Reels</span></a>
   <a href="#cpd" data-tab="cpd">%%ICON_AWARD%%<span>My CPD</span></a>
   <a href="#saved" data-tab="saved">%%ICON_BM%%<span>Saved</span></a>
 </nav>
