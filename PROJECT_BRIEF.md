@@ -46,7 +46,8 @@ A complete summary of the project as of **October 22, 2026**, written so a new C
        → rebuilds site\ (index, archive, icons, manifest, headers)
        → fills missing images from each source's og:image, skipping logos
   5. update state.md
-  6. git add/commit in site\ → git push origin master
+  6. git add/commit in site\ → git push origin master        (publishes the site)
+     git add/commit in the base folder → git push origin main  (backs up data + state to ai-presse-source)
   7. open the page locally, reply with a 3–5 line summary
 Cloudflare: push → build → live behind Access
 ```

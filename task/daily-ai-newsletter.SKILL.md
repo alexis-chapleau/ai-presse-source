@@ -9,7 +9,8 @@ Produce today's edition of "Le Quotidien IA", a personal morning AI newsletter l
 - SCHEMA.md: the edition data format. READ IT FIRST and follow it exactly.
 - render.py: turns an edition JSON into the finished HTML (desktop La Presse layout + phone app layout with slide-up article sheets) and rebuilds the publishable site\ folder (index.html = newest edition, editions\, archive.html, app icon, manifest). Do not edit render.py or write any HTML yourself. Your job is the content.
 - editions\YYYY-MM-DD.json: write today's edition here (today's local date).
-- site\: a git repository (branch master) that Cloudflare Pages publishes when it is pushed. Never edit files in it by hand; render.py writes it.
+- site\: a git repository (branch master, remote alexis-chapleau/ai-presse) that Cloudflare publishes when it is pushed. Never edit files in it by hand; render.py writes it.
+- The base folder itself is a second git repository (branch main, remote alexis-chapleau/ai-presse-source): the private backup of the source and data. Its .gitignore already excludes site\ and generated files.
 - state.md: memory between runs. It holds the last issue number, the headlines and URLs used in the last 7 editions (to avoid repeating stories), and a running timeline for the two ongoing dossiers. Read it before researching; update it at the end (drop editions older than 7 days).
 - The previous edition's JSON in editions\ is a good reference for tone, length and the dossier timelines. Carry the dossier timelines forward and add to them.
 
@@ -45,6 +46,8 @@ Dossiers: add only new developments to the timeline. Use status "new" when somet
 1. Validate: `python -c "import json;json.load(open(r'<path to today's json>',encoding='utf-8'))"`.
 2. Render: `python "C:\Users\agervaischapleau\Documents\Newsletter-IA\render.py" "C:\Users\agervaischapleau\Documents\Newsletter-IA\editions\YYYY-MM-DD.json"`. This writes editions\YYYY-MM-DD.html, latest.html and updates site\. Fix the JSON and re-run if it errors.
 3. Update state.md.
-4. Publish: in C:\Users\agervaischapleau\Documents\Newsletter-IA\site run `git add -A`, then commit with the message "Edition YYYY-MM-DD (No. N)" followed by a blank line and "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>". Then, only if `git remote get-url origin` succeeds, run `git push origin master`. If there is no remote yet, skip the push and say so. If the push fails, report the error; do not change the remote, credentials or git config, and do not force-push.
-5. Open the local page in the default browser: `cmd //c start "" "C:\Users\agervaischapleau\Documents\Newsletter-IA\editions\YYYY-MM-DD.html"` from Git Bash.
-6. Reply with a 3–5 line summary: the lead story, the status of both dossiers, whether it was pushed, and the file path.
+4. Publish the site: in C:\Users\agervaischapleau\Documents\Newsletter-IA\site run `git add -A`, then commit with the message "Edition YYYY-MM-DD (No. N)" followed by a blank line and "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>". Then, only if `git remote get-url origin` succeeds, run `git push origin master`.
+5. Back up the source: in C:\Users\agervaischapleau\Documents\Newsletter-IA (the base folder) run `git add -A`, commit with the message "Data for edition YYYY-MM-DD (No. N)" followed by a blank line and the same Co-Authored-By line, then `git push origin main`. Only commit what git picks up (the .gitignore handles exclusions); never add site\ to this repo.
+6. For both pushes: if a push fails, report the error; do not change remotes, credentials or git config, and never force-push.
+7. Open the local page in the default browser: `cmd //c start "" "C:\Users\agervaischapleau\Documents\Newsletter-IA\editions\YYYY-MM-DD.html"` from Git Bash.
+8. Reply with a 3–5 line summary: the lead story, the status of both dossiers, whether both pushes worked, and the file path.
