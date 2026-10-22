@@ -199,6 +199,24 @@ Verification is optional for reading and required for commenting. In Quebec the 
 - **Monthly My MOC entry:** pre-filled for copying, plus a **PDF transcript and certificate** to attach, a button that opens My MOC, and a reminder notification on the 1st of each month.
 - **Keeping them in the app:** the in-app page is good enough that most never leave. The original paper opens in an in-app browser; when they come back, "I read the full paper" is already switched on.
 
+### Demo built (Oct 22): `demo-md\`
+- **Content:** 14 real JAMA Network Open, *Hypertension* and *BMJ Open* papers (Sept–Oct 2026) across **General internal medicine, Cardiology, Endocrinology, Obstetric medicine** (high-risk pregnancy, diabetes and hypertension in pregnancy), Nephrology, Hepatology, Infectious diseases and Respirology.
+- **Article format:** abstract word for word, plus a labelled AI summary and takeaway (`summaries.json`, written from the abstract only).
+- **Pipeline:** `enrich.py` adds metadata from **OpenAlex** (CC0: citations, field-normalised citation percentile, references, the journal's 2-year mean citations per paper) and the **full-paper reading time**. That time comes from the PubMed Central full text via Europe PMC: body words ÷ 150 words/min + 1.5 min per figure or table, rounded to 5 minutes. **Measured: 35–70 min**, not 20. `build_demo.py` produces `index.html`.
+- **What the user sees:** subtle metadata lines under the byline; papers with zero citations say "New · not yet cited" instead of a misleading percentile.
+- **Log sheet:** a Reading vs Clinical question toggle, then presets for **Abstract / Skimmed (~⅓ of full) / Full paper**, then −5/+5 buttons and a number you can type. It starts at the full-paper estimate if the user opened the full paper. There's also a key message field with a suggested takeaway.
+- **My CPD:** totals, the 25/year ring, the 30/year reading cap, My MOC entries with copy buttons, a print-to-PDF transcript and a "sample month" button.
+- **Not available:** the Altmetric API needs a key (and a paid licence for commercial use), and JAMA's website blocks automated downloads.
+
+### Choosing topics (proposed design)
+- **Onboarding in plain language:** for example "cardiologist, EP, mostly AF ablation; skip HF devices".
+- **The AI maps it to a fixed list of topics** (specialties + MeSH terms) with a weight per topic and a list of exclusions.
+- **Editable chips** ("Here's what I understood") so the user can correct the AI's reading.
+- **Articles are tagged once** when they're added; each user's feed is then a cheap calculation (topic match + recency + quality + hot), with no AI cost per user.
+- **It learns from reads, logs and saves**, and has "more/less like this".
+- **"Why you see this"** on each card.
+- **Practice-changing papers** in the user's specialty always show.
+
 ### Accredited quizzes (Section 3), the strongest Pro feature
 1. Co-develop the quizzes with a **"physician organization"**, for example the Quebec internists' association (AMIQ), a university medicine department or a specialist federation. It provides the scientific planning committee; a private company can't apply on its own.
 2. Have the program reviewed by an **accredited CPD provider**: the **FMSQ** or a university CPD office. At the FMSQ:

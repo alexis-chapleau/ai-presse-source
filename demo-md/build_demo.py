@@ -15,19 +15,23 @@ HERE = Path(__file__).resolve().parent
 e = lambda s: html.escape(str(s or ""), quote=True)
 
 SECTIONS = {
+    "gim":    ("General internal medicine", "#484E58"),
     "cardio": ("Cardiology", "#C2414B"),
     "endo":   ("Endocrinology", "#207FB7"),
-    "resp":   ("Respirology", "#A05FA8"),
+    "obs":    ("Obstetric medicine", "#840132"),
     "nephro": ("Nephrology", "#5A79A0"),
     "hepato": ("Hepatology", "#6B9500"),
     "id":     ("Infectious diseases", "#14A574"),
+    "resp":   ("Respirology", "#A05FA8"),
 }
 LICENSES = {
     "cc by": ("CC BY 4.0", "https://creativecommons.org/licenses/by/4.0/"),
+    "cc by-nc": ("CC BY-NC 4.0", "https://creativecommons.org/licenses/by-nc/4.0/"),
     "cc by-nc-nd": ("CC BY-NC-ND 4.0", "https://creativecommons.org/licenses/by-nc-nd/4.0/"),
 }
 # Europe PMC lower-cases some journal titles
-JOURNAL_NAMES = {"jama network open": "JAMA Network Open"}
+JOURNAL_NAMES = {"jama network open": "JAMA Network Open", "bmj open": "BMJ Open",
+                 "hypertension (dallas, tex. : 1979)": "Hypertension"}
 PATHS = {
     "home": "M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z",
     "bookmark": "M6 3h12v18l-6-4.5L6 21z",
@@ -36,6 +40,9 @@ PATHS = {
     "book": "M12 6.5C10 5 7 4.5 3 5v14c4-.5 7 0 9 1.5 2-1.5 5-2 9-1.5V5c-4-.5-7 0-9 1.5zM12 6.5V20",
     "award": "M12 15a6 6 0 1 0 0-12 6 6 0 0 0 0 12zM8.5 14 7 22l5-3 5 3-1.5-8",
     "ext": "M14 4h6v6M20 4l-9 9M18 14v6H4V6h6",
+    "quote": "M7 7h4v4c0 3-2 5-4 6M15 7h4v4c0 3-2 5-4 6",
+    "journal": "M4 21V8l8-5 8 5v13M9 21v-6h6v6M3 21h18",
+    "unlock": "M7 11V7a5 5 0 0 1 9.6-2M5 11h14v10H5z",
 }
 
 
@@ -78,9 +85,38 @@ def load_papers():
             "journal": JOURNAL_NAMES.get((r["journal"] or "").lower(), r["journal"] or "JAMA Network Open"), "date": r["date"],
             "authors": r["authors"], "license": r["license"], "abstract": secs,
             "minutes": max(2, math.ceil(words / 200)),
+            "metrics": r.get("metrics") or {}, "full_read": r.get("full_read") or {"minutes": 30, "basis": "typical length"},
         }})
-    papers.sort(key=lambda p: (not p.get("lead"), 0))
+    papers.sort(key=lambda p: (not p.get("lead"), not p.get("featured")))
     return papers
+
+
+def short_date(iso):
+    d = datetime.strptime(iso, "%Y-%m-%d")
+    return f"{d:%b} {d.day}"
+
+
+def paper_facts(p):
+    """Subtle metadata block: full-paper length, citations, journal, licence."""
+    fr, m = p["full_read"], p["metrics"]
+    lic_label = LICENSES.get(p["license"], (p["license"] or "licence unknown", ""))[0]
+    length = (f'{fr["body_words"]:,} words, {fr["figures"] + fr["tables"]} figures/tables'
+              if fr.get("body_words") else fr.get("basis", ""))
+    cited = m.get("cited_by") or 0
+    if cited:
+        pct = m.get("citation_percentile")
+        cites = f"Cited {cited}×" + (f" · top {100 - pct}% for its field and age" if pct is not None else "")
+    else:
+        cites = "New · not yet cited"
+    if m.get("references"):
+        cites += f' · {m["references"]} references'
+    jr = f'{e(p["journal"])}'
+    if m.get("journal_2yr_mean_citedness"):
+        jr += f' · journal averages {m["journal_2yr_mean_citedness"]} citations per paper (2 yr)'
+    rows = [("book", f'Full paper ≈ <b>{fr["minutes"]} min</b> · {e(length)}'),
+            ("quote", e(cites)), ("journal", jr), ("unlock", f"Open access · {e(lic_label)}")]
+    return ('<ul class="facts">' + "".join(f'<li>{icon(i, 15)}<span>{t}</span></li>' for i, t in rows)
+            + f'<li class="facts__src">Metrics: OpenAlex, {e(m.get("fetched", ""))}</li></ul>')
 
 
 # ---------------------------------------------------------------- pieces
@@ -100,7 +136,7 @@ def visual(p, cls="vis"):
 def card(p, compact=False):
     name, color = SECTIONS[p["section"]]
     bdg = f'<span class="badge" style="background:{color}">{e(name)}</span>'
-    foot = (f'<div class="mcard__foot"><i class="mdot"></i>{e(nice_date(p["date"]))} · {e(p["minutes"])} min'
+    foot = (f'<div class="mcard__foot"><i class="mdot"></i>{e(short_date(p["date"]))} · paper {e(p["full_read"]["minutes"])} min'
             f'<span class="logged" data-logged="{e(p["id"])}"></span>{actions(p)}</div>')
     if compact:
         return f'''<article class="mcard mcard--row"><div class="mcard__body">{bdg}
@@ -126,7 +162,8 @@ def article_page(p):
   <p class="art__kicker">{e(p["kicker"])} · {e(p["journal"])}</p>
   <h1 class="art__title">{e(p["title"])}</h1>
   <p class="art__authors">{e(authors_short(p["authors"]))}</p>
-  <div class="mmeta"><span><i class="mdot"></i>{e(nice_date(p["date"]))}</span><span>{icon("book", 17)} {e(p["minutes"])} min</span></div>
+  <div class="mmeta"><span><i class="mdot"></i>{e(nice_date(p["date"]))}</span><span>{icon("book", 17)} abstract {e(p["minutes"])} min</span></div>
+  {paper_facts(p)}
   <section class="aisum">
     <div class="aisum__label">✦ AI summary</div>
     <p>{e(p["summary"])}</p>
@@ -190,9 +227,16 @@ LOG_SHEET = '''<div class="logsheet" id="logSheet" aria-hidden="true">
     <button type="button" data-type="prep"><b>Clinical question</b><span>2 credits/hour</span></button>
   </div>
   <label class="fld" id="lsQWrap" hidden><span>Your clinical question</span><input id="lsQ" type="text" placeholder="e.g. Should my 86-year-old patient with AF stay on rivaroxaban?"></label>
-  <div class="fld"><span>Time spent</span>
-    <div class="stepper"><button type="button" id="lsMinus">−</button><output id="lsMin">5</output><span>min</span><button type="button" id="lsPlus">+</button></div>
-    <label class="toggle"><input type="checkbox" id="lsFull"><i></i>I also read the full paper <em>(+20 min)</em></label>
+  <div class="fld"><span>What did you read?</span>
+    <div class="presets" id="lsPresets">
+      <button type="button" data-preset="abstract"><b>Abstract</b><span id="pAbs"></span></button>
+      <button type="button" data-preset="skim"><b>Skimmed</b><span id="pSkim"></span></button>
+      <button type="button" data-preset="full"><b>Full paper</b><span id="pFull"></span></button>
+    </div>
+    <div class="stepper"><button type="button" id="lsMinus" aria-label="5 minutes less">−5</button>
+      <label class="stepper__num"><input id="lsMin" type="number" inputmode="numeric" min="1" max="600" value="5"><span>min</span></label>
+      <button type="button" id="lsPlus" aria-label="5 minutes more">+5</button></div>
+    <p class="lsHint" id="lsHint"></p>
   </div>
   <label class="fld"><span>Key message learned</span><textarea id="lsMsg" rows="3" placeholder="One thing you'll remember or change"></textarea></label>
   <button type="button" class="chip" id="lsSuggest">Use suggested takeaway</button>
@@ -203,14 +247,17 @@ LOG_SHEET = '''<div class="logsheet" id="logSheet" aria-hidden="true">
 
 def build():
     papers = load_papers()
-    lead, rest = papers[0], papers[1:]
-    top, more = [lead] + rest[:3], rest[3:]
+    lead = papers[0]
+    top = [lead] + [p for p in papers[1:] if p.get("featured")][:3]
+    more = [p for p in papers if p not in top]
     chips = "".join(f'<a href="#m-sec-{k}" style="--c:{c}">{e(n)}</a>' for k, (n, c) in SECTIONS.items()
                     if any(p["section"] == k for p in papers))
     by_sec = "".join(
         f'<h3 class="msec" id="m-sec-{k}" style="--c:{c}">{e(n)}</h3>' + "".join(card(p, True) for p in papers if p["section"] == k)
         for k, (n, c) in SECTIONS.items() if any(p["section"] == k for p in papers))
     meta = {p["id"]: {"title": p["title"], "doi": p["doi"], "journal": p["journal"], "minutes": p["minutes"],
+                      "full": p["full_read"]["minutes"], "words": p["full_read"].get("body_words"),
+                      "exhibits": (p["full_read"].get("figures") or 0) + (p["full_read"].get("tables") or 0),
                       "takeaway": p["takeaway"], "section": SECTIONS[p["section"]][0]} for p in papers}
 
     feed = f'''<main id="home">
@@ -343,6 +390,9 @@ body.sheet .scrim{opacity:1;pointer-events:auto}body.logging .scrim2{opacity:1;p
 .art__authors{font:400 13.5px var(--head);color:var(--grey);margin:0 0 12px}
 .mmeta{display:flex;justify-content:space-between;align-items:center;font:400 13px var(--ui);color:var(--grey);margin-bottom:16px}
 .mmeta span{display:flex;align-items:center;gap:6px}
+.facts{list-style:none;margin:-4px 0 18px;padding:0;font:400 12.5px/1.4 var(--ui);color:#6b6b6b}
+.facts li{display:flex;gap:8px;align-items:flex-start;padding:3px 0}.facts li svg{flex:none;margin-top:1px;color:#9a9a9a}
+.facts b{color:var(--ink2);font-weight:600}.facts .facts__src{font-size:11px;color:#aaa;padding-left:23px}
 .aisum{background:#f6f2ff;border:1px solid #e3d8ff;border-radius:10px;padding:14px 14px 10px;margin-bottom:20px}
 .aisum__label{font:700 11.5px var(--ui);text-transform:uppercase;letter-spacing:.1em;color:#6d28d9;margin-bottom:6px}
 .aisum p{font:400 15.5px/1.55 var(--head);margin:0 0 8px;color:#1d1530}
@@ -371,8 +421,17 @@ body.logging .logsheet{transform:none}
 .fld{display:block;margin-bottom:12px}.fld>span{display:block;font:600 12.5px var(--ui);text-transform:uppercase;letter-spacing:.06em;color:var(--grey);margin-bottom:6px}
 .fld input[type=text],.fld textarea{width:100%;font:400 16px var(--head);border:1.5px solid #ddd;border-radius:10px;padding:10px 12px;outline:none}
 .fld input:focus,.fld textarea:focus{border-color:#000}
-.stepper{display:flex;align-items:center;gap:10px}.stepper button{width:40px;height:40px;border-radius:50%;border:1.5px solid #ddd;background:#fff;font-size:22px;cursor:pointer}
-.stepper output{font:800 26px var(--head);min-width:48px;text-align:center}.stepper span{font:400 14px var(--ui);color:var(--grey);margin-right:auto}
+.presets{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:10px}
+.presets button{background:#f3f3f3;border:2px solid transparent;border-radius:12px;padding:9px 6px;cursor:pointer;text-align:center}
+.presets button b{display:block;font:700 14px var(--head)}.presets button span{font:400 12.5px var(--ui);color:var(--grey)}
+.presets button.on{background:#fff;border-color:#000}
+.stepper{display:flex;align-items:center;justify-content:center;gap:12px}
+.stepper>button{width:52px;height:44px;border-radius:22px;border:1.5px solid #ddd;background:#fff;font:600 15px var(--ui);cursor:pointer}
+.stepper__num{display:flex;align-items:baseline;gap:6px;border-bottom:2px solid #000;padding:0 4px}
+.stepper__num input{width:70px;border:0;outline:none;text-align:center;font:800 30px var(--head);background:none;-moz-appearance:textfield}
+.stepper__num input::-webkit-outer-spin-button,.stepper__num input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.stepper__num span{font:400 14px var(--ui);color:var(--grey)}
+.lsHint{font:400 12px/1.4 var(--ui);color:#888;margin:8px 0 0;text-align:center}
 .toggle{display:flex;align-items:center;gap:10px;margin-top:10px;font:400 14.5px var(--head);cursor:pointer}.toggle em{color:var(--grey);font-style:normal}
 .toggle input{display:none}.toggle i{width:44px;height:26px;border-radius:13px;background:#ddd;position:relative;transition:background .2s;flex:none}
 .toggle i::after{content:"";position:absolute;left:3px;top:3px;width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.3);transition:transform .25s var(--ease)}
@@ -467,22 +526,32 @@ JS = r"""
 
   // ---------- log sheet
   var ls={id:null,type:'review',min:5};
+  function skimOf(m){return Math.max(5,Math.round(m.full/3/5)*5)}
+  function presetMin(k){var m=META[ls.id];return k==='full'?m.full:k==='skim'?skimOf(m):m.minutes}
   function openLog(id){
     var m=META[id];ls={id:id,type:'review',min:m.minutes};
-    $('lsTitle').textContent=m.title;$('lsMsg').value='';$('lsQ').value='';$('lsFull').checked=sessionStorage.getItem('full-'+id)==='1';
-    setType('review');calc();body.classList.add('logging');$('logSheet').setAttribute('aria-hidden','false');
+    $('lsTitle').textContent=m.title;$('lsMsg').value='';$('lsQ').value='';
+    $('pAbs').textContent=m.minutes+' min';$('pSkim').textContent='~'+skimOf(m)+' min';$('pFull').textContent='~'+m.full+' min';
+    $('lsHint').textContent='Full-paper time is estimated from its length'+(m.words?' ('+m.words.toLocaleString('en-CA')+' words, '+m.exhibits+' figures/tables)':'')+'. Adjust it to the time you actually spent.';
+    setType('review');
+    // came back from the full paper? start from the full-paper estimate
+    ls.min=presetMin(sessionStorage.getItem('full-'+id)==='1'?'full':'abstract');calc();
+    body.classList.add('logging');$('logSheet').setAttribute('aria-hidden','false');
   }
-  function closeLog(){body.classList.remove('logging');$('logSheet').setAttribute('aria-hidden','true')}
+  function closeLog(){body.classList.remove('logging');$('logSheet').setAttribute('aria-hidden','true');if(document.activeElement)document.activeElement.blur()}
   function setType(t){ls.type=t;document.querySelectorAll('.seg button').forEach(function(b){b.classList.toggle('on',b.dataset.type===t)});
     $('lsQWrap').hidden=t!=='prep';calc()}
-  function mins(){return ls.min+($('lsFull').checked?20:0)}
-  function calc(){$('lsMin').textContent=mins();
+  function mins(){return ls.min}
+  function calc(){var inp=$('lsMin');if(document.activeElement!==inp)inp.value=ls.min;
+    document.querySelectorAll('#lsPresets button').forEach(function(b){b.classList.toggle('on',presetMin(b.dataset.preset)===ls.min)});
     var c=mins()/60*(ls.type==='prep'?2:0.5);
     $('lsCalc').innerHTML='= <b>'+fmt(c)+'</b> MOC credits · Section 2 · '+(ls.type==='prep'?'Activity preparation (2/h)':'Educational content review (0.5/h)')}
   document.querySelectorAll('.seg button').forEach(function(b){b.addEventListener('click',function(){setType(b.dataset.type)})});
-  $('lsMinus').addEventListener('click',function(){ls.min=Math.max(1,ls.min-1);calc()});
-  $('lsPlus').addEventListener('click',function(){ls.min=Math.min(240,ls.min+1);calc()});
-  $('lsFull').addEventListener('change',calc);
+  document.querySelectorAll('#lsPresets button').forEach(function(b){b.addEventListener('click',function(){ls.min=presetMin(b.dataset.preset);calc()})});
+  $('lsMinus').addEventListener('click',function(){ls.min=Math.max(1,ls.min-5);calc()});
+  $('lsPlus').addEventListener('click',function(){ls.min=Math.min(600,ls.min+5);calc()});
+  $('lsMin').addEventListener('input',function(){var v=parseInt(this.value,10);if(v>0){ls.min=Math.min(600,v);calc()}});
+  $('lsMin').addEventListener('blur',function(){this.value=ls.min});
   $('lsSuggest').addEventListener('click',function(){$('lsMsg').value=META[ls.id].takeaway;$('lsMsg').focus()});
   $('lsCancel').addEventListener('click',closeLog);scrim2.addEventListener('click',closeLog);
   $('lsSave').addEventListener('click',function(){
@@ -538,7 +607,7 @@ JS = r"""
     var ids=Object.keys(META),l=load(CPD),days=[2,3,6,8,9,13,15,16,20,21];
     days.forEach(function(d,i){var id=ids[i%ids.length],m=META[id],prep=(i===3||i===7);
       l.push({key:'s'+d+i,id:id,title:m.title,doi:m.doi,journal:m.journal,date:'2026-10-'+String(d).padStart(2,'0'),
-        minutes:prep?35:m.minutes+(i%3===0?20:0),type:prep?'prep':'review',
+        minutes:prep?35:(i%3===0?m.full:m.minutes),type:prep?'prep':'review',
         question:prep?(i===3?'Should my 86-year-old nursing home patient with AF and full ADL dependence stay on rivaroxaban?':'Is real-time CGM worth starting for my patient with T2D and HbA1c of 9.8%?'):'',
         message:m.takeaway})});
     save(CPD,l);paintCpd();toast('Sample month added');

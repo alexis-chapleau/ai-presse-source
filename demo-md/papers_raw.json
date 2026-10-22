@@ -21,7 +21,26 @@
    "Won S",
    "Lee SP"
   ],
-  "abstract": "<h4>Importance</h4>The optimal timing of mitral valve (MV) surgery in patients with asymptomatic severe primary mitral regurgitation (MR) remains uncertain because randomized clinical trials are lacking.<h4>Objective</h4>To evaluate the association of early MV surgery with long-term survival in patients with asymptomatic severe primary MR using a target trial emulation framework.<h4>Design, setting, and participants</h4>This cohort study used a clinical valve registry from 3 tertiary hospitals in South Korea between 2000 and 2022. Patients with asymptomatic severe primary MR were analyzed using a clone-censor-weight approach to emulate a target trial. A 6-month grace period after diagnosis was used to define treatment strategies. This analysis was conducted from September 2024 to January 2025.<h4>Exposure</h4>Early MV surgery (within 6 months of diagnosis) vs watchful waiting.<h4>Main outcomes and measures</h4>The primary outcome was all-cause mortality and the secondary outcome, a composite of all-cause mortality or heart failure hospitalization. Inverse probability of censoring-weighted estimates of the per-protocol effect size included restricted mean survival time (RMST) differences as the primary measure and hazard ratios (HRs) as secondary measures.<h4>Results</h4>Among 802 patients (mean [SD] age, 55 [16] years; 476 men [59%]), 344 underwent early surgery, and 458 received watchful waiting. During a median (IQR) follow-up of 7.4 (4.1-11.6) years, 27 deaths occurred in the early surgery group and 103 in the watchful waiting group. At 5 years, early surgery was associated with an RMST gain of 66 days (95% CI, 19-129 days). The survival benefit persisted up to 15 years. Early surgery was also associated with a lower risk of all-cause mortality compared with watchful waiting (HR, 0.69; 95% CI, 0.41-0.94; P = .02). Similar associations were observed in patients without left ventricular decompensation (HR, 0.61; 95% CI, 0.31-0.96; P = .04) and in those with degenerative MR (HR, 0.66; 95% CI, 0.36-0.98; P = .04).<h4>Conclusions and relevance</h4>In this multicenter cohort study with a target trial framework, early surgery was associated with improved long-term survival among patients with asymptomatic severe primary MR. These findings support consideration of earlier surgical intervention in contemporary clinical practice."
+  "abstract": "<h4>Importance</h4>The optimal timing of mitral valve (MV) surgery in patients with asymptomatic severe primary mitral regurgitation (MR) remains uncertain because randomized clinical trials are lacking.<h4>Objective</h4>To evaluate the association of early MV surgery with long-term survival in patients with asymptomatic severe primary MR using a target trial emulation framework.<h4>Design, setting, and participants</h4>This cohort study used a clinical valve registry from 3 tertiary hospitals in South Korea between 2000 and 2022. Patients with asymptomatic severe primary MR were analyzed using a clone-censor-weight approach to emulate a target trial. A 6-month grace period after diagnosis was used to define treatment strategies. This analysis was conducted from September 2024 to January 2025.<h4>Exposure</h4>Early MV surgery (within 6 months of diagnosis) vs watchful waiting.<h4>Main outcomes and measures</h4>The primary outcome was all-cause mortality and the secondary outcome, a composite of all-cause mortality or heart failure hospitalization. Inverse probability of censoring-weighted estimates of the per-protocol effect size included restricted mean survival time (RMST) differences as the primary measure and hazard ratios (HRs) as secondary measures.<h4>Results</h4>Among 802 patients (mean [SD] age, 55 [16] years; 476 men [59%]), 344 underwent early surgery, and 458 received watchful waiting. During a median (IQR) follow-up of 7.4 (4.1-11.6) years, 27 deaths occurred in the early surgery group and 103 in the watchful waiting group. At 5 years, early surgery was associated with an RMST gain of 66 days (95% CI, 19-129 days). The survival benefit persisted up to 15 years. Early surgery was also associated with a lower risk of all-cause mortality compared with watchful waiting (HR, 0.69; 95% CI, 0.41-0.94; P = .02). Similar associations were observed in patients without left ventricular decompensation (HR, 0.61; 95% CI, 0.31-0.96; P = .04) and in those with degenerative MR (HR, 0.66; 95% CI, 0.36-0.98; P = .04).<h4>Conclusions and relevance</h4>In this multicenter cohort study with a target trial framework, early surgery was associated with improved long-term survival among patients with asymptomatic severe primary MR. These findings support consideration of earlier surgical intervention in contemporary clinical practice.",
+  "metrics": {
+   "journal_2yr_mean_citedness": 10.0,
+   "journal_h_index": 235,
+   "openalex_id": "https://openalex.org/W7220375631",
+   "cited_by": 0,
+   "fwci": 0.0,
+   "citation_percentile": 83,
+   "top10": false,
+   "references": 35,
+   "pmcid": "PMC13639776",
+   "fetched": "2026-10-22"
+  },
+  "full_read": {
+   "body_words": 4502,
+   "figures": 3,
+   "tables": 2,
+   "minutes": 40,
+   "basis": "full text"
+  }
  },
  {
   "title": "Percutaneous Coronary Intervention Facility Access and Clinical Outcomes Among Patients With Acute Myocardial Infarction.",
@@ -35,7 +54,26 @@
    "Shen YC",
    "Hsia RY"
   ],
-  "abstract": "<h4>Importance</h4>The proliferation of percutaneous coronary intervention (PCI) facilities across the US has raised questions about whether expanding capacity improves outcomes in areas already served vs those without prior access.<h4>Objective</h4>To evaluate the association between the opening of PCI-capable facilities and outcomes following acute myocardial infarction (AMI) in communities with and without baseline PCI access.<h4>Design, setting, and participants</h4>This cohort study used California data from inpatient, emergency department, and ambulatory surgery encounters from January 1, 2011, to December 31, 2022, including all adults hospitalized with a primary diagnosis of AMI. Zip code communities were categorized by baseline (2011) access to PCI-capable facilities within a 30-minute drive.<h4>Exposure</h4>Opening of a PCI-capable facility within 30 minutes of a community's zip code during the study period.<h4>Main outcomes and measures</h4>Primary outcomes were (1) admission to a PCI-capable facility, (2) receipt of PCI during the index hospitalization, (3) unscheduled acute care visit within 30 days, and (4) all-cause mortality at 30 days and 1 year. Linear probability models with community and time-fixed effects estimated changes in outcomes following PCI facility openings separately for communities with and without baseline access.<h4>Results</h4>Among 590 282 patients with AMI (157 435 younger than age 60 years [27%]; 222 773 female [38%]; 63 460 Asian [11%], 129 137 Hispanic [22%], 315 326 White [53%]), 500 778 (85%) lived in communities with baseline PCI access, and 89 504 (15%) lived in communities without; 18 805 patients (21%) without baseline access experienced a PCI opening. Openings in communities without baseline access were associated with a 30.0 percentage point (pp) increase (95% CI, 28.2 to 31.8 pp) in admission to PCI-capable hospitals and a 5.1 pp increase (95% CI, 3.3 to 7.0 pp) in PCI receipt, along with reductions in 30-day (-1.8 pp; 95% CI, -3.2 to -0.5 pp) and 1-year (-2.8 pp; 95% CI, -4.7 to -1.0 pp) mortality. In contrast, openings in communities with baseline access were associated with smaller gains in admission (1.5 pp; 95% CI, 1.1 to 1.9 pp), modest increases in PCI use (1.0 pp; 95% CI, 0.5 to 1.6 pp), decreases in unscheduled visits within 30 days (-0.7 pp; 95% CI, -1.2 to -0.2 pp), and no mortality change. Sensitivity analyses restricted to higher-volume PCI centers (50 annual cases or more) yielded consistent findings.<h4>Conclusions and relevance</h4>In this cohort study of 590 282 patients with AMI in California, opening new PCI facilities was associated with substantial improvements in communities without prior PCI availability, including a 53% relative increase in access to admission, 16% increase in PCI use, and 20% and 15% reductions in 30-day and 1-year mortality, respectively. In contrast, already served areas showed smaller benefits and no mortality improvement. PCI expansion should prioritize underserved regions to maximize population-level benefits and avoid inefficient duplication of services."
+  "abstract": "<h4>Importance</h4>The proliferation of percutaneous coronary intervention (PCI) facilities across the US has raised questions about whether expanding capacity improves outcomes in areas already served vs those without prior access.<h4>Objective</h4>To evaluate the association between the opening of PCI-capable facilities and outcomes following acute myocardial infarction (AMI) in communities with and without baseline PCI access.<h4>Design, setting, and participants</h4>This cohort study used California data from inpatient, emergency department, and ambulatory surgery encounters from January 1, 2011, to December 31, 2022, including all adults hospitalized with a primary diagnosis of AMI. Zip code communities were categorized by baseline (2011) access to PCI-capable facilities within a 30-minute drive.<h4>Exposure</h4>Opening of a PCI-capable facility within 30 minutes of a community's zip code during the study period.<h4>Main outcomes and measures</h4>Primary outcomes were (1) admission to a PCI-capable facility, (2) receipt of PCI during the index hospitalization, (3) unscheduled acute care visit within 30 days, and (4) all-cause mortality at 30 days and 1 year. Linear probability models with community and time-fixed effects estimated changes in outcomes following PCI facility openings separately for communities with and without baseline access.<h4>Results</h4>Among 590 282 patients with AMI (157 435 younger than age 60 years [27%]; 222 773 female [38%]; 63 460 Asian [11%], 129 137 Hispanic [22%], 315 326 White [53%]), 500 778 (85%) lived in communities with baseline PCI access, and 89 504 (15%) lived in communities without; 18 805 patients (21%) without baseline access experienced a PCI opening. Openings in communities without baseline access were associated with a 30.0 percentage point (pp) increase (95% CI, 28.2 to 31.8 pp) in admission to PCI-capable hospitals and a 5.1 pp increase (95% CI, 3.3 to 7.0 pp) in PCI receipt, along with reductions in 30-day (-1.8 pp; 95% CI, -3.2 to -0.5 pp) and 1-year (-2.8 pp; 95% CI, -4.7 to -1.0 pp) mortality. In contrast, openings in communities with baseline access were associated with smaller gains in admission (1.5 pp; 95% CI, 1.1 to 1.9 pp), modest increases in PCI use (1.0 pp; 95% CI, 0.5 to 1.6 pp), decreases in unscheduled visits within 30 days (-0.7 pp; 95% CI, -1.2 to -0.2 pp), and no mortality change. Sensitivity analyses restricted to higher-volume PCI centers (50 annual cases or more) yielded consistent findings.<h4>Conclusions and relevance</h4>In this cohort study of 590 282 patients with AMI in California, opening new PCI facilities was associated with substantial improvements in communities without prior PCI availability, including a 53% relative increase in access to admission, 16% increase in PCI use, and 20% and 15% reductions in 30-day and 1-year mortality, respectively. In contrast, already served areas showed smaller benefits and no mortality improvement. PCI expansion should prioritize underserved regions to maximize population-level benefits and avoid inefficient duplication of services.",
+  "metrics": {
+   "journal_2yr_mean_citedness": 10.0,
+   "journal_h_index": 235,
+   "openalex_id": "https://openalex.org/W7221512650",
+   "cited_by": 0,
+   "fwci": 0.0,
+   "citation_percentile": 86,
+   "top10": false,
+   "references": 23,
+   "pmcid": "PMC13659571",
+   "fetched": "2026-10-22"
+  },
+  "full_read": {
+   "body_words": 5993,
+   "figures": 3,
+   "tables": 1,
+   "minutes": 45,
+   "basis": "full text"
+  }
  },
  {
   "title": "Anticoagulation Outcomes in Nursing Home Residents With Atrial Fibrillation and ADL Disability.",
@@ -53,7 +91,26 @@
    "Kim DH",
    "Lin KJ"
   ],
-  "abstract": "<h4>Importance</h4>Long-term nursing home residents with atrial fibrillation (AF) and activities of daily living (ADL) disability are at high risk of bleeding and death, making the net benefit of anticoagulation uncertain.<h4>Objective</h4>To compare the association of oral anticoagulant (OAC) use vs nonuse with ischemic stroke and major bleeding in long-term nursing home residents with AF and ADL disability.<h4>Design, setting, and participants</h4>This cohort study used US Medicare claims linked with the Minimum Data Set (January 1, 2013, to December 31, 2022). Nursing home residents with nonvalvular AF and impairment in 3 or more ADLs were included. Three cohorts comparing use of apixaban, rivaroxaban, or warfarin with nonuse were constructed using incidence-density sampling.<h4>Exposures</h4>Initiation of apixaban, rivaroxaban, or warfarin use.<h4>Main outcomes and measures</h4>Primary outcomes were ischemic stroke, major bleeding, and their composite. Propensity score (PS) matching balanced 111 covariates. Adjusted rate ratios (ARRs) with 95% CIs were estimated. Tipping-point analyses assessed the relative weighting ischemic stroke vs major bleeding required to favor anticoagulation. Direct active-comparator analyses compared apixaban with rivaroxaban and warfarin.<h4>Results</h4>The study comprised 26 940 nursing home residents (median [IQR] age, 82 [74,88] years; 17 504 [65.0%] female), including PS-matched cohorts of 7600 residents receiving apixaban, 2654 receiving rivaroxaban, and 3216 receiving warfarin. Compared with nonuse, use of all OACs was associated with lower rates of ischemic stroke (apixaban: ARR, 0.53; 95% CI, 0.38-0.73; rivaroxaban: ARR, 0.48; 95% CI, 0.27-0.87; warfarin: ARR, 0.47; 95% CI, 0.25-0.88) and higher rates of major bleeding (apixaban: ARR, 1.62; 95% CI, 1.29-2.03; rivaroxaban: ARR, 2.68; 95% CI, 1.84-3.93; warfarin: ARR, 3.02; 95% CI, 2.15-4.25). Only apixaban was not associated with a higher composite outcome (ARR, 1.08; 95% CI, 0.90-1.30), whereas rivaroxaban (ARR, 1.62; 95% CI, 1.20-2.18) and warfarin (ARR, 1.99; 95% CI, 1.50-2.63) were associated with higher rates. Findings were consistent across frailty strata, although stroke reduction with apixaban was attenuated among frail individuals. Tipping-point analyses indicated a more favorable benefit-risk balance for apixaban than for rivaroxaban or warfarin.<h4>Conclusions and relevance</h4>Among nursing home residents with AF and ADL disability, OAC use was associated with lower ischemic stroke but higher major bleeding rates than nonuse. Apixaban demonstrated the most favorable benefit-risk profile among the OACs evaluated. These findings may inform individualized anticoagulation decisions."
+  "abstract": "<h4>Importance</h4>Long-term nursing home residents with atrial fibrillation (AF) and activities of daily living (ADL) disability are at high risk of bleeding and death, making the net benefit of anticoagulation uncertain.<h4>Objective</h4>To compare the association of oral anticoagulant (OAC) use vs nonuse with ischemic stroke and major bleeding in long-term nursing home residents with AF and ADL disability.<h4>Design, setting, and participants</h4>This cohort study used US Medicare claims linked with the Minimum Data Set (January 1, 2013, to December 31, 2022). Nursing home residents with nonvalvular AF and impairment in 3 or more ADLs were included. Three cohorts comparing use of apixaban, rivaroxaban, or warfarin with nonuse were constructed using incidence-density sampling.<h4>Exposures</h4>Initiation of apixaban, rivaroxaban, or warfarin use.<h4>Main outcomes and measures</h4>Primary outcomes were ischemic stroke, major bleeding, and their composite. Propensity score (PS) matching balanced 111 covariates. Adjusted rate ratios (ARRs) with 95% CIs were estimated. Tipping-point analyses assessed the relative weighting ischemic stroke vs major bleeding required to favor anticoagulation. Direct active-comparator analyses compared apixaban with rivaroxaban and warfarin.<h4>Results</h4>The study comprised 26 940 nursing home residents (median [IQR] age, 82 [74,88] years; 17 504 [65.0%] female), including PS-matched cohorts of 7600 residents receiving apixaban, 2654 receiving rivaroxaban, and 3216 receiving warfarin. Compared with nonuse, use of all OACs was associated with lower rates of ischemic stroke (apixaban: ARR, 0.53; 95% CI, 0.38-0.73; rivaroxaban: ARR, 0.48; 95% CI, 0.27-0.87; warfarin: ARR, 0.47; 95% CI, 0.25-0.88) and higher rates of major bleeding (apixaban: ARR, 1.62; 95% CI, 1.29-2.03; rivaroxaban: ARR, 2.68; 95% CI, 1.84-3.93; warfarin: ARR, 3.02; 95% CI, 2.15-4.25). Only apixaban was not associated with a higher composite outcome (ARR, 1.08; 95% CI, 0.90-1.30), whereas rivaroxaban (ARR, 1.62; 95% CI, 1.20-2.18) and warfarin (ARR, 1.99; 95% CI, 1.50-2.63) were associated with higher rates. Findings were consistent across frailty strata, although stroke reduction with apixaban was attenuated among frail individuals. Tipping-point analyses indicated a more favorable benefit-risk balance for apixaban than for rivaroxaban or warfarin.<h4>Conclusions and relevance</h4>Among nursing home residents with AF and ADL disability, OAC use was associated with lower ischemic stroke but higher major bleeding rates than nonuse. Apixaban demonstrated the most favorable benefit-risk profile among the OACs evaluated. These findings may inform individualized anticoagulation decisions.",
+  "metrics": {
+   "journal_2yr_mean_citedness": 10.0,
+   "journal_h_index": 235,
+   "openalex_id": "https://openalex.org/W7220401090",
+   "cited_by": 0,
+   "fwci": 0.0,
+   "citation_percentile": 85,
+   "top10": false,
+   "references": 63,
+   "pmcid": "PMC13639757",
+   "fetched": "2026-10-22"
+  },
+  "full_read": {
+   "body_words": 6945,
+   "figures": 2,
+   "tables": 3,
+   "minutes": 55,
+   "basis": "full text"
+  }
  },
  {
   "title": "Continuous Glucose Monitoring and Long-Term Glycemic and Kidney Outcomes.",
@@ -71,7 +128,26 @@
    "Gilliam LK",
    "Mahapatra A"
   ],
-  "abstract": "<h4>Importance</h4>Real-time continuous glucose monitoring (rtCGM) improves short-term glycemic control in diabetes. However, scant evidence exists regarding rtCGM's longer-term benefits for glycemia or kidney health.<h4>Objective</h4>To evaluate whether rtCGM initiation and sustained use is associated with improved glycemic control and kidney markers in high-risk adults with type 2 diabetes (T2D).<h4>Design, setting, and participants</h4>This comparative effectiveness research study compared glycemic control and kidney markers among high-risk adults with T2D initiating and sustaining use of rtCGM (rtCGM arm) vs no initiation (controls) using inverse probability-weighted marginal structural models to estimate per-protocol outcomes of an emulated target trial. Target trial eligibility criteria were as follows: age of 19 years or older, T2D, no prior CGM use, and poor glycemic control (hemoglobin A1c [HbA1c] >8%) or emergency department or inpatient treatment for hypoglycemia. Baseline was defined by the rtCGM initiation date and applied to temporally matched CGM-naive controls who met the eligibility criteria, sampled monthly from risk sets from January 1, 2015, to June 30, 2023. Data were censored at nonadherence to the target trial protocol (eg, rtCGM arm discontinued use or controls initiated CGM), coverage gaps, death, or after 36 months of follow-up. Data analysis was performed July 2025 to March 2026.<h4>Exposure</h4>rtCGM use.<h4>Main outcomes and measures</h4>Cumulative differences for HbA1c, urinary albumin-creatinine ratio (UACR), and estimated glomerular filtration rate (eGFR).<h4>Results</h4>The study included 25 648 individuals (2771 in the rtCGM arm and 22 877 in the control arm) who were target trial eligible (mean [SD] age, 61.5 [13.1] years; 13 885 [54.7%] male). The mean (SD) baseline HbA1c level was 9.5% (1.5%). After 36 months of follow-up, the rtCGM arm had an approximately 0.8-percentage point lower HbA1c level than controls (7.83% [95% CI, 7.55%-8.11%] vs 8.58% [95% CI, 8.49%-8.66%], P < .001). There was substantial attrition during follow-up; 1228 (44.3%) in the rtCGM arm were censored due to discontinuation and 4284 (18.7%) in the control group were censored due to CGM initiation. There were no significant differences in UACR between arms initially; however, by the end of 36 months, rtCGM initiators had a UACR of 125.3 mg/g (95% CI, -196.6 to -54.0 mg/g; P = .001) lower than that of controls. There were no differences in eGFR during follow-up.<h4>Conclusions and relevance</h4>In this comparative effectiveness study using a target trial emulation, sustained, longer-term use of rtCGM was associated with durable improvements in glycemic control and later regression of UACR. By addressing glycemic deterioration, rtCGM may extend the time before pharmacologic escalation is required and potentially delay diabetic kidney disease progression."
+  "abstract": "<h4>Importance</h4>Real-time continuous glucose monitoring (rtCGM) improves short-term glycemic control in diabetes. However, scant evidence exists regarding rtCGM's longer-term benefits for glycemia or kidney health.<h4>Objective</h4>To evaluate whether rtCGM initiation and sustained use is associated with improved glycemic control and kidney markers in high-risk adults with type 2 diabetes (T2D).<h4>Design, setting, and participants</h4>This comparative effectiveness research study compared glycemic control and kidney markers among high-risk adults with T2D initiating and sustaining use of rtCGM (rtCGM arm) vs no initiation (controls) using inverse probability-weighted marginal structural models to estimate per-protocol outcomes of an emulated target trial. Target trial eligibility criteria were as follows: age of 19 years or older, T2D, no prior CGM use, and poor glycemic control (hemoglobin A1c [HbA1c] >8%) or emergency department or inpatient treatment for hypoglycemia. Baseline was defined by the rtCGM initiation date and applied to temporally matched CGM-naive controls who met the eligibility criteria, sampled monthly from risk sets from January 1, 2015, to June 30, 2023. Data were censored at nonadherence to the target trial protocol (eg, rtCGM arm discontinued use or controls initiated CGM), coverage gaps, death, or after 36 months of follow-up. Data analysis was performed July 2025 to March 2026.<h4>Exposure</h4>rtCGM use.<h4>Main outcomes and measures</h4>Cumulative differences for HbA1c, urinary albumin-creatinine ratio (UACR), and estimated glomerular filtration rate (eGFR).<h4>Results</h4>The study included 25 648 individuals (2771 in the rtCGM arm and 22 877 in the control arm) who were target trial eligible (mean [SD] age, 61.5 [13.1] years; 13 885 [54.7%] male). The mean (SD) baseline HbA1c level was 9.5% (1.5%). After 36 months of follow-up, the rtCGM arm had an approximately 0.8-percentage point lower HbA1c level than controls (7.83% [95% CI, 7.55%-8.11%] vs 8.58% [95% CI, 8.49%-8.66%], P < .001). There was substantial attrition during follow-up; 1228 (44.3%) in the rtCGM arm were censored due to discontinuation and 4284 (18.7%) in the control group were censored due to CGM initiation. There were no significant differences in UACR between arms initially; however, by the end of 36 months, rtCGM initiators had a UACR of 125.3 mg/g (95% CI, -196.6 to -54.0 mg/g; P = .001) lower than that of controls. There were no differences in eGFR during follow-up.<h4>Conclusions and relevance</h4>In this comparative effectiveness study using a target trial emulation, sustained, longer-term use of rtCGM was associated with durable improvements in glycemic control and later regression of UACR. By addressing glycemic deterioration, rtCGM may extend the time before pharmacologic escalation is required and potentially delay diabetic kidney disease progression.",
+  "metrics": {
+   "journal_2yr_mean_citedness": 10.0,
+   "journal_h_index": 235,
+   "openalex_id": "https://openalex.org/W7220837802",
+   "cited_by": 0,
+   "fwci": 0.0,
+   "citation_percentile": 86,
+   "top10": false,
+   "references": 41,
+   "pmcid": "PMC13647144",
+   "fetched": "2026-10-22"
+  },
+  "full_read": {
+   "body_words": 4359,
+   "figures": 2,
+   "tables": 2,
+   "minutes": 35,
+   "basis": "full text"
+  }
  },
  {
   "title": "Survival Outcomes Following Preemptive vs Nonpreemptive Kidney Transplantation.",
@@ -91,7 +167,26 @@
    "Naylor K",
    "Kim SJ"
   ],
-  "abstract": "<h4>Importance</h4>Preemptive kidney transplantation (before dialysis) is promoted as optimal therapy for kidney failure, yet evidence of a true survival advantage remains uncertain due to confounding, selection, and lead-time biases.<h4>Objective</h4>To estimate the associations of preemptive vs nonpreemptive kidney transplantation with mortality and graft outcomes using a target trial emulation among transplant recipients.<h4>Design, setting, and participants</h4>This retrospective cohort study used data from the Scientific Registry of Transplant Recipients, a nationwide registry of all US kidney transplant centers, from January 1, 2005, to November 30, 2023. Adult first kidney-alone transplant recipients with recorded wait-time start at an estimated glomerular filtration rate (eGFR) of 20 mL/min/1.73 m2 or less were included. Groups were balanced using stabilized inverse probability of treatment weighting (IPTW) to emulate randomization across demographic, clinical, and socioeconomic factors identified by a directed acyclic graph. Analyses were conducted from July to October 2025.<h4>Exposures</h4>Preemptive vs nonpreemptive kidney transplantation, defined by dialysis before transplant.<h4>Main outcomes and measures</h4>The primary outcome was all-cause mortality; secondary outcomes were all-cause graft failure, death-censored graft failure, and delayed graft function. IPTW was incorporated for baseline confounding to address selection bias. Weighted Kaplan-Meier curves estimated survival differences; hazard ratios (HRs) and odds ratios (ORs) were derived from weighted left-truncated Cox proportional hazards (to address lead-time bias) and logistic regression models, respectively.<h4>Results</h4>Among 32 770 recipients (15 894 [48.5%] preemptive [mean (SD) age, 53.7 (13.1) years; 7007 (44.1%) female] and 16 876 [51.5%] nonpreemptive [mean (SD) age, 54.5 (13.0) years; 6978 (41.3%) female]) with more than 265 369 person-years of follow-up, 6827 deaths occurred. Preemptive transplantation showed no mortality benefit (HR, 1.02; 95% CI, 0.96-1.07). The weighted survival differences were approximately 1% to 2% annually. Preemptive transplantation was associated with lower odds of delayed graft function (OR, 0.68; 95% CI, 0.64-0.72) and reduced risk of death-censored graft failure (HR, 0.81; 95% CI, 0.74-0.88), an association largely attenuated after adjustment for delayed graft function. There was no association with all-cause graft failure (HR, 0.96; 95% CI, 0.91-1.00).<h4>Conclusions and relevance</h4>In this study, preemptive transplantation was not associated with improved patient survival but was associated with lower rates of delayed graft function and death-censored graft failure. Findings challenge presumed survival advantages and suggest preemptive strategies should focus on preventing early graft dysfunction and optimizing use of high-risk kidneys rather than expected mortality benefit."
+  "abstract": "<h4>Importance</h4>Preemptive kidney transplantation (before dialysis) is promoted as optimal therapy for kidney failure, yet evidence of a true survival advantage remains uncertain due to confounding, selection, and lead-time biases.<h4>Objective</h4>To estimate the associations of preemptive vs nonpreemptive kidney transplantation with mortality and graft outcomes using a target trial emulation among transplant recipients.<h4>Design, setting, and participants</h4>This retrospective cohort study used data from the Scientific Registry of Transplant Recipients, a nationwide registry of all US kidney transplant centers, from January 1, 2005, to November 30, 2023. Adult first kidney-alone transplant recipients with recorded wait-time start at an estimated glomerular filtration rate (eGFR) of 20 mL/min/1.73 m2 or less were included. Groups were balanced using stabilized inverse probability of treatment weighting (IPTW) to emulate randomization across demographic, clinical, and socioeconomic factors identified by a directed acyclic graph. Analyses were conducted from July to October 2025.<h4>Exposures</h4>Preemptive vs nonpreemptive kidney transplantation, defined by dialysis before transplant.<h4>Main outcomes and measures</h4>The primary outcome was all-cause mortality; secondary outcomes were all-cause graft failure, death-censored graft failure, and delayed graft function. IPTW was incorporated for baseline confounding to address selection bias. Weighted Kaplan-Meier curves estimated survival differences; hazard ratios (HRs) and odds ratios (ORs) were derived from weighted left-truncated Cox proportional hazards (to address lead-time bias) and logistic regression models, respectively.<h4>Results</h4>Among 32 770 recipients (15 894 [48.5%] preemptive [mean (SD) age, 53.7 (13.1) years; 7007 (44.1%) female] and 16 876 [51.5%] nonpreemptive [mean (SD) age, 54.5 (13.0) years; 6978 (41.3%) female]) with more than 265 369 person-years of follow-up, 6827 deaths occurred. Preemptive transplantation showed no mortality benefit (HR, 1.02; 95% CI, 0.96-1.07). The weighted survival differences were approximately 1% to 2% annually. Preemptive transplantation was associated with lower odds of delayed graft function (OR, 0.68; 95% CI, 0.64-0.72) and reduced risk of death-censored graft failure (HR, 0.81; 95% CI, 0.74-0.88), an association largely attenuated after adjustment for delayed graft function. There was no association with all-cause graft failure (HR, 0.96; 95% CI, 0.91-1.00).<h4>Conclusions and relevance</h4>In this study, preemptive transplantation was not associated with improved patient survival but was associated with lower rates of delayed graft function and death-censored graft failure. Findings challenge presumed survival advantages and suggest preemptive strategies should focus on preventing early graft dysfunction and optimizing use of high-risk kidneys rather than expected mortality benefit.",
+  "metrics": {
+   "journal_2yr_mean_citedness": 10.0,
+   "journal_h_index": 235,
+   "openalex_id": "https://openalex.org/W7221009693",
+   "cited_by": 0,
+   "fwci": 0.0,
+   "citation_percentile": 86,
+   "top10": false,
+   "references": 21,
+   "pmcid": "PMC13650665",
+   "fetched": "2026-10-22"
+  },
+  "full_read": {
+   "body_words": 4078,
+   "figures": 2,
+   "tables": 3,
+   "minutes": 35,
+   "basis": "full text"
+  }
  },
  {
   "title": "Sex Differences in Mortality Among Patients With Hepatocellular Carcinoma.",
@@ -133,7 +228,26 @@
    "Yu ML",
    "Nguyen MH"
   ],
-  "abstract": "<h4>Importance</h4>Sex is a well-recognized factor associated with hepatocellular carcinoma (HCC) incidence, but its association with mortality is unclear.<h4>Objective</h4>To assess the association between sex and the risk of overall, liver-related, and non-liver-related mortality among patients with HCC.<h4>Design, setting, and participants</h4>This retrospective cohort study was conducted among patients with HCC in 17 centers from 5 countries and regions (2000-2023). Male and female patients with HCC who had balanced baseline characteristics via inverse probability of treatment weighting (IPTW) were included, with a propensity score-matched cohort included for sensitivity analyses. Data were analyzed between July 10 and September 8, 2025.<h4>Exposures</h4>Male vs female sex.<h4>Main outcomes and measures</h4>Overall, liver-related, and non-liver-related mortality.<h4>Results</h4>Among 8594 patients with HCC (mean [SD] age, 63.3 [10.9] years; 6214 male [72.3%]; 5644 Asian [65.7%], 458 Black [5.3%], 615 Hispanic [7.2%], and 1784 White [20.8%]), 4567 were from Asia (53.1%), 6327 had cirrhosis (73.6%), and 6617 had viral etiology (77.0%). In the unmatched cohort, males had a higher overall mortality rate per 100 person-years than females in the total cohort (15.9 [95% CI, 15.3-16.4] vs 13.3 [95% CI, 12.5-14.1]; P < .001) and in Asian (14.1 [95% CI, 13.5-14.7] vs 11.1 [95% CI, 10.3-12.0]; P < .001), Asia region (14.4 [95% CI, 13.6-15.2] vs 10.8 [95% CI, 9.9-11.8]; P < .001), cirrhosis (17.6 [95% CI, 16.9-18.3] vs 14.4 [95% CI, 13.5-15.4]; P < .001), and hepatitis B (13.6 [95% CI, 12.7-14.5] vs 10.0 [95% CI, 8.6-11.5]; P < .001) and C (15.8 [95% CI, 15.0-16.6] vs 13.4 [95% CI, 12.4-14.6]; P < .001) subgroups. In the IPTW-matched cohort, male sex was associated with increased overall mortality in the full cohort (adjusted hazard ratio [aHR], 1.14 [95% CI, 1.05-1.23]; P = .002) and in Asian (aHR, 1.22 [95% CI, 1.10-1.36]; P < .001), Asia region (aHR, 1.23 [95% CI, 1.09-1.39]; P < .001), cirrhosis (aHR, 1.18 [95% CI, 1.08-1.29]; P < .001), and viral (aHR, 1.15 [95% CI, 1.05-1.26]; P = .004) subgroups. Additionally, sex differences varied by liver disease etiology, with male sex having the highest aHR in the association with overall mortality among individuals with alcohol-associated liver disease (aHR, 1.90 [95% CI, 1.02-3.54]; P = .04), followed by those with hepatitis B (aHR, 1.22 [95% CI, 1.01-1.47]; P = .04) or C (aHR, 1.13 [95% CI, 1.02-1.26]; P = .03), but there was no association in patients with metabolic dysfunction-associated steatotic liver disease. There was no significant sex difference for non-liver-related mortality.<h4>Conclusions and relevance</h4>In this study, sex disparities in HCC mortality existed but were heterogeneous across ethnic background and liver disease etiologies. These findings support incorporation of sex-based considerations in HCC management."
+  "abstract": "<h4>Importance</h4>Sex is a well-recognized factor associated with hepatocellular carcinoma (HCC) incidence, but its association with mortality is unclear.<h4>Objective</h4>To assess the association between sex and the risk of overall, liver-related, and non-liver-related mortality among patients with HCC.<h4>Design, setting, and participants</h4>This retrospective cohort study was conducted among patients with HCC in 17 centers from 5 countries and regions (2000-2023). Male and female patients with HCC who had balanced baseline characteristics via inverse probability of treatment weighting (IPTW) were included, with a propensity score-matched cohort included for sensitivity analyses. Data were analyzed between July 10 and September 8, 2025.<h4>Exposures</h4>Male vs female sex.<h4>Main outcomes and measures</h4>Overall, liver-related, and non-liver-related mortality.<h4>Results</h4>Among 8594 patients with HCC (mean [SD] age, 63.3 [10.9] years; 6214 male [72.3%]; 5644 Asian [65.7%], 458 Black [5.3%], 615 Hispanic [7.2%], and 1784 White [20.8%]), 4567 were from Asia (53.1%), 6327 had cirrhosis (73.6%), and 6617 had viral etiology (77.0%). In the unmatched cohort, males had a higher overall mortality rate per 100 person-years than females in the total cohort (15.9 [95% CI, 15.3-16.4] vs 13.3 [95% CI, 12.5-14.1]; P < .001) and in Asian (14.1 [95% CI, 13.5-14.7] vs 11.1 [95% CI, 10.3-12.0]; P < .001), Asia region (14.4 [95% CI, 13.6-15.2] vs 10.8 [95% CI, 9.9-11.8]; P < .001), cirrhosis (17.6 [95% CI, 16.9-18.3] vs 14.4 [95% CI, 13.5-15.4]; P < .001), and hepatitis B (13.6 [95% CI, 12.7-14.5] vs 10.0 [95% CI, 8.6-11.5]; P < .001) and C (15.8 [95% CI, 15.0-16.6] vs 13.4 [95% CI, 12.4-14.6]; P < .001) subgroups. In the IPTW-matched cohort, male sex was associated with increased overall mortality in the full cohort (adjusted hazard ratio [aHR], 1.14 [95% CI, 1.05-1.23]; P = .002) and in Asian (aHR, 1.22 [95% CI, 1.10-1.36]; P < .001), Asia region (aHR, 1.23 [95% CI, 1.09-1.39]; P < .001), cirrhosis (aHR, 1.18 [95% CI, 1.08-1.29]; P < .001), and viral (aHR, 1.15 [95% CI, 1.05-1.26]; P = .004) subgroups. Additionally, sex differences varied by liver disease etiology, with male sex having the highest aHR in the association with overall mortality among individuals with alcohol-associated liver disease (aHR, 1.90 [95% CI, 1.02-3.54]; P = .04), followed by those with hepatitis B (aHR, 1.22 [95% CI, 1.01-1.47]; P = .04) or C (aHR, 1.13 [95% CI, 1.02-1.26]; P = .03), but there was no association in patients with metabolic dysfunction-associated steatotic liver disease. There was no significant sex difference for non-liver-related mortality.<h4>Conclusions and relevance</h4>In this study, sex disparities in HCC mortality existed but were heterogeneous across ethnic background and liver disease etiologies. These findings support incorporation of sex-based considerations in HCC management.",
+  "metrics": {
+   "journal_2yr_mean_citedness": 10.0,
+   "journal_h_index": 235,
+   "openalex_id": "https://openalex.org/W7216553944",
+   "cited_by": 0,
+   "fwci": 0.0,
+   "citation_percentile": 80,
+   "top10": false,
+   "references": 44,
+   "pmcid": "PMC13633531",
+   "fetched": "2026-10-22"
+  },
+  "full_read": {
+   "body_words": 4747,
+   "figures": 3,
+   "tables": 2,
+   "minutes": 40,
+   "basis": "full text"
+  }
  },
  {
   "title": "Catheter-Associated Urinary Tract Infection Prevention Practices in US Hospitals.",
@@ -152,7 +266,26 @@
    "Ratz D",
    "Meddings J"
   ],
-  "abstract": "<h4>Importance</h4>Catheter-associated urinary tract infection (CAUTI) remains a common and morbid health care-associated infection. Although evidence-based prevention strategies are well established, the degree to which hospitals adopt and sustain these practices over time and whether trajectories differ between Department of Veterans Affairs (VA) and nonfederal systems are not well described.<h4>Objective</h4>To examine 20-year trends in reported CAUTI prevention practices in US hospitals and compare practice use between VA and nonfederal hospitals.<h4>Design, setting, and participants</h4>This survey study used repeated cross-sectional national surveys conducted every 4 years from 2005 to 2025. Surveys were sent to the lead infection preventionist at all VA hospitals, as well as a random sample of nonfederal, general medical, and surgical US hospitals with intensive care units. Data were analyzed from January to August 2026.<h4>Main outcomes and measures</h4>The outcome of interest was regular use of specific CAUTI prevention practices, including urinary catheter reminders or stop orders, nurse-initiated discontinuation, bladder ultrasonography, intermittent catheterization, external catheters, aseptic insertion, surveillance systems, and leadership prioritization of CAUTI prevention.<h4>Results</h4>Over the 20 year period, 1461 unique hospitals participated in at least 1 study survey, with mean (SD) response rates for the 6 survey waves of 63.4% (8.4%) for VA hospitals and 56.5% (9.2%) for nonfederal hospitals. Both VA and nonfederal hospitals demonstrated substantial long-term increases in surveillance infrastructure, routine monitoring of catheter duration, and leadership prioritization of CAUTI prevention. In nonfederal hospitals, regular use of urinary catheter reminders or stop orders increased from 34 of 372 hospitals (9.1%) in 2005 to 149 of 306 hospitals (48.7%) in 2025, and nurse-initiated discontinuation increased from 43 of 379 hospitals (11.3%) in 2009 to 179 of 307 hospitals (58.3%) in 2025. VA hospitals also showed significant increases in these practices over time, although use in 2025 was lower than nonfederal hospitals (urinary catheter reminders or stop orders: 10 of 90 hospitals [11.1%] in 2005 and 23 of 73 hospitals [31.5%] in 2025; nurse-initiated discontinuation: 10 of 69 hospitals (14.5%) in 2009 and 28 of 74 hospitals [37.8%] in 2025). Use of silver alloy Foley catheters declined markedly in nonfederal hospitals (from 126 of 389 hospitals [32.4%] in 2005 to 41 of 294 hospitals [14.0%] in 2025) but remained stable in VA facilities. External catheter use increased substantially, particularly in women, with 194 of 310 nonfederal hospitals (62.6%) and 30 of 73 VA hospitals (41.1%) reporting regular use by 2025. Nearly universal use of CAUTI surveillance systems was observed in both settings (309 of 315 nonfederal hospitals [98.1%] and 73 of 74 VA hospitals [98.7%]).<h4>Conclusions and relevance</h4>This survey study of infection-prevention practice use found that US hospitals substantially expanded use of many CAUTI prevention practices, particularly surveillance and monitoring systems, over the past 20 years. However, variability in use of high-yield practices, such as reminders and nurse-driven discontinuation, persisted, underscoring the need for sustained, system-level strategies to optimize urinary catheter safety across health care settings."
+  "abstract": "<h4>Importance</h4>Catheter-associated urinary tract infection (CAUTI) remains a common and morbid health care-associated infection. Although evidence-based prevention strategies are well established, the degree to which hospitals adopt and sustain these practices over time and whether trajectories differ between Department of Veterans Affairs (VA) and nonfederal systems are not well described.<h4>Objective</h4>To examine 20-year trends in reported CAUTI prevention practices in US hospitals and compare practice use between VA and nonfederal hospitals.<h4>Design, setting, and participants</h4>This survey study used repeated cross-sectional national surveys conducted every 4 years from 2005 to 2025. Surveys were sent to the lead infection preventionist at all VA hospitals, as well as a random sample of nonfederal, general medical, and surgical US hospitals with intensive care units. Data were analyzed from January to August 2026.<h4>Main outcomes and measures</h4>The outcome of interest was regular use of specific CAUTI prevention practices, including urinary catheter reminders or stop orders, nurse-initiated discontinuation, bladder ultrasonography, intermittent catheterization, external catheters, aseptic insertion, surveillance systems, and leadership prioritization of CAUTI prevention.<h4>Results</h4>Over the 20 year period, 1461 unique hospitals participated in at least 1 study survey, with mean (SD) response rates for the 6 survey waves of 63.4% (8.4%) for VA hospitals and 56.5% (9.2%) for nonfederal hospitals. Both VA and nonfederal hospitals demonstrated substantial long-term increases in surveillance infrastructure, routine monitoring of catheter duration, and leadership prioritization of CAUTI prevention. In nonfederal hospitals, regular use of urinary catheter reminders or stop orders increased from 34 of 372 hospitals (9.1%) in 2005 to 149 of 306 hospitals (48.7%) in 2025, and nurse-initiated discontinuation increased from 43 of 379 hospitals (11.3%) in 2009 to 179 of 307 hospitals (58.3%) in 2025. VA hospitals also showed significant increases in these practices over time, although use in 2025 was lower than nonfederal hospitals (urinary catheter reminders or stop orders: 10 of 90 hospitals [11.1%] in 2005 and 23 of 73 hospitals [31.5%] in 2025; nurse-initiated discontinuation: 10 of 69 hospitals (14.5%) in 2009 and 28 of 74 hospitals [37.8%] in 2025). Use of silver alloy Foley catheters declined markedly in nonfederal hospitals (from 126 of 389 hospitals [32.4%] in 2005 to 41 of 294 hospitals [14.0%] in 2025) but remained stable in VA facilities. External catheter use increased substantially, particularly in women, with 194 of 310 nonfederal hospitals (62.6%) and 30 of 73 VA hospitals (41.1%) reporting regular use by 2025. Nearly universal use of CAUTI surveillance systems was observed in both settings (309 of 315 nonfederal hospitals [98.1%] and 73 of 74 VA hospitals [98.7%]).<h4>Conclusions and relevance</h4>This survey study of infection-prevention practice use found that US hospitals substantially expanded use of many CAUTI prevention practices, particularly surveillance and monitoring systems, over the past 20 years. However, variability in use of high-yield practices, such as reminders and nurse-driven discontinuation, persisted, underscoring the need for sustained, system-level strategies to optimize urinary catheter safety across health care settings.",
+  "metrics": {
+   "journal_2yr_mean_citedness": 10.0,
+   "journal_h_index": 235,
+   "openalex_id": "https://openalex.org/W7220667567",
+   "cited_by": 0,
+   "fwci": 0.0,
+   "citation_percentile": 84,
+   "top10": false,
+   "references": 35,
+   "pmcid": "PMC13643582",
+   "fetched": "2026-10-22"
+  },
+  "full_read": {
+   "body_words": 5064,
+   "figures": 0,
+   "tables": 4,
+   "minutes": 40,
+   "basis": "full text"
+  }
  },
  {
   "title": "Disparities in α1-Antitrypsin Deficiency Testing and Treatment in US Adults.",
@@ -169,6 +302,294 @@
    "Tejwani V",
    "Wendt CH"
   ],
-  "abstract": "<h4>Importance</h4>α1-Antitrypsin deficiency (AATD) is underdiagnosed despite guidelines for broad testing, and the factors associated with low testing and treatment are not well known.<h4>Objective</h4>To identify factors associated with low AATD testing and augmentation therapy in individuals with chronic obstructive pulmonary disease (COPD) and asthma.<h4>Design, setting, and participants</h4>This is a retrospective, multicenter cohort study using national electronic health record data from the Veterans Health Administration from January 1, 2020, to December 31, 2024. Data analysis was conducted from July to October 2025. Participants were individuals with a diagnosis of COPD and/or asthma (≥2 International Classification of Diseases, Ninth Revision, or International Statistical Classification of Diseases and Related Health Problems, Tenth Revision codes).<h4>Exposure</h4>Individual demographics, comorbidities, tobacco use, rural-urban residence, Social Vulnerability Index (SVI), and drive time to the specialty care facility.<h4>Main outcomes and measures</h4>The primary outcomes were prevalence of and factors associated with AATD testing and augmentation therapy prescription. Multivariable regression models were used, adjusting sequentially for demographics, comorbidities, tobacco use, rural-urban residence, SVI, and drive time to the specialty care facility.<h4>Results</h4>Among 2 384 913 individuals with COPD and/or asthma (mean [SD] age, 64.2 [14.3] years; 178 898 female [7.5%]; 16 778 [0.7%] American Indian or Alaska Native; 14 996 [0.7%] Asian; 331 202 Black or African American [15.3%]; 19 029 [0.9%] Native Hawaiian or Pacific Islander; 1 787 951 White [82.4%]), 138 278 (5.8%) underwent testing. In fully adjusted models, cirrhosis (adjusted odds ratio [aOR], 6.40; 95% CI, 6.29-6.51) and bronchiectasis (aOR, 3.73; 95% CI, 3.59-3.87) were associated with higher odds of testing. Older ages and active tobacco use were associated with lower odds of testing. Rural-urban residence and SVI had similar odds across categories. Longer drive times were associated with progressively lower odds of testing (>90 vs ≤30 minutes; aOR, 0.63; 95% CI, 0.62-0.65). Of 8564 with AATD diagnosis, 320 (3.7%) were prescribed augmentation therapy and showed a similar pattern as testing, occurring less often among patients from minoritized racial and ethnic groups, those actively using tobacco, and those with longer drive times to specialty care, and more often among those with cirrhosis and bronchiectasis.<h4>Conclusions and relevance</h4>In this cohort study of individuals with COPD and/or asthma, AATD testing and augmentation therapy were profoundly low. System-level reform is needed to bridge gaps across age, comorbidities, tobacco use, and health care access."
+  "abstract": "<h4>Importance</h4>α1-Antitrypsin deficiency (AATD) is underdiagnosed despite guidelines for broad testing, and the factors associated with low testing and treatment are not well known.<h4>Objective</h4>To identify factors associated with low AATD testing and augmentation therapy in individuals with chronic obstructive pulmonary disease (COPD) and asthma.<h4>Design, setting, and participants</h4>This is a retrospective, multicenter cohort study using national electronic health record data from the Veterans Health Administration from January 1, 2020, to December 31, 2024. Data analysis was conducted from July to October 2025. Participants were individuals with a diagnosis of COPD and/or asthma (≥2 International Classification of Diseases, Ninth Revision, or International Statistical Classification of Diseases and Related Health Problems, Tenth Revision codes).<h4>Exposure</h4>Individual demographics, comorbidities, tobacco use, rural-urban residence, Social Vulnerability Index (SVI), and drive time to the specialty care facility.<h4>Main outcomes and measures</h4>The primary outcomes were prevalence of and factors associated with AATD testing and augmentation therapy prescription. Multivariable regression models were used, adjusting sequentially for demographics, comorbidities, tobacco use, rural-urban residence, SVI, and drive time to the specialty care facility.<h4>Results</h4>Among 2 384 913 individuals with COPD and/or asthma (mean [SD] age, 64.2 [14.3] years; 178 898 female [7.5%]; 16 778 [0.7%] American Indian or Alaska Native; 14 996 [0.7%] Asian; 331 202 Black or African American [15.3%]; 19 029 [0.9%] Native Hawaiian or Pacific Islander; 1 787 951 White [82.4%]), 138 278 (5.8%) underwent testing. In fully adjusted models, cirrhosis (adjusted odds ratio [aOR], 6.40; 95% CI, 6.29-6.51) and bronchiectasis (aOR, 3.73; 95% CI, 3.59-3.87) were associated with higher odds of testing. Older ages and active tobacco use were associated with lower odds of testing. Rural-urban residence and SVI had similar odds across categories. Longer drive times were associated with progressively lower odds of testing (>90 vs ≤30 minutes; aOR, 0.63; 95% CI, 0.62-0.65). Of 8564 with AATD diagnosis, 320 (3.7%) were prescribed augmentation therapy and showed a similar pattern as testing, occurring less often among patients from minoritized racial and ethnic groups, those actively using tobacco, and those with longer drive times to specialty care, and more often among those with cirrhosis and bronchiectasis.<h4>Conclusions and relevance</h4>In this cohort study of individuals with COPD and/or asthma, AATD testing and augmentation therapy were profoundly low. System-level reform is needed to bridge gaps across age, comorbidities, tobacco use, and health care access.",
+  "metrics": {
+   "journal_2yr_mean_citedness": 10.0,
+   "journal_h_index": 235,
+   "openalex_id": "https://openalex.org/W7222222784",
+   "cited_by": 0,
+   "fwci": 0.0,
+   "citation_percentile": 86,
+   "top10": false,
+   "references": 41,
+   "pmcid": "PMC13673321",
+   "fetched": "2026-10-22"
+  },
+  "full_read": {
+   "body_words": 4519,
+   "figures": 2,
+   "tables": 3,
+   "minutes": 40,
+   "basis": "full text"
+  }
+ },
+ {
+  "title": "Hypertensive Disorders of Pregnancy and Incident Dementia.",
+  "date": "2026-09-01",
+  "doi": "10.1001/jamanetworkopen.2026.35819",
+  "pmid": "42783371",
+  "pmcid": "PMC13613184",
+  "license": "cc by-nc-nd",
+  "journal": "JAMA network open",
+  "authors": [
+   "Seong JS",
+   "Park JY",
+   "Kim H",
+   "Kim SY"
+  ],
+  "abstract": "<h4>Importance</h4>Hypertensive disorders of pregnancy (HDPs) are established markers of later-life cardiovascular disease, but their association with dementia remains uncertain.<h4>Objective</h4>To investigate whether HDPs are associated with incident dementia in a nationwide population-based cohort with more than 2 decades of follow-up.<h4>Design, setting, and participants</h4>This retrospective cohort study used the Korean National Health Insurance Service database to identify females aged 16 years or older who delivered between January 1, 2002, and December 31, 2005, and followed up through December 31, 2024. Statistical analyses were conducted between October 2025 and May 2026.<h4>Exposures</h4>HDPs were defined as gestational hypertension, preeclampsia, HELLP (hemolysis, elevated liver enzymes, low platelet count) syndrome, or eclampsia.<h4>Main outcomes and measures</h4>The primary outcome was incident dementia, including Alzheimer disease and vascular dementia. Cox proportional hazards regression models estimated hazard ratios (HRs) and 95% CIs.<h4>Results</h4>Among 1 370 485 females (mean [SD] age, 29.2 [3.9] years), 28 747 (2.1%) experienced HDPs. The cumulative incidence of dementia was higher among females with HDPs than among those without HDPs (7.2 vs 2.8 per 10 000 females; P < .001), as was the incidence density of dementia (3.00 vs 1.05 per 100 000 person-years; P < .001). In model 1, HDPs were associated with an increased risk of incident dementia after adjustment for baseline maternal, socioeconomic, and obstetric factors (adjusted HR, 1.96; 95% CI, 1.19-3.23). In model 2, after additional adjustment for postdelivery hypertension, diabetes, myocardial infarction, and stroke, the association was attenuated and was no longer statistically significant (adjusted HR, 1.15; 95% CI, 0.70-1.91).<h4>Conclusions and relevance</h4>In this cohort study, HDPs were associated with an increased risk of incident dementia after adjustment for baseline maternal, socioeconomic, and obstetric factors. However, this association was no longer statistically significant after additional adjustment for postdelivery vascular and metabolic conditions. Given the small number of dementia events among females with HDPs, these findings should be interpreted cautiously. These findings suggest that HDPs may serve as an early-life marker of long-term neurovascular vulnerability.",
+  "metrics": {
+   "journal_2yr_mean_citedness": 10.0,
+   "journal_h_index": 235,
+   "openalex_id": "https://openalex.org/W7214234959",
+   "cited_by": 0,
+   "fwci": 0.0,
+   "citation_percentile": 81,
+   "top10": false,
+   "references": 41,
+   "pmcid": "PMC13613184",
+   "fetched": "2026-10-22"
+  },
+  "full_read": {
+   "body_words": 5254,
+   "figures": 2,
+   "tables": 3,
+   "minutes": 45,
+   "basis": "full text"
+  }
+ },
+ {
+  "title": "Metformin Exposure in Pregnancy and Childhood Developmental Outcomes.",
+  "date": "2026-09-01",
+  "doi": "10.1001/jamanetworkopen.2026.37054",
+  "pmid": "42814460",
+  "pmcid": "PMC13628313",
+  "license": "cc by",
+  "journal": "JAMA network open",
+  "authors": [
+   "Gordon H",
+   "Hiscock RJ",
+   "Price S",
+   "Shub A",
+   "Roddy Mitchell A",
+   "Atkinson J",
+   "Walker S",
+   "Forsythe A",
+   "Tong S",
+   "Lindquist A",
+   "Hastie R"
+  ],
+  "abstract": "<h4>Importance</h4>Metformin is an oral hypoglycemic agent increasingly prescribed during pregnancy. In animal models, metformin influences embryonic cortical development, and it is uncertain whether this translates to clinical implications for humans.<h4>Objective</h4>To examine whether metformin prescription in pregnancy is associated with a risk of developmental vulnerability among offspring at school entry.<h4>Design, setting, and participants</h4>This cohort study used population-level pregnancy and birth data from January 1, 2009, to December 31, 2020, linked with the Australian Early Development Census (AEDC), a standardized national assessment of childhood development completed every 3 years during the first year of full-time school (age 4-6 years). The data analysis was performed between March 14, 2025, and January 30, 2026.<h4>Exposure</h4>Metformin prescription dispensation during pregnancy.<h4>Main outcome and measures</h4>The association of developmental vulnerability, defined as scoring below the 10th percentile in at least 2 of the 5 assessed domains of the AEDC (physical health and well-being, social competence, emotional maturity, school-based language and cognitive skills, and communication skills and general knowledge), was estimated using inverse probability of treatment weighting combined with regression adjustment.<h4>Results</h4>From 871 627 singleton births in Victoria between 2009 and 2020, 177 409 children with linked developmental outcome data were identified, of whom 1095 (0.6%) were exposed to metformin antenatally (43 [3.9%] aged ≤5 years 0 months, 860 [78.5%] aged 5 years 1 month to 6 years 0 months, and 192 [17.5%] aged ≥6 years 1 month at assessment; 557 male [50.9%]). Developmental vulnerability was observed in 199 children (18.2%) exposed to metformin compared with 24 379 children (13.9%) not exposed. After adjustment for confounders, metformin was not associated with developmental vulnerability among children exposed to metformin (adjusted relative risk, 0.97 [95% CI, 0.74-1.29]) or across any of the individual developmental domains.<h4>Conclusions and relevance</h4>This cohort study found that metformin use in pregnancy was not associated with an altered risk of developmental vulnerability among children aged 4 to 6 years and may provide reassurance to clinicians and women considering metformin use during pregnancy.",
+  "metrics": {
+   "journal_2yr_mean_citedness": 10.0,
+   "journal_h_index": 235,
+   "openalex_id": "https://openalex.org/W7214951614",
+   "cited_by": 0,
+   "fwci": 0.0,
+   "citation_percentile": 80,
+   "top10": false,
+   "references": 30,
+   "pmcid": "PMC13628313",
+   "fetched": "2026-10-22"
+  },
+  "full_read": {
+   "body_words": 4101,
+   "figures": 2,
+   "tables": 3,
+   "minutes": 35,
+   "basis": "full text"
+  }
+ },
+ {
+  "title": "Development and External Validation of Mini PIERSdynamic Model for Predicting the Adverse Maternal Outcome of Preeclampsia in Low-Resource Settings.",
+  "date": "2026-09-18",
+  "doi": "10.1161/hypertensionaha.126.27270",
+  "pmid": "42755709",
+  "pmcid": "PMC13680779",
+  "license": "cc by",
+  "journal": "Hypertension (Dallas, Tex. : 1979)",
+  "authors": [
+   "Yang G",
+   "Montgomery-Csobán T",
+   "Lunter G",
+   "Ganzevoort W",
+   "Gordijn SJ",
+   "Murray P",
+   "Kavanagh K",
+   "Magee LA",
+   "Groen H",
+   "von Dadelszen P"
+  ],
+  "abstract": "<h4>Background</h4>Preeclampsia remains a leading cause of maternal mortality, particularly in low-resource settings. We aimed to develop a dynamic prediction model accommodating repeated measurements for predicting adverse maternal outcomes in preeclampsia.<h4>Methods</h4>We utilized data from 7283 women with preeclampsia from the PIERS studies (Preeclampsia Integrated Estimate of Risk). Data from 6548 women were randomly split into a training set (80%) and an internal validation set (20%), while an independent cohort of 735 women was used for external validation. The outcome was a composite of maternal mortality and severe maternal morbidity. The mini PIERSdynamic model was fitted with the binary mixed model random forest algorithm. Threshold probabilities were calculated for 5 risk strata, ranging from very low to very high risk. Model performance was externally validated.<h4>Results</h4>In the development cohort, 785 (12.0%) women experienced an adverse maternal outcome, compared with 91 (12.4%) women in the external validation cohort. The final model retained all candidate predictors. Model performance was similar in internal and external validation. The daily area under the receiver-operating-characteristics curve remained around 0.75 on days 0 to 9 in internal validation and 0.70 in external validation, with peak values of 0.92 and 0.94, respectively. The area under the precision-recall curve declined over time as outcome incidence decreased. Observed daily event rates corresponded closely with the assigned risk strata.<h4>Conclusions</h4>We developed the mini PIERSdynamic model and performed external validation, demonstrating its potential for dynamic prediction of adverse maternal outcomes in preeclampsia for up to 10 days after initial presentation. Further evaluation is required to verify its generalizability and clinical utility.",
+  "metrics": {
+   "journal_2yr_mean_citedness": 3.9,
+   "journal_h_index": 369,
+   "openalex_id": "https://openalex.org/W7213559196",
+   "cited_by": 0,
+   "fwci": 0.0,
+   "citation_percentile": 74,
+   "top10": false,
+   "references": 23,
+   "pmcid": "",
+   "fetched": "2026-10-22"
+  },
+  "full_read": {
+   "body_words": 4636,
+   "figures": 6,
+   "tables": 2,
+   "minutes": 45,
+   "basis": "full text"
+  }
+ },
+ {
+  "title": "Presenting Symptoms and Antibiotic Timing Among Hospitalized Adults With Presumed Sepsis.",
+  "date": "2026-09-01",
+  "doi": "10.1001/jamanetworkopen.2026.35575",
+  "pmid": "42804206",
+  "pmcid": "PMC13621253",
+  "license": "cc by",
+  "journal": "JAMA network open",
+  "authors": [
+   "Conlon A",
+   "Seelye S",
+   "Walzl E",
+   "Bhanderi H",
+   "Gupta AB",
+   "Horowitz JK",
+   "Jayaprakash N",
+   "Kuhl N",
+   "Malani AN",
+   "McLaughlin E",
+   "Posa P",
+   "Shappell C",
+   "Parks Taylor S",
+   "Flanders SA",
+   "Prescott HC",
+   "Munroe ES"
+  ],
+  "abstract": "<h4>Importance</h4>Timely antibiotics are associated with reduced sepsis mortality, particularly among patients with hypotension; however, antibiotic delays are common in practice. Presenting symptoms may influence antibiotic timing and confound the association between antibiotic timing and outcomes.<h4>Objectives</h4>To evaluate whether any presenting symptoms are associated with antibiotic timing and to assess risk-adjusted 30-day mortality by antibiotic timing after adjustment for symptoms.<h4>Design, setting, and participants</h4>This cohort study was conducted among adults hospitalized for community-onset presumed bacterial sepsis at 67 hospitals in the Michigan Medicine Safety Consortium from November 2020 to May 2024.<h4>Exposures</h4>Presenting symptoms; time from hospital presentation to first antibiotic administration.<h4>Main outcomes and measures</h4>Timely antibiotics, defined as antibiotic administration within 3 hours of hospital presentation for patients with hypotension and within 5 hours for patients without hypotension, was the primary outcome. Secondary outcomes included time to antibiotics, measured as a continuous variable, and 30-day mortality.<h4>Results</h4>Among 29 647 patients included in this analysis, the median (IQR) age was 71 (61-80) years, 14 676 (49.5%) were male, and the median (IQR) Charlson Comorbidity Index was 3 (1-5). Among 6704 patients (22.6%) presenting with hypotension, 4413 (65.8%) received timely antibiotics (within 3 hours). Among 22 942 (77.4%) patients presenting without hypotension, 17 544 (76.5%) received timely antibiotics (within 5 hours). In multivariable analyses, presenting symptoms were independently associated with antibiotic timing. Among patients with and without hypotension, prehospital fever was associated with increased odds of timely antibiotics (with hypotension: adjusted odds ratio [aOR], 1.34 [95% CI, 1.19 to 1.52]; without hypotension: aOR, 1.26 [95% CI, 1.17 to 1.35]), while gastrointestinal symptoms were associated with decreased odds of timely antibiotics (with hypotension: aOR, 0.84 [95% CI, 0.75 to 0.94]; without hypotension: aOR, 0.80 [95% CI, 0.75 to 0.86]). Urinary and respiratory symptoms were associated with antibiotic timing for patients without hypotension (urinary symptoms: aOR, 1.13 [95% CI, 1.05 to 1.22]; respiratory symptoms: aOR, 0.91 [95% CI, 0.85 to 0.99]). Timely antibiotics were associated with reduced 30-day mortality (adjusted absolute difference, -2.10 [95% CI, -3.01 to -1.10] percentage points) among the overall cohort, after adjustment for presenting symptoms.<h4>Conclusions</h4>In this cohort study of 29 647 adults presenting with community-onset presumed bacterial sepsis, presenting symptoms were associated with timing of antibiotic therapy. Even after adjusting for presenting symptoms, timely antibiotics remained associated with lower mortality. These findings suggest that proactive screening for sepsis among patients with less obvious clinical presentations may promote timely recognition and treatment.",
+  "metrics": {
+   "journal_2yr_mean_citedness": 10.0,
+   "journal_h_index": 235,
+   "openalex_id": "https://openalex.org/W7214667639",
+   "cited_by": 0,
+   "fwci": 0.0,
+   "citation_percentile": 79,
+   "top10": false,
+   "references": 47,
+   "pmcid": "PMC13621253",
+   "fetched": "2026-10-22"
+  },
+  "full_read": {
+   "body_words": 6510,
+   "figures": 2,
+   "tables": 3,
+   "minutes": 50,
+   "basis": "full text"
+  }
+ },
+ {
+  "title": "Prophylactic vs Therapeutic Anticoagulation in Hospitalized Patients With COVID-19: A Randomized Clinical Trial.",
+  "date": "2026-09-01",
+  "doi": "10.1001/jamanetworkopen.2026.35333",
+  "pmid": "42776529",
+  "pmcid": "PMC13602004",
+  "license": "cc by-nc-nd",
+  "journal": "JAMA network open",
+  "authors": [
+   "Karakas M",
+   "Nicolay SS",
+   "Wichmann D",
+   "Schmiedel S",
+   "Addo MM",
+   "Nosko A",
+   "Lund N",
+   "Shrivastava A",
+   "Pink I",
+   "Duerschmied D",
+   "Gauchel N",
+   "Schnoy E",
+   "Pape UF",
+   "Bein B",
+   "Brasch P",
+   "Arnold D",
+   "Maevers K",
+   "Rasch S",
+   "Erber J",
+   "Lahmer T",
+   "Zeller T",
+   "Langer F",
+   "Ozga AK",
+   "Suling A",
+   "Zapf A",
+   "Jarczak D",
+   "Kluge S"
+  ],
+  "abstract": "<h4>Importance</h4>Coagulopathy in the context of COVID-19 is a major threat due to deep vein thromboses and pulmonary embolisms.<h4>Objective</h4>To assess whether therapeutic anticoagulation on top of standard of care (SOC) compared with prophylactic anticoagulation as part of SOC can improve objective patient-relevant end points.<h4>Design, setting, and participants</h4>This prospective, assessor-blinded, multicenter, parallel-group (1:1), placebo-controlled, superiority randomized clinical trial (HERO-19) assessed patients with a confirmed diagnosis of COVID-19 who were hospitalized in an intensive care unit or non-intensive care ward at 1 of 10 university hospitals in Germany from November 12, 2020, to January 15, 2023. Data analysis was conducted after the final database lock in February 2024.<h4>Interventions</h4>Patients were treated for 42 days. Patients enrolled in the experimental group received therapeutic anticoagulation using low-molecular-weight heparin (LMWH) body weight adapted during the hospital stay and oral anticoagulation using edoxaban, 60 mg daily, after being discharged from the hospital. Patients enrolled in the control group received prophylactic anticoagulation using LMWH as part of SOC while in the hospital and placebo after discharge.<h4>Main outcomes and measures</h4>The primary end point was time to the first occurrence of all-cause mortality and/or venous thromboembolism and/or arterial thromboembolism within up to 42 days. Potential thromboembolic events were assessed by duplex ultrasonography of arms and legs at day 14 or discharge and day 42. The primary safety outcome was major and clinically relevant nonmajor bleeding according to International Society on Thrombosis and Haemostasis classification.<h4>Results</h4>A total of 139 patients (mean [SD] age, 58.4 [13.7] years; 93 [67%] male and 46 [33%] female) were included in the study. Of these, 71 patients (51%) were randomized to prophylactic anticoagulation group, whereas 68 (49%) were randomized to the therapeutic anticoagulation group. The primary outcome occurred in 14 of 67 patients (21%; 2.31 incidence per patient-year) assigned to therapeutic anticoagulation and 20 of 70 (29%; 3.37 incidence per patient-year) assigned to prophylactic anticoagulation (primary end point assessment not available for 2 patients) with primary end point assessment (hazard ratio, 0.74; 95% CI, 0.38-1.48; P = .40). In the per-protocol analysis, the hazard ratio was 0.66 (95% CI, 0.32-1.37; P = .26). A total of 7 bleeding events occurred in the intervention group, whereas 6 bleeding events occurred in the control group.<h4>Conclusions and relevance</h4>In patients hospitalized with COVID-19, in-hospital therapeutic anticoagulation with LMWH followed by edoxaban to day 42 did not statistically significantly reduce death and/or thromboembolic events compared with prophylactic anticoagulation followed by placebo.<h4>Trial registration</h4>ClinicalTrials.gov Identifier: NCT04542408.",
+  "metrics": {
+   "journal_2yr_mean_citedness": 10.0,
+   "journal_h_index": 235,
+   "openalex_id": "https://openalex.org/W7214070656",
+   "cited_by": 0,
+   "fwci": 0.0,
+   "citation_percentile": 79,
+   "top10": false,
+   "references": 18,
+   "pmcid": "",
+   "fetched": "2026-10-22"
+  },
+  "full_read": {
+   "body_words": 5014,
+   "figures": 3,
+   "tables": 2,
+   "minutes": 40,
+   "basis": "full text"
+  }
+ },
+ {
+  "title": "Bright light therapy and circadian rhythm regulation for delirium prevention in hospitalised adults: a systematic review and meta-analysis.",
+  "date": "2026-09-28",
+  "doi": "10.1136/bmjopen-2026-116709",
+  "pmid": "42805655",
+  "pmcid": "PMC13629984",
+  "license": "cc by-nc",
+  "journal": "BMJ open",
+  "authors": [
+   "Saleh Moussa R",
+   "Edwards LM",
+   "Chang S",
+   "Hosie A",
+   "Kinchin I",
+   "Caplan G",
+   "Wiley J",
+   "Gilmore I",
+   "Yenson V",
+   "Amgarth-Duff I",
+   "Rao-Newton A",
+   "Campbell K",
+   "Goldman M",
+   "Offner K",
+   "Agar M"
+  ],
+  "abstract": "<h4>Objective</h4>To evaluate the effects of bright light therapy (BLT) on circadian regulation and delirium incidence in hospitalised adults.<h4>Design</h4>Systematic review and meta-analysis.<h4>Data sources</h4>Scopus, MEDLINE, EMBASE, CINAHL and PsycINFO were searched from database inception to October 2025.<h4>Eligibility criteria for selecting studies</h4>Randomised controlled trials, controlled clinical trials and pilot studies evaluating BLT for delirium prevention in hospitalised adults published in English were included.<h4>Data extraction and synthesis</h4>Risk of Bias was assessed using the Risk of Bias tool for randomised trials (version 2) or Risk Of Bias In Non-randomised Studies of Interventions. Publication bias was explored using visual inspection of funnel plots. Data were narratively synthesised to summarise BLT protocolisation, adherence and impact on circadian rhythm and delirium incidence. Random-effects meta-analysis was performed to estimate pooled risk ratios (RRs) for delirium incidence. Certainty of evidence was assessed using GRADE.<h4>Results</h4>Eight studies (participants n=1190) were included. Risk of bias for delirium incidence varied, with several studies judged to have some concerns or high risk of bias. Adherence, cessation and adverse events were inconsistently measured and reported across studies. Three studies assessed circadian outcomes: two reported increased circadian cycle lengths following BLT, while one found no between-group differences. Most studies applied morning BLT at intensities ≥5000 lux for 60-120 min over 3-4 days. Meta-analysis demonstrated an uncertain effect of BLT on delirium incidence (RR 0.64, 95% CI 0.38 to 1.07; p=0.09), with moderate heterogeneity (I²=52.06%). The certainty of evidence was very low because of risk of bias, inconsistency, imprecision and potential publication bias.<h4>Conclusions</h4>Current evidence remains uncertain regarding the effect of BLT on delirium incidence in hospitalised adults. Further high-quality studies are needed to determine effectiveness, identify optimal intervention characteristics and clarify the role of sleep-related mechanisms in delirium prevention.<h4>Prospero registration number</h4>CRD42020193040.",
+  "metrics": {
+   "journal_2yr_mean_citedness": 2.7,
+   "journal_h_index": 241,
+   "openalex_id": "https://openalex.org/W7214574130",
+   "cited_by": 0,
+   "fwci": 0.0,
+   "citation_percentile": 68,
+   "top10": false,
+   "references": 68,
+   "pmcid": "PMC13629984",
+   "fetched": "2026-10-22"
+  },
+  "full_read": {
+   "body_words": 8571,
+   "figures": 5,
+   "tables": 4,
+   "minutes": 70,
+   "basis": "full text"
+  }
  }
 ]

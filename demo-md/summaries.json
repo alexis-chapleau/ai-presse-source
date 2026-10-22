@@ -19,7 +19,8 @@
     "big": "−0.8",
     "big_label": "points of HbA1c at 36 months",
     "summary": "Among 25,648 high-risk adults with type 2 diabetes (mean HbA1c 9.5%), starting and sustaining real-time continuous glucose monitoring was associated with an HbA1c about 0.8 percentage points lower than controls after 36 months, and a lower urine albumin-creatinine ratio by the end of follow-up. eGFR did not differ. 44% of CGM starters stopped using it during follow-up, and the design is observational.",
-    "takeaway": "Sustained real-time CGM in poorly controlled T2D was associated with durable HbA1c improvement and later albuminuria regression, but not eGFR."
+    "takeaway": "Sustained real-time CGM in poorly controlled T2D was associated with durable HbA1c improvement and later albuminuria regression, but not eGFR.",
+    "featured": true
   },
   "10.1001/jamanetworkopen.2026.37061": {
     "id": "early-mv-surgery-mr",
@@ -80,5 +81,67 @@
     "big_label": "of hospitals use catheter stop orders",
     "summary": "Six national surveys from 2005 to 2025 show US hospitals greatly expanded CAUTI surveillance and catheter-duration monitoring. High-yield practices stayed uneven: in 2025, 48.7% of nonfederal hospitals regularly used catheter reminders or stop orders, versus 31.5% of VA hospitals, and external catheter use rose sharply.",
     "takeaway": "Catheter reminders/stop orders and nurse-driven removal are high-yield CAUTI measures that many hospitals still don't use routinely."
+  },
+  "10.1001/jamanetworkopen.2026.35819": {
+    "id": "hdp-dementia",
+    "section": "obs",
+    "kicker": "Hypertensive disorders of pregnancy",
+    "study": "Cohort · Korean national data",
+    "big": "1.37 M",
+    "big_label": "women followed for up to 22 years",
+    "summary": "In 1.37 million Korean women who gave birth between 2002 and 2005 and were followed to 2024, hypertensive disorders of pregnancy were associated with about twice the risk of later dementia after adjusting for baseline factors (adjusted HR 1.96). After also adjusting for later hypertension, diabetes, myocardial infarction and stroke, the association was no longer significant (HR 1.15), and dementia events were few.",
+    "takeaway": "A hypertensive pregnancy may flag long-term neurovascular risk, largely through later vascular disease; the dementia signal itself is uncertain."
+  },
+  "10.1001/jamanetworkopen.2026.37054": {
+    "id": "metformin-pregnancy-child",
+    "section": "obs",
+    "featured": true,
+    "kicker": "Diabetes in pregnancy",
+    "study": "Cohort · Victoria, Australia",
+    "big": "aRR 0.97",
+    "big_label": "developmental vulnerability at school entry",
+    "summary": "Among 177,409 children in Victoria, Australia, with school-entry development data, 1,095 had been exposed to metformin in pregnancy. After adjustment, exposure was not associated with developmental vulnerability at age 4 to 6 (adjusted RR 0.97) or in any single developmental domain, although the unadjusted rate was higher (18.2% vs 13.9%).",
+    "takeaway": "Metformin in pregnancy was not associated with developmental vulnerability at school entry after adjustment for confounders."
+  },
+  "10.1161/hypertensionaha.126.27270": {
+    "id": "minipiers-dynamic",
+    "section": "obs",
+    "kicker": "Preeclampsia",
+    "study": "Prediction model · 7,283 women",
+    "big": "AUC 0.70",
+    "big_label": "daily discrimination, external validation",
+    "summary": "Using data from 7,283 women with preeclampsia in the PIERS studies, investigators built a model that updates daily with repeated measurements to predict maternal death or severe morbidity for up to 10 days, designed for low-resource settings. In external validation (735 women), daily discrimination stayed around an AUC of 0.70, and observed event rates matched the predicted risk strata. Its clinical usefulness still needs to be tested.",
+    "takeaway": "The mini PIERSdynamic model predicts adverse maternal outcomes in preeclampsia daily for up to 10 days (external AUC ~0.70); not yet validated for clinical use."
+  },
+  "10.1001/jamanetworkopen.2026.35575": {
+    "id": "sepsis-symptoms-antibiotics",
+    "section": "gim",
+    "kicker": "Sepsis",
+    "study": "Cohort · 67 Michigan hospitals",
+    "big": "29 647",
+    "big_label": "adults with presumed sepsis",
+    "summary": "Among 29,647 adults hospitalized with community-onset presumed sepsis at 67 Michigan hospitals, presenting symptoms affected how quickly antibiotics were given: prehospital fever made timely antibiotics more likely, while gastrointestinal symptoms made them less likely. After adjusting for symptoms, timely antibiotics were still associated with lower 30-day mortality (about 2.1 percentage points).",
+    "takeaway": "Sepsis presenting with GI symptoms gets antibiotics later; timely antibiotics stayed linked to lower mortality after adjusting for symptoms."
+  },
+  "10.1001/jamanetworkopen.2026.35333": {
+    "id": "hero19-covid-anticoag",
+    "section": "gim",
+    "featured": true,
+    "kicker": "Hospitalized COVID-19",
+    "study": "Randomized trial · HERO-19",
+    "big": "HR 0.74",
+    "big_label": "death or thromboembolism (not significant)",
+    "summary": "In the HERO-19 trial, 139 patients hospitalized with COVID-19 at 10 German university hospitals were randomized to therapeutic low-molecular-weight heparin followed by edoxaban 60 mg to day 42, or prophylactic heparin followed by placebo. Death or thromboembolism occurred in 21% vs 29% (HR 0.74, 95% CI 0.38–1.48), not a significant difference, with similar bleeding (7 vs 6 events). The trial was small.",
+    "takeaway": "Therapeutic anticoagulation with post-discharge edoxaban did not significantly reduce death or thromboembolism vs prophylaxis in hospitalized COVID-19 (small RCT)."
+  },
+  "10.1136/bmjopen-2026-116709": {
+    "id": "bright-light-delirium",
+    "section": "gim",
+    "kicker": "Delirium",
+    "study": "Systematic review · 8 studies",
+    "big": "RR 0.64",
+    "big_label": "delirium incidence (very low certainty)",
+    "summary": "This systematic review pooled 8 studies (1,190 hospitalized adults) of bright light therapy to prevent delirium, usually morning light of at least 5,000 lux for 1 to 2 hours over 3 to 4 days. The pooled effect was uncertain (RR 0.64, 95% CI 0.38–1.07), and the certainty of evidence was very low.",
+    "takeaway": "Evidence that bright light therapy prevents delirium in hospitalized adults is of very low certainty."
   }
 }
