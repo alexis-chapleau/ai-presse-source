@@ -1,10 +1,35 @@
 # Le Quotidien IA — state
 
 ## Last issue
-- Number: 2
-- Date: 2026-10-23
+- Number: 3
+- Date: 2026-10-24
 
 ## Stories used (last 7 editions)
+
+### 2026-10-24 (No. 3)
+- LEAD [Cyber] PHP2Shell, CVE-2026-109618/109619, Wiz (Gemini 4 Argon) + Calif/OpenAI; Chainguard early release; Cloudflare millions of attempts; related CVE-2026-115560 (Oct 23) — https://www.wiz.io/blog/php2shell-php-rce (also TIME, The Register)
+- [Cyber] LiteLLM 1.107.0 supply-chain compromise (Oct 21) — https://www.microsoft.com/en-us/security/blog/2026/10/23/inside-the-litellm-1-107-0-supply-chain-compromise-credential-theft-through-python-startup-hooks/
+- [Cyber] Jason Clinton "hold on ~18 months" — https://officechai.com/ai/it-was-always-going-to-be-this-way-we-tried-to-warn-the-world-anthropics-deputy-ciso-jason-clinton-on-recent-cyberattacks/
+- [Safety] Anthropic Mythos 5 UK AISI alignment assessment (Oct 23) — https://www.anthropic.com/research/alignment-assessment-ukaisi
+- [Safety] OpenAI no live internet for frontier training (Oct 23) — https://techcrunch.com/2026/10/23/openai-says-it-will-no-longer-train-its-ai-models-on-the-live-internet-citing-significant-risks/
+- [Safety] Cammarata "we were looking at it wrong" (MIT TR Oct 19) — https://www.technologyreview.com/2026/10/19/1147149/we-were-looking-at-it-wrong-the-explosive-claim-thats-upended-the-ai-world/
+- [Models] Kimi K3.1 Pro (Oct 23; open weights by Nov 4; AA Cyber Index 64%) — https://siliconangle.com/2026/10/23/moonshot-ai-launches-new-flagship-kim-k3-1-pro-model-with-3t-parameters/
+- [Models] Claude Duet research preview — https://fortune.com/2026/10/23/anthropic-joins-meta-and-openais-personal-ai-assistant-race-with-duet/
+- [Models] Inception Mercury 3 (Oct 19) — https://thenextweb.com/news/inception-mercury-3-diffusion-llm
+- [Doom] Hinton "we're toast" (Telegraph/Starmus) — https://thedailystar.net/news/technology/news/befriend-ai-or-were-toast-says-godfather-ai-4304141
+- [Doom] Sanders "Pause AI NOW" on bank agents + Freeze AI walkouts Oct 20 — https://www.commondreams.org/news/sanders-ai-banks
+- [Hardware] Lava finds 32 B300s on China Telecom-linked IPs — https://revistacloud.com/lava-32-gpu-nvidia-b300-china-telecom-dcgm-exporter
+- [Hardware] Google–Voltus 1 GW PJM virtual power plant — https://www.utilitydive.com/news/google-voltus-vpp-virtual-power-pjm/833717/
+- [Bench] First Proof Batch 3 — https://www.techtimes.com/articles/329114/20261016/first-proof-math-benchmark-open-weight-ai-ten-months-behind-frontier-tools.htm
+- [Bench] GenOlympiad (arXiv 2610.26850) — https://arxiv.org/abs/2610.26850
+- [Bench] Contrary "climbing the wrong hills" — https://research.contrary.com/report/ai-benchmarks-climbing-the-wrong-hills
+- [Math] AHM 1,008 members / New Scientist — https://www.ahmath.org/members
+- [Math] Maggi golden/dark age essay (Tao blog Oct 18) — https://terrytao.wordpress.com/2026/10/18/will-it-be-a-golden-age-or-a-dark-age-for-mathematics-and-science/
+- [Physics] Craig lattice chiral fermions (arXiv 2610.09093) — https://arxiv.org/abs/2610.09093
+- [Physics] ML polar vortex signal — https://phys.org/news/2026-10-machine-reveals-potential-polar-vortex.html
+- [Science] RFD4-Proteina lenacapavir enzyme — https://phys.org/news/2026-10-scientists-ai-enzyme-drug-synthesis.html
+- [Science] HIPS AI thiolation domains — https://phys.org/news/2026-10-ai-functional-enzyme-components-drug.html
+- Quote: Jason Clinton "a lot worse before they get better". Number: 83% → 13% (Anthropic Mythos 5).
 
 ### 2026-10-23 (No. 2)
 - LEAD [Cyber] Storm-0940 / ARTEX agentic framework, ConnectWise, 2,250 tenants — https://www.microsoft.com/en-us/security/blog/2026/10/21/storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise/
@@ -74,21 +99,24 @@ Timeline:
 - 2026-10-20 Tao AI challenge (tenth discriminant); commenters use OpenAI 7/8 half-plane → d ≤ 653 (conditional) — https://terrytao.wordpress.com/2026/10/20/an-experimental-ai-math-challenge-using-tenth-discriminant-bounds-to-explore-arguments-ruling-out-siegel-zeroes/
 - 2026-10-21 Buckmaster guest post on Tao blog; claims ~10,000 agents/88h for N–S and understated compute (contested by a commenter) — https://terrytao.wordpress.com/2026/10/21/mathematics-is-a-subject-for-the-young/
 - 2026-10-22 Quanta: OpenAI abruptly dropped Caltech Mathathon sponsorship — https://www.quantamagazine.org/update/168181/
-- Changelog (github.com/openai/math/blob/main/history.md) still only Oct 7 entry as of Oct 23. Citation analysis: 390/722 cite OpenAI works — https://huguryildiz.com/writing/openai-math-release-citations-withdrawals/
-Last status: NEW (2026-10-23)
+- 2026-10-20/22 New Scientist: AHM passes 1,000 members (1,008; 654 AI-free caucus) — https://www.newscientist.com/article/2593621-a-thousand-human-mathematicians-pledge-to-shun-ai-in-their-research/ (also AHM statement Oct 7 on Tao's blog)
+- Changelog (github.com/openai/math/blob/main/history.md) still only Oct 7 entry as of Oct 24. Citation analysis: 390/722 cite OpenAI works — https://huguryildiz.com/writing/openai-math-release-citations-withdrawals/
+Last status: NEW (2026-10-24)
 
 ## Dossier 2 — Astra pushes back on experts (TheoPhysEval)
 Facts: OpenAI GPT-6 Astra (announced ~2026-09-03; "critical" cyber under preparedness framework). TheoPhysEval, arXiv 2610.16733, 35 authors (ICTS, Harvard, KU Leuven, Google DeepMind…), coordinated by Suvrat Raju; 50 unpublished research problems, 11 subfields. Initial Astra score "late eighties"; Astra insisted; experts found subtle errors (e.g. sign errors) in their reference solutions; corrected → 49/50 (98%) in Codex with web; Opus 5.5 92%, Gemini 3.8 Flash 68%; no-web both 92%; <$3/problem. Unverified: which problems, exact pre-correction score.
 Timeline:
 - 2026-09-03 Astra announced — https://www.pcworld.com/article/3226859/openais-astra-model-has-ai-researchers-spooked-heres-why.html
-- 2026-10-09 arXiv 2610.16733 v1 submitted (still only v1 on Oct 23; paper does not list which keys were wrong; 49/50 realistic, 46/50 isolated) — https://arxiv.org/abs/2610.16733
+- 2026-10-09 arXiv 2610.16733 v1 submitted (still only v1 on Oct 24; paper does not list which keys were wrong; 49/50 realistic, 46/50 isolated) — https://arxiv.org/abs/2610.16733
+- 2026-10-06 Related: Craig Astra-led lattice chiral fermions paper (arXiv 2610.09093) — https://arxiv.org/abs/2610.09093
 - 2026-10-15 The Decoder report — https://the-decoder.com/gpt-6-astra-solves-49-of-50-physics-research-problems-at-2-40-apiece/
 - 2026-10-17 Related: Astra used by Landreman on Grad's conjecture counterexamples — https://startupfortune.com/googles-gemini-ai-helped-disprove-a-60-year-old-fusion-physics-conjecture/
 - 2026-10-17/22 Jack Clark IMF Per Jacobsson lecture cites Astra catching answer-key errors; R&D World Oct 22 — https://www.rdworldonline.com/anthropic-co-founder-jack-clark-says-a-billion-virtual-scientists-are-coming-or-10-billion/
 - Unverified/avoid: 36Kr repost claims ~88% initial score, quotes "Nirmalya Kajuri" (not an author).
-Last status: NEW (2026-10-23)
+Last status: NOCHANGE (2026-10-24)
 
 ## Notes for next run
-- Uncovered leads: OpenAI fired 3 safety researchers (Korbak, Wang, Balesni; Oct 1; Korbak was METR's contact); "intelligence explosion" paper (Sep 28); eMudhra CA private keys compromised (TechCrunch Oct 21); NEJM AI study of 24 AI systems costing 3.2x (unverified, 403); Nathaniel Craig Astra-assisted lattice chiral fermions paper (arXiv 2610.09093, Oct 6); Nscale Norway 6.4MW of 30MW (unverified).
-- 403 sites: openai.com, CNBC, DCD, ai.nejm.org, science.org.
+- Uncovered leads (Oct 24): eMudhra CA key compromise ("bigger than Heartbleed", Ars Technica); Capcom breach 11.7M; Help Net 'hackers hijack exposed AI models'; Microsoft Suleyman 'medical superintelligence' (TechCrunch Oct 22); AlphaProof Nexus in Science (Oct 8, 9/353 Erdős); Anthropic ARTs/jumbotrons priority dispute (Sep 28–Oct 8); TSMC $100B more Arizona; Samsung HBM4E Nvidia qual (early Oct); Kimi K3.1 open weights due Nov 4 (follow up).
+- Older uncovered leads: OpenAI fired 3 safety researchers (Korbak, Wang, Balesni; Oct 1; Korbak was METR's contact); "intelligence explosion" paper (Sep 28); eMudhra CA private keys compromised (TechCrunch Oct 21); NEJM AI study of 24 AI systems costing 3.2x (unverified, 403); Nathaniel Craig Astra-assisted lattice chiral fermions paper (arXiv 2610.09093, Oct 6); Nscale Norway 6.4MW of 30MW (unverified).
+- 403/blocked sites: openai.com, CNBC, DCD, ai.nejm.org, science.org, newscientist.com (blocked), usnews (timeout). Woit's blog needs curl -k (cert issue).
 - Aggregator leaderboards (benchlm, swfte, metatext) gave contradictory numbers; avoid.
