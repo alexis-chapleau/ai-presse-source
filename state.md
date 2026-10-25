@@ -1,10 +1,34 @@
 # Le Quotidien IA — state
 
 ## Last issue
-- Number: 3
-- Date: 2026-10-24
+- Number: 4
+- Date: 2026-10-25
 
 ## Stories used (last 7 editions)
+
+### 2026-10-25 (No. 4)
+- LEAD [Math] Tao Observer interview "toxic waste", "code red", 10,000 agents, signups suspended (OpenAI denies parts) (Oct 23) — https://observer.co.uk/news/science-technology/article/terence-tao-ai-race-turns-beautiful-mathematics-into-toxic-waste
+- [Math] oai-math-revised community hub (Tao blog guest post, Oct 24) — https://terrytao.wordpress.com/2026/10/24/oai-math-revised-a-community-hub-for-revising-openais-math-write-ups/
+- [Cyber] OpenAI red-team agents: Brotli CVE-2026-111497 (Node2Shell/HTTP2Shell), VM escapes, cache side channel; GPT-6 Astra Cyber — https://thehackernews.com/2026/10/openai-ai-agents-demonstrate-vm-escapes.html (also Gizmodo, Aikido, Imperva)
+- [Cyber] Cognition Devin Vulnerability Fixes plugin; GitLab CVE-2026-110264 CVSS 10 — https://www.marktechpost.com/2026/10/24/cognition-devin-vulnerability-fixes-plugin-php2shell-nodejs-gitlab/
+- [Cyber] Sweden Government Offices block ChatGPT/Claude from Oct 26 — https://decrypt.co/381763/sweden-government-offices-block-chatgpt-claude
+- [Safety] Anthropic GRAFT gradient-routing vs reward hacking (Oct 19) — https://alignment.anthropic.com/2026/graft/
+- [Safety] Anthropic RL-trained alignment auditors (Oct 15) — https://alignment.anthropic.com/2026/training-alignment-auditors/
+- [Safety] OpenAI "Beyond g-mean²" monitorability metrics (Oct 20) — https://alignment.openai.com/beyond-gmean-squared/
+- [Models] Block Dessa speech-to-speech (Oct 23) — https://techcrunch.com/2026/10/24/blocks-new-voice-model-sounds-eerily-human/
+- [Models] OpenAI discounts poach Anthropic customers (The Information via Decoder) — https://the-decoder.com/openai-offers-discounts-up-to-90-percent-to-poach-anthropics-biggest-customers/
+- [Doom] Hardwired 10-year pause working paper (Fithian, Russell; Hoodline Oct 23) — https://hoodline.com/2026/10/uc-berkeley-team-maps-out-10-year-global-pause-on-ai-training/
+- [Doom] Gowers extinction-risk essay; Tsimerman MAISI (Oct 16) — https://gowers.wordpress.com/2026/10/16/how-worried-should-we-be-about-extinction-risk-from-ai/
+- [Hardware] H100 rental index +44% ($2.88, Oct 24) — https://startupfortune.com/h100-rental-prices-are-spiking-even-as-wall-street-worries-about-an-ai-bubble/
+- [Hardware] TSMC rare-earth-free motors (Reuters Oct 22) — https://en.sedaily.com/international/2026/10/23/tsmc-seeks-equipment-alternatives-to-cut-china-rare-earth
+- [Bench] Epoch SpireClimb (Slay the Spire) — https://epoch.ai/publications/ai-systems-are-improving-rapidly-at-slay-the-spire-and-its-sequel
+- [Bench] Epoch ECI Gemini 4 Argon 166 + benchmark reviews (Epoch Brief Oct 23) — https://epochai.substack.com/p/the-epoch-brief-october-23-2026
+- [Physics] Harvard/Anthropic/QuEra LLM quantum circuits (arXiv 2610.22367) — https://quantumcomputingreport.com/harvard-anthropic-and-quera-use-llms-to-discover-quantum-circuits-with-up-to-9100x-lower-resource-costs/
+- [Physics] Lean-QuantumAlg (arXiv 2610.30216) — https://arxiv.org/abs/2610.30216
+- [Science] Claude scorpion toxin binders, 318,484 designs (Oct 20) — https://interestingengineering.com/ai-robotics/claude-scorpion-toxin-protein-binders
+- [Science] Baker lab AI proteases (Nature, Oct 16) — https://phys.org/news/2026-10-ai-molecular-scissors-protein.html
+- [Science] Penn retatrutide Reddit AI study (JAMA Netw Open) — https://www.sciencedaily.com/releases/2026/10/261020085018.htm
+- Quote: Tao "Maths problems are almost the only thing left for them to train on…". Number: 318,484 (Claude protein designs).
 
 ### 2026-10-24 (No. 3)
 - LEAD [Cyber] PHP2Shell, CVE-2026-109618/109619, Wiz (Gemini 4 Argon) + Calif/OpenAI; Chainguard early release; Cloudflare millions of attempts; related CVE-2026-115560 (Oct 23) — https://www.wiz.io/blog/php2shell-php-rce (also TIME, The Register)
@@ -100,8 +124,10 @@ Timeline:
 - 2026-10-21 Buckmaster guest post on Tao blog; claims ~10,000 agents/88h for N–S and understated compute (contested by a commenter) — https://terrytao.wordpress.com/2026/10/21/mathematics-is-a-subject-for-the-young/
 - 2026-10-22 Quanta: OpenAI abruptly dropped Caltech Mathathon sponsorship — https://www.quantamagazine.org/update/168181/
 - 2026-10-20/22 New Scientist: AHM passes 1,000 members (1,008; 654 AI-free caucus) — https://www.newscientist.com/article/2593621-a-thousand-human-mathematicians-pledge-to-shun-ai-in-their-research/ (also AHM statement Oct 7 on Tao's blog)
-- Changelog (github.com/openai/math/blob/main/history.md) still only Oct 7 entry as of Oct 24. Citation analysis: 390/722 cite OpenAI works — https://huguryildiz.com/writing/openai-math-release-citations-withdrawals/
-Last status: NEW (2026-10-24)
+- Changelog (github.com/openai/math/blob/main/history.md) still only Oct 7 entry as of Oct 25. Citation analysis: 390/722 cite OpenAI works — https://huguryildiz.com/writing/openai-math-release-citations-withdrawals/
+- 2026-10-23 Tao to The Observer (James Tapper): "toxic waste"; "code red priority number one" after Anthropic Millennium rumour; tens of millions $, 10,000-agent swarm, premium signups suspended for days; Anthropic pays mathematicians to write up results. OpenAI denies code red, signup suspension, spending figure; says $5M committed — https://observer.co.uk/news/science-technology/article/terence-tao-ai-race-turns-beautiful-mathematics-into-toxic-waste
+- 2026-10-24 oai-math-revised hub (Nellore, Schmitt, Villar, Ward; github.com/mathcommunity/oai-math-revised) guest post on Tao blog; mixed comments; Kunal Relia says vertex-cover result overstated (Khot–Regev 2008) — https://terrytao.wordpress.com/2026/10/24/oai-math-revised-a-community-hub-for-revising-openais-math-write-ups/
+Last status: NEW (2026-10-25)
 
 ## Dossier 2 — Astra pushes back on experts (TheoPhysEval)
 Facts: OpenAI GPT-6 Astra (announced ~2026-09-03; "critical" cyber under preparedness framework). TheoPhysEval, arXiv 2610.16733, 35 authors (ICTS, Harvard, KU Leuven, Google DeepMind…), coordinated by Suvrat Raju; 50 unpublished research problems, 11 subfields. Initial Astra score "late eighties"; Astra insisted; experts found subtle errors (e.g. sign errors) in their reference solutions; corrected → 49/50 (98%) in Codex with web; Opus 5.5 92%, Gemini 3.8 Flash 68%; no-web both 92%; <$3/problem. Unverified: which problems, exact pre-correction score.
@@ -113,9 +139,12 @@ Timeline:
 - 2026-10-17 Related: Astra used by Landreman on Grad's conjecture counterexamples — https://startupfortune.com/googles-gemini-ai-helped-disprove-a-60-year-old-fusion-physics-conjecture/
 - 2026-10-17/22 Jack Clark IMF Per Jacobsson lecture cites Astra catching answer-key errors; R&D World Oct 22 — https://www.rdworldonline.com/anthropic-co-founder-jack-clark-says-a-billion-virtual-scientists-are-coming-or-10-billion/
 - Unverified/avoid: 36Kr repost claims ~88% initial score, quotes "Nirmalya Kajuri" (not an author).
-Last status: NOCHANGE (2026-10-24)
+- Oct 25 check: arXiv 2610.16733 still v1. Side note: Gizmodo says "GPT-6 Astra Cyber" was used in OpenAI sandbox red-teaming (cyber, not physics). KITP "Intermediate-Scale AI for Physics" program Oct 19–23 with OpenAI physicists (no coverage found yet).
+Last status: NOCHANGE (2026-10-25)
 
 ## Notes for next run
+- Uncovered leads (Oct 25): Schmidt/Ferguson/Klaassen Foreign Affairs "AI empires"/East India Companies (Decoder); Jack Clark RSI forecast to 2027 via TasteVal (Oct 12, arXiv 2610.06824); Epoch "Can AI automate Epoch?" (Oct 8); CosmoAgent (arXiv 2610.16536); magic-state factories AI (arXiv 2610.06535); Nature subseasonal ML forecasting (Oct 14); DeepMind protein watermarking (Live Science); Princeton AIAS launch (Oct 19); Oxford/Royal Society Open Science "AI's existential crisis" (Oct 20); Nvidia neocloud financing stress (CNBC Oct 24, 403); Samsung HBM Q3 > SK Hynix (Bernstein); SoftBank $50B Malaysia (Oct 24); Sanders/Rice pause support.
+- More 403/blocked: observer.co.uk (WebFetch blocked; curl works), fourweekmba, japantimes, flowingdata, bigthink (curl works), ox.ac.uk (curl works).
 - Uncovered leads (Oct 24): eMudhra CA key compromise ("bigger than Heartbleed", Ars Technica); Capcom breach 11.7M; Help Net 'hackers hijack exposed AI models'; Microsoft Suleyman 'medical superintelligence' (TechCrunch Oct 22); AlphaProof Nexus in Science (Oct 8, 9/353 Erdős); Anthropic ARTs/jumbotrons priority dispute (Sep 28–Oct 8); TSMC $100B more Arizona; Samsung HBM4E Nvidia qual (early Oct); Kimi K3.1 open weights due Nov 4 (follow up).
 - Older uncovered leads: OpenAI fired 3 safety researchers (Korbak, Wang, Balesni; Oct 1; Korbak was METR's contact); "intelligence explosion" paper (Sep 28); eMudhra CA private keys compromised (TechCrunch Oct 21); NEJM AI study of 24 AI systems costing 3.2x (unverified, 403); Nathaniel Craig Astra-assisted lattice chiral fermions paper (arXiv 2610.09093, Oct 6); Nscale Norway 6.4MW of 30MW (unverified).
 - 403/blocked sites: openai.com, CNBC, DCD, ai.nejm.org, science.org, newscientist.com (blocked), usnews (timeout). Woit's blog needs curl -k (cert issue).
