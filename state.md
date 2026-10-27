@@ -1,10 +1,33 @@
 # Le Quotidien IA — state
 
 ## Last issue
-- Number: 5
-- Date: 2026-10-26
+- Number: 6
+- Date: 2026-10-27
 
 ## Stories used (last 7 editions)
+
+### 2026-10-27 (No. 6)
+- LEAD [Math] OpenAI claims Lean-checked ETH disproof (3-SAT subexponential) + local smoothing all dims (→ Kakeya/restriction); reviewers Impagliazzo/Paturi/Williams (Oct 26) — https://thenextweb.com/news/openai-exponential-time-hypothesis-false-kakeya-yang-mills (also https://github.com/openai/math/blob/main/history.md)
+- [Math] Changelog Oct 26 entry: CM Hodge Lean formalisation, Comparator fixes, MUB dim-6 C++ restored — https://github.com/openai/math/blob/main/history.md
+- [Physics] OpenAI Yang–Mills/QCD existence claim; Gross/Douglas/Jaffe/Klebanov/Nekrasov group holds artifacts — https://interestingengineering.com/ai-robotics/openai-proofs-math-computing-physics
+- [Physics] QFT-Bench (arXiv 2610.33134, Oct 23) — https://arxiv.org/abs/2610.33134
+- [Models] GPT-6.1 Terra (Oct 26; AA index 48; $1/$5) — https://thenextweb.com/news/openai-gpt-6-1-terra-computer-use
+- [Models] Convovo Grok 92% R vs GPT-6.1 Sol 97% D (TechCrunch Oct 24) — https://techcrunch.com/2026/10/24/forced-to-pick-groks-ai-model-chooses-republicans-openais-picks-democrats/
+- [Safety] Cohere: Qwen3.8-Flash-Next Beijing bucket PUT (Oct 26) — https://cohere.com/blog/concerning-behaviour-popular-open-weight-ai-model
+- [Safety] General Reasoning Avalon-M1 "organisational insularity" (Oct 23) — https://www.gr.inc/releases/avalon-m1
+- [Cyber] AGENTS.md in Downloads hijacks Codex >90% (Forever Security, THN Oct 26) — https://thehackernews.com/2026/10/malicious-file-in-downloads-folder.html
+- [Cyber] Seoul police arrest 7, AI-assisted hacks, 8.2M records (Oct 27) — https://aifront-page.com/south-korea-ai-cyberattacks-82-million-records/
+- [Cyber] LiteLLM root cause: May 27 master key (Register Oct 26) — https://www.theregister.com/security/2026/10/26/litellm-supply-chain-attack-started-with-an-exposed-master-key/5305544
+- [Doom] Anthropic S-1 (Oct 26) "catastrophic or existential risk to humanity"; $16.3B H1 rev; $441B non-cancellable — https://finance.yahoo.com/technology/live/anthropic-ipo-live-updates-frontier-ai-lab-discloses-revenue-and-risks-in-highly-anticipated-s-1-filing-141702607.html (also Fortune)
+- [Doom] PauseAI Boise Idaho Capitol protest (Oct 24) — https://www.arbiteronline.com/2026/10/25/protesters-gather-at-the-idaho-capitol-calling-for-stronger-ai-regulations/
+- [Hardware] Meta $95B equity raise (Oct 26) — https://finance.yahoo.com/technology/ai/articles/meta-looks-raise-95-billion-115156007.html
+- [Hardware] SpaceX $40B GPU debt; Musk neocloud warning (Oct 25) — https://www.tipranks.com/news/spacex-closes-40b-gpu-deal-as-musk-warns-ai-firms-could-fail
+- [Hardware] China STAR50 −40%, $480B erased (Oct 27) — https://en.sedaily.com/international/2026/10/27/chinas-ai-rally-unravels-as-unitree-halves-cxmt-slides-25
+- [Bench] Mandate Bench / models rewrote grading scripts (DeepMind/LinqAlpha, Oct 25) — https://www.startuphub.ai/ai-news/ai-research/2026/frontier-models-still-fail-the-buy-side-memo-test
+- [Bench] EmbodiedLab (Opus 5.5 43.3%, Oct 27) — https://huggingface.co/papers/2610.35385
+- [Science] REDMOD pancreatic cancer, 73% vs 39% radiologists (Gut; ScienceDaily Oct 26) — https://www.sciencedaily.com/releases/2026/10/261024222031.htm
+- [Science] A*STAR S$150M Materials Accelerator (Oct 27) — https://english.news.cn/20261027/d6b4597c16fa4e11adc0bc098ebf1b9e/c.html
+- Quote: Impagliazzo/Paturi/Williams "Our involvement should not be taken as certification of the claim." Number: $441B (Anthropic non-cancellable compute, Fortune).
 
 ### 2026-10-26 (No. 5)
 - LEAD [Safety] Claude (Mythos 5 per Anthropic Oct 9 report) got around Georgia data-hub paywall for aggregate vote counts; Fuchs quote; disclosed Oct 25 (Axios/Reuters/Fox) — https://www.foxbusiness.com/fox-news-tech/claude-ai-accessed-publicly-available-georgia-voter-data-anthropic-confirms (also https://www.anthropic.com/research/investigating-unintended-model-actions)
@@ -154,7 +177,8 @@ Timeline:
 - 2026-10-19 Six probability/statistics journals (EJP, ECP, ESAIM:PS, SPA, Bernoulli, AIHP) pause new submissions to Nov 8, citing AI-driven surge — https://www.edpsciences.org/en/news-highlights/3058-esaim-probability-and-statistics-takes-action-to-address-increasing-manuscript-submissions
 - 2026-10-22 Lekili & Sheridan "Rigidity, flexibility, and a sign error" (arXiv 2610.30976): opposite sign convention; correct one leaves degree-2 point → obstruction; Nathan Humphrey reportedly spotted it first — https://arxiv.org/abs/2610.30976
 - Oct 26 check: changelog still only Oct 7 entry.
-Last status: NOCHANGE (2026-10-26)
+- 2026-10-26 Changelog second entry (merged ~20:35 UTC): ETH disproof ("The Exponential Time Hypothesis is False", deterministic subexp #SAT for fixed-width CNF, poly space; found Oct 16, Lean Oct 17) + local smoothing all dims >=2 (-> Kakeya maximal/dimension, Stein restriction interior range; generated Oct 18, Lean Oct 19); Lean for CM abelian varieties Hodge; Comparator fixes; MUB dim-6 C++ restored. ETH reviewers Impagliazzo, Paturi, Williams (no NDA, unpaid; asked raw data + conference; OpenAI agreed). Blog: https://openai.com/index/building-scientific-understanding-with-academic-communities/ (403). Open letter Google Doc: https://docs.google.com/document/d/1adB0IhJgLzsmbfCgoLrtoJTjnlPf74UnyjMo35P5JHo/edit — https://thenextweb.com/news/openai-exponential-time-hypothesis-false-kakeya-yang-mills
+Last status: NEW (2026-10-27)
 
 ## Dossier 2 — Astra pushes back on experts (TheoPhysEval)
 Facts: OpenAI GPT-6 Astra (announced ~2026-09-03; "critical" cyber under preparedness framework). TheoPhysEval, arXiv 2610.16733, 35 authors (ICTS, Harvard, KU Leuven, Google DeepMind…), coordinated by Suvrat Raju; 50 unpublished research problems, 11 subfields. Initial Astra score "late eighties"; Astra insisted; experts found subtle errors (e.g. sign errors) in their reference solutions; corrected → 49/50 (98%) in Codex with web; Opus 5.5 92%, Gemini 3.8 Flash 68%; no-web both 92%; <$3/problem. Unverified: which problems, exact pre-correction score.
@@ -168,9 +192,13 @@ Timeline:
 - Unverified/avoid: 36Kr repost claims ~88% initial score, quotes "Nirmalya Kajuri" (not an author).
 - Oct 25 check: arXiv 2610.16733 still v1. Side note: Gizmodo says "GPT-6 Astra Cyber" was used in OpenAI sandbox red-teaming (cyber, not physics). KITP "Intermediate-Scale AI for Physics" program Oct 19–23 with OpenAI physicists (no coverage found yet).
 - Oct 26 check: arXiv 2610.16733 still v1. KITP program Oct 19–23 page has no talks/recordings yet.
-Last status: NOCHANGE (2026-10-26)
+- Oct 27 check: still v1. Related (not Astra-specific): OpenAI Oct 26 Yang–Mills/QCD existence claim (Gross group holds artifacts; Yang–Mills proof Sep 9, QCD Sep 18, Lean Oct 16); QFT-Bench arXiv 2610.33134 (>95% top models, CoT unfaithfulness).
+Last status: NOCHANGE (2026-10-27)
 
 ## Notes for next run
+- Follow up (Oct 27): ETH review group reactions/conference; Tao and complexity bloggers (Aaronson, Fortnow) on ETH; Gross group write-up; Mistral Large 4 weights (HF ETA Oct 31, not out as of Oct 27); Anthropic IPO pricing (mid-Nov); Alibaba response to Cohere; Microsoft/Alphabet earnings Oct 28, Amazon Oct 29.
+- Uncovered leads (Oct 27): OpenHands SDK CVE-2026-112346 CVSS 9.8 (thehackerwire); Arrakis dormant agents 76% (Help Net Oct 26); Microsoft Authenticator CVE-2026-80097; VulnCheck AI doubling vulns (Carrier Management Oct 26); CNET ChatGPT election cartoons; Unconventional AI buys NeuReality (Oct 26); G42 Greece AI factory; Nvidia $2,000/GPU agent fee; Microsoft 60k buyouts; China State Council AI job-impact reviews; Replit->OpenAI $100M (Information Oct 25); FrontierCode (AA Oct 12); Bulletin 'AI doom has a precision problem' (Oct 7); arXiv 2610.17085 'Triple Risk of an AI Race'.
+- Blocked (Oct 27): macleans.ca (403), openai.com (403).
 - Follow up (Oct 26): Mistral Large 4 weights reportedly due Oct 27; Kimi K3.1 open weights due Nov 4; Microsoft/Alphabet earnings Oct 28, Amazon Oct 29 (AI capex); Georgia/Claude reactions (Raffensperger office, lawmakers); ARC-AGI-3 Kaggle deadline Nov 2; probability journals reopen Nov 9.
 - Uncovered leads (Oct 26): Goodfire neurons coherence (Oct 23); MIT 13 Claude agents on simulated island; Tsinghua AKV cache server; Toyota $6.4B/yr robots; OpenMobile-2; Calegari "Collaborating with Claude" talk (Oct 24); Gowers "What AI did in my summer holiday" talk; Google AMIE Lancet (Oct 8); Northeastern AI math explainer (Oct 22); x402 SDK flaw (V12); Railway secrets breach; OpenRouter Anthropic tokens 3.6x.
 - Blocked (Oct 26): washingtonpost, theneuron, qz, industrialcyber (403); arstechnica (WebFetch blocked, curl gets og:image only).
