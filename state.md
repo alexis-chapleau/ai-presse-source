@@ -1,10 +1,41 @@
 # Le Quotidien IA — state
 
 ## Last issue
-- Number: 6
-- Date: 2026-10-27
+- Number: 7
+- Date: 2026-10-28
 
 ## Stories used (last 7 editions)
+
+### 2026-10-28 (No. 7)
+- LEAD [Math] Anthropic independent Lean-verified ETH refutation (Claude; 2^O(n log log n/sqrt log n); commit Oct 27 03:07 UTC; found Oct 16, 14M tokens) — https://github.com/anthropics/formal-math/tree/main/eth (also TechCrunch Oct 27, WebProNews)
+- [Math] Aaronson P=NP 3%->5%, "foot-high fence" (Oct 26) — https://scottaaronson.blog/?p=10239
+- [Math] Golomb–Welch conjecture claim, Chen/Huang/Luo, ChatGPT-assisted (arXiv 2610.34291, 2610.33983) — https://arxiv.org/abs/2610.34291
+- [Math] GPT-6 Astra 3-colouring O(n^0.1537) (Deguchi, Kawarabayashi, Yonedas; arXiv 2610.35859) — https://arxiv.org/abs/2610.35859
+- [Physics] Yang–Mills Gross committee statement (1,147 pp; mass gap open), AGMAI immediate-release call, Woit — https://www.kitp.ucsb.edu/sites/default/files/YM_working_group.pdf
+- [Physics] MOSAIC Claude swarm FCI gaps >10x (arXiv 2610.35934) — https://arxiv.org/abs/2610.35934
+- [Physics] ASTRA astrophysics framework; LLM agents adopt wrong benchmark 6/6 (arXiv 2610.36144) — https://arxiv.org/abs/2610.36144
+- [Models] Genie 4 (Oct 27) — https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/
+- [Models] Liquid LFM3 six 2B models (Oct 27) — https://www.unite.ai/liquid-ai-launches-lfm3-family-of-six-open-weight-2b-class-models/
+- [Models] Mistral Large 4 weights missed Oct 27, ETA Oct 31 — https://forkast.news/the-reported-date-arrived-and-the-weights-did-not/
+- [Safety] Fangcun AI DeepSeek V4.1 Flash shutdown 39% (arXiv 2610.35671; TNW/Reuters Oct 27) — https://thenextweb.com/news/deepseeks-latest-model-still-resists-shutdown-in-safety-tests
+- [Safety] Anthropic correlated deference 86% (Oct 27) — https://www.anthropic.com/research/agents-judgment-calls
+- [Safety] UK AISI ReproBAIT + viral data filtering $80 (Oct 26) — https://www.aisi.gov.uk/blog/can-ai-coding-agents-rebuild-biological-ai-tools-from-a-paper
+- [Cyber] Cloudflare GLM 5.3 KV-cache leak, 155 responses, SGLang (Oct 26) — https://blog.cloudflare.com/kv-cache-exposure-remediation/
+- [Cyber] Warp vendor breach, "agent swarm" (BleepingComputer Oct 27) — https://www.bleepingcomputer.com/news/security/warp-discloses-breach-exposing-ai-agent-logs-user-telemetry-data/
+- [Cyber] ASD Annual Cyber Threat Report, 4,400 warnings +80% (Oct 27) — https://euronews.com/2026/10/27/australia-warns-of-unprecedented-ai-powered-cyberattacks-heres-whats-driving-them
+- [Doom] Soares 401(k), >50% no decade (Fortune Oct 27) — https://fortune.com/2026/10/27/ai-humanity-nate-soares-401k-retirement/
+- [Doom] Khomyn, The Conversation, IPO risk (Oct 27) — https://theconversation.com/anthropics-record-us2-trillion-stock-market-listing-highlights-the-growing-risks-for-all-of-us-295243
+- [Doom] Kreps Bulletin "AI doom has a precision problem" (Oct 7) — https://thebulletin.org/2026/10/ai-doom-has-a-precision-problem/
+- [Hardware] SK hynix Q3 104.62T won, 79.7% margin, sold out to 2029 (Oct 28) — https://en.sedaily.com/finance/2026/10/28/sk-hynix-says-d-ram-hbm-supply-sold-out-through-2029
+- [Hardware] Oracle/Nvidia Vera Rubin multi-GW, 150k Vera CPUs (Oct 27) — https://www.unite.ai/nvidia-oracle-plan-multi-gigawatt-vera-rubin-expansion-on-oci/
+- [Hardware] TSMC CoWoS +10–20% reported; Rubin 7x test time (TrendForce Oct 27) — https://www.trendforce.com/news/2026/10/27/news-tsmc-reportedly-eyes-20-cowos-price-hike-skips-equipment-price-renegotiations-amid-ai-demand-surge
+- [Bench] AA Intelligence Index v5 (Opus 5.5 58; gap 12) — https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v5
+- [Bench] ARC-AGI-3 Kaggle Chen 75.56 — https://arc.markbarney.net/arc-leaderboards
+- [Bench] HKUST harness fragility 85%->19.2% + VibeVideoBench 76.3% — https://huggingface.co/papers/2610.37255
+- [Science] Anthropic drug-development partnerships (Enveda 7 missed issues; Mithril acquisition) (Oct 27) — https://www.anthropic.com/research/early-progress-drug-development
+- [Science] GPT-Rosalind 1,946 agents brain CRISPR atlas (Oct 21) — https://www.techtimes.com/articles/329363/20261022/openai-drug-discovery-swarm-decoded-77-million-brain-cells-32-minutes.htm
+- [Science] Nottingham self-driving coatings lab (phys.org Oct 26) — https://phys.org/news/2026-10-ai-powered-robotic-laboratory-paves.html
+- Quote: Aaronson "A foot-high fence has been breached…". Number: 39% (DeepSeek shutdown, Fangcun).
 
 ### 2026-10-27 (No. 6)
 - LEAD [Math] OpenAI claims Lean-checked ETH disproof (3-SAT subexponential) + local smoothing all dims (→ Kakeya/restriction); reviewers Impagliazzo/Paturi/Williams (Oct 26) — https://thenextweb.com/news/openai-exponential-time-hypothesis-false-kakeya-yang-mills (also https://github.com/openai/math/blob/main/history.md)
@@ -178,7 +209,12 @@ Timeline:
 - 2026-10-22 Lekili & Sheridan "Rigidity, flexibility, and a sign error" (arXiv 2610.30976): opposite sign convention; correct one leaves degree-2 point → obstruction; Nathan Humphrey reportedly spotted it first — https://arxiv.org/abs/2610.30976
 - Oct 26 check: changelog still only Oct 7 entry.
 - 2026-10-26 Changelog second entry (merged ~20:35 UTC): ETH disproof ("The Exponential Time Hypothesis is False", deterministic subexp #SAT for fixed-width CNF, poly space; found Oct 16, Lean Oct 17) + local smoothing all dims >=2 (-> Kakeya maximal/dimension, Stein restriction interior range; generated Oct 18, Lean Oct 19); Lean for CM abelian varieties Hodge; Comparator fixes; MUB dim-6 C++ restored. ETH reviewers Impagliazzo, Paturi, Williams (no NDA, unpaid; asked raw data + conference; OpenAI agreed). Blog: https://openai.com/index/building-scientific-understanding-with-academic-communities/ (403). Open letter Google Doc: https://docs.google.com/document/d/1adB0IhJgLzsmbfCgoLrtoJTjnlPf74UnyjMo35P5JHo/edit — https://thenextweb.com/news/openai-exponential-time-hypothesis-false-kakeya-yang-mills
-Last status: NEW (2026-10-27)
+- 2026-10-26 Aaronson P=NP 3%->5% — https://scottaaronson.blog/?p=10239 ; ETH examination blog — https://ethdiscussion.blog/2026/10/26/eth-refutation-examination-and-discussion/
+- 2026-10-26 (11:07pm ET) Anthropic independent ETH refutation, Lean (Comparator + nanoda), found Oct 16 with 14M tokens; Alpöge suggests OpenAI built on prior work — https://github.com/anthropics/formal-math/tree/main/eth
+- 2026-10-27 Williams to TechCrunch "two or three alien-looking parts"; OpenAI "reasonably confident" no crypto breaks — https://techcrunch.com/2026/10/27/frontier-ai-labs-say-their-models-refuted-the-exponential-time-hypothesis-what-does-that-mean/
+- 2026-10-27 oai-math-revised comparator run: 414/416 accepted, 2 DNF (PlanarPacking, MUBSix), 0 rejected; 9 weaker (fixed by OpenAI Oct 26) — https://github.com/mathcommunity/oai-math-revised/pull/52
+- Oct 28 check: changelog still ends at Oct 26 entry. No Tao/Fortnow/Quanta piece on ETH/Kakeya yet.
+Last status: NEW (2026-10-28)
 
 ## Dossier 2 — Astra pushes back on experts (TheoPhysEval)
 Facts: OpenAI GPT-6 Astra (announced ~2026-09-03; "critical" cyber under preparedness framework). TheoPhysEval, arXiv 2610.16733, 35 authors (ICTS, Harvard, KU Leuven, Google DeepMind…), coordinated by Suvrat Raju; 50 unpublished research problems, 11 subfields. Initial Astra score "late eighties"; Astra insisted; experts found subtle errors (e.g. sign errors) in their reference solutions; corrected → 49/50 (98%) in Codex with web; Opus 5.5 92%, Gemini 3.8 Flash 68%; no-web both 92%; <$3/problem. Unverified: which problems, exact pre-correction score.
@@ -193,9 +229,13 @@ Timeline:
 - Oct 25 check: arXiv 2610.16733 still v1. Side note: Gizmodo says "GPT-6 Astra Cyber" was used in OpenAI sandbox red-teaming (cyber, not physics). KITP "Intermediate-Scale AI for Physics" program Oct 19–23 with OpenAI physicists (no coverage found yet).
 - Oct 26 check: arXiv 2610.16733 still v1. KITP program Oct 19–23 page has no talks/recordings yet.
 - Oct 27 check: still v1. Related (not Astra-specific): OpenAI Oct 26 Yang–Mills/QCD existence claim (Gross group holds artifacts; Yang–Mills proof Sep 9, QCD Sep 18, Lean Oct 16); QFT-Bench arXiv 2610.33134 (>95% top models, CoT unfaithfulness).
-Last status: NOCHANGE (2026-10-27)
+- Oct 28 check: still v1 (v2 404). Related: MOSAIC FCI paper, Astra proposed framework (arXiv 2610.35934); Astra 3-colouring record (math, arXiv 2610.35859). Yang–Mills: Gross committee statement (KITP PDF), AGMAI release call Oct 26, Woit critique.
+Last status: NOCHANGE (2026-10-28)
 
 ## Notes for next run
+- Follow up (Oct 28): Microsoft/Alphabet earnings (after close Oct 28), Amazon Oct 29; Mistral Large 4 weights ETA Oct 31; Kimi K3.1 weights Nov 4; ARC-AGI-3 deadline Nov 2; Yudkowsky SDF Korea Nov 5; ETH virtual meeting; Yang–Mills Lean release; Tao/Quanta on ETH/Kakeya; DeepSeek reply to Fangcun; Alibaba still silent on Cohere.
+- Uncovered leads (Oct 28): Microsoft MAI-Image-2.7 #2 AA image editing (snippet only); Giotto Alto/Solo no-benchmark licence + Kimi-origin allegations; GPT-6.1 Terra Arena WebDev #14; Zvi on Gemini 4 Argon safety report (217 pp); Rapid7 Q3 exploitation 71% in a week; Anthropic S-1 compute $542–567B / Anthropic Direct (Fortune Oct 26); Google Research autonomous wet lab (Oct 16); Korea Univ AI antivirals (phys.org Oct 19); Nature boiling-point database error found by AI (Aug 6, Pios); KQED Freeze AI Now (Oct 20); Alpöge–Sussman Yang–Mills effort.
+- Blocked (Oct 28): marktechpost, washingtontimes, financefeeds, oracle.com (403); bleepingcomputer curl challenge (WebFetch ok); nature.com WebFetch login.
 - Follow up (Oct 27): ETH review group reactions/conference; Tao and complexity bloggers (Aaronson, Fortnow) on ETH; Gross group write-up; Mistral Large 4 weights (HF ETA Oct 31, not out as of Oct 27); Anthropic IPO pricing (mid-Nov); Alibaba response to Cohere; Microsoft/Alphabet earnings Oct 28, Amazon Oct 29.
 - Uncovered leads (Oct 27): OpenHands SDK CVE-2026-112346 CVSS 9.8 (thehackerwire); Arrakis dormant agents 76% (Help Net Oct 26); Microsoft Authenticator CVE-2026-80097; VulnCheck AI doubling vulns (Carrier Management Oct 26); CNET ChatGPT election cartoons; Unconventional AI buys NeuReality (Oct 26); G42 Greece AI factory; Nvidia $2,000/GPU agent fee; Microsoft 60k buyouts; China State Council AI job-impact reviews; Replit->OpenAI $100M (Information Oct 25); FrontierCode (AA Oct 12); Bulletin 'AI doom has a precision problem' (Oct 7); arXiv 2610.17085 'Triple Risk of an AI Race'.
 - Blocked (Oct 27): macleans.ca (403), openai.com (403).
