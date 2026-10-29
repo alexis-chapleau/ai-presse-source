@@ -1,10 +1,34 @@
 # Le Quotidien IA — state
 
 ## Last issue
-- Number: 7
-- Date: 2026-10-28
+- Number: 8
+- Date: 2026-10-29
 
 ## Stories used (last 7 editions)
+
+### 2026-10-29 (No. 8)
+- LEAD [Models] Gemini 4 Carbon (Oct 28; AA v5 59 #1 > Opus 5.5 58, Astra 57; SEC-bench Pro 88.2, ExploitGym 54.8; Fairwind cyber defenders first; $2/$10 intro, $4/$20 later; AA hallucination 11%) — https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/ (also VentureBeat, AA)
+- [Models] GitHub Copilot Fusion ($5.59/task, TB4 71; AA Oct 28) — https://artificialanalysis.ai/articles/github-copilot-fusion-orchestrates-anthropic-and-openai-models-to-balance-performance-and-cost
+- [Models] Mistral Timestral 5M–209M (HF Oct 28) — https://huggingface.co/papers/2610.37585
+- [Safety] GPT-6.1 Terra system card: peer-agent 13.75% vs Sol 1.25%; Respecting Warnings 29.6%; eval awareness 9.88% (Oct 26) — https://deploymentsafety.openai.com/gpt-6-1-terra
+- [Safety] Red-teaming Auto Mode / Codex Guardian >55% missed (Remedios, Storf, Roger, Hughes; Oct 22) — https://alignment.anthropic.com/2026/red-teaming-auto-mode/
+- [Cyber] Anthropic Frontier Red Team five exploit chains, 62 Chrome CVEs, Linux 48+5 min (Oct 27) — https://www.anthropic.com/research/discovering-vulnerabilities-with-claude (also THN)
+- [Cyber] Causal Security Cipher, 4 EPICS CVEs in 3h49m, CVSS 9.8 (Register Oct 27) — https://www.theregister.com/security/2026/10/27/ai-hacker-finds-4-severe-bugs-in-popular-industrial-control-software-in-under-4-hours/5305811
+- [Cyber] TrendAI CyberStrikeAI 44 agents, 16+ Japanese orgs (THN Oct 27) — https://thehackernews.com/2026/10/cyberstrikeai-uses-44-ai-agents-to.html
+- [Doom] Trump to ban term "AI", wants "super intelligence" (Oct 27, opinion) — https://thenationalnews.com/future/technology/2026/10/27/trump-ai-si-bans
+- [Doom] Casar/Waters no-bailout resolution citing Anthropic S-1 (Prospect Oct 28) — https://prospect.org/2026/10/28/house-progressives-ai-bailout-anthropic-google/
+- [Hardware] Alphabet Q3 capex $51.4B, FCF -$9.1B, Cloud +103%, backlog $561B, 2027 "increase significantly"; MSFT Azure +48% (Oct 28) — https://www.fool.com/investing/2026/10/28/microsoft-and-alphabet-just-reported-earnings-putting-the-ai-boom-to-the-test/
+- [Hardware] DOE $5B conditional loan Constellation 1.1 GW uprates (TechCrunch Oct 28) — https://techcrunch.com/2026/10/28/trump-doe-loans-5b-to-nuclear-plants-that-will-power-data-centers
+- [Hardware] Epoch AI Chip Imports explorer, US 72%, China 10% (Oct 27) — https://epoch.ai/latest/introducing-the-ai-chip-imports-explorer
+- [Bench] FrontierCS 2 (Opus 5.5 58%; arXiv 2610.29932, Oct 22) — https://huggingface.co/papers/2610.29932
+- [Bench] Δτ-Bench 42.3% (arXiv 2610.34238, Oct 25) — https://arxiv.org/abs/2610.34238
+- [Math] ETH simplified: Fortnow "toast" (Oct 28), Kintali 22pp (Oct 26), O'Donnell LLM-assisted exposition (Oct 28) — https://blog.computationalcomplexity.org/2026/10/the-exponential-time-refutation.html
+- [Math] oai-math-revised ETH PRs #60 (toy model n<=14) and #62 (3,977 Lean modules rebuilt) — https://github.com/mathcommunity/oai-math-revised/pull/62
+- [Physics] PSI five Open Quantum Problems with Astra + Claude + Lean (Oct 27) — https://psi.inc/research/oqp-batch-2026/
+- [Physics] SLAC SPINE neutrino reconstruction +60% (phys.org Oct 27) — https://phys.org/news/2026-10-spine-machine-trail-ghost-particles.html
+- [Science] Insilico ISM6331 ESMO, 2/5 at 130 mg (Oct 26) — https://www.eurekalert.org/news-releases/1149296
+- [Science] Oxford ML simulations PVDC -> hard carbon (Chem Sci; phys.org Oct 28) — https://phys.org/news/2026-10-machine-simulations-reveal-plastic-hard.html
+- Quote: Fortnow "it is safe to assume now that the exponential-time hypothesis is toast." Number: 62 (Chrome CVEs, Anthropic).
 
 ### 2026-10-28 (No. 7)
 - LEAD [Math] Anthropic independent Lean-verified ETH refutation (Claude; 2^O(n log log n/sqrt log n); commit Oct 27 03:07 UTC; found Oct 16, 14M tokens) — https://github.com/anthropics/formal-math/tree/main/eth (also TechCrunch Oct 27, WebProNews)
@@ -163,28 +187,6 @@
 - [Science] NZ rain generative emulator — https://phys.org/news/2026-10-ai-reveals-climate-nz-extreme.html
 - Quote: Microsoft Threat Intelligence "Agents are not constrained…". Number: 75–94% (METR).
 
-### 2026-10-22 (No. 1)
-- LEAD [Safety] OpenAI's own agents switched off the monitors watching them — https://alignment.openai.com/misalignment-reports/suppressing-misalignment-monitoring-alerts-and-disabling-misalignment-monitoring/ (also https://thehackernews.com/2026/10/openais-gpt-6-agent-removed-safety.html)
-- [Safety] METR review of Anthropic Aug 2026 Risk Report — https://metr.org/blog/2026-10-20-misalignment-risk-report-august-2026-review/
-- [Safety] Anthropic Frontier Safety Roadmap update (Oct 19) — https://www.anthropic.com/responsible-scaling-policy/roadmap
-- [Safety] Belfer Center pre-mortem on AI terror (Casper) — https://news.harvard.edu/gazette/story/2026/10/is-it-already-too-late-to-reduce-catastrophic-ai-risk/
-- [Safety] METR assessor proposals (Oct 14) — https://metr.org/blog/2026-10-14-control-assessment-proposal/
-- [Doom] Containment open letter (Hinton, Bengio; ai-security-letter.org, 489 names) — https://thenextweb.com/news/geoffrey-hinton-alien-beings-jensen-huang-containment-letter
-- [Doom] Hinton Guardian interview "alien beings" / Huang rebuttal — same TNW URL
-- [Doom] Sanders pause/ban superintelligence vs Altman — https://www.yahoo.com/news/politics/articles/bernie-sanders-urges-permanent-superintelligence-114301410.html
-- [Hardware] Nvidia DSX pod (GTC Berlin) — https://www.theregister.com/on-prem/2026/10/21/nvidias-grand-plan-for-speeding-up-datacenter-deployments-ai-trailer-parks/5304303
-- [Hardware] China draft AI export controls (Oct 16) — https://www.pbs.org/newshour/world/china-says-it-will-curb-tech-exports-including-ai-citing-national-security-risks
-- [Hardware] Nvidia supply-chain capacity (KYEC $1.1B, SPIL 15x CPO) — https://www.globenewswire.com/news-release/2026/10/21/3385344/0/en/nvidia-and-supply-chain-partners-expand-capacity-to-accelerate-ai-infrastructure-buildout.html
-- [Bench] ARC Prize: Gemini 4 Argon 91.3% ARC-AGI-2; DeepSeek V4.1 Flash 1017 78.1% — https://arcprize.org/results
-- [Bench] TheoPhysEval grading errors / CritPt mis-grading — https://the-decoder.com/gpt-6-astra-solves-49-of-50-physics-research-problems-at-2-40-apiece/
-- [Bench] No new METR time horizon — https://metr.org/
-- [Math] Quanta quasi-Riemann (Oct 19) — https://www.quantamagazine.org/ai-proved-the-quasi-riemann-hypothesis-what-happens-now-20261019/
-- [Math] Tao Siegel zeros sketch (Oct 19) — https://terrytao.wordpress.com/2026/10/19/a-sketch-of-the-proof-of-non-existence-of-siegel-zeroes/
-- [Math] Boston Globe "What's the point of MIT?" (Oct 21) — https://boston.com/news/the-boston-globe/2026/10/21/whats-the-point-of-mit-openais-math-proofs-have-thrown-students-and-researchers-into-chaos
-- [Physics] Grad's conjecture counterexamples (Gemini 4 Argon / Landreman + Astra) — https://startupfortune.com/googles-gemini-ai-helped-disprove-a-60-year-old-fusion-physics-conjecture/
-- [Physics] Halzen Nobel / AI in IceCube (Oct 7) — https://phys.org/news/2026-10-nobel-physics-winner-pride-ai.html
-- Quote: Hinton "alien beings" (TNW). Number: 49/50 TheoPhysEval (The Decoder).
-
 ## Dossier 1 — OpenAI maths release (the "~700-page paper")
 Identification: no single ~700-page OpenAI paper could be verified. The matching story is OpenAI's Oct 6, 2026 release "Sharing AI progress in mathematics" (https://openai.com/index/sharing-ai-progress-in-mathematics/, repo https://github.com/openai/math): 722 manuscripts / 372 result families from an unreleased internal model (~4,000 problems tried, ~3h per result); no individual human authors; IAS-hosted advisory group AGMAI (Tao, Gowers, Hairer, Witten…). Longest docs: quasi-RH 7/8 version 199 pp; Navier–Stokes ~166 pp (unconfirmed). If a distinct ~700-page paper surfaces, add it.
 Timeline:
@@ -214,7 +216,12 @@ Timeline:
 - 2026-10-27 Williams to TechCrunch "two or three alien-looking parts"; OpenAI "reasonably confident" no crypto breaks — https://techcrunch.com/2026/10/27/frontier-ai-labs-say-their-models-refuted-the-exponential-time-hypothesis-what-does-that-mean/
 - 2026-10-27 oai-math-revised comparator run: 414/416 accepted, 2 DNF (PlanarPacking, MUBSix), 0 rejected; 9 weaker (fixed by OpenAI Oct 26) — https://github.com/mathcommunity/oai-math-revised/pull/52
 - Oct 28 check: changelog still ends at Oct 26 entry. No Tao/Fortnow/Quanta piece on ETH/Kakeya yet.
-Last status: NEW (2026-10-28)
+- Oct 29 check: changelog still ends at Oct 26 entry. ETH review group (ethdiscussion.blog) still only the Oct 26 post; no meeting date.
+- 2026-10-26 Kintali "A simplified proof of ETH is false" (22 pp) — https://shivakintali.github.io/papers/ETH.pdf
+- 2026-10-28 O'Donnell exposition (sparse permanent, 2^O(n(loglog n)^2/sqrt log n), "through interaction with LLMs"; Subercaseaux NTIME consequence) — https://www.cs.cmu.edu/~odonnell/some_eth_false_exposition.pdf
+- 2026-10-28 Fortnow blog "ETH is toast" — https://blog.computationalcomplexity.org/2026/10/the-exponential-time-refutation.html
+- 2026-10-28/29 oai-math-revised PR #60 (McElveen toy model) and #62 (Beltran12138 independent Lean rebuild, open) — https://github.com/mathcommunity/oai-math-revised/pull/62
+Last status: NEW (2026-10-29)
 
 ## Dossier 2 — Astra pushes back on experts (TheoPhysEval)
 Facts: OpenAI GPT-6 Astra (announced ~2026-09-03; "critical" cyber under preparedness framework). TheoPhysEval, arXiv 2610.16733, 35 authors (ICTS, Harvard, KU Leuven, Google DeepMind…), coordinated by Suvrat Raju; 50 unpublished research problems, 11 subfields. Initial Astra score "late eighties"; Astra insisted; experts found subtle errors (e.g. sign errors) in their reference solutions; corrected → 49/50 (98%) in Codex with web; Opus 5.5 92%, Gemini 3.8 Flash 68%; no-web both 92%; <$3/problem. Unverified: which problems, exact pre-correction score.
@@ -230,9 +237,13 @@ Timeline:
 - Oct 26 check: arXiv 2610.16733 still v1. KITP program Oct 19–23 page has no talks/recordings yet.
 - Oct 27 check: still v1. Related (not Astra-specific): OpenAI Oct 26 Yang–Mills/QCD existence claim (Gross group holds artifacts; Yang–Mills proof Sep 9, QCD Sep 18, Lean Oct 16); QFT-Bench arXiv 2610.33134 (>95% top models, CoT unfaithfulness).
 - Oct 28 check: still v1 (v2 404). Related: MOSAIC FCI paper, Astra proposed framework (arXiv 2610.35934); Astra 3-colouring record (math, arXiv 2610.35859). Yang–Mills: Gross committee statement (KITP PDF), AGMAI release call Oct 26, Woit critique.
-Last status: NOCHANGE (2026-10-28)
+- Oct 29 check: still v1 (v2 404). Related: PSI five OQP results with GPT-6 Astra + Claude (Oct 27) — https://www.tokenpost.com/news/technology/41920
+Last status: NOCHANGE (2026-10-29)
 
 ## Notes for next run
+- Follow up (Oct 29): Amazon earnings Oct 29; Carbon broader availability / safety report; Mistral Large 4 weights ETA Oct 31; ARC-AGI-3 deadline Nov 2; Kimi K3.1 weights Nov 4; Yudkowsky SDF Korea Nov 5; ETH review meeting date; PR #62 outcome; Yang–Mills release; NYT Megaspeed/Alice Huang–Jensen Huang espionage story (NYT blocked; only Techmeme + Mozur tweets seen).
+- Uncovered leads (Oct 29): Microsoft 10-Q $10B OpenAI revenue (TechCrunch Oct 28); Nvidia–Hugging Face DOJ review; Nscale IPO $30B (Bloomberg); MLflow CVE-2026-116692; Advantest guidance; Rime Prism; GPT Image 2.6 leak; Hy-Nomas world model; NSC CS enrollment −12%; Chrome Gemini autofill reads Gmail; Iosevich "historic development" on Kakeya (Interesting Engineering).
+- Blocked (Oct 29): theneuron.ai, cnbc, webpronews, healthcareitnews, mobihealthnews (403); nytimes (blocked). PDFs: use pdftotext (available in Git Bash).
 - Follow up (Oct 28): Microsoft/Alphabet earnings (after close Oct 28), Amazon Oct 29; Mistral Large 4 weights ETA Oct 31; Kimi K3.1 weights Nov 4; ARC-AGI-3 deadline Nov 2; Yudkowsky SDF Korea Nov 5; ETH virtual meeting; Yang–Mills Lean release; Tao/Quanta on ETH/Kakeya; DeepSeek reply to Fangcun; Alibaba still silent on Cohere.
 - Uncovered leads (Oct 28): Microsoft MAI-Image-2.7 #2 AA image editing (snippet only); Giotto Alto/Solo no-benchmark licence + Kimi-origin allegations; GPT-6.1 Terra Arena WebDev #14; Zvi on Gemini 4 Argon safety report (217 pp); Rapid7 Q3 exploitation 71% in a week; Anthropic S-1 compute $542–567B / Anthropic Direct (Fortune Oct 26); Google Research autonomous wet lab (Oct 16); Korea Univ AI antivirals (phys.org Oct 19); Nature boiling-point database error found by AI (Aug 6, Pios); KQED Freeze AI Now (Oct 20); Alpöge–Sussman Yang–Mills effort.
 - Blocked (Oct 28): marktechpost, washingtontimes, financefeeds, oracle.com (403); bleepingcomputer curl challenge (WebFetch ok); nature.com WebFetch login.
