@@ -1,10 +1,33 @@
 # Le Quotidien IA — state
 
 ## Last issue
-- Number: 8
-- Date: 2026-10-29
+- Number: 9
+- Date: 2026-10-30
 
 ## Stories used (last 7 editions)
+
+### 2026-10-30 (No. 9)
+- LEAD [Safety] OpenAI "How we detect frontier model misalignment" (Oct 29): L0 activation probes/L1 reviewer/L2 investigator/L3 log cross-check; HF replay alert ~30 min after escape, >30 h before breach; Sept RL internet-access attempt flagged 15 min; Codex paging disabled; METR/Redwood one fix pending — https://openai.com/index/how-we-detect-frontier-model-misalignment/ (curl with browser UA works for openai.com)
+- [Safety] OpenAI Model Spec five values, "GPT" not "the assistant" (Oct 29) — https://openai.com/index/updated-model-spec/
+- [Models] Mistral Large 4 open weights (Oct 29; 1T/52B active; TB4 41%; $0.70/$2.10) — https://mistral.ai/news/mistral-large-4-oss/ (also TechCrunch)
+- [Models] Qwen4 "next week" per attendees at Apsara Amsterdam (Oct 29) — https://pasqualepillitteri.it/en/news/28071/qwen4-uscita-prossima-settimana-en
+- [Cyber] Japan AI-assisted hack wave, 81 incidents since July (Bloomberg Oct 30) — https://www.insurancejournal.com/news/international/2026/10/30/890903.htm
+- [Cyber] Cisco Talos NIK C2 uses victim's OPENAI_API_KEY (Oct 29) — https://blog.talosintelligence.com/nik-c2-new-ai-enabled-framework/
+- [Cyber] Forever Security "Embrace" embedded-browser bugs in 5 AI dev tools (Register Oct 29) — https://www.theregister.com/security/2026/10/29/researchers-find-bugs-in-5-ai-developer-tools-with-openai-and-microsoft-flaws-still-unpatched/5306508
+- [Doom] Hinton StarTalk "Volkswagen effect" (StartupHub Oct 29, opinion) — https://startuphub.ai/ai-news/artificial-intelligence/2026/hinton-says-ai-will-play-dumb-when-tested
+- [Doom] Anthropic Oct 15 letter to Newsom: courts should block risky models (Reuters Oct 28) — https://www.thestar.com.my/tech/tech-news/2026/10/29/anthropic-tells-california-governor-courts-should-be-able-to-block-risky-ai-models
+- [Hardware] Amazon Q3: AWS $46.0B +39%, backlog $578B, TTM FCF -$42.4B, capex $220B, Trainium outside AWS late 2027 (Oct 29) — https://gizmodo.com/amazons-42-4-billion-cash-burn-delivers-final-blow-in-a-rough-week-for-ai-2000832754 (also Tech Times)
+- [Hardware] NYT/TechCrunch: US surveilled Megaspeed's Alice Huang ~1 year (Oct 29) — https://techcrunch.com/2026/10/29/u-s-investigated-chinese-spy-plot-aimed-at-nvidia-ceo
+- [Bench] EasyProver PutnamBench 669/672 + Aegis (arXiv 2610.38174) — https://arxiv.org/abs/2610.38174
+- [Bench] RetroChessBench, Astra 22/24 fails (arXiv 2610.39341) — https://arxiv.org/abs/2610.39341
+- [Bench] Yao et al. Algebraic World Model, ARC-AGI-3 99.9 (arXiv 2610.40503) — https://arxiv.org/abs/2610.40503
+- [Math] AFP: Impagliazzo/Paturi/Williams react (Oct 30) — https://kuwaittimes.com/article/52682/world/shock-vindication-regret-scientists-react-as-ai-claims-to-overturn-their-lifes-work/
+- [Math] Changelog Oct 29 CM Hodge formalization fix; oai-math-revised PR #60 merged — https://github.com/openai/math/blob/main/history.md
+- [Physics] LongChang altered physics, Astra 16.7% vs 0% (arXiv 2610.37649) — https://arxiv.org/abs/2610.37649
+- [Physics] Autonomous NV-diamond spin lab agents (arXiv 2610.40589) — https://arxiv.org/abs/2610.40589
+- [Science] Linköping MXenes, 33 found + 11 new (Science; phys.org Oct 29) — https://phys.org/news/2026-10-ai-uncover-overlooked-2d-materials.html
+- [Science] Anthropic AI for Science +20 partners (Oct 28) — https://www.anthropic.com/news/ai-for-science-expands-foundations-research-institutions
+- Quote: Impagliazzo "I would have much preferred it to be discovered by a human…". Number: 30 hours (OpenAI monitoring replay).
 
 ### 2026-10-29 (No. 8)
 - LEAD [Models] Gemini 4 Carbon (Oct 28; AA v5 59 #1 > Opus 5.5 58, Astra 57; SEC-bench Pro 88.2, ExploitGym 54.8; Fairwind cyber defenders first; $2/$10 intro, $4/$20 later; AA hallucination 11%) — https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/ (also VentureBeat, AA)
@@ -157,36 +180,6 @@
 - [Science] HIPS AI thiolation domains — https://phys.org/news/2026-10-ai-functional-enzyme-components-drug.html
 - Quote: Jason Clinton "a lot worse before they get better". Number: 83% → 13% (Anthropic Mythos 5).
 
-### 2026-10-23 (No. 2)
-- LEAD [Cyber] Storm-0940 / ARTEX agentic framework, ConnectWise, 2,250 tenants — https://www.microsoft.com/en-us/security/blog/2026/10/21/storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise/
-- [Cyber] Cyber Cartel chained Claude/Grok/Kimi agents vs 400 LatAm banks (Striker) — https://news.sbs.co.kr/english/article.do?news_id=N1008810774
-- [Cyber] Cairn pentest agents hit 1,200 sites (NorForge, Reuters) — https://thehackernews.com/2026/10/hackers-use-autonomous-ai-agents-to.html
-- [Cyber] OpenCode MCP OAuth flaw (Pillar) — https://thehackernews.com/2026/10/opencode-flaw-lets-malicious-mcp.html
-- [Safety] METR+Redwood red-team of OpenAI agent monitoring (75–94%) — https://metr.org/blog/2026-10-22-red-teaming-openai-agent-monitoring/
-- [Safety] Anthropic formal verification, 123 OSS-Fuzz libs in Rocq — https://www.anthropic.com/research/formal-verification
-- [Safety] OpenAI–NASK Poland pact — https://thenextweb.com/news/openai-nask-poland-ai-safety-research
-- [Models] OpenAI GPT-6 models on Google Cloud Model Garden — https://cloud.google.com/blog/products/ai-machine-learning/google-cloud-brings-openai-models-to-customers
-- [Models] Recursive Flint 40B-A2.5B open coding model — https://huggingface.co/RecursiveSI/flint
-- [Doom] Delangue vs Netflix "AI Gone Wild" — https://analyticsindiamag.com/ai-news/hugging-face-ceo-criticises-netflix-documentary-on-openai-agent-cyberattack
-- [Doom] UnHerd Weiss-Blatt "power grab of the AI doomers" — https://unherd.com/2026/10/the-power-grab-of-the-ai-doomers/
-- [Doom] CBS gradual disempowerment feature — https://www.cbsnews.com/news/ai-doom-scenario-gradual-disempowerment/
-- [Hardware] Micron Taoyuan strike — https://focustaiwan.tw/business/202610220016
-- [Hardware] Huang urges Nscale — https://uk.finance.yahoo.com/news/nvidia-huang-urged-nscale-move-081909744.html
-- [Hardware] Vultr 20MW AMD MI355X Chennai — https://analyticsindiamag.com/ai-news/chennai-to-host-one-of-the-worlds-largest-amd-gpu-clusters
-- [Bench] Artificial Analysis HealthBench leaderboards (Opus 5.5 length penalty) — https://artificialanalysis.ai/articles/healthbench-professional-health-conversations
-- [Bench] IQuest-Q1 Terminal-Bench — https://huggingface.co/papers/2610.30949
-- [Bench] Epoch open vs closed cyber ECI gap — https://epoch.ai/data-insights/open-closed-cyber-eci-gap
-- [Math] KLS conjecture (Microsoft Research, Song & Zhang) — https://www.microsoft.com/en-us/research/blog/solving-a-31-year-old-grand-challenge-in-mathematics-the-kls-conjecture/
-- [Math] Caltech Mathathon reboot (Quanta) — https://www.quantamagazine.org/update/168181/
-- [Math] Tao tenth-discriminant AI challenge + Turnage-Butterbaugh 67.25% post — https://terrytao.wordpress.com/2026/10/20/an-experimental-ai-math-challenge-using-tenth-discriminant-bounds-to-explore-arguments-ruling-out-siegel-zeroes/
-- [Physics] Particle theory AI blueprint (arXiv 2610.28505) — https://arxiv.org/abs/2610.28505
-- [Physics] CERN + Mistral Large Physics Model — https://ggba.swiss/en/cern-and-mistral-ai-join-forces-to-develop-ai-foundation-models-for-science/
-- [Science] Microsoft MAI-DxO in Science — https://www.medicaleconomics.com/view/ai-system-outperforms-physicians-on-diagnostic-accuracy-in-microsoft-study
-- [Science] Radical Numerics AI-designed phages to patient — https://www.radicalnumerics.ai/blog/omnii-phage
-- [Science] UCLA MAESTRO berberine — https://uclahealth.org/news/release/new-ai-platform-helps-uncover-promising-cancer-drug
-- [Science] NZ rain generative emulator — https://phys.org/news/2026-10-ai-reveals-climate-nz-extreme.html
-- Quote: Microsoft Threat Intelligence "Agents are not constrained…". Number: 75–94% (METR).
-
 ## Dossier 1 — OpenAI maths release (the "~700-page paper")
 Identification: no single ~700-page OpenAI paper could be verified. The matching story is OpenAI's Oct 6, 2026 release "Sharing AI progress in mathematics" (https://openai.com/index/sharing-ai-progress-in-mathematics/, repo https://github.com/openai/math): 722 manuscripts / 372 result families from an unreleased internal model (~4,000 problems tried, ~3h per result); no individual human authors; IAS-hosted advisory group AGMAI (Tao, Gowers, Hairer, Witten…). Longest docs: quasi-RH 7/8 version 199 pp; Navier–Stokes ~166 pp (unconfirmed). If a distinct ~700-page paper surfaces, add it.
 Timeline:
@@ -221,7 +214,11 @@ Timeline:
 - 2026-10-28 O'Donnell exposition (sparse permanent, 2^O(n(loglog n)^2/sqrt log n), "through interaction with LLMs"; Subercaseaux NTIME consequence) — https://www.cs.cmu.edu/~odonnell/some_eth_false_exposition.pdf
 - 2026-10-28 Fortnow blog "ETH is toast" — https://blog.computationalcomplexity.org/2026/10/the-exponential-time-refutation.html
 - 2026-10-28/29 oai-math-revised PR #60 (McElveen toy model) and #62 (Beltran12138 independent Lean rebuild, open) — https://github.com/mathcommunity/oai-math-revised/pull/62
-Last status: NEW (2026-10-29)
+- 2026-10-29 Changelog third entry: "Formalization Fix" CM Hodge Comparator namespaces (commit merged 00:35 UTC Oct 30) — https://github.com/openai/math/blob/main/history.md
+- 2026-10-29 ETH blog "Links to other work" (Francis Zane): Sellke slides msellke.com/Files/ETH-False-Slides.pdf, O'Donnell, Kintali, Fortnow, Alpöge X post; O'Donnell lecture on YouTube; no meeting date — https://ethdiscussion.blog/2026/10/29/links-to-other-work/
+- 2026-10-29 oai-math-revised PR #60 merged (McElveen, Claude-assisted toy model n<=14); PR #57 merged; PR #62 and #59 still open — https://github.com/mathcommunity/oai-math-revised/pull/60
+- 2026-10-30 AFP (via Kuwait Times): Impagliazzo "much preferred… a human", Paturi "surprise", Williams "vindicated" — https://kuwaittimes.com/article/52682/world/shock-vindication-regret-scientists-react-as-ai-claims-to-overturn-their-lifes-work/
+Last status: NEW (2026-10-30)
 
 ## Dossier 2 — Astra pushes back on experts (TheoPhysEval)
 Facts: OpenAI GPT-6 Astra (announced ~2026-09-03; "critical" cyber under preparedness framework). TheoPhysEval, arXiv 2610.16733, 35 authors (ICTS, Harvard, KU Leuven, Google DeepMind…), coordinated by Suvrat Raju; 50 unpublished research problems, 11 subfields. Initial Astra score "late eighties"; Astra insisted; experts found subtle errors (e.g. sign errors) in their reference solutions; corrected → 49/50 (98%) in Codex with web; Opus 5.5 92%, Gemini 3.8 Flash 68%; no-web both 92%; <$3/problem. Unverified: which problems, exact pre-correction score.
@@ -238,9 +235,13 @@ Timeline:
 - Oct 27 check: still v1. Related (not Astra-specific): OpenAI Oct 26 Yang–Mills/QCD existence claim (Gross group holds artifacts; Yang–Mills proof Sep 9, QCD Sep 18, Lean Oct 16); QFT-Bench arXiv 2610.33134 (>95% top models, CoT unfaithfulness).
 - Oct 28 check: still v1 (v2 404). Related: MOSAIC FCI paper, Astra proposed framework (arXiv 2610.35934); Astra 3-colouring record (math, arXiv 2610.35859). Yang–Mills: Gross committee statement (KITP PDF), AGMAI release call Oct 26, Woit critique.
 - Oct 29 check: still v1 (v2 404). Related: PSI five OQP results with GPT-6 Astra + Claude (Oct 27) — https://www.tokenpost.com/news/technology/41920
-Last status: NOCHANGE (2026-10-29)
+- Oct 30 check: still v1 (v2 404). Related: LongChang altered-physics discovery, Astra 16.7% vs 0% for 11 others (arXiv 2610.37649, Oct 27); RetroChessBench Astra 22/24 fails (2610.39341); OpenAI monitoring post says Astra has more control over what its CoT reveals.
+Last status: NOCHANGE (2026-10-30)
 
 ## Notes for next run
+- Follow up (Oct 30): Qwen4 release (Nov 2–8?); Kimi K3.1 weights Nov 4; ARC-AGI-3 deadline Nov 2 (papers Nov 8); Yudkowsky SDF Korea Nov 5; ETH review meeting date; PR #62 outcome; Yang–Mills artifacts still unpublished; Warren questions to Amodei due Nov 3; probability journals reopen Nov 9; Anthropic IPO pricing.
+- Uncovered leads (Oct 30): Anthropic co-founders pledge 80% of equity (CNBC Oct 29, 403); Canada up to C$1.6B in Cohere (BetaKit Oct 29); Altman $70B→$20B per GW target (podcast, paraphrase only); Fortune "Black October" Steinberg criminal liability (Oct 29); GitHub issues supply-chain campaign 61 repos (Register Oct 29); SOCRadar Phantom ransomware AI framework (THN Oct 23); Particle-1 (DeepSeek post-train); Semafor midterms AI regulation poll (Oct 29); OpenAI ChatGPT GPT-6 more concise/less flattering for Free/Go (Oct 29, help.openai.com 403); Nemotron 3.5 Transcribe (HF, date unclear); STAT Knoepfler "partner, competitor, or crutch" (403).
+- Blocked (Oct 30): thehill.com (403 even curl), statnews (403), cybernews (403), help.openai.com (JS wall). openai.com works with curl + browser UA. The Sysdig DIVD/Zammad story is from Oct 2 (old).
 - Follow up (Oct 29): Amazon earnings Oct 29; Carbon broader availability / safety report; Mistral Large 4 weights ETA Oct 31; ARC-AGI-3 deadline Nov 2; Kimi K3.1 weights Nov 4; Yudkowsky SDF Korea Nov 5; ETH review meeting date; PR #62 outcome; Yang–Mills release; NYT Megaspeed/Alice Huang–Jensen Huang espionage story (NYT blocked; only Techmeme + Mozur tweets seen).
 - Uncovered leads (Oct 29): Microsoft 10-Q $10B OpenAI revenue (TechCrunch Oct 28); Nvidia–Hugging Face DOJ review; Nscale IPO $30B (Bloomberg); MLflow CVE-2026-116692; Advantest guidance; Rime Prism; GPT Image 2.6 leak; Hy-Nomas world model; NSC CS enrollment −12%; Chrome Gemini autofill reads Gmail; Iosevich "historic development" on Kakeya (Interesting Engineering).
 - Blocked (Oct 29): theneuron.ai, cnbc, webpronews, healthcareitnews, mobihealthnews (403); nytimes (blocked). PDFs: use pdftotext (available in Git Bash).
