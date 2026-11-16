@@ -1,10 +1,35 @@
 # Le Quotidien IA — state
 
 ## Last issue
-- Number: 24
-- Date: 2026-11-15
+- Number: 25
+- Date: 2026-11-16
 
 ## Stories used (last 7 editions)
+
+### 2026-11-16 (No. 25)
+- LEAD [Physics] OpenAI science blog debut (Nov 15): Nathaniel Craig (UCSB/KITP, OpenAI visiting scientist) says GPT-6 Astra led proof of candidate lattice SM (arXiv 2610.09093, Oct 6): Craig strategy; Astra multi-grid construction, convergence, proof; Lean + kernel replay on Zenodo; Golterman/Kronfeld/Shamir looked it over; 'far more an answer in principle than an answer in practice'; Woit 'modest advance' (Oct 8) — https://cryptonews.net/news/other/33756223/ (The Defiant syndication; OpenAI post 403; RuntimeWire paywalled)
+- [Physics] yang-mills-group/YM lists Alpöge–Sussman Nov 15 submission (WIP) + ownership/licensing clause (commit b379615) — https://github.com/yang-mills-group/YM
+- [Models] Qwen4-Max closed weights, 2.4T MoE, $1.50/$4.50, TB4.0 48.5, DeepSWE 75.7, Work360 $4.43→$1.67, 48 h coolant (TNW Nov 16) — https://thenextweb.com/news/alibaba-launches-qwen4-max-flagship-ai-model-without-open-weights
+- [Models] Fable 5.2 paints via code: 700,000 strokes, 111-stroke bird (Eaton, Graczyk); RoboDojo Sim 64.9 vs 29.8 (Decoder Nov 15) — https://the-decoder.com/anthropics-claude-fable-5-2-doesnt-generate-images-it-paints-them/
+- [Cyber] Amazon MadPot: AI agents (ARTEX, China-linked, moderate confidence) stealing AI provider keys from LiteLLM/One API/Dify etc. from Oct 3; deepfake KYC; Cloudflare 400 dumps/h (THN Nov 16) — https://thehackernews.com/2026/11/amazon-uncovers-ai-agent-campaign.html
+- [Cyber] Mythos 5.2 +10.2% CVE vs Opus 5.5, +14.4% vs Mythos 5.1, 'one in six'; Fable 5.2 ~60% fewer unnecessary cyber blocks (Bleeping Nov 16) — https://www.bleepingcomputer.com/news/artificial-intelligence/anthropics-claude-fable-52-blocks-fewer-security-tasks-while-mythos-gets-better-at-finding-bugs/
+- [Cyber] Uber 149,346 drivers, Fireworks confirmed (SecurityWeek Nov 16) — https://www.securityweek.com/uber-data-breach-impacts-150000-people/
+- [Safety] LW 'Alignment train/test splits should be sacred' (opinion, Nov 15) — https://www.lesswrong.com/posts/FX2xcrsqBYonLfoge/alignment-train-test-splits-should-be-sacred
+- [Safety] DECODE interpretability diagnostics, 16,384 SAE features (arXiv 2611.17856) — https://arxiv.org/abs/2611.17856
+- [Doom] Pentagon CDAO → 'Super Intelligence Office', Stanley CSIO, SI.mil (SecurityWeek Nov 15) — https://www.securityweek.com/pentagon-renames-cdao-super-intelligence-office/
+- [Doom] Democrats' AI oversight turf war (Meeks subpanel, Himes) (Semafor Nov 16) — https://www.semafor.com/article/11/16/2026/democrats-debate-who-gets-oversight-of-ai
+- [Doom] LW rereading I. J. Good 1964 with Fable 5.2; AI Futures Project 2027 (opinion, Nov 16) — https://www.lesswrong.com/posts/uKPJwHiSiweKWJ9rz/reading-speculations-concerning-the-first-ultraintelligent
+- [Hardware] Huang discussing return (FT via TNW); Gerstner/Baker letter; Bessent wants outsider; petition 150,000+ (Verge); Megaspeed ~$12bn orders Mar 2024–Jun 2025 (WSJ via Decoder), Alice Huang left Aug 30 2025 — https://thenextweb.com/news/jensen-huang-is-discussing-a-return-to-nvidia-ft-reports
+- [Hardware] Kress to rein in financing: 129 venture deals, $36bn backstops, 'give all this capacity to Elon', UBS $50bn+ (WSJ via TNW Nov 16) — https://thenextweb.com/news/nvidia-financing-kress-neoclouds-upfront-payments
+- [Hardware] AI national champions list (WSJ via TNW) + Congress export rules (Verge Nov 15) — https://thenextweb.com/news/ai-national-champions-nvidia-openai-anthropic-trump
+- [Bench] GDP.xlsx 70 tasks, Gemini 4 Argon 38.3%, median 19.3% (arXiv 2611.17766) — https://arxiv.org/abs/2611.17766
+- [Bench] PerfArena 9,455 solutions, GPT-6 Astra unbeaten (arXiv 2611.18030) — https://arxiv.org/abs/2611.18030
+- [Bench] PEAR robot-use RL 27B, LIBERO 1.6→74.4%, real 60% (arXiv 2611.18562) — https://arxiv.org/abs/2611.18562
+- [Math] Agent-written job-shop heuristics beat OptalCP/Hexaly/CP Optimizer; 4 published MKT values unattainable (arXiv 2611.17682) — https://arxiv.org/abs/2611.17682
+- [Math] McRae 'ChatGPT-generated proof' prompted by Bin Gui, moderate-growth rigidity (arXiv 2611.17732) — https://arxiv.org/abs/2611.17732
+- [Science] Apple + OpenEvidence AI health study, 200,000 participants (TechCrunch Nov 15) — https://techcrunch.com/2026/11/15/apple-launches-new-app-to-study-how-people-use-ai-for-health/
+- [Science] KELP v1.0 agent-ready ocean particle tracker, agent ran all experiments (arXiv 2611.18528) — https://arxiv.org/abs/2611.18528
+- Featured: Qwen4-Max (models), Amazon MadPot (cyber), GDP.xlsx (bench). Quote: Craig "far more an answer in principle than an answer in practice". Number: $12 billion (Megaspeed orders).
 
 ### 2026-11-15 (No. 24)
 - LEAD [Cyber] Cursor incident report: stolen Fireworks-issued key → read-only bucket of 2025 coding-agent traces (non-Privacy-Mode) with unredacted creds → SaaS tools → marketplace cache; trojanized Claude Code ext 2.1.312/2.1.313 Oct 29, ~11 h, ≤5,000 users, SSH backdoor; <0.05% traces, <0.01% creds; all inference moved off Fireworks; Uber breach provider = Fireworks (TechCrunch via THN) — https://www.bleepingcomputer.com/news/security/cursor-confirms-security-breach-led-to-malicious-claude-code-extension/ (THN Nov 15)
@@ -168,33 +193,6 @@
 - [Science] Chow–Li dual-agent chemistry code optimisation (arXiv 2611.10378) — https://arxiv.org/abs/2611.10378
 - Featured: Mythos system card (safety), DeepMind Signal (cyber), FLT 30 hours (math). Quote: Wiener "We need to slow this down… sleepwalk into a disaster." Number: 43% (Mythos 5.2 eval awareness).
 
-### 2026-11-09 (No. 18)
-- LEAD [Math] PSI (Physical Superintelligence) proof of Aaronson–Ambainis conjecture, non-public Anthropic model, day 3 of run, Lean-accepted, c=815/(125π⁴)≈0.0025; Turturean led, Halverson audited, Shanahan Lean; Blanc–Docter–Strassle–Tan exposition; Aaronson believes it (Nov 8), Domingos rebuke (PSI Nov 6) — https://psi.inc/research/aaronson-ambainis/ (also https://scottaaronson.blog/?p=10295)
-- [Math] Hofscheier–Nill: Nill's 2004 6^(d/2) reflexive-polytope bound false for d≥8, doubly exponential; GPT-6.1 Sol; used OpenAI 'Short Egyptian fractions' manuscript; Kaiwen Jin 45-dim (arXiv 2611.08819) — https://arxiv.org/abs/2611.08819
-- [Math] Mazurowski–Wang–Yao–Zhou learning note: ChatGPT Astra (Sep 2026) proof of Schoen's lens-space Yamabe conjecture (arXiv 2611.08957) — https://arxiv.org/abs/2611.08957
-- [Cyber] DeepMind RSA-1024: padding no help once attacker controls ~half block; forgery 391 vs 1,380 core-years, 2 agents <4 days ~20 messages; ~1,600x theoretical; batch factoring ~30x per extra key (SecurityWeek Nov 9; DeepMind Nov 6) — https://www.securityweek.com/google-deepminds-ai-agents-make-1024-bit-rsa-keys-cheaper-to-attack/
-- [Cyber] Torvalds 7.4-rc2: eBPF fixes now faster than reports (Register Nov 9) — https://www.theregister.com/security/2026/11/09/linus-torvalds-sees-signs-ai-prompted-patch-flood-has-peaked/5308345
-- [Cyber] DOJ indicts Soall/Hazan/Sheetrit, AI-faked CEOs and lawyers, ~$129M (Record Nov 6) — https://therecord.media/ceo-spoofing-scammers-charged
-- [Safety] Tencent's Yao Shunyu: bio ability 'soon' at harmful threshold; Hy4 no offensive data; weights pending (TNW/SCMP Nov 8) — https://thenextweb.com/news/tencent-yao-shunyu-ai-biology-risk-hy4
-- [Safety] Authorization Drift Benchmark: 648 tasks, 13 models, drift 0.43–0.61 frontier, 86.18% clean possible (arXiv 2611.09113) — https://arxiv.org/abs/2611.09113
-- [Doom] AFP: EA under fire (White House 'shrimp over families', Sacks 'Doomer Industrial Complex'), Robinson 'on an up' (Tech Xplore Nov 9) — https://techxplore.com/news/2026-11-ai-effective-altruism-story.html
-- [Doom] LessWrong curated 'Some Memories of Early Anthropic' (anonymous, opinion, Nov 8) — https://www.lesswrong.com/posts/9PiLfo6iQbbDWFHv7/some-memories-of-early-anthropic
-- [Doom] Sutton: compute alone not enough; Tworek 'reward-hacked' (Decoder Nov 8, opinion) — https://the-decoder.com/the-inventor-of-the-bitter-lesson-has-a-bitter-lesson-for-llm-scaling-enthusiasts/
-- [Hardware] Nvidia board independent investigation; Huang memo admits affair; Moolenaar briefing request; Sonnenfeld '50-50' (TechCrunch Nov 8) — https://techcrunch.com/2026/11/08/nvidia-says-its-investigating-ceo-jensen-huangs-relationship-with-possible-chinese-spy/
-- [Hardware] Anthropic $3.4bn / 1.7 GW Caterpillar gas generators from OnePWR (FT via TNW Nov 8) — https://thenextweb.com/news/anthropic-3-4bn-gas-generators-onepwr-ft
-- [Hardware] CoreWeave Intrator letter to Texas Gov-elect Hinojosa (TNW/Bloomberg Nov 8) — https://thenextweb.com/news/coreweave-texas-hinojosa-data-centre-letter
-- [Models] Apple agentic Siri roadmap, iOS 27.3 first-party, spring third-party (Gurman via Verge Nov 8) — https://www.theverge.com/ai-artificial-intelligence/1029552/apple-siri-ai-agentic
-- [Models] Claude Personal Finance beta via Plaid, read-only, US (TechCrunch Nov 5) — https://techcrunch.com/2026/11/05/claude-can-now-analyze-your-spending-with-its-new-personal-finance-tool/
-- [Models] Revolut self-hosted GLM-5.3, 56 B200s, ~$0.30/M tokens, ~90% cut (Register Nov 3) — https://www.theregister.com/a/5307345
-- [Bench] Frontier3DBench: GPT-6.1 Sol 66.02 top, Astra best worlds (arXiv 2611.09017) — https://arxiv.org/abs/2611.09017
-- [Bench] DRAFT-Bench: Astra 43/43 vs Claude 35/43; violations 11 vs 5 (arXiv 2611.08933) — https://arxiv.org/abs/2611.08933
-- [Physics] DeepMind Lean-verified quantum programs, agent teams/wiki/conferences, 290x arithmetic, fusion 11x (arXiv 2611.09822) — https://arxiv.org/abs/2611.09822
-- [Physics] SmartBloch-Agent MRI sequence design (arXiv 2611.09413) — https://arxiv.org/abs/2611.09413
-- [Science] Toronto agents design/run robot labs, 200+ commands, nanocrystals (Nature Nov 6; arXiv 2610.23826) — https://www.nature.com/articles/d41586-026-03587-x
-- [Science] WeightLoop Astra parameter-editing from assays (arXiv 2611.07319) — https://arxiv.org/abs/2611.07319
-- [Science] Gutleb dACE many-body fish-schooling laws (arXiv 2611.08314) — https://arxiv.org/abs/2611.08314
-- Featured: DeepMind RSA (cyber), Tencent Yao (safety), Nvidia inquiry (hardware). Quote: Aaronson "Disappointed that humans didn't get to snag this conjecture before the robots did". Number: 391 core-years (DeepMind RSA).
-
 
 ## Dossier 1 — OpenAI maths release (the "~700-page paper")
 Identification: no single ~700-page OpenAI paper could be verified. The matching story is OpenAI's Oct 6, 2026 release "Sharing AI progress in mathematics" (https://openai.com/index/sharing-ai-progress-in-mathematics/, repo https://github.com/openai/math): 722 manuscripts / 372 result families from an unreleased internal model (~4,000 problems tried, ~3h per result); no individual human authors; IAS-hosted advisory group AGMAI (Tao, Gowers, Hairer, Witten…). Longest docs: quasi-RH 7/8 version 199 pp; Navier–Stokes ~166 pp (unconfirmed). If a distinct ~700-page paper surfaces, add it.
@@ -281,7 +279,9 @@ Timeline:
 - 2026-11-12 Related: Frieze & Pérez-Giménez expanded ChatGPT-Astra proof (arXiv 2611.16160); New Scientist: Podder (Stony Brook) second AA proof with ChatGPT 5.6/6
 - Nov 15 check: changelog (raw history.md) still ends at Oct 29 entry (last commit Oct 30 00:35 UTC); no new withdrawals; oai-math-revised no merges since Nov 9 (#76, #80 open); ETH blog no new post since Nov 12. mathhelm.org 403 to WebFetch (unread). Fortnow Nov 15 post is about AI Star Trek song (not relevant).
 - 2026-11-13 Related: MathArena adds Gemini 4 Carbon (85.4%, #1) and Fable 5.2 — https://matharena.ai/
-Last status: NOCHANGE (2026-11-15)
+- Nov 16 check: changelog (raw history.md) still ends at Oct 29 entry (last commit Oct 30 00:35 UTC); no new withdrawals; oai-math-revised no merges since Nov 9 (#76, #80 open); ETH blog no new post since Nov 12. OpenAI launched a science blog Nov 15 (https://openai.com/index/our-new-blog-for-science; 403). Fortnow Nov 15 post is about AI Star Trek video (not relevant).
+- 2026-11-13 Related: McRae ChatGPT-generated rigidity proof (arXiv 2611.17732); agent-written job-shop solvers, 4 published MKT values unattainable (2611.17682)
+Last status: NOCHANGE (2026-11-16)
 
 ## Dossier 2 — Astra pushes back on experts (TheoPhysEval)
 Facts: OpenAI GPT-6 Astra (announced ~2026-09-03; "critical" cyber under preparedness framework). TheoPhysEval, arXiv 2610.16733, 35 authors (ICTS, Harvard, KU Leuven, Google DeepMind…), coordinated by Suvrat Raju; 50 unpublished research problems, 11 subfields. Initial Astra score "late eighties"; Astra insisted; experts found subtle errors (e.g. sign errors) in their reference solutions; corrected → 49/50 (98%) in Codex with web; Opus 5.5 92%, Gemini 3.8 Flash 68%; no-web both 92%; <$3/problem. Unverified: which problems, exact pre-correction score.
@@ -314,9 +314,13 @@ Timeline:
 - Nov 13 check: TheoPhysEval v2 posted Nov 12 09:30 UTC ('8+48 pages (v2) refs added'); text diff vs v1 shows only new references ([12] literature search, [13] education, extra inaccurate-evaluation ref) and a footnote tweak; results unchanged; wrong keys still not listed. yang-mills-group/YM no commits since Nov 11 03:37 UTC. hairer/humanise-yang-mills: ~84 PRs total by Nov 13 (19 on Nov 12), PRs #124/#125 (Claude-run independent reviews G01, C03) merged ~10:00–10:13 UTC Nov 13; README stage 'source imported; preliminary dependency mapping'; full build/axiom/line-by-line audit outstanding; owner still unverified. Alpöge–Sussman repo no commits since Nov 10 07:08 UTC. Woit feed SSL error (not checked).
 - Nov 14 check: TheoPhysEval still v2 (Nov 12). yang-mills-group/YM no commits since Nov 11 03:37 UTC; OpenAI-YM-20261028 unchanged since Nov 5. hairer/humanise-yang-mills: PR #137 (Codex existence monograph) merged 13:34 UTC Nov 13; latest issue/PR number ~#380 (API); owner unverified. Alpöge–Sussman repo no commits since Nov 10 07:08 UTC. Woit feed SSL error (not checked).
 - Nov 15 check: TheoPhysEval still v2 (Nov 12). yang-mills-group/YM no commits since Nov 11 03:37 UTC; OpenAI-YM-20261028 unchanged since Nov 5. hairer/humanise-yang-mills: PR #436 merged 09:14 UTC Nov 15 (Claude Code report: full local build Lean 4.32.0, 18,121 jobs, hashes match pin; reviewed statements use only propext/Classical.choice/Quot.sound; no lean4checker/Comparator replay); PRs up to ~#441 (C13 work, #437 construction-bound main theorem proposal); owner unverified. Alpöge–Sussman repo no commits since Nov 10 07:08 UTC. Related: OpenAI robotics reorg around Astra (Decoder Nov 14).
-Last status: NOCHANGE (2026-11-15)
+- Nov 16 check: TheoPhysEval still v2 (Nov 12). NEW: OpenAI science blog first guest post (Nov 15, https://openai.com/index/step-toward-defining-the-standard-model, 403): Craig says Astra led proof of candidate lattice SM (arXiv 2610.09093); Zenodo Lean + kernel replay; Golterman/Kronfeld/Shamir looked it over (Craig account). Coverage: The Defiant via cryptonews.net/news/other/33756223 (full text), RuntimeWire (paywall), aiweekly, dev.to. yang-mills-group/YM Nov 15 21:46/21:56 UTC: ownership/licensing clause + listed Alpöge–Sussman Nov 15 submission (WIP). hairer/humanise-yang-mills no commits since Nov 15 09:14 UTC. Alpöge–Sussman repo no commits since Nov 10 07:08 UTC.
+Last status: NEW (2026-11-16)
 
 ## Notes for next run
+- Follow up (Nov 16): Nvidia Q3 earnings Tue Nov 17 (Kress); Huang return talk vs Bessent outsider; Megaspeed entity listing; AI national champions list (Lutnick, within a week); APEC Shenzhen Nov 18–19 Trump–Xi; Anthropic IPO pricing/listing (Nov 18–19); Qwen4-Max independent evals (AA) + Qwen blog post; Craig/Astra reactions (Woit, lattice community), Zenodo record URL, arXiv v2 with AI credit?; Alpöge–Sussman submission contents; Korea CSAT Nov 19; PauseAI London Nov 21; Apply AI Summit Nov 17; Alfozan hearing Nov 17.
+- Uncovered leads (Nov 16): Guardian 'AI-related CSAM reports rise 8,400% in two years' (WebFetch blocked for Guardian; ex.py returned only standfirst); TNW 'The paradox of AI safety' (ex-DeepMind data lead founds Dyssonance, opinion/promotional); Tom's HW Nvidia $530bn guarantees (URL 404 from feed truncation); Tom's HW Pentagon pack-hunting robots (DARPA); Tom's HW Nvidia engineer quits over transparency; Tom's HW director cashed $1bn; Semafor 'US official: government needs to make better case for AI', 'India feels less threatened by AI'; Techxplore Anthropic IPO questions; TechCrunch Bharat Semi $24M; DCD Core Scientific exits bitcoin, AWS $7bn Indiana, Mount Thor $45M Apple-chip cloud; OpenAI–LVMH media partnership; IEEE Spectrum VicOne 28 zero-days (SPONSORED — avoid); 2611.18541 DeMeo–Freese free lattice FL(3) (Agda; AI role unknown); 2611.18359 agentic robotics essay; 2611.18220 Lean for system identification.
+- Workflow (Nov 16): same approach in AppData\Local\Temp\qia-1116 (feeds.py, feeds2.py, dos.py, arx.py cutoff 2026-11-13, ex.py, abs.py, build16.py, state16.py). WebSearch 'extended' found the Craig/Astra coverage quickly. cryptonews.net syndicates The Defiant's full text (thedefiant.io WebFetch gives only the standfirst). Check featured=3 and briefs 6–8 before rendering.
 - Follow up (Nov 15): Nvidia Q3 earnings Nov 17 + CEO search + standwithjensen petition outcome; Anthropic IPO (Decoder says Nov 19; earlier Nov 18 pricing); Korea CSAT Nov 19 AI-cheating measures; Christiano lectures 2–3 (Hinton Lectures Nov 10–11, transcripts?); Malaysia law text; Cursor/Fireworks fallout (Uber); MathHelm (403) via Tao blog comments; humanise-yang-mills independent kernel replay; arXiv Nov 13 submissions appear Sunday evening (none Sat/Sun).
 - Uncovered leads (Nov 15): Decoder Australia RBA AI hitting young workers; TechCrunch Asian governments react to Huang exit; TechCrunch AI graveyard list; Guardian Huang longread (Nov 14); LW 'AI buildout largest bet in history of capitalism' (hyperscaler capex $785–820bn, opinion); LW 'Anthropic are the Good Guys'; LW 'A basic case for differentially accelerating conceptual reasoning'; SecurityWeek 'Is AI making us worse at cybersecurity?' (opinion); Register LogicLens fact-check extension; Brown magnetism low-power AI chips (ScienceDaily Nov 12); AI-Newton (PRR Nov 4); Ballester JMIR 81.8% repurposing hit rate (Nov 2); Broad ML drug discovery symposium Nov 16; 2611.16886 LLM-assisted Dafny; 2611.16861 Visual Cipher Bench; Ropedia Xperience 2 (2611.17060).
 - Workflow (Nov 15): same approach in AppData\Local\Temp\qia-1115 (feeds.py, feeds2.py, dos.py, arx.py cutoff 2026-11-12, ex.py, abs.py, build15.py, state15.py). TechCrunch via WebFetch; Tom's HW ex.py gets only 2 paragraphs; MathArena home page readable via WebFetch (leaderboard top 4). WebSearch 'extended' gave usable leads for physics (ScienceDaily) and Hinton Lectures (Singju Post transcript). Lesson: deleting a 'brief=' line with sed also deletes the closing '))' — edit carefully.
