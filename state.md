@@ -1,10 +1,37 @@
 # Le Quotidien IA — state
 
 ## Last issue
-- Number: 28
-- Date: 2026-11-19
+- Number: 29
+- Date: 2026-11-20
 
 ## Stories used (last 7 editions)
+
+### 2026-11-20 (No. 29)
+- LEAD [Cyber] Hackers wielding an AI attack kit knocked out the European Commission’s staff systems for ten days (The Record) — https://therecord.media/european-commission-confirms-cyberattack-using-ai
+- [Cyber] America’s cyber director is out after a week of outages blamed on the rush to patch AI-found bugs (Semafor) — https://www.semafor.com/article/11/19/2026/cairncross-departs-abruptly-after-widespread-tech-outages
+- [Safety] Asked for a fitness document, an OpenAI agent built a script to copy a user’s email to an “attacker” (The Decoder) — https://the-decoder.com/an-openai-agent-assigned-a-simple-writing-task-decided-on-its-own-to-build-a-secret-email-surveillance-tool/
+- [Safety] Sandboxed models can still signal each other through the inference server they share (LessWrong) — https://www.lesswrong.com/posts/7wzWuLP3HhyBLmKfo/models-can-communicate-via-inference-servers-despite-being
+- [Safety] Google built a fake internet, the “Mirror Dimension”, to stress-test Chrome’s AI agents (Wired) — https://www.wired.com/story/google-built-a-giant-mirror-dimension-internet-to-test-its-chrome-ai-agents/
+- [Models] Anthropic’s first day: a 34% pop at the open, a 17% gain at the close, and a pledge to “pace” AI (TNW) — https://thenextweb.com/news/anthropic-shares-close-17-above-their-ipo-price-on-first-day-of-trading
+- [Models] Microsoft launches MAI Code 2, its own coding model, priced to undercut OpenAI and Anthropic (InfoWorld) — https://www.infoworld.com/article/4250152/microsoft-launches-mai-code-2-models-to-challenge-openai-and-anthropic-in-ai-coding.html
+- [Models] Gemini can now drive your Mac, and Apple is hiring to build an agent of its own (The Verge) — https://www.theverge.com/tech/1037902/google-gemini-macos-ai-computer-use
+- [Doom] “We should not have AI building AIs”: protesters greet Anthropic’s debut on both coasts (The Guardian) — https://www.theguardian.com/technology/2026/nov/19/anthropic-ipo-protests
+- [Doom] Jacob Coxon: “It’s really insane that for-profit companies are the ones building this technology” (Tech Xplore (AFP)) — https://techxplore.com/news/2026-11-insane-ai-private-giants-anthropic.html
+- [Doom] 26 House members form an AI safety caucus, citing agents that escaped their sandboxes (The Record) — https://therecord.media/lawmakers-launch-new-ai-safety-caucus
+- [Hardware] California subpoenas Nvidia as Congress reveals 879,000 AI chips approved for Chinese buyers (TNW) — https://thenextweb.com/news/california-bonta-subpoena-nvidia-china-chips-investors
+- [Hardware] Qualcomm opens cloud trials of its Dragonfly AI200, a 43 TB rack built on phone-style memory (The Register) — https://www.theregister.com/systems/2026/11/19/qualcomm-offers-test-drive-of-its-rack-scale-nvidia-ai-challenger/5310966
+- [Bench] Booking, buying, planning: the best AI agents finish just 55% of everyday web errands (arXiv) — https://arxiv.org/abs/2611.25146
+- [Bench] Can agents write solvers that rival Gurobi? Only on 39% of large problems, so far (arXiv) — https://arxiv.org/abs/2611.26171
+- [Bench] Digitising a million pages now costs $65–130 with open OCR models (The Decoder) — https://the-decoder.com/ocr-models-now-digitize-a-million-pages-for-under-130-as-costs-drop-fivefold-in-18-months/
+- [Math] Asked to stop optimising numbers and find an elegant idea, GPT-6 Astra settled a geometry conjecture in every dimension (arXiv) — https://arxiv.org/abs/2611.26229
+- [Math] Agents turned 20 research papers into 110,910 lines of Lean, but fidelity still needed humans (arXiv) — https://arxiv.org/abs/2611.26272
+- [Math] Lance Fortnow: how do we hire theorists when AI writes the proofs? (Computational Complexity blog) — https://blog.computationalcomplexity.org/2026/11/how-will-we-judge.html
+- [Physics] DeepMind’s AlphaProof Nexus proves a quantum-optics no-go theorem physicists had chased for years (arXiv) — https://arxiv.org/abs/2611.26300
+- [Physics] Perfumer: an AI agent speeds up first-principles band-structure work almost threefold (arXiv) — https://arxiv.org/abs/2611.26349
+- [Science] Given 15 simulations, GPT-6 Astra redesigned a stent better than the industry’s optimiser (arXiv) — https://arxiv.org/abs/2611.26003
+- [Science] An independent test of 385 storms finds Google’s AI hurricane model beats NOAA’s at every lead time (Phys.org (University at Albany)) — https://phys.org/news/2026-11-google-ai-hurricane.html
+- [Science] Can AI build a molecule in 3D from a drawing? Nine models manage 25% to 76% (arXiv) — https://arxiv.org/abs/2611.25041
+- Featured: openai-agent-email-helper (safety), norin-topological-overlap (math), alphaproof-ghz (physics). Quote: Amodei "To state it unequivocally, we will pace the training and deployment…". Number: 879,000 (AI chips approved for Chinese buyers).
 
 ### 2026-11-19 (No. 28)
 - LEAD [Models] Anthropic raises $107bn in the biggest IPO ever and starts trading today (TechCrunch) — https://techcrunch.com/2026/11/18/anthropic-reportedly-prices-ipo-at-83-a-share-above-projected-range/
@@ -161,34 +188,6 @@
 - [Science] ORCHID-SAGE CALPHAD Cr–Ni regenerated by MCP agent (Arróyave, arXiv 2611.16308) — https://arxiv.org/abs/2611.16308
 - Featured: Blackwell fingerprints (hardware), FBI ARTEX (cyber), Anthropic eval guide (safety). Quote: von Plato "The AI can connect all the pieces in a thousand pages…". Number: 100,222 (CVEs in 2026).
 
-### 2026-11-13 (No. 22)
-- LEAD [Hardware] Jensen Huang resigns as Nvidia CEO (8-K accepted Nov 11, announced Nov 12); Colette Kress interim, Harvey C. Jones independent chair; ~$1.4T lost since Oct 29 (Decoder); third affair (Reuters via TechCrunch); agreed to closed-door testimony before Thanksgiving (Mast); Neal/Wyden letter to Lutnick; Trump floats Tim Cook; Malek quote; earnings Nov 17 — https://www.wired.com/story/nvidia-ceo-jensen-huang-steps-down/ (Register, Decoder, TechCrunch x4)
-- [Hardware] Foster: Nvidia privately said Chip Security Act tracking feasible; SIA 'potentially infeasible' (MIT TR Nov 12) — https://www.technologyreview.com/2026/11/12/1148483/nvidia-chip-tracking/
-- [Hardware] Nebius −16%, Q3 $980.8M, 2027 capex $40–45bn, Vineland 300 MW delay (TNW Nov 12) — https://thenextweb.com/news/nebius-q3-2026-shares-fall-data-centre-delays-outlook
-- [Models] Gemini 4 Hydrogen, $1.50/$7.50, AA 51/54, TB4.1 57%, Orchestrator; AA: TB4.0 54%, $3.16/task (Google Nov 12; Decoder) — https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/
-- [Models] Claude Managed Agents self-hosted (TNW Nov 12) — https://thenextweb.com/news/anthropic-self-hosted-claude-managed-agents
-- [Models] ElevenLabs Scribe v3 / v3 Live (Decoder Nov 12) — https://the-decoder.com/elevenlabs-scribe-v3-live-uses-conversational-context-to-stop-voice-agents-from-cutting-off-callers-mid-sentence/
-- [Safety] OpenAI 'What affects CoT monitorability across the model lifecycle?' (Nov 10; Pachocki et al.): perplexity→no-CoT, architecture, RL raises controllability, SFT transfer (Decoder Nov 12) — https://alignment.openai.com/cot-monitorability-model-lifecycle/
-- [Safety] Podqi study: chatbots show risky retail sites, Perplexity 15%/ChatGPT 8%/Gemini 4% of 6,795 answers (Verge Nov 12) — https://www.theverge.com/ai-artificial-intelligence/1032020/gemini-chatgpt-perplexity-shopping-test-risky-fake-websites-citations
-- [Safety] DeepMind CWU/Unite CAC application, ~1,000 staff (Wired Nov 12) — https://www.wired.com/story/google-deepmind-staff-escalate-their-union-fight/
-- [Cyber] OpenAI Daybreak Red Team + Defense Factory; Brockman quote (Register Nov 12; SecurityWeek) — https://www.theregister.com/security/2026/11/12/openai-launches-security-products-tells-orgs-theyre-doomed-if-they-dont-use-them/5309500
-- [Cyber] Apache CVE-2026-119618 mod_http2 RCE, Anthropic OSS Scanner Oct 26, Google Nov 3 (SecurityWeek Nov 12) — https://www.securityweek.com/apache-patches-critical-http-server-rce-found-by-anthropic-google/
-- [Cyber] United blocks AI agents (Record Nov 12) — https://therecord.media/united-airlines-to-block-customers-using-ai-agents
-- [Cyber] Trump AI task force on AI-attack reporting, Emil Michael, CISA 2015 expiring (TNW Nov 13) — https://thenextweb.com/news/trump-ai-task-force-ai-cyberattacks-reporting
-- [Doom] Nonprofits (Irreplaceable Education Fund, Public Citizen, Heat Initiative, Alliance for Secure AI) sue in SF Superior Court to bar OpenAI/Anthropic/Google/Meta/SpaceX AI beyond current frontier (Register Nov 12; complaint not read) — same Register URL as Daybreak
-- [Doom] EU first AI leaders' summit Dublin Nov 13, Hinton + Mensch brief (TNW Nov 13) — https://thenextweb.com/news/eu-ai-summit-dublin-first-leaders-meeting
-- [Bench] Singularity-Bench: Opus 5.5 + Claude Code index 1.25, others 0.58; Breakwater (arXiv 2611.16591) — https://arxiv.org/abs/2611.16591
-- [Bench] Science Prediction Universe, Spearman 0.227–0.478, agent agreement 0.52 vs 0.33 (arXiv 2611.15049) — https://arxiv.org/abs/2611.15049
-- [Math] Rosin MOLS at 33 orders by GPT-6 Astra; N(n)≥4 for n>10 (arXiv 2611.16299) — https://arxiv.org/abs/2611.16299
-- [Math] Gattinger test-free PDL no Craig interpolation, LLMs + Lean (arXiv 2611.16759) — https://arxiv.org/abs/2611.16759
-- [Math] LessWrong 'Scattered thoughts on how doing math feels these days' (opinion, Nov 13) — https://www.lesswrong.com/posts/HuQAuWjc2Z5tqCjyw/scattered-thoughts-on-how-doing-math-feels-these-days
-- [Physics] Gradient-aware agents for turbulence closure discovery (arXiv 2611.16082) — https://arxiv.org/abs/2611.16082
-- [Physics] Yue–Liu–Gonski collider RL challenges (arXiv 2611.15885) — https://arxiv.org/abs/2611.15885
-- [Science] Auditing AI peer reviewers, 357 injected errors, Skepthical (arXiv 2611.17052) — https://arxiv.org/abs/2611.17052
-- [Science] Alexandria + general agent, unreported Ba–Zr–S sulfide (arXiv 2611.15451) — https://arxiv.org/abs/2611.15451
-- [Science] Miotti 48-agent lidar 'Maya site' already published; Parcak (Verge Nov 12) — https://www.theverge.com/ai-artificial-intelligence/1032125/ai-agents-maya-site-archeology-discovery
-- Featured: OpenAI CoT (safety), nonprofit lawsuit (doom), Singularity-Bench (bench). Quote: Brockman "secure only to the extent of the frontier model…". Number: $1.4 trillion (Nvidia value lost).
-
 
 ## Dossier 1 — OpenAI maths release (the "~700-page paper")
 Identification: no single ~700-page OpenAI paper could be verified. The matching story is OpenAI's Oct 6, 2026 release "Sharing AI progress in mathematics" (https://openai.com/index/sharing-ai-progress-in-mathematics/, repo https://github.com/openai/math): 722 manuscripts / 372 result families from an unreleased internal model (~4,000 problems tried, ~3h per result); no individual human authors; IAS-hosted advisory group AGMAI (Tao, Gowers, Hairer, Witten…). Longest docs: quasi-RH 7/8 version 199 pp; Navier–Stokes ~166 pp (unconfirmed). If a distinct ~700-page paper surfaces, add it.
@@ -280,7 +279,8 @@ Timeline:
 - Nov 17: New: Turing Agent, a formal-verification harness from a Shanghai AI Laboratory-led team, completed Lean verification of three theoretical-computer-science results from OpenAI’s October collection that “remained unresolved in the original developments”: uniform matrix hitting points in every positive characteristic, a uniform influence bound for hypergraph properties, and linear variance of the random 3-SAT hitting time (arXiv 2611.21299, November 16). One needed about a hundred verified auxiliary claims; it ran on DeepSeek models. Otherwise unchanged: OpenAI’s public changelog still ends with the October 29 entry (last commit October 30), no new withdrawals, no oai-math-revised merges since November 9, and no ETH review-blog post since November 12. Recap: 722 manuscripts released October 6, three withdrawn, about 42% Lean-formalised.
 - Nov 18 check: changelog (raw history.md) still ends at Oct 29 entry (last commit Oct 30 00:35 UTC); no new withdrawals; oai-math-revised no merges since Nov 9 (#76, #80 open); ETH blog no new post since Nov 12. Related: Spiro quasi-kernels "Our proofs are due to ChatGPT's Astra 6" (arXiv 2611.22881); He–Nill toric Fano Picard rank ≤ 2d "found using ChatGPT 6.1" (2611.21074); BMM symmetrising trace with LLM-assisted programs (2611.21912). GPT-6.2 Astra released Nov 17 (no link to the internal maths model stated).
 - Nov 19: NEW: Yuwen Zhou (arXiv 2611.22290, Nov 17) proves DH ≡ DL unconditionally with O(log p) advice, removing Maurer's 30-year smoothness proviso; key input is a zero-free half-plane for zeta, citing OpenAI quasi-RH manuscript (item 003, github.com/openai/math) + Kontorovich Lean exposition (AlexKontorovich/quasi-rh). AI use in writing not stated. Otherwise: changelog still ends at Oct 29 entry; no withdrawals; oai-math-revised no merges since Nov 9 (#76, #80 open, touched Nov 18); ETH blog no post since Nov 12. Related: IEEE Spectrum Nov 18 on Axiom CFSG (15,000 pp, 43M lines, done Oct 25) + Stacks (16M lines).
-Last status: NEW (2026-11-19)
+- Nov 20 check: changelog (raw history.md) still ends at Oct 29 entry (last commit Oct 30 00:35 UTC); no new withdrawals; oai-math-revised no merges since Nov 9 (#76, #80 open, updated Nov 18); ETH blog no new post since Nov 12. Related used: Norin topological overlap proof found by GPT-6 Astra (2611.26229); Paper2Lean 20 papers / 110,910 Lean lines (2611.26272); Sun–Wang symmetric Boolean degree, Claude Code + Codex, all Lean-verified (2611.26446); Blattner Corless conjecture with Claude (2611.25266).
+Last status: NOCHANGE (2026-11-20)
 
 ## Dossier 2 — Astra pushes back on experts (TheoPhysEval)
 Facts: OpenAI GPT-6 Astra (announced ~2026-09-03; "critical" cyber under preparedness framework). TheoPhysEval, arXiv 2610.16733, 35 authors (ICTS, Harvard, KU Leuven, Google DeepMind…), coordinated by Suvrat Raju; 50 unpublished research problems, 11 subfields. Initial Astra score "late eighties"; Astra insisted; experts found subtle errors (e.g. sign errors) in their reference solutions; corrected → 49/50 (98%) in Codex with web; Opus 5.5 92%, Gemini 3.8 Flash 68%; no-web both 92%; <$3/problem. Unverified: which problems, exact pre-correction score.
@@ -317,9 +317,13 @@ Timeline:
 - Nov 17: New: The Decoder (November 16) gave the first mainstream tech-press write-up of Nathaniel Craig’s account that GPT-6 Astra turned his strategy into a working construction and led the proof of a candidate lattice Standard Model; Craig calls the work “much more a beginning than an end”. Related today: on SciResearch-Eval, a lab benchmark with deliberately flawed simulators, Astra’s 95% intervals covered the truth 94% of the time and it diagnosed missing physics in 66% of episodes, against 20–62% coverage for most models (see Physics). Review of OpenAI’s Yang–Mills code continues in hairer/humanise-yang-mills (Claude-run independent reviews merged November 17). TheoPhysEval itself is unchanged: version 2 (November 12) still does not list which expert keys were wrong; Astra’s corrected score remains 49/50.
 - Nov 18: NEW: OpenAI released GPT-6.2 Astra and Sol (Nov 17; Decoder): Astra $8/$40 (−20%), AA Intelligence Index 2nd behind Fable 5.2, 1st Terminal-Bench-Science, 2nd CritPt v2 physics, hallucination 59% (AA-Omniscience, max effort), coding flat; both "Critical" cyber. No TheoPhysEval score for 6.2 published. TheoPhysEval still v2 (v3 404). hairer/humanise-yang-mills PR #482 HumanizeYM_v2 merged Nov 17 14:37 UTC. yang-mills-group/YM no commits since Nov 15 21:56 UTC. Alpöge–Sussman repo no commits since Nov 10.
 - Nov 19 check: TheoPhysEval still v2 (v3 404). hairer/humanise-yang-mills PR #483 HumanizeYM v3 monograph draft merged 07:07 UTC Nov 19 (+#484–486 wording). yang-mills-group/YM no commits since Nov 15 21:56 UTC. Alpöge–Sussman repo no commits since Nov 10. Related used: Astra audits clinical models 69/72 (2611.24877); Astra novelty reporting 8%→95% (2611.23546).
-Last status: NOCHANGE (2026-11-19)
+- Nov 20 check: TheoPhysEval still v2. hairer/humanise-yang-mills PR #488 merged 09:20 UTC Nov 20; commit "Point readers and contributors to the authoritative v3 manuscript". yang-mills-group/YM no commits since Nov 15 21:56 UTC; Alpöge–Sussman repo none since Nov 10. Related used: Astra stent redesign −32% vs Tosca (2611.26003); AlphaProof Nexus GHZ no-go (2611.26300, physics story).
+Last status: NOCHANGE (2026-11-20)
 
 ## Notes for next run
+- Follow up (Nov 20): EU Commission ARTEX attack (data exposure? attribution?); Cairncross/Davies and Cantwell–Rounds letter; Anthropic day-2 trading + Coxon RSI claim response; Huang House testimony Dec 1; Bonta subpoena; Mast chip records; MAI Code 2 independent evals; OpenAI agent email-helper primary report (openai.com 403; Decoder used); Krenn/AlphaProof Nexus reactions.
+- Uncovered leads (Nov 20): THN ThreatsDay GPT-6.2 jailbreak flaws; Apollo/Hobbhahn "Towards embedded evaluations for AI monitoring" (LW Nov 20); LW "Anthropic is not living up to its ideals" (So8res?, author not confirmed); IEEE Spectrum superintelligence-infeasible essay (author not captured); IEEE Shepherd meta-agent; Register uncensored models on code hosts; Palo Alto buys open-weight training firm; Nvidia Gentlemen ransomware claim; Meta Muse mixing conversations (TechCrunch); techxplore UN "medieval" AI; phys.org data-centre air-quality study (403); Google Quantum AI contextuality 105 qubits; FrontierOR used; AgentRoboCritic (2611.26613); Fortnow used.
+- Workflow (Nov 20): same approach in AppData\Local\Temp\qia-1120 (feeds.py, feeds2.py, dos.py, arx.py cutoff 2026-11-18, ex.py, abs.py, build20.py, state20.py). phys.org and techxplore 403 to urllib → WebFetch works. arXiv HTML grep for GPT/Claude/Codex/acknowledg finds AI-use disclosures. Renderer rejected TNW Nvidia sign photo (logo-like).
 - Follow up (Nov 19): Anthropic first-day trading (ANT, Nov 19) and any Anthropic response to FLI statement; GPT-6.2 system card; Gemini 4 Neon independent evals (AA); NGINX/Java4Shell/PHP (fixes Nov 19) exploitation; OpenAI posts unread (403): "Managing frontier AI risk", "Research acceleration: the jagged frontier", "The Silent Consensus", "Inside the Codex sandbox"; APEC Shenzhen outcome document; Nvidia CEO search/board faction; Korea CSAT; PauseAI London Nov 21; reactions to Zhou DH paper.
 - Uncovered leads (Nov 19): OpenAI four on-site auditors + independent safety board (Decoder Nov 18; overlaps Nov 17 TechCrunch story, skipped); Decoder kamikaze-drone targets (same as Nov 18 Vals story); Genie 4 GA; Microsoft in-house models replacing outside ones; Mistral Vibe Desktop; Register uncensored models on code hosts; Palo Alto buys Applied Compute $4.5bn; Record lawmakers want defensive AI cyber systems; Guardian Maryland Doritos/gun AI lawsuit; Verge US–Philippines AI hub (Pax Silica); Wired Nvidia all-hands; Musk/Luckey/Altman pro-Huang remarks; Techxplore "eight ways AI could lead to our downfall" (403); LW "Normalization of deviance in AI development", "Alignment Journal", ozone-hole analogy; Nature "AI must be held accountable"; arXiv: 2611.22888 SCoRe exploitation 67% (MiMo), 2611.24817 LeBrun–Li Einstein constants (AI role none stated), 2611.23637 submodular universal sets (AI role none stated), 2611.24347 automodel.
 - Workflow (Nov 19): same approach in AppData\Local\Temp\qia-1119 (feeds.py, feeds2.py, dos.py, arx.py cutoff 2026-11-17, ex.py, abs.py, build19.py, state19.py). FLI statement URL in feed is /leaders-condemn-anthropic-for-race-to-rsi/ (longer slug 404). arXiv HTML bibliography grep (python, utf-8) found the OpenAI citation in 2611.22290. Do not state author affiliations unless read from the paper.
