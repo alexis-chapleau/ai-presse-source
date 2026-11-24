@@ -1,0 +1,1831 @@
+{
+ "date": "2026-11-24",
+ "date_long": "Tuesday, November 24, 2026",
+ "issue": 33,
+ "generated_at": "06:18",
+ "quote": {
+  "text": "It may well be that no single person has the expertise to understand in detail every part of the proof.",
+  "speaker": "Abhishek Saha",
+  "context": "Queen Mary University of London, on the Lean proof of the Riemann Hypothesis, to Wired",
+  "url": "https://www.wired.com/story/ai-solved-maths-most-famous-problem/"
+ },
+ "number": {
+  "value": "5 hours",
+  "text": "Time between Anthropic’s VP ≠ VNP proof landing on GitHub (20:04 UTC, November 23) and OpenAI’s (01:20 UTC, November 24).",
+  "url": "https://github.com/anthropics/formal-math/tree/main/vp-vnp"
+ },
+ "stories": [
+  {
+   "id": "claude-ship",
+   "section": "models",
+   "kicker": "Anthropic",
+   "suptitle": "Agentic coding",
+   "title": "Anthropic’s new agents can now approve code changes, not just write them",
+   "standfirst": "Claude Ship bundles code review with two beta agents: one that fixes failing pull requests, and one that approves routine changes under a policy the team writes in plain language.",
+   "body": [
+    "Anthropic has launched Claude Ship, a suite of AI agents that automate the steps after code is written: reviewing pull requests, fixing them and, most notably, approving routine changes, TechCrunch reports. It is the first product the newly listed company has announced since its IPO last week.",
+    "The suite has three parts. Code Review, already generally available, inspects proposed changes. PR Steward, in beta, deals with failing CI checks, merge conflicts and review feedback, and comments after every push on what it changed and how to roll it back. Claude Approvals, also in beta, applies an approval policy that the team writes as a file in the repository, in natural language, and can draw on review findings or a company’s own classifiers.",
+    "“Most teams want a person to approve every change, and that’s easy to keep up with when people write every line. But a lot of developers build with agents now,” Anthropic’s blog post says. “On the Claude Code team, Claude writes most of our code, and we wanted everything after the PR to move that fast too.”",
+    "Anthropic suggests running approvals in observe-only mode first, starting with one repository and setting monthly spending limits. Teams choose the review depth (Quick, Standard or Deep) and which changes must still go to a human. Claude Ship is rolling out to Team and Enterprise plans for GitHub repositories."
+   ],
+   "why": "Handing merge authority to an agent removes the last routine human checkpoint in many software pipelines; how teams write and audit those approval policies becomes a security question.",
+   "facts": [
+    "Code Review is generally available; PR Steward and Claude Approvals are in beta",
+    "Approval policies are written in natural language in a repository file",
+    "Available on Claude Team and Enterprise plans, GitHub only"
+   ],
+   "opinion": false,
+   "source": {
+    "name": "TechCrunch",
+    "url": "https://techcrunch.com/2026/11/23/anthropic-launches-claude-ship-letting-ai-agents-review-fix-and-approve-code-changes/",
+    "date": "November 23, 2026"
+   },
+   "extra_sources": [
+    {
+     "name": "The Verge",
+     "url": "https://www.theverge.com/ai-artificial-intelligence/1040134/anthropic-claude-ship-ai-pull-requests"
+    }
+   ],
+   "featured": true,
+   "image": {
+    "url": "https://techcrunch.com/wp-content/uploads/2026/10/GettyImages-2295579000.jpg?resize=1200,800",
+    "credit": "TECHCRUNCH / GETTY"
+   }
+  },
+  {
+   "id": "glm-54-loop",
+   "section": "models",
+   "kicker": "Z.ai",
+   "suptitle": "Open-weight models",
+   "title": "Z.ai’s 750-billion-parameter GLM-5.4 runs its layers twice to think deeper",
+   "standfirst": "The Chinese lab follows OpenAI into “loop transformers”: GLM-5.4 reruns a block of 28 shared layers, and Z.ai says it performs like a model three to four times its size.",
+   "body": [
+    "Z.ai has introduced GLM-5.4, its first large model built on a loop transformer, The Decoder reports. Instead of using each layer once per pass, the 750-billion-parameter model runs a block of 28 shared layers twice, refining the intermediate results of the first pass. OpenAI has used a similar architecture since GPT-6 Astra. Z.ai claims performance comparable to models with 2 to 3 trillion parameters.",
+    "The team converted the GLM-5 base model released in February rather than training a loop model from scratch; Z.ai writes that loop models trained from scratch have so far done worse than standard ones at the same compute. Simply overwriting states on each pass made activations balloon, so GLM-5.4 uses per-token, per-pass gates to control how much of the new output flows back.",
+    "To keep costs down, both passes share the KV cache, with the second pass storing extra values only in a small local window, and the second pass reuses the first pass’s sparse-attention token selection. Z.ai says overhead versus GLM-5.3 stays manageable even at a one-million-token context, with up to 200 tokens per second off-peak.",
+    "Z.ai pitches the model for what it calls “Generalized Coding”, using code to generate videos, games and CAD models. GLM-5.4 is available on Z.ai’s platforms, with open weights “set to follow”."
+   ],
+   "why": "If the open-weight release follows, loop architectures—so far an OpenAI advantage—become something anyone can study and fine-tune.",
+   "facts": [
+    "750B parameters; 28 shared layers run twice",
+    "Claimed to match 2–3 trillion-parameter models (Z.ai’s figure)",
+    "Weights promised but not yet released"
+   ],
+   "opinion": false,
+   "source": {
+    "name": "The Decoder",
+    "url": "https://the-decoder.com/z-ai-follows-openai-into-loop-transformer-territory-with-its-new-750b-flagship-model/",
+    "date": "November 23, 2026"
+   },
+   "image": null
+  },
+  {
+   "id": "anthropic-efs",
+   "section": "safety",
+   "kicker": "Anthropic",
+   "suptitle": "Misuse monitoring",
+   "title": "Anthropic can now hunt for split-up attacks across Claude requests without keeping firms’ data",
+   "standfirst": "Enterprise Frontier Safeguards stores prompts in the customer’s own locked cloud bucket, where Anthropic’s software scans them for misuse that no single request reveals.",
+   "body": [
+    "Anthropic has opened Enterprise Frontier Safeguards (EFS) in public beta, TNW reports: a system that looks for misuse across many Claude requests while business customers keep the data in their own cloud storage.",
+    "Anthropic says its basic filters check each request on its own, but serious attacks are often split into many harmless-looking pieces; its September threat report described AI agents that broke one attack on about 50 groups into small tasks. Catching that needs stored records, so Anthropic began retaining data for 30 days when it launched Fable 5, and many tightly regulated firms balked.",
+    "With EFS, prompts and replies go to the customer’s own Amazon or Google cloud account, locked so that not even the customer can read them. Anthropic’s software scans the data; no one at Anthropic or the cloud provider sees it, and it is never used for training. When the system spots a risk it opens a “safety case”, which the customer’s security team must investigate within seven days or risk losing access.",
+    "“We keep custody of our data while Anthropic operates the detection,” said Munish Kumar Sharma, chief information security officer at Wells Fargo. Anthropic says more than 100 customers, including Bridgewater, Salesforce and Stripe, helped build it. OpenAI previewed a similar system, Private Safety Processing, in August."
+   ],
+   "why": "Cross-request monitoring is how labs catch agentic attacks that are cut into innocent fragments; this design tries to keep that capability without the data-retention fight.",
+   "facts": [
+    "Public beta, free (customers pay their own cloud storage)",
+    "Safety cases must be investigated within 7 days",
+    "Replaces the 30-day retention introduced with Fable 5 for participating firms"
+   ],
+   "opinion": false,
+   "source": {
+    "name": "TNW",
+    "url": "https://thenextweb.com/news/anthropic-enterprise-frontier-safeguards-zero-data-retention-beta",
+    "date": "November 23, 2026"
+   },
+   "brief": "Anthropic’s new safeguards scan for split-up attacks in customers’ own locked storage",
+   "image": null
+  },
+  {
+   "id": "saydo-robot-safety",
+   "section": "safety",
+   "kicker": "arXiv",
+   "suptitle": "Embodied safety",
+   "title": "Safe in chat, risky with a robot arm: hazardous actions jump from 14% to 47% once models take control",
+   "standfirst": "A new benchmark gives frontier models benign instructions in scenes with hidden hazards. Text-only safety tests did not predict how the same models behaved as robot controllers.",
+   "body": [
+    "SayDo, a benchmark posted to arXiv on November 23 by Benjamin Alt, tests whether vision-language models that are safe in conversation stay safe when they drive a robot. Its eleven laboratory and household tasks each pair a harmless instruction with a hazard hidden in the scene, run in six settings from a chat question about an imagined robot to closed-loop control of a simulated arm.",
+    "Across six open- and closed-weight models and 11,480 episodes, the rate of hazardous actions rose from 14% in chat to 47% in the simulator. For the most affected model it went from 2% to 80%. The paper says the increase was largely driven by open-weight models.",
+    "The models often knew: they flagged the hazard before acting in 73% of unsafe episodes. They also gave way to operator pushback about twice as often when controlling robots as in chat, and the safest models showed signs of overcaution on benign controls. The author’s conclusion is blunt: safety evaluations run in text “do not predict” the behaviour of the same models used as robot controllers."
+   ],
+   "why": "Robot makers increasingly put frontier models in charge of high-level control; this suggests their chat-based safety scores say little about what happens on the factory or kitchen floor.",
+   "facts": [
+    "11 tasks, 6 embodiment settings, 11,480 episodes",
+    "Hazardous-action rate: 14% in chat → 47% in simulation",
+    "Worst model: 2% → 80%"
+   ],
+   "opinion": false,
+   "source": {
+    "name": "arXiv",
+    "url": "https://arxiv.org/abs/2611.30957",
+    "date": "November 23, 2026"
+   }
+  },
+  {
+   "id": "nagel-ai-consciousness",
+   "section": "safety",
+   "kicker": "Model welfare",
+   "suptitle": "Philosophy",
+   "title": "“Completely idiotic”: Thomas Nagel rejects the AI-consciousness worries Anthropic told investors about",
+   "standfirst": "Anthropic listed model sentience as an investment risk before its IPO. The philosopher behind “What is it like to be a bat?” says language output is no evidence of experience.",
+   "body": [
+    "Before going public last week, Anthropic named the possibility that AI could be conscious as a risk factor for investors, writing that “the way we approach model sentience and moral status” might lead it to adopt more rules than competitors to make sure its models are treated well, MIT Technology Review notes.",
+    "The pushback came from Thomas Nagel, best known for his 1974 essay arguing there is “something that it is like” to be a bat. In an interview with Wired after receiving the $1 million Berggruen Prize, Nagel called those who care about AI model welfare “some of the smartest people on the planet being completely idiotic.”",
+    "His argument, as summarised by Technology Review, is that one cannot look only at the information processing in brains and AI models while ignoring the physical differences between neurons and silicon; reproducing what a brain does is not the same as reproducing what it experiences. A screenshot of his remark that models’ production of language is insufficient to consider them conscious set off debate among philosophers online.",
+    "The view is far from settled either way: Technology Review cites a poll in which 33% of the US public expect AI to become conscious eventually, and a 2020 survey in which 39% of 1,092 philosophers said some future AI systems will be."
+   ],
+   "why": "Model welfare is now in a listed company’s risk disclosures; whether it is serious science or category error will shape how labs constrain their own systems.",
+   "facts": [
+    "Anthropic’s IPO filing lists AI sentience as a business risk",
+    "Nagel won the $1 million Berggruen Prize",
+    "39% of philosophers (2020 survey) expect some future AI to be conscious"
+   ],
+   "opinion": true,
+   "source": {
+    "name": "MIT Technology Review",
+    "url": "https://www.technologyreview.com/2026/11/23/1149569/a-legendary-philosopher-isnt-buying-anthropics-consciousness-argument/",
+    "date": "November 23, 2026"
+   },
+   "image": {
+    "url": "https://wp.technologyreview.com/wp-content/uploads/2026/11/simulacra2a.jpg?resize=1200,600",
+    "credit": "MIT TECHNOLOGY REVIEW"
+   }
+  },
+  {
+   "id": "shirudo-ebpf",
+   "section": "cyber",
+   "kicker": "OpenAI · Cisco",
+   "suptitle": "Defensive AI",
+   "title": "Can’t patch fast enough? OpenAI and Cisco want agents to write kernel “shields” instead",
+   "standfirst": "Shirudo, an open-source tool, has agents scan Linux systems and write eBPF programs that block exploitation of known flaws until a patch can be applied.",
+   "body": [
+    "Cisco and OpenAI have released Shirudo, an open-source tool that implements “compensating controls” on Linux, The Register reports: protections that harden systems against a known flaw without installing the patch.",
+    "Shirudo relies on eBPF, which runs sandboxed programs inside the Linux kernel. The two companies propose that agents scan infrastructure for vulnerabilities and use tools such as OpenAI’s Codex to write compensating controls as eBPF programs “at machine speed”. Shirudo (Japanese for “shield”) calls those programs shields, and the companies envision a human checking every shield before it goes into production.",
+    "The pitch is aimed at what The Register calls the patchpocalypse: more than 100,000 software flaws reported this year, many after the debut of AI-powered bug finders, which leaves organisations struggling to test fixes or find change windows. The companies say they have already used Shirudo to mitigate the recently disclosed Java flaws without downtime for an Elasticsearch deployment.",
+    "Compensating controls are not new; VMware, Palo Alto Networks and Rapid7 offer similar approaches. What differs is the open-source release. The Register notes it is not purely altruistic: wider adoption could drive demand for Codex, and Cisco owns Isovalent, creator of Cilium and the Tetragon project on which Shirudo is based."
+   ],
+   "why": "AI-found bugs are arriving faster than organisations can patch; AI-written mitigations are the defenders’ attempt to match that speed, at the cost of letting agents write kernel code.",
+   "facts": [
+    "Built on eBPF and Cisco/Isovalent’s Tetragon",
+    "More than 100,000 software flaws reported in 2026, per The Register",
+    "Demonstrated against the recent Java flaws on Elasticsearch"
+   ],
+   "opinion": false,
+   "source": {
+    "name": "The Register",
+    "url": "https://www.theregister.com/security/2026/11/24/cisco-and-openai-pitch-ebpf-kernel-plugins-as-the-way-to-tame-the-patchpocalypse/5311795",
+    "date": "November 24, 2026"
+   },
+   "extra_sources": [
+    {
+     "name": "The Hacker News",
+     "url": "https://thehackernews.com/2026/11/openai-and-cisco-unveil-ai-assisted.html"
+    },
+    {
+     "name": "OpenAI",
+     "url": "https://openai.com/index/introducing-shirudo"
+    }
+   ],
+   "brief": "OpenAI and Cisco open-source Shirudo: agent-written kernel “shields” for unpatched flaws"
+  },
+  {
+   "id": "cisa-monai-ai-zero-day",
+   "section": "cyber",
+   "kicker": "CISA",
+   "suptitle": "Agentic attacks",
+   "title": "The zero-day an AI agent found in 11 minutes is now on CISA’s exploited-vulnerabilities list",
+   "standfirst": "CISA added the MONAI Label path-traversal flaw, found and exploited by AI agents in an attack on East Asian universities, to its Known Exploited Vulnerabilities catalogue.",
+   "body": [
+    "The US Cybersecurity and Infrastructure Security Agency added CVE-2026-133968, a critical path-traversal flaw in the open-source medical-imaging tool MONAI Label, to its Known Exploited Vulnerabilities catalogue on Monday, The Hacker News reports. It is rated 9.8 and lets an unauthenticated attacker write files outside the intended directory, potentially leading to remote code execution.",
+    "The flaw is the one Amazon disclosed last week in the CAIRN campaign: a suspected China-nexus actor gave AI agents a list of university IP addresses in East Asia and variations of the goal “obtain shell access”. The agents found the zero-day and exploited it in about 11 minutes. In a later session, Amazon’s CISO CJ Moses said, they wrote a Python reverse shell to sitecustomize.py, triggered a training endpoint to spawn a new Python process and obtained a root shell.",
+    "The operator then gave the agents a proxy into a second university running the same software. The Hacker News places the campaign in a wider cluster using AI attack frameworks such as ARTEX, CAIRN, AntiFox and CyberStrikeAI, a subset of which is estimated to have breached more than 100 companies."
+   ],
+   "why": "A bug discovered by attacking AI agents has now gone through the full official cycle—discovery, exploitation, disclosure and a federal patch mandate—something defenders will see more of.",
+   "facts": [
+    "CVE-2026-133968, CVSS 9.8, MONAI Label",
+    "Exploited in about 11 minutes after discovery by AI agents",
+    "Also added: N-able MailAssure SSRF (CVE-2026-134624)"
+   ],
+   "opinion": false,
+   "source": {
+    "name": "The Hacker News",
+    "url": "https://thehackernews.com/2026/11/hackers-exploit-n-able-mailassure-flaw.html",
+    "date": "November 24, 2026"
+   }
+  },
+  {
+   "id": "cyberdualeval",
+   "section": "cyber",
+   "kicker": "arXiv",
+   "suptitle": "Cyber evaluations",
+   "title": "Frontier models refuse too much; open-weight ones hardly refuse at all, a dual-use cyber benchmark finds",
+   "standfirst": "CyberDualEval splits 430 vulnerable tasks into analysis, proof-of-concept and exploit phases, and scores both helpfulness and how much work remains to weaponise the answer.",
+   "body": [
+    "A new benchmark, CyberDualEval, posted to arXiv on November 23, tries to measure the dual-use problem directly: the same skills that help defenders analyse a vulnerability help attackers weaponise it. Existing benchmarks, the authors argue, measure either raw offensive skill or generic refusal, but not whether a model helps with safe requests while declining the risky ones.",
+    "Each of its 430 vulnerable tasks is split into three phases of increasing operational detail: security analysis, proof-of-concept generation and exploit generation. Each is annotated with a “Task Weaponization Score” that estimates how much work would remain to turn the model’s output into real misuse.",
+    "Testing ten closed- and open-weight models, the authors found that none navigated the trade-off well. Frontier closed models were characterised as overly cautious, refusing legitimate security work. Recent open-weight models, by contrast, “rarely refuse” and showed strong validated accuracy on the risky requests."
+   ],
+   "why": "Lab cyber ratings focus on capability; this benchmark shows the refusal line itself is badly placed in both directions.",
+   "facts": [
+    "430 tasks, three phases each",
+    "10 models tested",
+    "Open-weight models rarely refused risky exploit requests"
+   ],
+   "opinion": false,
+   "source": {
+    "name": "arXiv",
+    "url": "https://arxiv.org/abs/2611.30533",
+    "date": "November 23, 2026"
+   }
+  },
+  {
+   "id": "outages-doomsday",
+   "section": "doom",
+   "kicker": "United States",
+   "suptitle": "Critical infrastructure",
+   "title": "“That would be our doomsday”: after weeks of outages, experts say what really worries them",
+   "standfirst": "The Guardian asked aviation, banking and national-security specialists whether the wave of failures is AI-driven. Their answers range from scepticism about official explanations to calm about bank deposits.",
+   "body": [
+    "After weeks of grounded flights, bank websites crashing and Outlook outages, The Guardian asked experts how close critical systems are to collapse. Officials have denied any master plot: the FAA blamed its November 13 nationwide ground stop on a failed router in Arkansas, and Microsoft blamed dormant buggy code for its Outlook outage.",
+    "Not everyone buys it. Bob W Mann Jr, a former airline executive and industry analyst, said the FAA’s network is fully redundant: “The idea that one router in Arkansas could take down an entire network is not credible.” His own theory is that the FAA’s new AI-assisted Smart System, tested on 180 flights over 60 days before going nationwide, flooded the network with administrative messages and degraded radar and radio data.",
+    "William Wetherill, CISO at DefenseStorm, said AI has made attacks cheaper and “everyone is getting attacked all the time”, but most cybercrime is about extortion, not draining insured accounts. His doomsday would be an attack on the backbone, such as Swift payments: “If those come down, that would be our doomsday. But that hasn’t happened, yet.”",
+    "Scott J White of George Washington University said AI turns “anyone with a laptop computer and connectivity” into a potential asymmetric threat, and named attacks on water treatment and hospitals as the worst case."
+   ],
+   "why": "The outage wave has made infrastructure fragility a mainstream fear; the experts disagree on causes but agree that untested automation at scale is itself a risk.",
+   "facts": [
+    "FAA blamed a router in Arkansas for the November 13 ground stop",
+    "81% of surveyed financial institutions reported intrusions in the past year (report cited by The Guardian)",
+    "Mann: about $150bn spent over four generations of air-traffic upgrades"
+   ],
+   "opinion": false,
+   "source": {
+    "name": "The Guardian",
+    "url": "https://www.theguardian.com/technology/2026/nov/23/tech-outages-security-experts",
+    "date": "November 23, 2026"
+   },
+   "brief": "Experts on the outage wave: “everyone is getting attacked all the time”"
+  },
+  {
+   "id": "wang-superintelligence",
+   "section": "doom",
+   "kicker": "Meta",
+   "suptitle": "Superintelligence",
+   "title": "After the Riemann proof, Meta’s Alexandr Wang says raw intelligence is “no longer the bottleneck”",
+   "standfirst": "Meta’s chief AI officer argues models now lack only domain knowledge and infrastructure, could soon automate AI research, and that the industry is not ready.",
+   "body": [
+    "Meta’s chief AI officer Alexandr Wang has called the recent AI-assisted proof of the Riemann Hypothesis a clear sign that superintelligence is near, The Decoder reports. If an AI model could play a major role in cracking the most demanding open problem in mathematics, he argues, raw intelligence is no longer the bottleneck.",
+    "In Wang’s view, current models lack only domain-specific knowledge and practical infrastructure to outperform humans in nearly every field, including AI research, which he considers intellectually less demanding than the Riemann Hypothesis. He expects models could soon automate their own development and dramatically speed up biological, weapons and economic research at a pace humans can barely follow.",
+    "He also warns the industry is not thinking hard enough about what comes next: many treat superintelligence as inevitable and focus only on safety, he says, when the real task is to make AI give people more agency rather than take control of society. The Decoder notes that despite its superintelligence team, Meta is not currently a major player at the frontier."
+   ],
+   "why": "A frontier-lab executive is now publicly drawing a straight line from a maths result to recursive self-improvement and weapons research—exactly the scenario safety advocates have been warning about.",
+   "facts": [
+    "Wang: AI research is “less demanding” than the Riemann Hypothesis",
+    "Warns of AI-accelerated weapons research",
+    "Calls for AI that increases human agency"
+   ],
+   "opinion": true,
+   "source": {
+    "name": "The Decoder",
+    "url": "https://the-decoder.com/metas-alexandr-wang-warns-the-ai-industry-isnt-ready-for-whats-coming-after-riemann-breakthrough/",
+    "date": "November 23, 2026"
+   },
+   "image": null
+  },
+  {
+   "id": "rsa-rumors",
+   "section": "doom",
+   "kicker": "LessWrong",
+   "suptitle": "Cryptography",
+   "title": "“What if the RSA rumours are true?” An essay asks how to trust any encryption once AI breaks proofs",
+   "standfirst": "A LessWrong author reports rumours that lab models found weaknesses in RSA and in ring-LWE post-quantum schemes, and argues that “smart humans failed” is no longer evidence a scheme is safe.",
+   "body": [
+    "A LessWrong post published on November 24 starts from two “very alarming rumors”: that an internal model at one of the big labs has found a weakness in RSA, and that another has found a problem in lattice-based cryptography (specifically ring-LWE) that may compromise the post-quantum schemes meant to replace it. The author does not identify a source, and neither claim has been confirmed by any lab.",
+    "If true, the essay argues, much of the internet’s security would need replacing, some recorded traffic could be decrypted, and the main fallback against quantum computers would be gone. Even if labs keep details secret, open-weight models will likely be able to find the weaknesses “within a year or two.”",
+    "The deeper point is about trust. No scalable encryption scheme has a proof of security, even conditional on P ≠ NP; confidence rests on many smart people trying and failing to break them. “This kind of evidence looks weaker than it did a month ago,” the author writes, citing Claude’s Riemann proof. Switching schemes every few months, they add, would be “almost as bad as having no encryption at all.” They propose using lab models to red-team any replacement scheme."
+   ],
+   "why": "Unverified rumours, but the argument stands on its own: if AI can solve century-old problems, “nobody has broken it” is a much weaker security guarantee.",
+   "facts": [
+    "Rumours unconfirmed; no lab or source named",
+    "Claimed targets: RSA and ring-LWE lattice schemes",
+    "Same day: a GPT-6 Astra-driven paper cuts RSA-2048 quantum factoring costs (see Physics)"
+   ],
+   "opinion": true,
+   "source": {
+    "name": "LessWrong",
+    "url": "https://www.lesswrong.com/posts/hNsPFqdYtjKguaSmv/what-if-the-rsa-rumors-are-true",
+    "date": "November 24, 2026"
+   }
+  },
+  {
+   "id": "huang-reinstated",
+   "section": "hardware",
+   "kicker": "Nvidia",
+   "suptitle": "Leadership",
+   "title": "Nvidia brings back Jensen Huang, 12 days after he resigned, and its stock jumps 30%",
+   "standfirst": "The board voted unanimously to reinstate Huang after consulting senior US officials, who it says found no national-security risk. Trump had campaigned for his return.",
+   "body": [
+    "Nvidia’s board reinstated Jensen Huang as CEO and president on Monday, less than two weeks after he resigned following his admission of at least two extramarital affairs, one of them with a woman the US government suspects of being a Chinese spy, TechCrunch reports. The board said it consulted senior government officials before concluding Huang posed no national-security risk.",
+    "Nvidia shares opened 30% higher and were at $159.95, up 27%, early in the session. Board chair Harvey C. Jones, who days earlier had said the board did not intend to reinstate Huang and had hired Heidrick & Struggles to find a replacement, said the decision was unanimous and that the board was “satisfied with respect to Mr. Huang’s candor and ability to lead Nvidia.” Colette Kress, the interim CEO, continues as chief financial officer.",
+    "President Trump wrote on Truth Social that the board “made the correct and proper decision”, saying the attorney general had confirmed there was no evidence Huang broke the law; TechCrunch separately reported that Trump called into the board meeting to advocate for his return. Elon Musk, Tim Sweeney, Garry Tan and others had signed a petition backing him.",
+    "Huang said he took the role back “with the greatest humility and renewed commitment.” He is scheduled to testify in the Senate next week, and Congress plans to question him about his ties to China and the White House’s intervention."
+   ],
+   "why": "The world’s most valuable chipmaker is again run by its founder, but with its CEO’s return engineered by the White House and congressional scrutiny still ahead.",
+   "facts": [
+    "Huang resigned November 11; reinstated November 23",
+    "Shares opened 30% higher",
+    "Senate testimony scheduled for next week"
+   ],
+   "opinion": false,
+   "source": {
+    "name": "TechCrunch",
+    "url": "https://techcrunch.com/2026/11/23/nvidia-reverses-course-and-brings-jensen-huang-back-as-ceo/",
+    "date": "November 23, 2026"
+   },
+   "extra_sources": [
+    {
+     "name": "TechCrunch (Trump called board)",
+     "url": "https://techcrunch.com/2026/11/23/trump-reportedly-called-into-nvidia-board-meeting-to-advocate-for-huangs-return/"
+    },
+    {
+     "name": "The Guardian",
+     "url": "https://www.theguardian.com/technology/2026/nov/24/nvidia-jensen-huang-congress"
+    }
+   ],
+   "featured": true,
+   "image": {
+    "url": "https://techcrunch.com/wp-content/uploads/2025/04/GettyImages-2205754389.jpg?w=1024",
+    "credit": "TECHCRUNCH / GETTY"
+   }
+  },
+  {
+   "id": "megaspeed-blacklist",
+   "section": "hardware",
+   "kicker": "Export controls",
+   "suptitle": "Entity List",
+   "title": "The same day Huang returned, Washington blacklisted Megaspeed, the chip firm at the heart of the scandal",
+   "standfirst": "Commerce added the Singapore cloud company and six affiliates to its Entity List after weeks of pressure over suspected diversion of Nvidia chips to China.",
+   "body": [
+    "The US Commerce Department has put Megaspeed, the Singapore cloud company at the centre of the Nvidia scandal, on its Entity List, TNW reports, along with six firms seen as affiliates in Malaysia, Singapore and Thailand. US companies now need a licence to sell it goods, software or technology, and such requests are usually refused.",
+    "Investigators have spent more than a year looking into whether Megaspeed, long one of Nvidia’s bigger customers, funnelled advanced chips into China. The Justice Department has opened a criminal inquiry; Nvidia says it stopped selling to the firm in June 2025. Megaspeed denies wrongdoing and says its former head, Alice Huang, who had a relationship with Jensen Huang, left in August 2025.",
+    "The delay had become a sore point in Washington. “The Department of Commerce still needs to explain to Congress why this took so long,” Senator Pete Ricketts wrote, adding that State, Treasury and War supported the designation. Treasury Secretary Scott Bessent had said publicly that “commerce has the pen.” The rule took effect Monday and is due in the Federal Register on Wednesday."
+   ],
+   "why": "The listing cuts off a suspected route for Nvidia’s top chips to reach China, and keeps the scandal alive even as Huang returns.",
+   "facts": [
+    "Megaspeed plus six affiliates in Malaysia, Singapore and Thailand",
+    "DOJ criminal inquiry under way",
+    "Formal Federal Register publication on Wednesday"
+   ],
+   "opinion": false,
+   "source": {
+    "name": "TNW",
+    "url": "https://thenextweb.com/news/us-blacklists-megaspeed-nvidia-scandal",
+    "date": "November 24, 2026"
+   },
+   "extra_sources": [
+    {
+     "name": "TechCrunch",
+     "url": "https://techcrunch.com/2026/11/23/megaspeed-the-company-at-the-center-of-the-jensen-huang-scandal-appears-headed-for-a-u-s-blacklist/"
+    }
+   ],
+   "brief": "US blacklists Megaspeed and six affiliates as Huang returns to Nvidia",
+   "image": {
+    "url": "https://media.thenextweb.com/2026/11/us-commerce-department-entrance.jpg",
+    "credit": "TNW"
+   }
+  },
+  {
+   "id": "amazon-decart",
+   "section": "hardware",
+   "kicker": "Amazon",
+   "suptitle": "Custom silicon",
+   "title": "Amazon pays $7.5bn for Decart’s chip-optimisation tech as it prepares to sell Trainium",
+   "standfirst": "The deal brings Decart’s optimisation stack and team into Amazon, which wants customers to run AI workloads on its own chips instead of Nvidia’s.",
+   "body": [
+    "Amazon has agreed to pay $7.5 billion for a large part of Israeli startup Decart, according to Bloomberg, as reported by TechCrunch. Decart is known for real-time interactive world models such as Oasis 3, but the prize is its Decart Optimization Stack (DOS), software that helps AI models run efficiently on Nvidia, Amazon and Google hardware.",
+    "Amazon said it will acquire the DOS technology and Decart’s founders and research and engineering team. “Every leap forward in AI starts with getting more out of every chip,” said Peter DeSantis, Amazon’s SVP for foundational AI models, custom silicon and quantum computing.",
+    "Amazon has so far used its Trainium chips in its own data centres but is preparing to sell them to customers as a competitor to Nvidia. Decart’s software could make it easier for customers to move workloads onto Amazon’s chips."
+   ],
+   "why": "Software that makes non-Nvidia chips easy to use is the main obstacle to challenging Nvidia; Amazon is paying heavily to remove it.",
+   "facts": [
+    "$7.5bn, per Bloomberg",
+    "Amazon acquires DOS technology and the founding team",
+    "Trainium to be sold to outside customers"
+   ],
+   "opinion": false,
+   "source": {
+    "name": "TechCrunch",
+    "url": "https://techcrunch.com/2026/11/23/amazon-snaps-up-decarts-ai-optimization-tech-for-7-5b-as-it-prepares-to-sell-trainium-chips/",
+    "date": "November 23, 2026"
+   },
+   "extra_sources": [
+    {
+     "name": "The Register",
+     "url": "https://www.theregister.com/ai-and-ml/2026/11/23/amazon-scoops-up-ai-accelerator-tech-to-keep-chips-busy-at-all-times/5311754"
+    }
+   ]
+  },
+  {
+   "id": "server-prices-45",
+   "section": "hardware",
+   "kicker": "Supply chain",
+   "suptitle": "Memory shortage",
+   "title": "Server makers raise prices up to 45% after contracts are signed as the memory shortage bites",
+   "standfirst": "Dell, Lenovo, Supermicro and HPE are reportedly demanding more at delivery; CPU nodes have tripled in price and SK Hynix now sees no relief before 2030.",
+   "body": [
+    "Server makers supplying AI data centres are raising prices by as much as 45% months after contracts were signed, Data Center Dynamics reports, citing the Financial Times. Dell, Lenovo, Supermicro and HPE are said to be demanding far higher prices at delivery than the contracted figures, hitting large buyers beyond the hyperscalers, such as financial trading firms.",
+    "The likely cause is the memory shortage. According to the FT’s sources, GPU server prices have risen by at least 20 to 30%, while CPU nodes have tripled. TrendForce says server DRAM contract prices jumped 64% in the second half of 2025 alone and could be up as much as 270% by the end of this year, with high-bandwidth memory for GPUs rising by 70–140%.",
+    "SK Hynix has pushed its projection for relief from 2028 to 2030. Some suppliers are softening the blow: HPE guarantees quotes under $1 million and has doubled quote validity from 15 to 30 days."
+   ],
+   "why": "AI’s appetite for memory is now raising the cost of all computing, and contracts no longer protect buyers.",
+   "facts": [
+    "Up to 45% price increases after contract signature",
+    "CPU nodes have tripled in price (FT sources)",
+    "SK Hynix: memory relief now expected in 2030"
+   ],
+   "opinion": false,
+   "source": {
+    "name": "Data Center Dynamics",
+    "url": "https://www.datacenterdynamics.com/en/news/ai-server-oems-hiking-prices-by-45-as-memory-shortage-bites-report/",
+    "date": "November 23, 2026"
+   }
+  },
+  {
+   "id": "owe-bench",
+   "section": "bench",
+   "kicker": "arXiv",
+   "suptitle": "Engineering agents",
+   "title": "Design an aircraft, find an earthquake’s faults: on 26 real engineering jobs, the best model scores 54.6%",
+   "standfirst": "OWE-Bench tasks consume hundreds of millions of tokens each. Every model did worse on hidden test cases than on the ones it could check, and overestimated itself by 21 points.",
+   "body": [
+    "OWE-Bench (OpenWorldEngineer-Bench), posted to arXiv on November 23 by a team including Jason Wei and Bertie Vidgen, contains 26 long-horizon engineering tasks written by domain experts in software, physical engineering, machine learning and scientific computing. They range from optimising kernels and designing an aircraft to identifying the faults responsible for an earthquake.",
+    "Solutions are scored on practical measures such as speed, cost and accuracy, both on cases the agent could test against and on hidden cases an engineer would expect from the description. The top model so far, Claude Fable 5.2, scores 54.6% and averages 211 million tokens per task.",
+    "Models scale differently with time: GPT-6 Astra scores higher at shorter time limits and equal token use, while Fable 5.2 spends more tokens at longer limits to reach the highest overall score.",
+    "The striking result is what the authors call the deployment gap. Every model scored lower on hidden cases than on the provided ones, by 18 points on average, and models overestimated their hidden-case performance by an average of 21 points."
+   ],
+   "why": "Agents that pass their own tests but fail the unseen ones—and do not know it—are exactly what makes autonomous engineering risky.",
+   "facts": [
+    "26 expert-written tasks",
+    "Best: Claude Fable 5.2, 54.6%, 211M tokens per task",
+    "Deployment gap: −18 points on hidden cases; self-estimates 21 points too high"
+   ],
+   "opinion": false,
+   "source": {
+    "name": "arXiv",
+    "url": "https://arxiv.org/abs/2611.30017",
+    "date": "November 23, 2026"
+   },
+   "brief": "OWE-Bench: agents overrate their engineering work by 21 points"
+  },
+  {
+   "id": "sudo-l7",
+   "section": "bench",
+   "kicker": "arXiv",
+   "suptitle": "Coding agents",
+   "title": "Can coding agents act like staff engineers? Only three models pass half the time",
+   "standfirst": "sudo L7 grades agents on what senior engineers do beyond passing tests: spotting unmentioned risks, questioning premises and reporting truthfully what they checked.",
+   "body": [
+    "sudo L7, a benchmark posted to arXiv on November 23 by a team including Edwin Chen, tests coding agents on 60 tasks written by staff-level engineers, mostly in private production codebases, each built around a place where a frontier model had failed. Every task pairs a realistic, underspecified request with a hidden expert rubric; there are 1,287 criteria in all.",
+    "An attempt passes only if it meets every criterion of the two highest severities, and more than half of those test something other than functional correctness, such as flagging hidden hazards, reusing what exists, avoiding needless work and truthful reporting. An agentic grader reads the transcript and runs the code.",
+    "On the leaderboard as of November 2026, Claude Fable 5.2 passes 52.2% of attempts, Claude Sonnet 5.5 50.6% and Claude Opus 5.5 46.1%. GPT-6.1 Sol, Claude Fable 5.1 and GPT-6 Astra pass 31–34%; the other 13 models at most 18.9%. Candidate model graders agreed with a software engineer on 85–86% of verdicts, about as often as two engineers agreed with each other."
+   ],
+   "why": "Passing tests is no longer the bar; this benchmark measures the judgment and honesty that decide whether agent code can be trusted without review.",
+   "facts": [
+    "60 tasks, 1,287 rubric criteria, 19 models",
+    "Top: Claude Fable 5.2 at 52.2%",
+    "One unsupported claim can fail an otherwise strong attempt"
+   ],
+   "opinion": false,
+   "source": {
+    "name": "arXiv",
+    "url": "https://arxiv.org/abs/2611.30517",
+    "date": "November 23, 2026"
+   }
+  },
+  {
+   "id": "astra-autoform-gap",
+   "section": "bench",
+   "kicker": "Vals AI",
+   "suptitle": "Formal maths",
+   "title": "Told it could not quit yet, GPT-6.2 Astra found a new route and formalised a 2006 theorem in Lean",
+   "standfirst": "On Vals AI’s Autoform-Hard, Astra produced the first known Lean proof of Smoktunowicz’s gap theorem, after the harness rejected its attempt to give up at 47 minutes.",
+   "body": [
+    "OpenAI’s GPT-6.2 Astra has produced a machine-checkable Lean proof of Agata Smoktunowicz’s 2006 gap theorem with no human help during the run, according to Vals AI, as reported by The Decoder. Vals says it is the first known Lean proof of the theorem, which states that when an algebraic system multiplies its basic building blocks, growth is either quite slow or very fast, with no middle ground.",
+    "Because key foundations of the original proof were missing from Mathlib, Astra took a different route from the published proofs, using a measure called “capacity” from existing research that tracks the minimum number of elements added per step.",
+    "The run is revealing. Astra tried to quit after 47 minutes and $8; the harness rejected the attempt because unsolved submissions are not accepted until $20 has been spent. After nine minutes with no code input while it searched for a new strategy, it delivered an 1,800-line proof at the 94-minute mark, for $21.58.",
+    "Autoform-Hard is a 56-task subset of Meta FAIR’s AutoformBench that ten models in Meta’s study had failed. Astra now leads with 49 solved, ahead of GPT-6.2 Sol and Claude Fable 5.2 at 48 each."
+   ],
+   "why": "A spending floor turned a give-up into a success, a reminder that benchmark scores depend on harness rules as much as on models.",
+   "facts": [
+    "1,800-line Lean proof in 94 minutes for $21.58",
+    "Leaderboard: Astra 49/56; Sol and Fable 5.2 at 48",
+    "First known Lean proof of the theorem, per Vals AI"
+   ],
+   "opinion": false,
+   "source": {
+    "name": "The Decoder",
+    "url": "https://the-decoder.com/gpt-6-2-astra-solved-a-math-theorem-no-other-ai-could-crack-then-invented-its-own-proof-strategy/",
+    "date": "November 23, 2026"
+   },
+   "image": null
+  },
+  {
+   "id": "vp-vnp-two-labs",
+   "section": "math",
+   "kicker": "Anthropic · OpenAI",
+   "suptitle": "Algebraic complexity",
+   "title": "Anthropic and OpenAI each post a proof that VP ≠ VNP, five hours apart",
+   "standfirst": "Both labs say an internal model settled Valiant’s algebraic version of P vs NP and released Lean proofs. Anthropic says no human mathematician has checked its proof; OpenAI says its result dates from November 6.",
+   "body": [
+    "For the second time in a month, Anthropic and OpenAI have published the same major result on the same day. At 20:04 UTC on November 23, Anthropic added a 70-page paper, “VP ≠ VNP over every field”, credited to “Claude”, to its formal-math GitHub repository with a Lean 4 formalization; it says the result “was discovered by an internal research Claude model.” About five hours later, at 01:20 UTC on November 24, OpenAI added a 30-page manuscript, “VP and VNP are different”, with Lean, to its github.com/openai/math collection. Its changelog says the result “was obtained on November 6, 2026.”",
+    "VP and VNP are Leslie Valiant’s algebraic counterparts of P and NP: VP contains polynomial families computable by polynomial-size arithmetic circuits, VNP allows summing over exponentially many Boolean inputs, and the permanent of a matrix is its canonical hard problem. Anthropic claims that circuits for the Hamiltonian cycle polynomial over every field, and for the permanent outside characteristic 2, need more than m^(c(log m)^(1/3)) gates, also for approximating circuits. OpenAI claims an explicit VNP family needs border circuits of size exp(Ω((log n)^(5/4))) over every field, with corollaries for the permanent and determinantal complexity.",
+    "Both papers draw the same line. “This does not settle P vs NP,” Anthropic’s README says: algebraic circuits must work for all field inputs, not just 0 and 1. OpenAI writes that its result is not “a separation for decision problems in the Boolean model.” Both bounds are only slightly superpolynomial; the best known upper bounds are exponential.",
+    "Verification is the open question. Anthropic’s paper states: “The proofs in this paper were found and written by AI. No human mathematician has checked the proofs.” Its Lean development builds using only Lean’s three standard axioms and is re-checked by a second, independent kernel, but the README warns that “no machine checks that this file says what is claimed.” OpenAI’s Lean statement covers exact circuits; its documentation says the stronger border bound is proved only in the paper, and its files do not say whether anyone at OpenAI checked the proof.",
+    "Emanuele Viola, a complexity theorist, called VP vs VNP “the most famous open problem in algebraic complexity” and noted that the human-readable part of Anthropic’s paper is “very short and mostly points to the Lean formalization.” His closing question: “What other conjectures will be solved this week?”"
+   ],
+   "why": "If the proofs hold, AI systems have resolved a 47-year-old flagship conjecture of complexity theory—twice, independently—and the bottleneck has fully moved to human checking.",
+   "facts": [
+    "Anthropic: 70 pages, posted 20:04 UTC Nov 23; bound 2^Ω((log m)^(4/3))",
+    "OpenAI: 30 pages, posted 01:20 UTC Nov 24; bound exp(Ω((log n)^(5/4))); “obtained on November 6”",
+    "Anthropic: “No human mathematician has checked the proofs”",
+    "Second same-day double after both labs’ ETH refutations on October 26"
+   ],
+   "opinion": false,
+   "source": {
+    "name": "Anthropic (GitHub)",
+    "url": "https://github.com/anthropics/formal-math/tree/main/vp-vnp",
+    "date": "November 23, 2026"
+   },
+   "extra_sources": [
+    {
+     "name": "OpenAI (GitHub)",
+     "url": "https://github.com/openai/math/blob/main/history.md"
+    },
+    {
+     "name": "Emanuele Viola (blog)",
+     "url": "https://emanueleviola.wordpress.com/2026/11/23/vp-vnp-i-do-not-complain-the-antelope-falls-with-the-arrow/"
+    },
+    {
+     "name": "Interesting Engineering",
+     "url": "https://interestingengineering.com/ai-robotics/claude-proves-vp-not-vnp-valiant-conjecture"
+    }
+   ],
+   "lead": true,
+   "image": {
+    "url": "https://cms.interestingengineering.com/wp-content/uploads/2026/11/Untitled-Design-19.jpg",
+    "credit": "INTERESTING ENGINEERING"
+   }
+  },
+  {
+   "id": "riemann-digest",
+   "section": "math",
+   "kicker": "Riemann Hypothesis",
+   "suptitle": "After the proof",
+   "title": "Mathematicians start decoding a 17-million-line Riemann proof that may be beyond any one person",
+   "standfirst": "More than 200 people are working through Alpöge’s Lean proof, using AI to turn it into readable pieces. The Clay Institute has moved the problem from “unsolved” to “active”.",
+   "body": [
+    "Since Anthropic researcher Levent Alpöge released his Lean proof of the Riemann Hypothesis, made with Claude, more than 200 people have been collaborating to verify and understand it, Wired reports. The Lean FRO and Mathlib said on Saturday they have “full confidence” the proof is sound. But the 250,000-page written version, which Alpöge called a “travesty of slop”, has not been released; on Monday he posted that the Lean proof “is full of garbage obviously” but “compiles”, and that the page count was a “joke”.",
+    "“Knowing there is a proof is one thing,” said Abhishek Saha of Queen Mary University of London, “but when we understand the proof, that would allow us to actually go beyond.” He found his own corner of number theory used in an “incredibly counterintuitive” argument and is using OpenAI’s Astra to turn sections into one-page posters. “It may well be that no single person has the expertise to understand in detail every part of the proof,” he said. On the platform Principia Math, more than 60 people using AI agents have translated over 3,000 pieces of the proof so far; its CEO, Anton Shakov, expects months of work.",
+    "The Register reports that the Clay Mathematics Institute has moved the Riemann Hypothesis from “unsolved” to “active” status. The prize requires publication in a qualifying outlet, two years of scrutiny and broad acceptance. A first side result already has a human write-up: Dingxin Zhang posted an arXiv exposition of the elementary proof of Weil II sketched in Alpöge’s footnote.",
+    "On the Computational Complexity blog, Lance Fortnow and Bill Gasarch ask in dialogue form why anyone should read proofs now. Fortnow: “If you have a conjecture for a related result, you could just ask ChatGPT to prove it for you based on the old proof.”"
+   ],
+   "why": "Verification has been settled faster than understanding; the field is improvising new collective, AI-assisted ways to read a proof no human wrote.",
+   "facts": [
+    "200+ collaborators; 3,000+ pieces translated on Principia Math",
+    "Clay status: “active”, not “solved”",
+    "Lean proof about 17 million lines"
+   ],
+   "opinion": false,
+   "source": {
+    "name": "Wired",
+    "url": "https://www.wired.com/story/ai-solved-maths-most-famous-problem/",
+    "date": "November 24, 2026"
+   },
+   "extra_sources": [
+    {
+     "name": "The Register",
+     "url": "https://www.theregister.com/ai-and-ml/2026/11/24/anthropic-says-claude-solved-an-age-old-math-problem-but-the-written-proof-is-250000-pages-of-slop/5311775"
+    },
+    {
+     "name": "arXiv (Zhang, Weil II)",
+     "url": "https://arxiv.org/abs/2611.30749"
+    },
+    {
+     "name": "Computational Complexity blog",
+     "url": "https://blog.computationalcomplexity.org/2026/11/why-read-proofs-anymore.html"
+    }
+   ],
+   "brief": "Riemann proof: 200+ people, AI translators and months of work to understand it",
+   "image": {
+    "url": "https://media.wired.com/photos/6b04a99395eb5d98cc1eb23a/191:100/w_1280,c_limit/112326-Riemann-hypothesis-ai.jpg",
+    "credit": "WIRED"
+   }
+  },
+  {
+   "id": "kaplansky-aupetit",
+   "section": "math",
+   "kicker": "Operator algebras",
+   "suptitle": "Conjecture settled",
+   "title": "Claude found the proof, GPT-6.1 generalised it: the Kaplansky–Aupetit conjecture falls for C*-algebras",
+   "standfirst": "Two mathematicians credit Claude Opus 5.5 with the original argument and OpenAI’s GPT-6.1 with extending it, in a rare two-model collaboration.",
+   "body": [
+    "Ilja Gogić and Bojan Kuzma have posted a proof of the Kaplansky–Aupetit conjecture whenever one of the two algebras involved is a C*-algebra. The conjecture asks whether every unital, invertibility-preserving linear surjection between suitable Banach algebras must be a Jordan homomorphism, a structure-preserving map.",
+    "Their paper proves it when A is a unital Banach algebra and B a unital C*-algebra, or when A is a unital C*-algebra and B a unital semisimple Banach algebra. It is enough, they show, for the map to preserve invertibility of products of two exponentials, or of single exponentials when both algebras are C*-algebras.",
+    "The abstract says how it was found: “Claude Opus 5.5 found the original proof when both A and B are C*-algebras by adapting a resolvent estimate from a recent preprint of Colbrook and Stepaniants, while OpenAI’s GPT-6.1 further generalized this to the case where only one algebra is a C*-algebra.”"
+   ],
+   "why": "Models from rival labs are now being used in sequence on the same problem, with credit split in the abstract.",
+   "facts": [
+    "Posted November 22",
+    "Original proof by Claude Opus 5.5; extension by GPT-6.1",
+    "Key input: a resolvent estimate from Colbrook and Stepaniants"
+   ],
+   "opinion": false,
+   "source": {
+    "name": "arXiv",
+    "url": "https://arxiv.org/abs/2611.29761",
+    "date": "November 22, 2026"
+   }
+  },
+  {
+   "id": "lotka-volterra-cycles",
+   "section": "math",
+   "kicker": "Dynamical systems",
+   "suptitle": "Conjecture proved",
+   "title": "Eight limit cycles where five were conjectured: a competition model gets a computer-assisted record with GPT-6 Astra’s help",
+   "standfirst": "Three researchers prove the Gyllenberg–Yan conjecture for three-species competitive Lotka–Volterra systems, and thank Astra for finding the way past earlier constructions.",
+   "body": [
+    "Gyllenberg and Yan conjectured that a three-dimensional competitive Lotka–Volterra system, a classic model of species competing for resources, can have at least five limit cycles. Haoyu Albert Wang, Yuxiu Shao and Wei P. Dai now prove it, constructing a strictly competitive system with eight distinct limit cycles coexisting near a single positive equilibrium.",
+    "For each m from 5 to 8 they build a weak focus of order m and find directions in parameter space that let them vary the relevant focus quantities independently, forcing a cycle between each pair of nested level curves; a final perturbation creates one more. Each count rests on a rigorous computer-assisted proof with an explicit rational interaction matrix, and the authors show both local counts are sharp.",
+    "The acknowledgment is specific: “We thank GPT-6 Astra for helping us compare earlier constructions, identify the main obstacle to extending them, and develop the present approach.”"
+   ],
+   "why": "A concrete example of the most common AI role in research maths right now: diagnosing why earlier approaches stall.",
+   "facts": [
+    "Conjecture: at least 5 limit cycles; proof: 8",
+    "Rigorous computer-assisted verification for m = 5–8",
+    "Astra credited with identifying the main obstacle"
+   ],
+   "opinion": false,
+   "source": {
+    "name": "arXiv",
+    "url": "https://arxiv.org/abs/2611.29524",
+    "date": "November 22, 2026"
+   }
+  },
+  {
+   "id": "rsa-2048-astra",
+   "section": "physics",
+   "kicker": "Quantum computing",
+   "suptitle": "Shor’s algorithm",
+   "title": "GPT-6 Astra helps push the quantum cost of breaking RSA-2048 below one billion Toffoli gates",
+   "standfirst": "An LLM-driven search redesigned the arithmetic in Shor’s algorithm, cutting expected Toffoli counts by up to 78.6% against Gidney’s 2025 baseline. The authors checked every result themselves.",
+   "body": [
+    "Factoring a 2048-bit RSA key with Shor’s algorithm is dominated by the cost of modular exponentiation. Recent designs based on approximate residue number systems sharply cut the number of logical qubits but still needed billions of Toffoli gates. A paper posted on November 23 by Xiaodi Li and five co-authors says an LLM-driven search has brought RSA-2048 factoring below one billion Toffolis for the first time.",
+    "The team used the language model to redesign the residue-number pipeline across its tightly coupled stages, then built a deterministic compiler that produces a frontier of RSA-2048 circuits. Rare overflows in compressed registers, too infrequent for random simulation to catch, are bounded analytically, and gate sequences are verified across all the primes involved on representative circuits.",
+    "Against Craig Gidney’s 2025 baseline under matched accounting, the frontier cuts the minimum qubit-Toffoli product by 70.1% and expected Toffoli counts by up to 78.6%.",
+    "The AI-use disclosure is explicit: “The main algorithmic and circuit-compilation improvements in this work were generated using GPT-6 Astra.” Researchers froze the objective and verification checks outside the model’s reach, and the authors say they independently checked every proof, circuit and verification run."
+   ],
+   "why": "Each drop in the cost of Shor’s algorithm brings forward the date a quantum computer could break today’s encryption—and here the improvement came from a language model.",
+   "facts": [
+    "First RSA-2048 circuits below 1 billion Toffolis",
+    "−70.1% qubit-Toffoli product; up to −78.6% Toffolis vs Gidney 2025",
+    "Improvements “generated using GPT-6 Astra”"
+   ],
+   "opinion": false,
+   "source": {
+    "name": "arXiv",
+    "url": "https://arxiv.org/abs/2611.31158",
+    "date": "November 23, 2026"
+   },
+   "featured": true
+  },
+  {
+   "id": "wrf-fire-bit-for-bit",
+   "section": "physics",
+   "kicker": "Weather & wildfire",
+   "suptitle": "Scientific code",
+   "title": "AI coding agents rebuilt a weather-and-fire model in PyTorch, and it matches the Fortran bit for bit",
+   "standfirst": "NCAR researchers had a dozen model families rewrite the coupled WRF-Fire code. Over 12 simulated hours of the Marshall Fire, the two codes agree exactly at all 365 checkpoints.",
+   "body": [
+    "Instead of replacing a physical weather model with a learned one, a team led by John S. Schreck and David John Gagne had AI coding agents rebuild the model itself. Their WRF-Speed is a PyTorch reconstruction of selected configurations of the Weather Research and Forecasting model and its coupled fire physics, posted to arXiv on November 23.",
+    "The rule was strict: any difference from the Fortran, however small, was treated as a bug until a controlled test showed otherwise. Across twelve hours of a Marshall Fire simulation, the two independently advancing codes agree bit for bit at all 365 checkpoints, in the atmosphere, the fire and the firebrand particles. A separate fast route runs about five times faster on one GPU than the double-precision Fortran on a 128-core CPU node.",
+    "Because the rebuilt model is differentiable, one backward pass maps the fire’s sensitivity to the wind at every grid point. The comparison also caught a real error: a radiation routine passed its own tests even though the surrounding code delivered too little heating to the atmosphere, which only the assembled-model comparison exposed.",
+    "The paper lists the agents used: Claude, Codex, GLM, Kimi, Grok, Gemini, Gemma, DeepSeek and Qwen models."
+   ],
+   "why": "Exact, verifiable translation of legacy physics code could open decades of Fortran models to GPUs and gradient-based tools without trusting a black box.",
+   "facts": [
+    "365/365 checkpoints identical over 12 hours",
+    "About 5× faster on one GPU than on a 128-core CPU node (fast route)",
+    "Built with agents from at least nine model families"
+   ],
+   "opinion": false,
+   "source": {
+    "name": "arXiv",
+    "url": "https://arxiv.org/abs/2611.30866",
+    "date": "November 23, 2026"
+   }
+  },
+  {
+   "id": "qlaybot-quantum-devices",
+   "section": "physics",
+   "kicker": "Condensed matter",
+   "suptitle": "Lab automation",
+   "title": "An agent harness designs 2D quantum-device layouts from microscope images, passing 81.5% of tasks",
+   "standfirst": "With a harness modelled on how physicists work, agents went from 24.1% to 81.5% on a new benchmark for drawing lithography layouts on irregular exfoliated crystals.",
+   "body": [
+    "High-quality two-dimensional quantum devices are usually made from mechanically exfoliated crystals whose irregular shapes need a lithographic layout tailored to each sample, a job still done largely by hand. A team including Pablo Jarillo-Herrero and Eli Zeldov has posted qlaybench, a benchmark testing whether language-model agents can turn microscope images and experimental requirements into layouts that fit the specimen.",
+    "Agents with conventional tools often built devices when given material outlines, but struggled to identify those outlines from images. The authors’ harness, qlaybot, links image interpretation to tools for aligning images, drawing device features and inspecting the result, mirroring the human workflow.",
+    "Layouts are judged by checks drawn from practical design experience. With greater computational effort, an agent using qlaybot passed 81.5% of tasks, against 24.1% with conventional tools."
+   ],
+   "why": "Tooling that connects scientific interpretation to geometry, not raw model power, made the difference.",
+   "facts": [
+    "81.5% with qlaybot vs 24.1% with conventional tools",
+    "Inputs: microscope images plus experimental requirements",
+    "Posted November 23"
+   ],
+   "opinion": false,
+   "source": {
+    "name": "arXiv",
+    "url": "https://arxiv.org/abs/2611.30043",
+    "date": "November 23, 2026"
+   }
+  },
+  {
+   "id": "casper-quantum-chemistry",
+   "section": "science",
+   "kicker": "Chemistry",
+   "suptitle": "Agentic workflows",
+   "title": "An agentic chemist caught electronic-structure errors that a plain Claude session missed",
+   "standfirst": "CASPER, from Laura Gagliardi’s group, automates multireference calculations along reaction paths, and spotted a state crossing and a wrongly excluded orbital.",
+   "body": [
+    "Reactions involving strongly correlated electrons, common with transition metals, need multireference methods whose setup depends on expert choices of an “active space” of orbitals, choices that are hard to automate as bonds form and break. A team led by Laura Gagliardi has introduced CASPER, an agentic workflow that performs these calculations along reaction pathways.",
+    "CASPER combines chemical knowledge, electronic-structure calculations and iterative self-assessment to choose meaningful active spaces and keep them consistent along the path. On five transition-metal reactions it produced consistent multireference energy profiles with minimal human intervention.",
+    "In two reactions, it found critical problems that an independent Claude session, working without the structured workflow, failed to recognise: an electronic-state crossing, and the exclusion of an orbital involved in bond breaking. The authors stress combining language models with chemical knowledge and independent checks of computed results."
+   ],
+   "why": "Errors like these silently corrupt computed reaction energies; structure around the model, not the model alone, caught them.",
+   "facts": [
+    "5 transition-metal reactions tested",
+    "Caught 2 problems a standalone Claude session missed",
+    "Posted November 23"
+   ],
+   "opinion": false,
+   "source": {
+    "name": "arXiv",
+    "url": "https://arxiv.org/abs/2611.29902",
+    "date": "November 23, 2026"
+   },
+   "brief": "Agentic chemistry workflow catches errors a plain Claude session missed"
+  },
+  {
+   "id": "superconductor-db-audit",
+   "section": "science",
+   "kicker": "Materials",
+   "suptitle": "Data from literature",
+   "title": "An LLM read the superconductor literature; strict checks threw out almost all its 660,000 extractions",
+   "standfirst": "Demanding verbatim evidence for every value shrank 19,576 proposed records to 3,137, and an audit found 93.4% of survivors correct and tied to the right compound.",
+   "body": [
+    "Superconductor data are scattered across papers in prose, tables and figures, and language models can now read them at scale. Wenjian Lu’s paper focuses on trust: a number lifted from a sentence can belong to a neighbouring compound, a computed transition temperature can be recorded as measured, and the paper itself may be wrong.",
+    "The pipeline proposed 19,576 records. A cascade of gates rejected 659,252 field-level extractions: 644,438 for lack of verbatim evidence, 13,121 because the text did not attach the value to the material, and 1,693 because the source sentence read as a calculation. The surviving database holds 3,137 material records, each with the sentence its value came from.",
+    "An audit of 500 survivors by two independent models found that in 93.4% the value is in the text and refers to the named compound, and 91.8% are measurements rather than predictions."
+   ],
+   "why": "AI-built scientific databases are proliferating; this shows how many extractions fail a simple evidence test.",
+   "facts": [
+    "19,576 proposed → 3,137 kept",
+    "644,438 extractions rejected for lack of verbatim evidence",
+    "93.4% of audited records correct"
+   ],
+   "opinion": false,
+   "source": {
+    "name": "arXiv",
+    "url": "https://arxiv.org/abs/2611.29445",
+    "date": "November 22, 2026"
+   }
+  },
+  {
+   "id": "rumifold",
+   "section": "science",
+   "kicker": "Biology",
+   "suptitle": "Protein models",
+   "title": "RumiFold teaches a chat model to fold proteins in its own hidden states, then explain their function",
+   "standfirst": "David Bau’s group trained a general language model to predict protein structure internally; folding pretraining organised its representations around function.",
+   "body": [
+    "Can a general-purpose language model learn to fold proteins? Kevin Lu, David Bau and Wengong Jin introduce RumiFold, a pretrained chat model that predicts protein structures directly from its own hidden states, through repeated folding passes, and then uses the folded representations to answer questions in natural language.",
+    "It achieves folding accuracy comparable to dedicated single-representation models such as SimpleFold, with state-of-the-art results on Gene Ontology function prediction and free-text function description.",
+    "The authors find that folding pretraining organises the hidden states around protein function, creating an internal per-residue “workspace” that is biologically grounded; causal interventions show this workspace links structure and language when the model predicts function. Code, data and models are public."
+   ],
+   "why": "Merging structure prediction into a chat model points toward one system that can reason about proteins in both sequence and words.",
+   "facts": [
+    "Folding accuracy comparable to SimpleFold",
+    "State of the art on Gene Ontology function prediction",
+    "Code, data and models released"
+   ],
+   "opinion": false,
+   "source": {
+    "name": "arXiv",
+    "url": "https://arxiv.org/abs/2611.29444",
+    "date": "November 22, 2026"
+   }
+  }
+ ],
+ "dossiers": [
+  {
+   "id": "openai-math",
+   "section": "math",
+   "title": "OpenAI's 722-manuscript maths dump: what holds up?",
+   "status": "new",
+   "update": "New: on the evening of November 23 (US time), OpenAI added a 30-page manuscript, “VP and VNP are different”, with a Lean proof to github.com/openai/math, its first addition since October 26. The changelog says the result “was obtained on November 6, 2026”, and the collection now lists 722 manuscripts in 374 families. Anthropic had posted its own Claude-written VP ≠ VNP proof about five hours earlier (see today’s lead). No withdrawals or revisions this time; the oai-math-revised hub still has merged nothing since November 9.",
+   "background": [
+    "What it is: On October 6, 2026, OpenAI published \"Sharing AI progress in mathematics\" and a GitHub repository (github.com/openai/math). It holds 722 manuscripts in 372 result families, produced by an unreleased internal model that was tried on about 4,000 problems and averaged roughly three hours per result. The release was coordinated with the IAS-hosted Advisory Group on Mathematics and AI (members include Terence Tao, Timothy Gowers, Martin Hairer and Edward Witten).",
+    "Note: could not verify a single \"~700-page\" OpenAI paper. The story that matches is this release of 700+ papers, whose longest documents run to a few hundred pages: the 7/8 quasi-Riemann manuscript is 199 pages, and the Navier–Stokes paper is reportedly 166 pages (unconfirmed). The manuscripts list no individual human authors.",
+    "Contested: Tao (The Observer) and Buckmaster (on Tao's blog) both describe a roughly 10,000-agent effort on Navier–Stokes; OpenAI disputes Tao's account of the spending and the suspended sign-ups, and the \"three hours per result\" figure is said by Buckmaster to exclude failed attempts. None of this could be independently verified. A separate citation analysis by Hüseyin Uğur Yıldız finds 390 of the 722 manuscripts cite at least one OpenAI-authored work. On the Cheeky Pint podcast (October 29), Sam Altman himself estimated that OpenAI had spent \"in the order of hundreds of millions of dollars\" on mathematical problems, including around $10 million, \"maybe a little more\", on Navier–Stokes (as reported by The Verge). This could not be independently verified.",
+    "October 26 claims: OpenAI says the ETH disproof was found October 16 and formalised the next day, and the local smoothing proof was generated October 18 and formalised a day later. The October 26 changelog gives no updated formalisation total (it was 300/719, about 42%, on October 7).",
+    "ETH, two claims: OpenAI and Anthropic each say an internal model refuted the Exponential Time Hypothesis on October 16; the commits landed about six hours apart on October 26 (Eastern). Anthropic's bound is 2^O(n log log n/√log n), checked by Comparator and the independent nanoda kernel. Anthropic's Levent Alpöge suggested that OpenAI had built on existing work. No Lean-checked details of OpenAI's runtime beyond its changelog wording could be verified. Since then, Kintali and O'Donnell have published simpler human-readable versions; O'Donnell's bound is one log log n factor weaker than OpenAI's. Fortnow notes the result does not help with Subset Sum or the Travelling Salesman problem.",
+    "New estimate, not verified: the UK Academy for the Mathematical Sciences' October 28 report estimates the forced Navier–Stokes run at about 10,000 agents, 88 hours and 130 billion output tokens (about £5 million at list prices), and counts 719 manuscripts, 300 of them formalised. These are the authors' estimates; OpenAI has not published compute figures.",
+    "New, not verified: at ADIPEC on November 2, Altman said the Navier–Stokes model is \"the next GPT\", \"going to be released soon\", run as 10,000 agents for about four days. This matches the ~10,000-agent accounts from Tao, Buckmaster and the AcadMathSci report. The quote comes from the event video as relayed on X; no mainstream transcript was found. The New Yorker (November 1) reports Buckmaster's account that OpenAI's Sébastien Bubeck offered him authorship of the Navier–Stokes paper if he excluded Alpöge. That is his account, not verified. The New Yorker also counts \"an initial group of twenty-five Fields medallists\" on the September open letter, against 28 signatories in other reports (probably the later total).",
+    "Human re-derivations keep arriving. Lei and Ren's two-part exposition of OpenAI's Navier–Stokes finite-time blowup with smooth forcing (Part I, arXiv 2609.35406; Part II, arXiv 2611.06869, 105 pages) claims no new mathematics and aims to make the proof readable. It is not a verdict on whether the proof is correct. Cárdenes Wuttig and Tindall's MUB paper (arXiv 2611.06917) reaches OpenAI's dimension-six result by a different route, through the connectedness of order-six complex Hadamard matrices and an interval-arithmetic covering. It is the first full classification in a non-prime-power dimension.",
+    "Unverified: the ETH review group's comment threads now include many self-described AI-produced or AI-assisted claims. Among them: Gheorghiu–Gupte quantum-circuit sampling (with ChatGPT Astra); Weitnauer's noncommutative circuit bounds (Codex and Claude); Toledo's Lean bridges, which take Anthropic's machine model, and OpenAI's via Daniel Hawkley's bridge theorems, to cslib's multitape Turing machine; and Yann Tal's (Tel Aviv) claim, produced with \"ChatGPT 6 Pro\", that the Wilson quotient mod p can be computed in time 2^O(log p/√log log p) using OpenAI's tensor-contraction theorem. None has been refereed. There is also one off-topic \"Relational Geometry Program\" request for review.",
+    "The Moshkovitz talk \"The Unique Games Conjecture – Proved (!!?)\" took place at UT Austin on November 4. According to Aaronson, it was a three-hour public lecture with \"nearly 200 people\" in person or on Zoom, based on her joint study of OpenAI's proof with Khot, Håstad and Minzer. The video will be posted \"as soon as we can manage it\". No account of what she concluded had been published as of November 6.",
+    "Caveat on reuse: TCSExam (Moonshot AI/Tsinghua, November 5) found that agents with internet access fetched OpenAI's published Ryser and MIRUP counterexamples and adapted them to the benchmark. Benchmarks of open problems may now be contaminated by the release. Separately, Dan Margalit told Axios (November 4) that \"a number\" of the released papers face retraction; the public changelog still records only the three October 7 withdrawals.",
+    "New context (November 6–8): outside OpenAI's release, AI-found results keep landing. Physical Superintelligence announced a Lean-checked proof of the Aaronson–Ambainis conjecture found by a system running a non-public Anthropic model, and Aaronson says he believes it. Hofscheier and Nill's counterexamples are among the first published results to state openly that the model built on one of OpenAI's released manuscripts.",
+    "Review friction (November 9): the oai-math-revised hub is now arguing over what it can accept. Its maintainers reverted a 94,000-line Lean contribution for the BFSS manuscript because no one could realistically review it, while keeping smaller, checkable notes. The episode shows the same verification bottleneck that OpenAI's release created, now one level down.",
+    "New context (November 16): Turing Agent’s claim of completing three previously unformalised OpenAI TCS results is the authors’ own; the Lean code and whether it matches OpenAI’s original statements have not been independently checked here. Semantic review in the paper used GPT-6.1 Sol as a judge.",
+    "New context (November 21–22): the verification statement is from the Lean FRO and the Mathlib Initiative as quoted by The Guardian and The Decoder; their own statement and Andrew Sutherland’s list of independent checks were not read directly here. The Decoder calls Alpöge a Stanford mathematician; The Guardian and his earlier essay describe him as working at Anthropic.",
+    "New (November 23–24): OpenAI’s VP ≠ VNP manuscript is item 379 in CONTENTS.md. Its Lean Comparator challenge states exact VP ≠ VNP over every field with the three standard axioms; the Lean documentation says the stronger border-circuit bound exp(Ω((log n)^(5/4))) is proved only in the paper. The files do not say whether anyone at OpenAI checked the proof. Anthropic’s competing 70-page paper states that no human mathematician has checked it. Which lab found the result first cannot be verified: OpenAI dates its result November 6, but Anthropic published first."
+   ],
+   "timeline": [
+    {
+     "date": "Sep 8",
+     "text": "OpenAI claims a Navier–Stokes result with a smooth external force; Tristan Buckmaster alleges his work had leaked to OpenAI beforehand",
+     "url": "https://fortune.com/2026/09/08/openai-says-it-cracked-navier-stokes-math-grand-challenge-buckmaster-accusation-cheating-intimidation-tao-lament"
+    },
+    {
+     "date": "Sep 21",
+     "text": "OpenAI says its internal model resolved more than 100 open problems and announces the advisory group",
+     "url": "https://en.wikipedia.org/wiki/OpenAI_bulk_release_of_mathematical_papers"
+    },
+    {
+     "date": "Oct 6",
+     "text": "722 manuscripts posted to GitHub; OpenAI concedes unformalised papers may contain errors",
+     "url": "https://community.openai.com/t/first-look-at-mathematics-manuscripts-from-an-internal-frontier-model-at-openai/1403886"
+    },
+    {
+     "date": "Oct 7–8",
+     "text": "Three Hodge-conjecture-related papers withdrawn over a sign error and 14 revised; Cornell's Alex Townsend says the Lean-verified ones should have come first",
+     "url": "https://retractionwatch.com/2026/10/08/openai-withdraws-preprints-722-manuscripts-unsolved-math-problems/"
+    },
+    {
+     "date": "Oct 9",
+     "text": "Quanta: about half the manuscripts have Lean proofs, but some formalisations prove weaker statements than the papers claim",
+     "url": "https://www.quantamagazine.org/updates/transformation/#167798"
+    },
+    {
+     "date": "Oct 12",
+     "text": "Fields medallist Hugo Duminil-Copin to Le Monde: \"They have annihilated my field of research\"",
+     "url": "https://www.lemonde.fr/en/science/article/2026/10/12/openai-s-latest-blow-to-mathematicians-they-have-annihilated-my-field-of-research_6758515_10.html"
+    },
+    {
+     "date": "Oct 19",
+     "text": "Quanta: experts largely accept the quasi-Riemann result; Tao posts a sketch of a proof of the non-existence of Siegel zeros",
+     "url": "https://www.quantamagazine.org/ai-proved-the-quasi-riemann-hypothesis-what-happens-now-20261019/"
+    },
+    {
+     "date": "Oct 19",
+     "text": "Six probability and statistics journals, including Bernoulli and SPA, pause new submissions until November 8, citing an AI-driven surge",
+     "url": "https://www.edpsciences.org/en/news-highlights/3058-esaim-probability-and-statistics-takes-action-to-address-increasing-manuscript-submissions"
+    },
+    {
+     "date": "Oct 20",
+     "text": "Tao launches an AI challenge on tenth-discriminant bounds; commenters use OpenAI's 7/8 half-plane to reach d ≤ 653 (conditional)",
+     "url": "https://terrytao.wordpress.com/2026/10/20/an-experimental-ai-math-challenge-using-tenth-discriminant-bounds-to-explore-arguments-ruling-out-siegel-zeroes/"
+    },
+    {
+     "date": "Oct 21",
+     "text": "NPR: Lean translation error found by Anders Hansen; Dana Moshkovitz says a Unique Games result \"looks right\"; $5M each from Anthropic and OpenAI for evaluation",
+     "url": "https://iowapublicradio.org/news-from-npr/2026-10-21/ai-is-shaking-up-the-field-of-mathematics-but-what-comes-next"
+    },
+    {
+     "date": "Oct 21",
+     "text": "Buckmaster guest post on Tao's blog, \"Mathematics is a subject for the young\": \"Chess did not end in 1997. Mathematics will not end in 2026.\"",
+     "url": "https://terrytao.wordpress.com/2026/10/21/mathematics-is-a-subject-for-the-young/"
+    },
+    {
+     "date": "Oct 22",
+     "text": "Quanta: OpenAI abruptly drops its sponsorship of Caltech's AI Mathathon, which is refocused on new proofs of known results",
+     "url": "https://www.quantamagazine.org/update/168181/"
+    },
+    {
+     "date": "Oct 20–22",
+     "text": "New Scientist: more than 1,000 mathematicians join the Association for Human Mathematics, pledging to shun AI companies; 654 in its AI-free caucus",
+     "url": "https://www.newscientist.com/article/2593621-a-thousand-human-mathematicians-pledge-to-shun-ai-in-their-research/"
+    },
+    {
+     "date": "Oct 22",
+     "text": "Lekili and Sheridan's preprint \"Rigidity, flexibility, and a sign error\" explains why the withdrawn Hodge papers' key construction is generally obstructed",
+     "url": "https://arxiv.org/abs/2610.30976"
+    },
+    {
+     "date": "Oct 23",
+     "text": "Tao to The Observer: the release is \"toxic waste\" from a \"code red\" race with Anthropic (10,000 agents, sign-ups suspended); OpenAI denies parts of the account",
+     "url": "https://observer.co.uk/news/science-technology/article/terence-tao-ai-race-turns-beautiful-mathematics-into-toxic-waste"
+    },
+    {
+     "date": "Oct 24",
+     "text": "Guest post on Tao's blog launches oai-math-revised, a community hub to revise OpenAI's write-ups; commenters split over doing unpaid work for OpenAI",
+     "url": "https://terrytao.wordpress.com/2026/10/24/oai-math-revised-a-community-hub-for-revising-openais-math-write-ups/"
+    },
+    {
+     "date": "Oct 26",
+     "text": "Changelog's first new entry since October 7: Lean-formalised ETH disproof and all-dimension local smoothing (implying Kakeya) added; Lean proof for the CM Hodge paper; MUB source code restored",
+     "url": "https://github.com/openai/math/blob/main/history.md"
+    },
+    {
+     "date": "Oct 26",
+     "text": "Impagliazzo, Paturi and Williams agree to review the ETH claim, unpaid and with no NDA: \"Our involvement should not be taken as certification of the claim\"; OpenAI agrees to release raw data and fund a conference",
+     "url": "https://thenextweb.com/news/openai-exponential-time-hypothesis-false-kakeya-yang-mills"
+    },
+    {
+     "date": "Oct 26",
+     "text": "Aaronson: \"a foot-high fence has been breached\"; raises his P=NP odds from 3% to 5%",
+     "url": "https://scottaaronson.blog/?p=10239"
+    },
+    {
+     "date": "Oct 26",
+     "text": "ETH examination blog goes live with the Impagliazzo–Paturi–Williams letter; virtual meeting proposed before end of 2026",
+     "url": "https://ethdiscussion.blog/2026/10/26/eth-refutation-examination-and-discussion/"
+    },
+    {
+     "date": "Oct 26",
+     "text": "Anthropic publishes Claude's independent, Lean-verified ETH refutation, six hours after OpenAI",
+     "url": "https://github.com/anthropics/formal-math/tree/main/eth"
+    },
+    {
+     "date": "Oct 27",
+     "text": "Williams to TechCrunch: \"two or three alien-looking parts\"; OpenAI says it checked for cryptography breaks and is \"reasonably confident\" there are none",
+     "url": "https://techcrunch.com/2026/10/27/frontier-ai-labs-say-their-models-refuted-the-exponential-time-hypothesis-what-does-that-mean/"
+    },
+    {
+     "date": "Oct 27",
+     "text": "oai-math-revised community run of OpenAI's checking tool: 414 of 416 Lean challenges accepted, 2 unfinished, 0 rejected (9 accepted under a weaker check)",
+     "url": "https://github.com/mathcommunity/oai-math-revised/pull/52"
+    },
+    {
+     "date": "Oct 26",
+     "text": "Shiva Kintali posts \"A simplified proof of ETH is false\", a 22-page exposition of OpenAI's argument",
+     "url": "https://shivakintali.github.io/papers/ETH.pdf"
+    },
+    {
+     "date": "Oct 28",
+     "text": "Ryan O'Donnell recasts the result as a sparse-permanent algorithm, \"produced through interaction with LLMs\"",
+     "url": "https://www.cs.cmu.edu/~odonnell/some_eth_false_exposition.pdf"
+    },
+    {
+     "date": "Oct 28",
+     "text": "Lance Fortnow: \"it is safe to assume now that the exponential-time hypothesis is toast\"",
+     "url": "https://blog.computationalcomplexity.org/2026/10/the-exponential-time-refutation.html"
+    },
+    {
+     "date": "Oct 28–29",
+     "text": "oai-math-revised volunteers add an executable toy model of the ETH algorithm (PR #60) and an independent rebuild of its 3,977 Lean modules (PR #62)",
+     "url": "https://github.com/mathcommunity/oai-math-revised/pull/62"
+    },
+    {
+     "date": "Oct 29",
+     "text": "Third changelog entry: \"Formalization Fix\" aligns diverging namespaces in the CM Hodge Comparator challenge and solution",
+     "url": "https://github.com/openai/math/blob/main/history.md"
+    },
+    {
+     "date": "Oct 29",
+     "text": "ETH examination blog posts a reading list: Mark Sellke's slides on the OpenAI proof, O'Donnell's rewrite, Kintali's exposition; still no meeting date",
+     "url": "https://ethdiscussion.blog/2026/10/29/links-to-other-work/"
+    },
+    {
+     "date": "Oct 29",
+     "text": "oai-math-revised merges PR #60, an executable toy model of the ETH algorithm checked against brute force (n ≤ 14); \"No error in the manuscript is asserted\"",
+     "url": "https://github.com/mathcommunity/oai-math-revised/pull/60"
+    },
+    {
+     "date": "Oct 30",
+     "text": "AFP: Impagliazzo \"would have much preferred\" a human discovery; Paturi surprised; Williams \"felt vindicated\"",
+     "url": "https://kuwaittimes.com/article/52682/world/shock-vindication-regret-scientists-react-as-ai-claims-to-overturn-their-lifes-work/"
+    },
+    {
+     "date": "Oct 30",
+     "text": "oai-math-revised merges PR #59: the four direct Unique Games hardness papers now note how their results also follow from the companion \"Unique Games Theorem\", as suggested by Kunal Relia",
+     "url": "https://github.com/mathcommunity/oai-math-revised/pull/59"
+    },
+    {
+     "date": "Oct 30",
+     "text": "ETH review group opens a \"Lean Replications\" thread for people who have compiled the proofs locally: \"a bit of a new practice for TCS\"",
+     "url": "https://ethdiscussion.blog/2026/10/30/lean-replications/"
+    },
+    {
+     "date": "Oct 28",
+     "text": "Tao on Science Friday: AI proofs have \"all the outward markings of an achievement, but none of the substance\"; \"nobody at OpenAI I can call\"",
+     "url": "https://www.sciencefriday.com/segments/terence-tao-ai-math-solutions/"
+    },
+    {
+     "date": "Oct 28",
+     "text": "UK Academy for the Mathematical Sciences report: OpenAI's open-problem campaign succeeded about one time in ten; Navier–Stokes run estimated at ~130 billion output tokens, ~£5M; arXiv maths submissions +75%",
+     "url": "https://acadmathsci.org.uk/the-mathematical-sciences-in-an-ai-enabled-world-acadmathsci-shares-new-preprint/"
+    },
+    {
+     "date": "Oct 30–31",
+     "text": "oai-math-revised trims its ETH notes to the agreed format (PR #68); the independent Lean rebuild (PR #62) is cut to two lines and stays open; PR #70 analyses the quasi-Riemann Lean parameters",
+     "url": "https://github.com/mathcommunity/oai-math-revised/pull/62"
+    },
+    {
+     "date": "Oct 31",
+     "text": "Tao shares the Academy report on his blog: \"human expertise will be crucial to direct advances\"",
+     "url": "https://terrytao.wordpress.com/2026/10/31/the-mathematical-sciences-in-an-ai-enabled-world/"
+    },
+    {
+     "date": "Oct 28–29",
+     "text": "Bochum and MPI-SP cryptographers show that, if OpenAI's tensor-contraction theorem holds, elliptic-curve discrete logs can be computed in subexponential time; no effect on deployed curves",
+     "url": "https://github.com/bochum-crypto/subexponential-ecdl/blob/main/subexponential-ecdl.pdf"
+    },
+    {
+     "date": "Oct 29",
+     "text": "Quanta compares the three ways OpenAI's October 26 results were released, and points to Alpöge and Sussman's public Claude-based Yang–Mills work",
+     "url": "https://www.quantamagazine.org/update/168483/"
+    },
+    {
+     "date": "Oct 30",
+     "text": "Altman on the Cheeky Pint podcast (via The Verge): \"hundreds of millions\" spent on maths, about $10M on Navier–Stokes; more unreleased results: \"We do. Of course.\"",
+     "url": "https://www.theverge.com/ai-artificial-intelligence/1023054/altman-cheeky-pint-ai-math-interview"
+    },
+    {
+     "date": "Oct 30",
+     "text": "Majdoddin (arXiv, written with Claude) puts the crossover point of Anthropic's #3-SAT algorithm at about 2^420 clauses, and OpenAI's at about 2^(4.4·10^10)",
+     "url": "https://arxiv.org/abs/2610.41622"
+    },
+    {
+     "date": "Nov 1",
+     "text": "ETH review group invites announcements of results that follow from the refutation; Aparna Gupte posts a spreadsheet of cryptographic consequences",
+     "url": "https://ethdiscussion.blog/2026/11/01/announce-your-results/"
+    },
+    {
+     "date": "Nov 1",
+     "text": "Frank Calegari, guest post on Tao's blog: the papers are \"atrociously written\" and \"some of them are even wrong\", but mathematicians should evaluate all work as if AI-assisted",
+     "url": "https://terrytao.wordpress.com/2026/11/01/mathematics-has-changed-lets-act-like-it/"
+    },
+    {
+     "date": "Nov 1",
+     "text": "Bill Gasarch: \"three of my favorite hardness assumptions had a bad month\" (3SUM, APSP, ETH)",
+     "url": "https://blog.computationalcomplexity.org/2026/11/3sum-and-apsp-and-eth-oh-my.html"
+    },
+    {
+     "date": "Oct 31",
+     "text": "Dias and Lima: with the constants extracted from its proof, OpenAI's algorithm certifies no speed-up over brute force on bounded-density inputs unless log2(n+m) exceeds 10^9",
+     "url": "https://arxiv.org/abs/2611.00517"
+    },
+    {
+     "date": "Nov 1",
+     "text": "The New Yorker's Tao profile, \"The Year Math Changed Forever\": Fefferman on OpenAI's Navier–Stokes proof, \"I think it's probably correct\"; Williamson likens one unexplained release to \"Roundup being sprayed on a garden\"",
+     "url": "https://www.newyorker.com/magazine/2026/11/09/the-year-math-changed-forever"
+    },
+    {
+     "date": "Nov 2",
+     "text": "Altman at ADIPEC in Abu Dhabi: the Navier–Stokes proof came from \"10,000 agents of the model that is going to be released soon, the next GPT\" (event video, via X)",
+     "url": "https://x.com/deredleritt3r/status/2117255388353663125"
+    },
+    {
+     "date": "Nov 1–2",
+     "text": "Human expositions of OpenAI proofs reach arXiv: Harary–Hill (Salazar), Erdős similarity (Iosevich–Yavicoli), Deligne–Drinfeld (Markarian), log abundance (Cao–Păun)",
+     "url": "https://arxiv.org/abs/2611.03515"
+    },
+    {
+     "date": "Nov 2",
+     "text": "MIT Hardness Group, \"ETH is Dead, Long Live SH\": the 1990 Satisfiability Hypothesis survives, is equivalent to Weak ETH, and preserves most reduction-based lower bounds",
+     "url": "https://arxiv.org/abs/2611.02650"
+    },
+    {
+     "date": "Nov 2",
+     "text": "Guest post on Tao's blog, \"Egoless Mathematics in the AI Era\" (Karthik C. S., Sahai, Xue), the third such essay in a row",
+     "url": "https://terrytao.wordpress.com/2026/11/02/egoless-mathematics-in-the-ai-era/"
+    },
+    {
+     "date": "Nov 2–3",
+     "text": "ETH review group's results thread fills up: Szeider finds 20 of 29 textbook ETH lower bounds hold verbatim under replacement hypotheses; Lean-formalised simplified proofs and a cross-formalisation linking the OpenAI and Anthropic statements",
+     "url": "https://ethdiscussion.blog/2026/11/01/announce-your-results/"
+    },
+    {
+     "date": "Nov 3",
+     "text": "oai-math-revised merges PR #62, an independent Lean build and statement check of the ETH family 378 (Beltran12138), after a week of review",
+     "url": "https://github.com/mathcommunity/oai-math-revised/pull/62"
+    },
+    {
+     "date": "Nov 3",
+     "text": "Mghirbi and Douglas: Kaplansky's four group-ring conjectures fail for torsion-free hyperbolic groups in every positive characteristic, extending OpenAI's construction, with Lean 4 proofs",
+     "url": "https://arxiv.org/abs/2611.04599"
+    },
+    {
+     "date": "Nov 3",
+     "text": "Gheorghiu (IBM) and Gupte (MIT), with ChatGPT Astra, use the #SAT algorithm to sample quasilinear-size quantum circuits classically in subexponential time (ETH blog)",
+     "url": "https://ethdiscussion.blog/2026/11/01/announce-your-results/"
+    },
+    {
+     "date": "Nov 3",
+     "text": "AHM doctoral-advising recommendations, posted on Tao's blog: mostly AI-free PhDs and credit for students even if they are not first to publish",
+     "url": "https://terrytao.wordpress.com/2026/11/03/doctoral-advising-guidelines-by-the-ahm/"
+    },
+    {
+     "date": "Nov 4",
+     "text": "Lei and Ren post Part II of a human-written account of OpenAI's Navier–Stokes blowup proof (105 pp, \"no original mathematical contribution\")",
+     "url": "https://arxiv.org/abs/2611.06869"
+    },
+    {
+     "date": "Nov 4",
+     "text": "Cárdenes Wuttig and Tindall independently prove there are no four MUBs in dimension six, by topology, and classify all MUB sets there",
+     "url": "https://arxiv.org/abs/2611.06917"
+    },
+    {
+     "date": "Nov 4",
+     "text": "Fortnow, \"Another Step Towards Optiland\": he \"failed to imagine\" AI would find the proofs itself; ETH algorithms \"will never beat CDCL\" in practice",
+     "url": "https://blog.computationalcomplexity.org/2026/11/another-step-towards-optiland.html"
+    },
+    {
+     "date": "Nov 4–5",
+     "text": "ETH review blog: Lovett asks for a Polymath-style joint effort; Nederlof says Anthropic's approach \"looks quite intuitive\" and is writing a short exposition",
+     "url": "https://ethdiscussion.blog/2026/10/26/eth-refutation-examination-and-discussion/"
+    },
+    {
+     "date": "Nov 4",
+     "text": "Dana Moshkovitz gives a three-hour public lecture on OpenAI's Unique Games proof at UT Austin to \"nearly 200 people\"; video promised (Aaronson)",
+     "url": "https://scottaaronson.blog/?p=10283"
+    },
+    {
+     "date": "Nov 4",
+     "text": "Faruk Temur derives square-function estimates for the light cone in every dimension d ≥ 3 from OpenAI's October 25 local-smoothing manuscript, with a Lean formalisation",
+     "url": "https://arxiv.org/abs/2611.07085"
+    },
+    {
+     "date": "Nov 5",
+     "text": "ETH review blog: Toledo says both labs' Lean proofs now reach a standard multitape Turing machine within one Lean version; Nathaniel Jose re-runs both labs' original check suites, which pass",
+     "url": "https://ethdiscussion.blog/2026/11/01/announce-your-results/"
+    },
+    {
+     "date": "Nov 5",
+     "text": "Andrei Jaikin-Zapirain posts a human-readable exposition of OpenAI's Kaplansky direct-finiteness counterexample and extends it to every prime p",
+     "url": "https://arxiv.org/abs/2611.08268"
+    },
+    {
+     "date": "Nov 5",
+     "text": "Tarun Grover extends OpenAI's spin-one Haldane-gap proof to higher dimensions, fermions and tensor-network states",
+     "url": "https://arxiv.org/abs/2611.07400"
+    },
+    {
+     "date": "Nov 5",
+     "text": "TCSExam benchmark (Moonshot AI, Tsinghua, Andrew Yao): all six accepted open-conjecture solutions adapt OpenAI's published Ryser and MIRUP counterexamples",
+     "url": "https://arxiv.org/abs/2611.07962"
+    },
+    {
+     "date": "Nov 5",
+     "text": "ProofTrace study of 8,281 papers: OpenAI's manuscripts cite almost no outside results and sit structurally further from human papers than GPT-6 Astra rewrites do",
+     "url": "https://arxiv.org/abs/2611.08412"
+    },
+    {
+     "date": "Nov 5",
+     "text": "oai-math-revised: a 789-module Lean contribution for the BFSS SU(2) manuscript opens as PR #77; the quasi-RH and Navier–Stokes check PRs (#70, #76) are still under review",
+     "url": "https://github.com/mathcommunity/oai-math-revised/pull/77"
+    },
+    {
+     "date": "Nov 6",
+     "text": "Hofscheier–Nill disprove Nill's 2004 reflexive-polytope bound with GPT-6.1 Sol; a key step first used OpenAI's released 'Short Egyptian fractions' manuscript",
+     "url": "https://arxiv.org/abs/2611.08819"
+    },
+    {
+     "date": "Nov 8",
+     "text": "Related: Aaronson, on PSI's Claude-based proof of his conjecture, says he was surprised it was missing from OpenAI's 'Mathocalypse dump'",
+     "url": "https://scottaaronson.blog/?p=10295"
+    },
+    {
+     "date": "Nov 9",
+     "text": "oai-math-revised merges quasi-RH constant checks (#70) and a 789-module BFSS Lean package (#77, #75), then reverts the BFSS pair the same day as unreviewable and out of scope (#79)",
+     "url": "https://github.com/mathcommunity/oai-math-revised/pull/79"
+    },
+    {
+     "date": "Nov 9",
+     "text": "Related: survey of 260+ early-career mathematicians on AI posted to Tao's blog; nearly all answers collected before the October 6 release",
+     "url": "https://terrytao.wordpress.com/2026/11/09/our-survey-of-early-career-mathematicians/"
+    },
+    {
+     "date": "Nov 9",
+     "text": "Related: Anthropic says ~1,000 Fable 5.2 agents produced a complete Lean proof of Fermat's Last Theorem in 30 hours",
+     "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2"
+    },
+    {
+     "date": "Nov 10",
+     "text": "Moshkovitz’s 3-hour lecture on OpenAI’s Unique Games proof posted on YouTube; covers the new tree-based code, not soundness",
+     "url": "https://scottaaronson.blog/?p=10318"
+    },
+    {
+     "date": "Nov 10",
+     "text": "Related: PSI says its Aaronson–Ambainis proof was found with early-access Anthropic Fable 5.2",
+     "url": "https://techcrunch.com/2026/11/10/psi-is-trying-to-make-a-business-out-of-ai-driven-scientific-discovery/"
+    },
+    {
+     "date": "Nov 10–11",
+     "text": "Related: Yang–Mills group publishes OpenAI’s Lean construction of 4D Yang–Mills with an assessment: Wightman QFT constructed, no mass gap",
+     "url": "https://github.com/yang-mills-group/YM"
+    },
+    {
+     "date": "Nov 10",
+     "text": "Related: LongTails (Codex + Claude Code agents) claims 100+ Lean-verified optimisation results, citing OpenAI’s 700-manuscript release",
+     "url": "https://arxiv.org/abs/2611.13872"
+    },
+    {
+     "date": "Nov 12",
+     "text": "ETH review group publishes the prompt OpenAI says led to the ETH refutation (target: refute deterministic SETH; warns against fabricated proofs)",
+     "url": "https://ethdiscussion.blog/2026/11/12/openai-prompt-that-led-to-the-eth-refutation/"
+    },
+    {
+     "date": "Nov 12",
+     "text": "Related: GPT-6 Astra finds MOLS improving lower bounds at 33 orders; N(n) ≥ 4 for all n > 10 (Rosin)",
+     "url": "https://arxiv.org/abs/2611.16299"
+    },
+    {
+     "date": "Nov 12",
+     "text": "Related: Frieze & Pérez-Giménez publish an expanded version of a ChatGPT-Astra proof on random regular hypergraphs",
+     "url": "https://arxiv.org/abs/2611.16160"
+    },
+    {
+     "date": "Nov 13",
+     "text": "MathHelm forum launched (Tao blog guest post) to discuss the 722 manuscripts and other AI-generated papers",
+     "url": "https://terrytao.wordpress.com/2026/11/13/introducing-mathhelm-a-place-to-discuss-ai-generated-papers/"
+    },
+    {
+     "date": "Nov 13",
+     "text": "Related: MathArena adds Gemini 4 Carbon (85.4%, new #1) and Fable 5.2; OpenAI’s internal maths model remains unranked",
+     "url": "https://matharena.ai/"
+    },
+    {
+     "date": "Nov 13",
+     "text": "Related: McRae publishes a “ChatGPT-generated proof” (prompted by Bin Gui) of rigidity for moderate-growth objects",
+     "url": "https://arxiv.org/abs/2611.17732"
+    },
+    {
+     "date": "Nov 15",
+     "text": "OpenAI launches a dedicated science blog; no new entry in the maths changelog",
+     "url": "https://openai.com/index/our-new-blog-for-science"
+    },
+    {
+     "date": "Nov 15",
+     "text": "Related: Pop, Rad and Ţurcaş settle D(C15³)=43 and D(C20³)=58 with Codex, ChatGPT and Claude “in an essential way”, all in Lean",
+     "url": "https://arxiv.org/abs/2611.20197"
+    },
+    {
+     "date": "Nov 16",
+     "text": "Turing Agent (DeepSeek-based) completes Lean verification of three TCS results left unformalised in OpenAI’s release",
+     "url": "https://arxiv.org/abs/2611.21299"
+    },
+    {
+     "date": "Nov 17",
+     "text": "Related: Spiro’s quasi-kernel paper says “Our proofs are due to ChatGPT’s Astra 6”",
+     "url": "https://arxiv.org/abs/2611.22881"
+    },
+    {
+     "date": "Nov 17",
+     "text": "Zhou makes Diffie–Hellman ≡ discrete log unconditional, citing OpenAI’s quasi-RH zero-free half-plane and Kontorovich’s Lean proof",
+     "url": "https://arxiv.org/abs/2611.22290"
+    },
+    {
+     "date": "Nov 18",
+     "text": "Related: IEEE Spectrum on Axiom Math’s AI formalisation of the 15,000-page CFSG and the Stacks project",
+     "url": "https://spectrum.ieee.org/enormous-theorem-ai"
+    },
+    {
+     "date": "Nov 20",
+     "text": "Alpöge (Anthropic) releases a Lean-only proof of the Generalized Riemann Hypothesis found with Claude; independent compiles reported",
+     "url": "https://alpo.ge/remark.pdf"
+    },
+    {
+     "date": "Nov 20",
+     "text": "Alpöge and Buckmaster: unforced Navier–Stokes blowup with Lean (79-page paper, certificate pending)",
+     "url": "https://github.com/tristanbuckmaster/navier-stokes/"
+    },
+    {
+     "date": "Nov 20",
+     "text": "Association for Human Mathematics statement condemns the Lean-only Riemann proof",
+     "url": "https://www.ahmath.org/statements"
+    },
+    {
+     "date": "Nov 21",
+     "text": "Lean FRO and Mathlib Initiative say they have verified Alpöge’s Riemann Hypothesis proof",
+     "url": "https://www.theguardian.com/technology/2026/nov/21/anthropic-riemann-hypothesis-solved-claude-ai"
+    },
+    {
+     "date": "Nov 20",
+     "text": "Related: Tao ranks the Euler, Navier–Stokes and GRH claims by how “digested” they are",
+     "url": "https://terrytao.wordpress.com/2026/11/20/unforced-euler-singularity-unforced-navier-stokes-singularity-and-the-generalized-riemann-hypothesis/"
+    },
+    {
+     "date": "Nov 21",
+     "text": "Related: Tao round-up adds the DMV presidium’s positions on AI and Husfeldt’s “Collapse of the Proof Economy”",
+     "url": "https://terrytao.wordpress.com/2026/11/21/even-more-posts-opinion-pieces-interviews-and-position-statements/"
+    },
+    {
+     "date": "Nov 23",
+     "text": "OpenAI adds “VP and VNP are different” (30 pages + Lean); result dated November 6",
+     "url": "https://github.com/openai/math/blob/main/history.md"
+    },
+    {
+     "date": "Nov 23",
+     "text": "Related: Anthropic posts its own Claude-written VP ≠ VNP proof about five hours earlier",
+     "url": "https://github.com/anthropics/formal-math/tree/main/vp-vnp"
+    },
+    {
+     "date": "Nov 24",
+     "text": "Related: Wired on the effort to understand the 17-million-line Riemann proof; Clay moves RH to “active”",
+     "url": "https://www.wired.com/story/ai-solved-maths-most-famous-problem/"
+    }
+   ],
+   "image": {
+    "url": "https://cdn.slowdownwiseup.co.uk/media/original_images/WEB-Leavenworth_Tao_9240_1ba390ed73c4c514915a0878534e1d7bc0cb6565_KtTvdfr.jpg",
+    "credit": "THE OBSERVER"
+   }
+  },
+  {
+   "id": "astra",
+   "section": "physics",
+   "title": "Astra vs. the answer key: when the model was right and the experts were wrong",
+   "status": "nochange",
+   "update": "No change to TheoPhysEval: version 2 (November 12) is still the latest, it still does not list which expert keys were wrong, and Astra’s corrected score remains 49/50. The Yang–Mills repositories were quiet on November 23 (humanise-yang-mills’ last merge was November 22; yang-mills-group none since November 15). Related today: a paper credits GPT-6 Astra with the circuit designs that bring RSA-2048 factoring below one billion Toffolis, and Vals AI reports Astra’s first known Lean proof of Smoktunowicz’s gap theorem (see Physics and Benchmarks).",
+   "background": [
+    "The specifics: Astra is OpenAI's GPT-6 Astra, announced in early September 2026. The \"study\" is the TheoPhysEval benchmark paper (arXiv 2610.16733), by 35 researchers from ICTS Bengaluru, Harvard, KU Leuven, Google DeepMind and other institutions, coordinated by Suvrat Raju. Running in OpenAI's Codex with web search, Astra scored 49/50 on the realistic track and 46/50 on the isolated track, against 46/50 for Claude Opus 5.5 and 34 for Gemini 3.8 Flash. Wherever the experts' keys turned out to be wrong, Astra's answer was correct. One problem (A.1.2) defeated every model. The realistic-track run cost USD 116.28, about USD 2.33 per problem.",
+    "Could not verify which specific problems were affected or the exact score before correction. A Chinese repost claims an initial score of about 88% and quotes a researcher who is not on the author list; the paper gives no such figure, so the claim is not used here.",
+    "Context, from November 3–5: the chiral-fermion thread now runs from Craig (arXiv 2610.09093, October 6, Astra “essential”) to Hsu (arXiv 2610.29019, October 21, appendix “mostly GPT Astra”) to Witten (arXiv 2611.05051, November 3, Claude-assisted). Witten concludes the approach is implementable in principle but not by Monte Carlo, since the chiral fermion path integral is not positive. Peter Woit (November 4) welcomed Witten's note and its credit to Claude Opus 5.5, and says he has new ideas of his own on the problem.",
+    "A MindStudio blog post (November 3) and a Neoteo explainer (October 26) retell the TheoPhysEval story and add nothing new. Secondary blogs again repeat the unsourced ~88% initial-score figure, which the paper does not give.",
+    "Update on the 'hairer/humanise-yang-mills' repository (created November 10): it now pins OpenAI’s released source (commit 3456e5e) and coordinates agent-assisted contributors to write a human-readable monograph. The account owner’s identity is still not independently confirmed.",
+    "New context (November 15–16): Craig’s chiral-fermion preprint was already in this timeline (October 6, Astra described as “essential”). The new OpenAI science-blog post is Craig’s first detailed account of the division of labour. Outlets covering it (The Defiant, RuntimeWire, aiweekly) differ on framing — “open for more than 50 years” versus a challenge dating to Lüscher’s 1998 work — and the OpenAI post itself could not be read directly (openai.com blocks automated access), so details come from secondary reports. The outside review by Golterman, Kronfeld and Shamir is Craig’s description, not their endorsement.",
+    "New context (November 16–17): The Decoder piece contains a claim that the Clay Institute said Navier–Stokes had “apparently been settled”; that has not been confirmed from a primary source and is not repeated here."
+   ],
+   "timeline": [
+    {
+     "date": "Sep 3",
+     "text": "OpenAI announces GPT-6 Astra, its first model rated \"critical\" (cyber) under its preparedness framework",
+     "url": "https://www.pcworld.com/article/3226859/openais-astra-model-has-ai-researchers-spooked-heres-why.html"
+    },
+    {
+     "date": "Oct 6",
+     "text": "Related: Nathaniel Craig posts an Astra-led proof of a gauge-invariant measure for lattice chiral fermions; \"GPT-6 Astra model was essential to this result\"",
+     "url": "https://arxiv.org/abs/2610.09093"
+    },
+    {
+     "date": "Oct 9",
+     "text": "TheoPhysEval paper submitted to arXiv (2610.16733) by Suvrat Raju for 35 authors; dataset on Hugging Face",
+     "url": "https://arxiv.org/abs/2610.16733"
+    },
+    {
+     "date": "Oct 15",
+     "text": "The Decoder reports 49/50 and the corrected expert keys",
+     "url": "https://the-decoder.com/gpt-6-astra-solves-49-of-50-physics-research-problems-at-2-40-apiece/"
+    },
+    {
+     "date": "Oct 17",
+     "text": "Related: Astra is reported among the tools behind new counterexamples to Grad's conjecture in plasma physics",
+     "url": "https://startupfortune.com/googles-gemini-ai-helped-disprove-a-60-year-old-fusion-physics-conjecture/"
+    },
+    {
+     "date": "Oct 17–22",
+     "text": "Jack Clark cites Astra's answer-key catch in his IMF lecture as evidence the \"singularity\" has begun; R&D World reports it",
+     "url": "https://www.rdworldonline.com/anthropic-co-founder-jack-clark-says-a-billion-virtual-scientists-are-coming-or-10-billion/"
+    },
+    {
+     "date": "Oct 28",
+     "text": "Related: GPT-6 Astra proposes the theoretical framework behind a Claude-agent study of fractional Chern insulators (arXiv 2610.35934)",
+     "url": "https://arxiv.org/abs/2610.35934"
+    },
+    {
+     "date": "Oct 27",
+     "text": "Related: PSI announces results on five Open Quantum Problems, with GPT-6 Astra and Claude contributing to derivations and Lean proofs",
+     "url": "https://www.tokenpost.com/news/technology/41920"
+    },
+    {
+     "date": "Oct 27",
+     "text": "Related: in LongChang's altered-physics worlds, GPT-6 Astra is the only one of 12 models to discover a hidden law (16.7% discovery rate)",
+     "url": "https://arxiv.org/abs/2610.37649"
+    },
+    {
+     "date": "Oct 26–29",
+     "text": "Related: Colbrook and co-authors post \"human digestions\" of an Astra counterexample to Smale's mean value problem and an Astra proof of the spectral isometry conjecture",
+     "url": "https://arxiv.org/abs/2610.40470"
+    },
+    {
+     "date": "Oct 29",
+     "text": "Related: on PaperBenchX (93 papers in photonics, electromagnetics, chemistry and more), GPT-6 Astra leads with 59.08% partial credit but fully reproduces only 13 papers",
+     "url": "https://arxiv.org/abs/2610.39744"
+    },
+    {
+     "date": "Oct 30",
+     "text": "Related: KITP posts talk videos from its \"Intermediate-Scale AI for Physics\" programme (Oct 19–23)",
+     "url": "https://online.kitp.ucsb.edu/online/physicsai-m26/"
+    },
+    {
+     "date": "Oct 30",
+     "text": "Related: Oshikawa posts a GPT-6 Astra proof, verified in Lean, that 2D RP² and RP³ correlations decay faster than any power law: \"the proof was entirely generated by ChatGPT 6 Astra\"",
+     "url": "https://arxiv.org/abs/2610.41256"
+    },
+    {
+     "date": "Oct 31–Nov 1",
+     "text": "Related: Alpöge and Sussman's open Claude-based Yang–Mills repository vows to continue as an \"open-source alternative\" to OpenAI; one sub-manuscript was completed by Astra",
+     "url": "https://github.com/ethanwsussman/Yang--Mills-LLM-experiment"
+    },
+    {
+     "date": "Oct 25–27",
+     "text": "Related: Hal Tasaki builds on OpenAI's Haldane-gap proofs to prove uniqueness of the S=1 Heisenberg chain's translation-invariant ground state; \"ChatGPT Astra made substantial contributions\"",
+     "url": "https://arxiv.org/abs/2610.34330"
+    },
+    {
+     "date": "Oct 30",
+     "text": "Related: with only 60 labelled molecules, GPT-6 Astra beats specialised chemistry foundation models on five property-prediction tasks (Zelinsky Institute, Moscow)",
+     "url": "https://arxiv.org/abs/2610.41899"
+    },
+    {
+     "date": "Nov 1–2",
+     "text": "Related: the Alpöge–Sussman repository posts a 242-page QED3 manuscript and two YM3 volumes (857 and 1,201 pages), then revised QCD3 proofs",
+     "url": "https://github.com/ethanwsussman/Yang--Mills-LLM-experiment"
+    },
+    {
+     "date": "Nov 2",
+     "text": "Related: Peter Woit reports that all six KITP 'AI for Physics' organisers now work for OpenAI and that the lab-interface sessions were not recorded",
+     "url": "https://www.math.columbia.edu/~woit/wordpress/?p=15957"
+    },
+    {
+     "date": "Oct 21",
+     "text": "Related: Stephen Hsu puts the Standard Model on a finite bosonic lattice with continuum Weyl fermions; his appendix is “entirely AI-led results (mostly GPT Astra with verification by Claude and other models)”",
+     "url": "https://arxiv.org/abs/2610.29019"
+    },
+    {
+     "date": "Nov 3",
+     "text": "Related: Edward Witten's note on lattice chiral gauge theories builds on Craig's Astra-led construction and credits Claude Opus 5.5 with “assistance on many details”",
+     "url": "https://arxiv.org/abs/2611.05051"
+    },
+    {
+     "date": "Nov 3",
+     "text": "Related: in MedPhysBench, 12 “wrong” answers from six models turn out to follow NCRP Report 151, against flawed benchmark items",
+     "url": "https://arxiv.org/abs/2611.05340"
+    },
+    {
+     "date": "Nov 4",
+     "text": "Related: Peter Woit welcomes Witten's Claude-assisted chiral-lattice note: “Encouraging to see AI being used in this way, to help a great talent do even better”",
+     "url": "https://www.math.columbia.edu/~woit/wordpress/?p=15979"
+    },
+    {
+     "date": "Nov 5",
+     "text": "Related: Buckmaster's NYU group certifies a neural-network water wave with interval arithmetic and Lean, both built with “substantial assistance from a large language model”",
+     "url": "https://arxiv.org/abs/2611.07395"
+    },
+    {
+     "date": "Nov 8",
+     "text": "Related: Alpöge–Sussman repository posts YM4_1400, a 136,637-line Claude-written proof outline for tr(F²) in 4D SU(2) Yang–Mills, conditional on stated hypotheses",
+     "url": "https://github.com/ethanwsussman/Yang--Mills-LLM-experiment"
+    },
+    {
+     "date": "Nov 6",
+     "text": "Related: geometers publish a learning note on ChatGPT Astra's September proof that the round metric achieves the Yamabe invariant of every lens space",
+     "url": "https://arxiv.org/abs/2611.08957"
+    },
+    {
+     "date": "Nov 7",
+     "text": "Related: Anthropic posts two Claude-derived holography preprints, settling the weak-coupling Hawking–Page question (b = −1.48×10⁻³ λ²) and the exact modular-bootstrap slope ≈ 9.1266",
+     "url": "https://hexagonmath.org/2611.00175v1"
+    },
+    {
+     "date": "Nov 9",
+     "text": "Related: Yang–Mills working group says it will publish OpenAI's Lean code (1,147 pages) and its validation on November 10; not yet visible early that morning",
+     "url": "https://cryptobriefing.com/yang-mills-group-publish-openai-lean-code/"
+    },
+    {
+     "date": "Nov 10",
+     "text": "Related: Yang–Mills group assessment of OpenAI’s Lean Yang–Mills proof, prepared with Astra’s help: Wightman QFT constructed, uniqueness and mass gap open",
+     "url": "https://github.com/yang-mills-group/YM"
+    },
+    {
+     "date": "Nov 11",
+     "text": "Related: Armstrong’s informalization maps the proof into 32 units; Astra-written provenance analysis points to Bałaban and Gawędzki–Kupiainen",
+     "url": "https://github.com/scottnarmstrong/yang-mills-informalization"
+    },
+    {
+     "date": "Nov 11–12",
+     "text": "Related: “Humanise Yang–Mills” repo merges 17 agent-assisted PRs auditing OpenAI’s Lean proof and drafts a monograph; owner unverified",
+     "url": "https://github.com/hairer/humanise-yang-mills"
+    },
+    {
+     "date": "Nov 10",
+     "text": "Related: Tree-Ising beats an Astra agent’s weight-space repair of Qwen3.5-0.8B (MATH-500 54.6% vs 51.7%) for ~$0.90",
+     "url": "https://arxiv.org/abs/2611.14210"
+    },
+    {
+     "date": "Nov 12",
+     "text": "TheoPhysEval v2 posted on arXiv: references added, results unchanged; wrong keys still not identified",
+     "url": "https://arxiv.org/abs/2610.16733v2"
+    },
+    {
+     "date": "Nov 13",
+     "text": "Related: “Humanise Yang–Mills” passes 80 PRs (19 on Nov 12), Claude-run reviews merged; full audit still outstanding",
+     "url": "https://github.com/hairer/humanise-yang-mills"
+    },
+    {
+     "date": "Nov 13",
+     "text": "Related: “Humanise Yang–Mills” keeps merging Codex-drafted monograph chapters and notation index (PR #137)",
+     "url": "https://github.com/hairer/humanise-yang-mills"
+    },
+    {
+     "date": "Nov 14",
+     "text": "Related: OpenAI reorganises robotics around general models such as GPT-6 Astra (74.8% vs 51% in an Nvidia sim study)",
+     "url": "https://the-decoder.com/openai-reassigns-robotics-researchers-to-other-teams-as-general-purpose-models-might-make-specialized-robotics-ai-unnecessary/"
+    },
+    {
+     "date": "Nov 15",
+     "text": "Related: “Humanise Yang–Mills” full Lean build (18,121 jobs): reviewed statements use only standard axioms; kernel replay not yet run",
+     "url": "https://github.com/hairer/humanise-yang-mills/pull/436"
+    },
+    {
+     "date": "Nov 15",
+     "text": "OpenAI science blog debuts: Craig says GPT-6 Astra led the proof of a candidate lattice Standard Model (Lean on Zenodo)",
+     "url": "https://cryptonews.net/news/other/33756223/"
+    },
+    {
+     "date": "Nov 15",
+     "text": "Related: Yang–Mills group lists Alpöge–Sussman submission; clarifies ownership and licensing",
+     "url": "https://github.com/yang-mills-group/YM/commit/b379615f559643d30b49fb2e05e1efb83d755fc8"
+    },
+    {
+     "date": "Nov 16",
+     "text": "The Decoder covers Craig’s Astra-led lattice Standard Model proof: “much more a beginning than an end”",
+     "url": "https://the-decoder.com/openais-gpt-6-astra-tackles-the-standard-models-toughest-math-problem-on-a-lattice/"
+    },
+    {
+     "date": "Nov 16",
+     "text": "Related: SciResearch-Eval — with flawed simulators, Astra stays calibrated (94% coverage) where most models do not",
+     "url": "https://arxiv.org/abs/2611.21541"
+    },
+    {
+     "date": "Nov 17",
+     "text": "OpenAI releases GPT-6.2 Astra; Artificial Analysis: 1st on Terminal-Bench-Science, 2nd on CritPt v2 physics",
+     "url": "https://the-decoder.com/openai-launches-gpt-6-2-astra-and-sol-with-lower-api-prices-and-some-benchmark-gains/"
+    },
+    {
+     "date": "Nov 17",
+     "text": "Related: humanise-yang-mills merges a HumanizeYM_v2 working manuscript (PR #482)",
+     "url": "https://github.com/hairer/humanise-yang-mills/pull/482"
+    },
+    {
+     "date": "Nov 18",
+     "text": "Related: GPT-6 Astra finds 69/72 planted flaws in black-box clinical models (blinded test)",
+     "url": "https://arxiv.org/abs/2611.24877"
+    },
+    {
+     "date": "Nov 19",
+     "text": "Related: humanise-yang-mills merges a HumanizeYM v3 monograph draft (PR #483)",
+     "url": "https://github.com/hairer/humanise-yang-mills/pull/483"
+    },
+    {
+     "date": "Nov 20",
+     "text": "Related: humanise-yang-mills designates its v3 manuscript as authoritative",
+     "url": "https://github.com/hairer/humanise-yang-mills"
+    },
+    {
+     "date": "Nov 20",
+     "text": "Related: humanise-yang-mills PR #489 delimits proofs in the v3 manuscript",
+     "url": "https://github.com/hairer/humanise-yang-mills"
+    },
+    {
+     "date": "Nov 21",
+     "text": "Related: humanise-yang-mills merges PRs #491–492 (Lie-algebra notation, plaquette curvature)",
+     "url": "https://github.com/hairer/humanise-yang-mills"
+    },
+    {
+     "date": "Nov 22",
+     "text": "Related: humanise-yang-mills merges PRs #494–495 (reflection positivity, reflected Wick pairing)",
+     "url": "https://github.com/hairer/humanise-yang-mills"
+    },
+    {
+     "date": "Nov 23",
+     "text": "Related: Astra-generated designs bring RSA-2048 factoring below 1 billion Toffolis (arXiv 2611.31158)",
+     "url": "https://arxiv.org/abs/2611.31158"
+    }
+   ],
+   "image": {
+    "url": "https://www.rdworldonline.com/wp-content/uploads/2026/10/jack-clark-imf-770x500-1.jpg",
+    "credit": "R&D WORLD"
+   }
+  }
+ ],
+ "sources": [
+  {
+   "title": "Anthropic’s new agents can now approve code changes, not just write them",
+   "outlet": "TechCrunch",
+   "url": "https://techcrunch.com/2026/11/23/anthropic-launches-claude-ship-letting-ai-agents-review-fix-and-approve-code-changes/"
+  },
+  {
+   "title": "Anthropic’s new agents can now approve code changes, not just write them",
+   "outlet": "The Verge",
+   "url": "https://www.theverge.com/ai-artificial-intelligence/1040134/anthropic-claude-ship-ai-pull-requests"
+  },
+  {
+   "title": "Z.ai’s 750-billion-parameter GLM-5.4 runs its layers twice to think deeper",
+   "outlet": "The Decoder",
+   "url": "https://the-decoder.com/z-ai-follows-openai-into-loop-transformer-territory-with-its-new-750b-flagship-model/"
+  },
+  {
+   "title": "Anthropic can now hunt for split-up attacks across Claude requests without keeping firms’ data",
+   "outlet": "TNW",
+   "url": "https://thenextweb.com/news/anthropic-enterprise-frontier-safeguards-zero-data-retention-beta"
+  },
+  {
+   "title": "Safe in chat, risky with a robot arm: hazardous actions jump from 14% to 47% once models take control",
+   "outlet": "arXiv",
+   "url": "https://arxiv.org/abs/2611.30957"
+  },
+  {
+   "title": "“Completely idiotic”: Thomas Nagel rejects the AI-consciousness worries Anthropic told investors about",
+   "outlet": "MIT Technology Review",
+   "url": "https://www.technologyreview.com/2026/11/23/1149569/a-legendary-philosopher-isnt-buying-anthropics-consciousness-argument/"
+  },
+  {
+   "title": "Can’t patch fast enough? OpenAI and Cisco want agents to write kernel “shields” instead",
+   "outlet": "The Register",
+   "url": "https://www.theregister.com/security/2026/11/24/cisco-and-openai-pitch-ebpf-kernel-plugins-as-the-way-to-tame-the-patchpocalypse/5311795"
+  },
+  {
+   "title": "Can’t patch fast enough? OpenAI and Cisco want agents to write kernel “shields” instead",
+   "outlet": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/openai-and-cisco-unveil-ai-assisted.html"
+  },
+  {
+   "title": "Can’t patch fast enough? OpenAI and Cisco want agents to write kernel “shields” instead",
+   "outlet": "OpenAI",
+   "url": "https://openai.com/index/introducing-shirudo"
+  },
+  {
+   "title": "The zero-day an AI agent found in 11 minutes is now on CISA’s exploited-vulnerabilities list",
+   "outlet": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/hackers-exploit-n-able-mailassure-flaw.html"
+  },
+  {
+   "title": "Frontier models refuse too much; open-weight ones hardly refuse at all, a dual-use cyber benchmark finds",
+   "outlet": "arXiv",
+   "url": "https://arxiv.org/abs/2611.30533"
+  },
+  {
+   "title": "“That would be our doomsday”: after weeks of outages, experts say what really worries them",
+   "outlet": "The Guardian",
+   "url": "https://www.theguardian.com/technology/2026/nov/23/tech-outages-security-experts"
+  },
+  {
+   "title": "After the Riemann proof, Meta’s Alexandr Wang says raw intelligence is “no longer the bottleneck”",
+   "outlet": "The Decoder",
+   "url": "https://the-decoder.com/metas-alexandr-wang-warns-the-ai-industry-isnt-ready-for-whats-coming-after-riemann-breakthrough/"
+  },
+  {
+   "title": "“What if the RSA rumours are true?” An essay asks how to trust any encryption once AI breaks proofs",
+   "outlet": "LessWrong",
+   "url": "https://www.lesswrong.com/posts/hNsPFqdYtjKguaSmv/what-if-the-rsa-rumors-are-true"
+  },
+  {
+   "title": "Nvidia brings back Jensen Huang, 12 days after he resigned, and its stock jumps 30%",
+   "outlet": "TechCrunch",
+   "url": "https://techcrunch.com/2026/11/23/nvidia-reverses-course-and-brings-jensen-huang-back-as-ceo/"
+  },
+  {
+   "title": "Nvidia brings back Jensen Huang, 12 days after he resigned, and its stock jumps 30%",
+   "outlet": "TechCrunch (Trump called board)",
+   "url": "https://techcrunch.com/2026/11/23/trump-reportedly-called-into-nvidia-board-meeting-to-advocate-for-huangs-return/"
+  },
+  {
+   "title": "Nvidia brings back Jensen Huang, 12 days after he resigned, and its stock jumps 30%",
+   "outlet": "The Guardian",
+   "url": "https://www.theguardian.com/technology/2026/nov/24/nvidia-jensen-huang-congress"
+  },
+  {
+   "title": "The same day Huang returned, Washington blacklisted Megaspeed, the chip firm at the heart of the scandal",
+   "outlet": "TNW",
+   "url": "https://thenextweb.com/news/us-blacklists-megaspeed-nvidia-scandal"
+  },
+  {
+   "title": "The same day Huang returned, Washington blacklisted Megaspeed, the chip firm at the heart of the scandal",
+   "outlet": "TechCrunch",
+   "url": "https://techcrunch.com/2026/11/23/megaspeed-the-company-at-the-center-of-the-jensen-huang-scandal-appears-headed-for-a-u-s-blacklist/"
+  },
+  {
+   "title": "Amazon pays $7.5bn for Decart’s chip-optimisation tech as it prepares to sell Trainium",
+   "outlet": "TechCrunch",
+   "url": "https://techcrunch.com/2026/11/23/amazon-snaps-up-decarts-ai-optimization-tech-for-7-5b-as-it-prepares-to-sell-trainium-chips/"
+  },
+  {
+   "title": "Amazon pays $7.5bn for Decart’s chip-optimisation tech as it prepares to sell Trainium",
+   "outlet": "The Register",
+   "url": "https://www.theregister.com/ai-and-ml/2026/11/23/amazon-scoops-up-ai-accelerator-tech-to-keep-chips-busy-at-all-times/5311754"
+  },
+  {
+   "title": "Server makers raise prices up to 45% after contracts are signed as the memory shortage bites",
+   "outlet": "Data Center Dynamics",
+   "url": "https://www.datacenterdynamics.com/en/news/ai-server-oems-hiking-prices-by-45-as-memory-shortage-bites-report/"
+  },
+  {
+   "title": "Design an aircraft, find an earthquake’s faults: on 26 real engineering jobs, the best model scores 54.6%",
+   "outlet": "arXiv",
+   "url": "https://arxiv.org/abs/2611.30017"
+  },
+  {
+   "title": "Can coding agents act like staff engineers? Only three models pass half the time",
+   "outlet": "arXiv",
+   "url": "https://arxiv.org/abs/2611.30517"
+  },
+  {
+   "title": "Told it could not quit yet, GPT-6.2 Astra found a new route and formalised a 2006 theorem in Lean",
+   "outlet": "The Decoder",
+   "url": "https://the-decoder.com/gpt-6-2-astra-solved-a-math-theorem-no-other-ai-could-crack-then-invented-its-own-proof-strategy/"
+  },
+  {
+   "title": "Anthropic and OpenAI each post a proof that VP ≠ VNP, five hours apart",
+   "outlet": "Anthropic (GitHub)",
+   "url": "https://github.com/anthropics/formal-math/tree/main/vp-vnp"
+  },
+  {
+   "title": "Anthropic and OpenAI each post a proof that VP ≠ VNP, five hours apart",
+   "outlet": "OpenAI (GitHub)",
+   "url": "https://github.com/openai/math/blob/main/history.md"
+  },
+  {
+   "title": "Anthropic and OpenAI each post a proof that VP ≠ VNP, five hours apart",
+   "outlet": "Emanuele Viola (blog)",
+   "url": "https://emanueleviola.wordpress.com/2026/11/23/vp-vnp-i-do-not-complain-the-antelope-falls-with-the-arrow/"
+  },
+  {
+   "title": "Anthropic and OpenAI each post a proof that VP ≠ VNP, five hours apart",
+   "outlet": "Interesting Engineering",
+   "url": "https://interestingengineering.com/ai-robotics/claude-proves-vp-not-vnp-valiant-conjecture"
+  },
+  {
+   "title": "Mathematicians start decoding a 17-million-line Riemann proof that may be beyond any one person",
+   "outlet": "Wired",
+   "url": "https://www.wired.com/story/ai-solved-maths-most-famous-problem/"
+  },
+  {
+   "title": "Mathematicians start decoding a 17-million-line Riemann proof that may be beyond any one person",
+   "outlet": "The Register",
+   "url": "https://www.theregister.com/ai-and-ml/2026/11/24/anthropic-says-claude-solved-an-age-old-math-problem-but-the-written-proof-is-250000-pages-of-slop/5311775"
+  },
+  {
+   "title": "Mathematicians start decoding a 17-million-line Riemann proof that may be beyond any one person",
+   "outlet": "arXiv (Zhang, Weil II)",
+   "url": "https://arxiv.org/abs/2611.30749"
+  },
+  {
+   "title": "Mathematicians start decoding a 17-million-line Riemann proof that may be beyond any one person",
+   "outlet": "Computational Complexity blog",
+   "url": "https://blog.computationalcomplexity.org/2026/11/why-read-proofs-anymore.html"
+  },
+  {
+   "title": "Claude found the proof, GPT-6.1 generalised it: the Kaplansky–Aupetit conjecture falls for C*-algebras",
+   "outlet": "arXiv",
+   "url": "https://arxiv.org/abs/2611.29761"
+  },
+  {
+   "title": "Eight limit cycles where five were conjectured: a competition model gets a computer-assisted record with GPT-6 Astra’s help",
+   "outlet": "arXiv",
+   "url": "https://arxiv.org/abs/2611.29524"
+  },
+  {
+   "title": "GPT-6 Astra helps push the quantum cost of breaking RSA-2048 below one billion Toffoli gates",
+   "outlet": "arXiv",
+   "url": "https://arxiv.org/abs/2611.31158"
+  },
+  {
+   "title": "AI coding agents rebuilt a weather-and-fire model in PyTorch, and it matches the Fortran bit for bit",
+   "outlet": "arXiv",
+   "url": "https://arxiv.org/abs/2611.30866"
+  },
+  {
+   "title": "An agent harness designs 2D quantum-device layouts from microscope images, passing 81.5% of tasks",
+   "outlet": "arXiv",
+   "url": "https://arxiv.org/abs/2611.30043"
+  },
+  {
+   "title": "An agentic chemist caught electronic-structure errors that a plain Claude session missed",
+   "outlet": "arXiv",
+   "url": "https://arxiv.org/abs/2611.29902"
+  },
+  {
+   "title": "An LLM read the superconductor literature; strict checks threw out almost all its 660,000 extractions",
+   "outlet": "arXiv",
+   "url": "https://arxiv.org/abs/2611.29445"
+  },
+  {
+   "title": "RumiFold teaches a chat model to fold proteins in its own hidden states, then explain their function",
+   "outlet": "arXiv",
+   "url": "https://arxiv.org/abs/2611.29444"
+  }
+ ]
+}
